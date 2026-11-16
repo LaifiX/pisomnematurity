@@ -1,0 +1,138 @@
+---
+import '../../styles/fonts.css';
+import '../../styles/ms.css';
+import '../../styles/sloh.css';
+import SeoHead from '../../components/SeoHead.astro';
+import MsHeader from '../../components/MsHeader.astro';
+import MsFooter from '../../components/MsFooter.astro';
+import { slohoveUtvary, temy, temyPre, YEARS, NO_EXAM_YEARS, CRITERIA_COMMON } from '../../data/sloh';
+import { I, icon } from '../../lib/icons';
+
+const heldYears = YEARS.filter((y) => !NO_EXAM_YEARS.includes(y)).length;
+const count = (slug: string) => temy.filter((t) => t.slug === slug).length;
+const short = {
+  uvaha: 'Úvaha',
+  charakteristika: 'Charakteristika',
+  'umelecky-opis': 'Umelecký opis',
+  rozpravanie: 'Rozprávanie',
+  'diskusny-prispevok': 'Diskusný príspevok',
+  'beletrizovany-zivotopis': 'Beletr. životopis',
+  vyklad: 'Výklad',
+  'slavnostny-prejav': 'Slávnostný prejav'
+} as Record<string, string>;
+const themeAt = (year: number, slug: string) => temy.find((t) => t.year === year && t.slug === slug);
+const timesWord = (n: number) => (n === 0 ? 'ani raz' : n === 1 ? 'raz' : `${n}-krát`);
+---
+
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <SeoHead
+      title="Slohové útvary na maturite zo SJL – úvaha, rozprávanie, charakteristika a ďalšie | Maturita zo SJL"
+      description="Všetkých 8 slohových útvarov písomnej maturity zo slovenčiny: znaky, kompozícia, jazyk, dobré rady, témy 2007 – 2026 a kritériá hodnotenia NIVaM."
+      path="/sloh/"
+      themeColor="#11162d"
+      noindex={true}
+    />
+  </head>
+  <body class="ms">
+    <a class="skip-link" href="#obsah">Preskočiť na hlavný obsah</a>
+    <MsHeader active="sloh" />
+
+    <main id="obsah">
+      <section class="sl-hero">
+        <div class="ms-wrap">
+          <nav class="sl-crumbs" aria-label="Omrvinková navigácia">
+            <a href="/">Maturita zo SJL</a>
+            <span aria-hidden="true">/</span>
+            <span>Slohové útvary</span>
+          </nav>
+          <span class="sl-num">PÍSOMNÁ FORMA INTERNEJ ČASTI</span>
+          <h1>Slohové útvary na maturite</h1>
+          <p class="sl-lead">
+            Zo štyroch tém si vyberieš jednu a&nbsp;každá určuje slohový útvar. Pri každom útvare nájdeš, čo ho robí typickým, ako ho postaviť, aký jazyk použiť, dobré rady, všetky témy z&nbsp;rokov 2007 – 2026 a&nbsp;presne podľa čoho sa hodnotí.
+          </p>
+          <dl class="sl-facts">
+            <div><dt>Čas</dt><dd>150 minút</dd></div>
+            <div><dt>Výber</dt><dd>1 zo 4 tém</dd></div>
+            <div><dt>Rozsah</dt><dd>1,5 – 3 strany, min. {CRITERIA_COMMON.minWords} slov</dd></div>
+            <div class="is-accent"><dt>Maximum</dt><dd>28 bodov</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="ms-sec">
+        <div class="ms-wrap">
+          <div class="ms-sec-head">
+            <div>
+              <span class="ms-kicker">8 útvarov podľa NIVaM</span>
+              <h2>Vyber si útvar</h2>
+              <p>Pomôcky: Pravidlá slovenského pravopisu, Synonymický slovník a&nbsp;Krátky slovník slovenského jazyka.</p>
+            </div>
+          </div>
+          <div class="sl-index-grid">
+            {slohoveUtvary.map((u, i) => (
+              <a class="sl-icard" href={`/sloh/${u.slug}/`}>
+                <span class="ms-utvar-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{u.name}</h3>
+                <p set:html={u.short} />
+                <span class="sl-icard-foot">
+                  <span>Na maturite {timesWord(count(u.slug))}</span>
+                  <Fragment set:html={icon(I.arrow)} />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="ms-sec ms-sec-alt" id="prehlad">
+        <div class="ms-wrap">
+          <div class="ms-sec-head">
+            <div>
+              <span class="ms-kicker">Prehľad 2007 – 2026</span>
+              <h2>Ktoré útvary boli na maturite</h2>
+              <p>Bodka znamená, že útvar bol v&nbsp;danom roku medzi štyrmi vyžrebovanými témami. Po prejdení myšou na bodku uvidíš tému.</p>
+            </div>
+          </div>
+          <div class="sl-matrix-wrap">
+            <table class="sl-matrix">
+              <thead>
+                <tr>
+                  <th scope="col" style="text-align:left;padding-left:1rem">Rok</th>
+                  {slohoveUtvary.map((u) => (
+                    <th scope="col"><a href={`/sloh/${u.slug}/`}>{short[u.slug]}</a></th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[...YEARS].reverse().map((y) =>
+                  NO_EXAM_YEARS.includes(y) ? (
+                    <tr class="is-noexam">
+                      <th scope="row">{y}</th>
+                      <td colspan={slohoveUtvary.length}>písomná maturita sa pre pandémiu v&nbsp;riadnom termíne nekonala</td>
+                    </tr>
+                  ) : (
+                    <tr>
+                      <th scope="row">{y}</th>
+                      {slohoveUtvary.map((u) => {
+                        const th = themeAt(y, u.slug);
+                        return <td>{th ? <span class="sl-dot" title={th.title} role="img" aria-label={`${u.name} ${y}: ${th.title}`} /> : ''}</td>;
+                      })}
+                    </tr>
+                  )
+                )}
+              </tbody>
+            </table>
+          </div>
+          <div class="sl-legend">
+            <span><span class="sl-dot" aria-hidden="true"></span> útvar bol vyžrebovaný</span>
+            <span>{heldYears} ročníkov · 4 témy v&nbsp;každom</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <MsFooter />
+  </body>
+</html>

@@ -1,0 +1,35 @@
+---
+import { SITE_NAME, MATH_SITE_URL, CONTACT_EMAIL } from '../lib/site';
+const SJL9_SITE_URL = 'https://monitorsolina.sk';
+const NIVAM_MS_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita';
+---
+
+    <footer class="ms-footer">
+      <div class="ms-wrap">
+        <div class="ms-footer-top">
+          <a class="ms-brand" href="/">
+            <span class="ms-mark" aria-hidden="true">M</span>
+            <span class="ms-brand-text">
+              <strong>Maturita zo SJL</strong>
+              <small>{SITE_NAME}</small>
+            </span>
+          </a>
+          <nav class="ms-footer-links" aria-label="Odkazy v pätičke">
+            <a href="/#testy">Testy</a>
+            <a href="/sloh/">Slohové útvary</a>
+            <a href={SJL9_SITE_URL} target="_blank" rel="noopener noreferrer">Testovanie 9 zo slovenčiny</a>
+            <a href={MATH_SITE_URL} target="_blank" rel="noopener noreferrer">Testovanie 9 z&nbsp;matematiky</a>
+            <a href={`mailto:${CONTACT_EMAIL}`}>Kontakt</a>
+          </nav>
+        </div>
+        <div class="ms-footer-legal">
+          <p>
+            <strong>Nositeľ autorských práv k&nbsp;testom a&nbsp;kľúčom odpovedí:</strong> Nositeľom autorských práv k&nbsp;zverejneným testom externej časti maturitnej skúšky zo slovenského jazyka a&nbsp;literatúry a&nbsp;ku kľúčom správnych odpovedí k&nbsp;nim je <strong>Národný inštitút vzdelávania a&nbsp;mládeže (NIVaM)</strong>. Zdrojové dokumenty sú verejne prístupné na portáli <a href={NIVAM_MS_URL} target="_blank" rel="noopener noreferrer">www2.nucem.sk (Maturita – dokumenty na stiahnutie)</a>. Testy sú sprístupnené so súhlasom NIVaM a&nbsp;prístup k&nbsp;nim je voľný a&nbsp;bezplatný.
+          </p>
+          <p>
+            <strong>Prepis úloh a&nbsp;autorské vzorové riešenia:</strong> Texty ukážok, úloh a&nbsp;grafické objekty boli pre potreby interaktívneho online zobrazenia prepisované a&nbsp;graficky upravované – NIVaM nezodpovedá za prípadné chyby vzniknuté z&nbsp;tohto dôvodu. Postupy riešenia, nápovedy a&nbsp;texty o&nbsp;slohových útvaroch nie sú autorským dielom NIVaM a&nbsp;NIVaM nezodpovedá za ich obsah.
+          </p>
+        </div>
+        <p class="ms-footer-copy">© {new Date().getFullYear()} Maturita zo SJL · Peter Beňo</p>
+      </div>
+    </footer>

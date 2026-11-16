@@ -1,0 +1,24 @@
+---
+import { I, icon } from '../lib/icons';
+interface Props { active?: 'sloh' | 'home' }
+const { active = 'home' } = Astro.props;
+---
+
+<header class="ms-nav">
+  <div class="ms-wrap ms-nav-in">
+    <a class="ms-brand" href="/">
+      <span class="ms-mark" aria-hidden="true">M</span>
+      <span class="ms-brand-text">
+        <strong>Maturita zo SJL</strong>
+        <small>Online príprava na maturitu</small>
+      </span>
+    </a>
+    <nav class="ms-nav-links" aria-label="Hlavná navigácia">
+      <a href="/#testy">Testy</a>
+      <a href="/sloh/" aria-current={active === 'sloh' ? 'page' : undefined}>Slohové útvary</a>
+      <a href="/#ako-to-funguje">Ako to funguje</a>
+      <a href="/#otazky">Otázky</a>
+    </nav>
+    <a class="ms-btn ms-btn-primary ms-btn-sm ms-nav-cta" href="/#testy">Začať test</a>
+  </div>
+</header>

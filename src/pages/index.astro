@@ -2,13 +2,14 @@
 import '../styles/fonts.css';
 import '../styles/ms.css';
 import SeoHead from '../components/SeoHead.astro';
+import MsHeader from '../components/MsHeader.astro';
+import MsFooter from '../components/MsFooter.astro';
 import { maturitaCatalog } from '../data/maturitaCatalog';
 import { slohoveUtvary } from '../data/sloh';
-import { SITE_NAME, MATH_SITE_URL, CONTACT_EMAIL } from '../lib/site';
+import { MATH_SITE_URL, CONTACT_EMAIL } from '../lib/site';
 import { I, icon } from '../lib/icons';
 
 const SJL9_SITE_URL = 'https://monitorsolina.sk';
-const NIVAM_MS_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita';
 const tests = maturitaCatalog;
 const ready = tests.filter((t) => t.status === 'ready');
 const first = ready[0] ?? tests[0];
@@ -54,24 +55,7 @@ const faqs = [
   <body class="ms">
     <a class="skip-link" href="#obsah">Preskočiť na hlavný obsah</a>
 
-    <header class="ms-nav">
-      <div class="ms-wrap ms-nav-in">
-        <a class="ms-brand" href="/">
-          <span class="ms-mark" aria-hidden="true">M</span>
-          <span class="ms-brand-text">
-            <strong>Maturita zo SJL</strong>
-            <small>Online príprava na maturitu</small>
-          </span>
-        </a>
-        <nav class="ms-nav-links" aria-label="Hlavná navigácia">
-          <a href="#testy">Testy</a>
-          <a href="#sloh">Slohové útvary</a>
-          <a href="#ako-to-funguje">Ako to funguje</a>
-          <a href="#otazky">Otázky</a>
-        </nav>
-        <a class="ms-btn ms-btn-primary ms-btn-sm ms-nav-cta" href="#testy">Začať test</a>
-      </div>
-    </header>
+    <MsHeader />
 
     <main id="obsah">
       <section class="ms-hero">
@@ -197,6 +181,12 @@ const faqs = [
               </a>
             ))}
           </div>
+          <div style="margin-top: 1.75rem">
+            <a class="ms-btn ms-btn-ghost" href="/sloh/#prehlad">
+              Prehľad tém 2007 – 2026
+              <Fragment set:html={icon(I.arrow)} />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -303,34 +293,6 @@ const faqs = [
       </section>
     </main>
 
-    <footer class="ms-footer">
-      <div class="ms-wrap">
-        <div class="ms-footer-top">
-          <a class="ms-brand" href="/">
-            <span class="ms-mark" aria-hidden="true">M</span>
-            <span class="ms-brand-text">
-              <strong>Maturita zo SJL</strong>
-              <small>{SITE_NAME}</small>
-            </span>
-          </a>
-          <nav class="ms-footer-links" aria-label="Odkazy v pätičke">
-            <a href="#testy">Testy</a>
-            <a href="#sloh">Slohové útvary</a>
-            <a href={SJL9_SITE_URL} target="_blank" rel="noopener noreferrer">Testovanie 9 zo slovenčiny</a>
-            <a href={MATH_SITE_URL} target="_blank" rel="noopener noreferrer">Testovanie 9 z&nbsp;matematiky</a>
-            <a href={`mailto:${CONTACT_EMAIL}`}>Kontakt</a>
-          </nav>
-        </div>
-        <div class="ms-footer-legal">
-          <p>
-            <strong>Nositeľ autorských práv k&nbsp;testom a&nbsp;kľúčom odpovedí:</strong> Nositeľom autorských práv k&nbsp;zverejneným testom externej časti maturitnej skúšky zo slovenského jazyka a&nbsp;literatúry a&nbsp;ku kľúčom správnych odpovedí k&nbsp;nim je <strong>Národný inštitút vzdelávania a&nbsp;mládeže (NIVaM)</strong>. Zdrojové dokumenty sú verejne prístupné na portáli <a href={NIVAM_MS_URL} target="_blank" rel="noopener noreferrer">www2.nucem.sk (Maturita – dokumenty na stiahnutie)</a>. Testy sú sprístupnené so súhlasom NIVaM a&nbsp;prístup k&nbsp;nim je voľný a&nbsp;bezplatný.
-          </p>
-          <p>
-            <strong>Prepis úloh a&nbsp;autorské vzorové riešenia:</strong> Texty ukážok, úloh a&nbsp;grafické objekty boli pre potreby interaktívneho online zobrazenia prepisované a&nbsp;graficky upravované – NIVaM nezodpovedá za prípadné chyby vzniknuté z&nbsp;tohto dôvodu. Postupy riešenia, nápovedy a&nbsp;texty o&nbsp;slohových útvaroch nie sú autorským dielom NIVaM a&nbsp;NIVaM nezodpovedá za ich obsah.
-          </p>
-        </div>
-        <p class="ms-footer-copy">© {new Date().getFullYear()} Maturita zo SJL · Peter Beňo</p>
-      </div>
-    </footer>
+    <MsFooter />
   </body>
 </html>

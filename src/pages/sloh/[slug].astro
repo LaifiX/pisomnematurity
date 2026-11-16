@@ -1,0 +1,317 @@
+---
+import '../../styles/fonts.css';
+import '../../styles/ms.css';
+import '../../styles/sloh.css';
+import SeoHead from '../../components/SeoHead.astro';
+import MsHeader from '../../components/MsHeader.astro';
+import MsFooter from '../../components/MsFooter.astro';
+import { slohoveUtvary, temyPre, YEARS, NO_EXAM_YEARS, CRITERIA_COMMON, type SlohovyUtvar } from '../../data/sloh';
+import { I, icon } from '../../lib/icons';
+
+export function getStaticPaths() {
+  return slohoveUtvary.map((u) => ({ params: { slug: u.slug }, props: { u } }));
+}
+
+const { u } = Astro.props as { u: SlohovyUtvar };
+const idx = slohoveUtvary.findIndex((x) => x.slug === u.slug);
+const prev = slohoveUtvary[(idx - 1 + slohoveUtvary.length) % slohoveUtvary.length];
+const next = slohoveUtvary[(idx + 1) % slohoveUtvary.length];
+const themes = temyPre(u.slug);
+const byYear = new Map(themes.map((t) => [t.year, t]));
+const heldYears = YEARS.filter((y) => !NO_EXAM_YEARS.includes(y));
+const lastYear = themes.length ? Math.max(...themes.map((t) => t.year)) : null;
+const timesWord = (n: number) => (n === 0 ? 'ani raz' : n === 1 ? 'raz' : `${n}-krát`);
+
+// obsah stránky (kotvy)
+const toc = [
+  ...u.sections.map((s) => ({ id: s.id, title: s.title })),
+  { id: 'rady', title: 'Dobré rady' },
+  ...(u.sample ? [{ id: 'ukazka', title: 'Ukážka' }] : []),
+  { id: 'temy', title: 'Témy z minulých rokov' },
+  { id: 'hodnotenie', title: 'Ako sa hodnotí' },
+  { id: 'kontrola', title: 'Kontrola pred odovzdaním' }
+];
+const num = (id: string) => String(toc.findIndex((t) => t.id === id) + 1).padStart(2, '0');
+const pointsWord = (n: number) => `${n} ${n === 1 ? 'bod' : n >= 2 && n < 5 ? 'body' : 'bodov'}`;
+const plain = (html: string) => html.replace(/<[^>]+>/g, '');
+
+const checklist = [
+  `Moja práca má aspoň ${CRITERIA_COMMON.minWords} slov a najviac 3 strany.`,
+  'Dodržal/a som tému a reagujem na všetky kľúčové slová zadania.',
+  ...u.checklist,
+  'Text je členený na odseky, čitateľný, bez škrtania a s dodržanými okrajmi.',
+  'Skontroloval/a som pravopis a diakritiku (Pravidlá a slovníky môžem použiť).'
+];
+---
+
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <SeoHead
+      title={`${u.name} – slohový útvar na maturitu zo SJL | Maturita zo SJL`}
+      description={`${plain(u.name)} na maturite zo slovenčiny: znaky, kompozícia, jazyk, dobré rady, témy z rokov 2007 – 2026 a kritériá hodnotenia NIVaM.`}
+      path={`/sloh/${u.slug}/`}
+      themeColor="#11162d"
+      noindex={true}
+    />
+  </head>
+  <body class="ms">
+    <a class="skip-link" href="#obsah">Preskočiť na hlavný obsah</a>
+    <MsHeader active="sloh" />
+
+    <main id="obsah">
+      <section class="sl-hero">
+        <div class="ms-wrap">
+          <nav class="sl-crumbs" aria-label="Omrvinková navigácia">
+            <a href="/">Maturita zo SJL</a>
+            <span aria-hidden="true">/</span>
+            <a href="/sloh/">Slohové útvary</a>
+            <span aria-hidden="true">/</span>
+            <span>{u.name}</span>
+          </nav>
+          <span class="sl-num">{String(idx + 1).padStart(2, '0')} / {String(slohoveUtvary.length).padStart(2, '0')}</span>
+          <h1>{u.name}</h1>
+          <p class="sl-lead" set:html={u.lead} />
+          <dl class="sl-facts">
+            {u.facts.map((f) => (
+              <div>
+                <dt>{f.label}</dt>
+                <dd set:html={f.value} />
+              </div>
+            ))}
+            <div class="is-accent">
+              <dt>Na maturite</dt>
+              <dd>{themes.length ? `${timesWord(themes.length)} · naposledy ${lastYear}` : 'zatiaľ nebol'}</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <div class="ms-wrap sl-layout">
+        <aside class="sl-toc" aria-label="Obsah stránky">
+          <strong>Obsah</strong>
+          <ol>
+            {toc.map((t) => (
+              <li><a href={`#${t.id}`} set:html={t.title} /></li>
+            ))}
+          </ol>
+        </aside>
+
+        <div class="sl-content">
+          {u.sections.map((s) => (
+            <section class="sl-sec" id={s.id}>
+              <span class="sl-sec-num">{num(s.id)}</span>
+              <h2 set:html={s.title} />
+              {s.lead && <p class="sl-sec-lead" set:html={s.lead} />}
+              {s.list && (
+                <ul class="sl-list">
+                  {s.list.map((li) => <li set:html={li} />)}
+                </ul>
+              )}
+              {s.cards && (
+                <div class="sl-cards">
+                  {s.cards.map((c) => (
+                    <article class="sl-card">
+                      <h3 set:html={c.term} />
+                      {c.text && <p set:html={c.text} />}
+                      {c.example && <p class="sl-ex" set:html={c.example} />}
+                    </article>
+                  ))}
+                </div>
+              )}
+              {s.steps && (
+                <ol class="sl-steps">
+                  {s.steps.map((st) => (
+                    <li>
+                      <h3 set:html={st.term} />
+                      <p set:html={st.text} />
+                      {st.example && <p class="sl-ex" set:html={st.example} />}
+                    </li>
+                  ))}
+                </ol>
+              )}
+              {s.paras && s.paras.map((p) => <p class="sl-para" set:html={p} />)}
+            </section>
+          ))}
+
+          <section class="sl-sec" id="rady">
+            <div class="sl-tips">
+              <span class="sl-sec-num">{num('rady')}</span>
+              <h2><Fragment set:html={icon(I.bulb)} />Dobré rady</h2>
+              <ul class="sl-list">
+                {u.tips.map((tip) => <li set:html={tip} />)}
+              </ul>
+            </div>
+          </section>
+
+          {u.sample && (
+            <section class="sl-sec" id="ukazka">
+              <span class="sl-sec-num">{num('ukazka')}</span>
+              <h2>Ukážka</h2>
+              <article class="sl-sample">
+                <h3>{u.sample.title}</h3>
+                {u.sample.paras.map((p) => <p set:html={p} />)}
+              </article>
+              <p class="sl-sample-note">{u.sample.note}</p>
+            </section>
+          )}
+
+          <section class="sl-sec" id="temy">
+            <span class="sl-sec-num">{num('temy')}</span>
+            <h2>Témy z&nbsp;minulých rokov</h2>
+            <p class="sl-sec-lead">Každý rok sú na maturite štyri témy, každá v&nbsp;inom slohovom útvare. Pozri sa, v&nbsp;ktorých rokoch bol tento útvar medzi vyžrebovanými.</p>
+            <div class="sl-themes-sum">
+              <span>Na maturite {timesWord(themes.length)} z&nbsp;{heldYears.length} ročníkov</span>
+              {lastYear && <span>Naposledy {lastYear}</span>}
+            </div>
+            <ol class="sl-years">
+              {[...YEARS].reverse().map((y) => {
+                const th = byYear.get(y);
+                if (NO_EXAM_YEARS.includes(y))
+                  return (
+                    <li class="sl-year is-none">
+                      <span class="sl-year-y">{y}</span>
+                      <span class="sl-year-t">písomná maturita sa pre pandémiu v&nbsp;riadnom termíne nekonala</span>
+                    </li>
+                  );
+                if (!th)
+                  return (
+                    <li class="sl-year">
+                      <span class="sl-year-y">{y}</span>
+                      <span class="sl-year-t">útvar nebol vyžrebovaný</span>
+                    </li>
+                  );
+                return (
+                  <li class="sl-year is-drawn">
+                    <span class="sl-year-y">{y}</span>
+                    <div class="sl-theme">
+                      {th.title.startsWith('„') ? <q>{th.title}</q> : <b>{th.title}</b>}
+                      {(th.author || th.spec) && (
+                        <small>
+                          {th.author && <em>{th.author}</em>}
+                          {th.author && th.spec && ' · '}
+                          {th.spec && `(${th.spec})`}
+                        </small>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+            <p class="sl-src">
+              Témy 2014 – 2026: zadania NIVaM (NÚCEM), zdroj <a href="https://www2.nucem.sk/sk/merania/narodne-merania/maturita" target="_blank" rel="noopener noreferrer">www2.nucem.sk</a>. Témy 2007 – 2013: materiály Mgr. Petra Beňa.
+            </p>
+          </section>
+
+          <section class="sl-sec" id="hodnotenie">
+            <span class="sl-sec-num">{num('hodnotenie')}</span>
+            <h2>Ako sa hodnotí</h2>
+            <p class="sl-sec-lead">Podľa kritérií NIVaM pre maturitu 2026. Spolu môžeš získať <strong>28 bodov</strong>.</p>
+            <div class="sl-score" aria-hidden="true">
+              <span>Vonkajšia forma · 4</span>
+              <span>Vnútorná forma · 20</span>
+              <span>Dojem · 4</span>
+            </div>
+            <p class="sl-score-total">Vnútorná forma = obsah, kompozícia, jazyk, pravopis a&nbsp;štýl, každé po 4&nbsp;body.</p>
+            <div class="sl-warn">
+              <Fragment set:html={icon(I.alert)} />
+              <span><strong>Pozor:</strong> ak práca nemá aspoň {CRITERIA_COMMON.minWords}&nbsp;slov, hodnotí sa 0&nbsp;bodmi.</span>
+            </div>
+            <div class="sl-crit">
+              <article class="sl-crit-card">
+                <header><h3>Vonkajšia forma</h3><span>4 body</span></header>
+                <ul>{CRITERIA_COMMON.vonkajsia.map((c) => <li set:html={c} />)}<li>dodržanie rozsahu</li></ul>
+              </article>
+              <article class="sl-crit-card">
+                <header><h3>Obsah</h3><span>4 body</span></header>
+                <ul>{u.criteria.obsah.map((c) => <li set:html={c} />)}</ul>
+              </article>
+              <article class="sl-crit-card">
+                <header><h3>Kompozícia</h3><span>4 body</span></header>
+                <ul>{u.criteria.kompozicia.map((c) => <li set:html={c} />)}</ul>
+              </article>
+              <article class="sl-crit-card">
+                <header><h3>Jazyk</h3><span>4 body</span></header>
+                <ul>{u.criteria.jazyk.map((c) => <li set:html={c} />)}</ul>
+              </article>
+              <article class="sl-crit-card">
+                <header><h3>Pravopis</h3><span>4 body</span></header>
+                <table class="sl-pravopis">
+                  <tbody>
+                    {CRITERIA_COMMON.pravopis.map((r) => (
+                      <tr><td>{r.range}</td><td>{pointsWord(r.points)}</td></tr>
+                    ))}
+                  </tbody>
+                </table>
+              </article>
+              <article class="sl-crit-card">
+                <header><h3>Štýl</h3><span>4 body</span></header>
+                <ul>{u.criteria.styl.map((c) => <li set:html={c} />)}</ul>
+              </article>
+              <article class="sl-crit-card">
+                <header><h3>Celkový dojem</h3><span>4 body</span></header>
+                <ul><li>celkové vyznenie práce</li><li>práca nemá obsahovať: {CRITERIA_COMMON.dojem.join(', ')}</li></ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="sl-sec" id="kontrola">
+            <span class="sl-sec-num">{num('kontrola')}</span>
+            <h2>Kontrola pred odovzdaním</h2>
+            <div class="sl-check-meta">
+              <span>Odškrtni si, čo máš splnené. <span data-check-count></span></span>
+              <button type="button" data-check-reset>Vymazať</button>
+            </div>
+            <ul class="sl-check" data-checklist={u.slug}>
+              {checklist.map((c, i) => (
+                <li>
+                  <label>
+                    <input type="checkbox" data-i={i} />
+                    <span>{c}</span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <nav class="sl-pager" aria-label="Ďalšie slohové útvary">
+            <a href={`/sloh/${prev.slug}/`}><small>← Predchádzajúci</small><strong>{prev.name}</strong></a>
+            <a class="is-next" href={`/sloh/${next.slug}/`}><small>Ďalší →</small><strong>{next.name}</strong></a>
+          </nav>
+
+          <p class="sl-credit">
+            Spracované podľa materiálov Mgr. Petra Beňa (Rukoväť na písanie slohovej práce) a&nbsp;Kritérií na hodnotenie PFIČ MS NIVaM (2026). Texty o&nbsp;slohových útvaroch nie sú dielom NIVaM.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <MsFooter />
+
+    <script is:inline>
+      // Kontrolný zoznam – stav sa pamätá v prehliadači (len pre pohodlie)
+      (function () {
+        var list = document.querySelector('[data-checklist]');
+        if (!list) return;
+        var key = 'maturitasjl_check_' + list.getAttribute('data-checklist');
+        var boxes = list.querySelectorAll('input[type=checkbox]');
+        var countEl = document.querySelector('[data-check-count]');
+        var saved = [];
+        try { saved = JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) {}
+        function update() {
+          var done = [];
+          boxes.forEach(function (b) { if (b.checked) done.push(Number(b.getAttribute('data-i'))); });
+          if (countEl) countEl.textContent = '(' + done.length + '/' + boxes.length + ')';
+          try { localStorage.setItem(key, JSON.stringify(done)); } catch (e) {}
+        }
+        boxes.forEach(function (b) {
+          if (saved.indexOf(Number(b.getAttribute('data-i'))) !== -1) b.checked = true;
+          b.addEventListener('change', update);
+        });
+        var reset = document.querySelector('[data-check-reset]');
+        if (reset) reset.addEventListener('click', function () { boxes.forEach(function (b) { b.checked = false; }); update(); });
+        update();
+      })();
+    </script>
+  </body>
+</html>
