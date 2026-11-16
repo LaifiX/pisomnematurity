@@ -3,7 +3,7 @@ import '../../styles/fonts.css';
 import '../../styles/ms.css';
 import '../../styles/sloh.css';
 import SeoHead from '../../components/SeoHead.astro';
-import { ALLOW_INDEXING } from '../../lib/site';
+import { ALLOW_INDEXING, SITE_URL } from '../../lib/site';
 import MsHeader from '../../components/MsHeader.astro';
 import MsFooter from '../../components/MsFooter.astro';
 import { slohoveUtvary, temy, YEARS, NO_EXAM_YEARS, CRITERIA_COMMON, PROJEKT, PROJEKT_LOGA, LITERATURA, LITERATURA_PORADIE, ZDROJE, ZDROJE_NIVAM } from '../../data/sloh';
@@ -23,6 +23,26 @@ const short = {
 } as Record<string, string>;
 const themeAt = (year: number, slug: string) => temy.find((t) => t.year === year && t.slug === slug);
 const maxCount = Math.max(...slohoveUtvary.map((u) => count(u.slug)));
+const slohJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: 'Slohové útvary na maturite zo slovenčiny',
+      url: `${SITE_URL}/sloh/`,
+      inLanguage: 'sk',
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      hasPart: slohoveUtvary.map((u) => ({ '@type': 'LearningResource', name: u.name, url: `${SITE_URL}/sloh/${u.slug}/` }))
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Písomné maturity', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Slohové útvary', item: `${SITE_URL}/sloh/` }
+      ]
+    }
+  ]
+};
 const fromDeck = slohoveUtvary.filter((u) => ZDROJE[u.slug].prezentacia);
 const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
 ---
@@ -31,11 +51,14 @@ const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
 <html lang="sk">
   <head>
     <SeoHead
-      title="Slohové útvary na maturite zo SJL – úvaha, rozprávanie, charakteristika a ďalšie | Písomné maturity"
+      title="Slohové útvary na maturite zo SJL | Písomné maturity"
       description="Všetkých 8 slohových útvarov písomnej maturity zo slovenčiny: znaky, kompozícia, jazyk, dobré rady, témy 2007 – 2026 a kritériá hodnotenia NIVaM."
       path="/sloh/"
+      ogImage="/og/sloh.png"
+      ogImageAlt="Slohové útvary na maturite zo slovenčiny – znaky, kompozícia, jazyk a témy 2007 – 2026"
       themeColor="#11162d"
       noindex={!ALLOW_INDEXING}
+      jsonLd={slohJsonLd}
     />
   </head>
   <body class="ms">

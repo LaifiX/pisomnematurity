@@ -1,8 +1,11 @@
 ---
 import '../styles/fonts.css';
-import '../styles/global.css';
+import '../styles/ms.css';
 import SeoHead from '../components/SeoHead.astro';
+import MsHeader from '../components/MsHeader.astro';
+import MsFooter from '../components/MsFooter.astro';
 import { testsCatalog } from '../data/testsCatalog';
+import { I, icon } from '../lib/icons';
 
 const readyTests = testsCatalog.filter((t) => t.status === 'ready');
 ---
@@ -12,62 +15,87 @@ const readyTests = testsCatalog.filter((t) => t.status === 'ready');
   <head>
     <SeoHead
       title="Stránka sa nenašla · Písomné maturity"
-      description="Táto stránka neexistuje. Pokračuj na úvodnú stránku alebo si vyber test Testovania 9 zo slovenčiny."
+      description="Táto stránka neexistuje. Pokračuj na úvodnú stránku, vyber si test externej časti alebo slohový útvar."
       path="/404/"
-      themeColor="#b1255e"
+      themeColor="#1e2a5e"
       noindex
     />
     <style>
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 1.5rem;
-        font-family: var(--font-ui);
-        color: var(--ink);
-        background-color: var(--bg);
-        background-image: repeating-linear-gradient(to bottom, transparent 0 31px, rgba(var(--brand-rgb), 0.07) 31px 32px);
+      .nf {
+        padding: 5rem 0 6rem;
       }
-      main {
-        max-width: 34rem;
-        text-align: center;
+      .nf-in {
+        max-width: 40rem;
       }
-      .big {
-        font-family: var(--font-book);
-        font-size: clamp(4rem, 14vw, 7rem);
-        font-weight: 700;
-        line-height: 1;
-        color: var(--brand);
+      .nf-code {
+        display: block;
+        font-family: var(--ms-head);
+        font-style: italic;
+        font-size: 1.05rem;
+        color: var(--ms-accent-ink);
       }
-      h1 {
-        margin: 0.6rem 0 0.5rem;
-        font-family: var(--font-book);
-        font-size: 1.7rem;
-        font-weight: 600;
+      .nf h1 {
+        margin: 0.4rem 0 1rem;
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
       }
-      p {
-        margin: 0 0 1.4rem;
-        line-height: 1.6;
-        color: var(--ink-2);
+      .nf p {
+        margin: 0 0 2rem;
+        font-size: 1.08rem;
+        line-height: 1.7;
+        color: var(--ms-ink-2);
       }
-      .links {
+      .nf-acts {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        gap: 0.6rem;
+      }
+      .nf h2 {
+        margin: 3rem 0 0.9rem;
+        font-size: 1.2rem;
+      }
+      .nf-tests {
+        display: flex;
+        flex-wrap: wrap;
         gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .nf-tests a {
+        display: inline-flex;
+        padding: 0.45rem 0.85rem;
+        border-radius: var(--ms-radius-sm);
+        border: 1px solid var(--ms-line-2);
+        background: var(--ms-paper);
+        font-weight: 650;
+        font-size: 0.92rem;
+        text-decoration: none;
+      }
+      .nf-tests a:hover {
+        border-color: var(--ms-ink-3);
       }
     </style>
   </head>
-  <body>
-    <main>
-      <div class="big" aria-hidden="true">404</div>
-      <h1>Táto stránka sa nenašla</h1>
-      <p>Adresa je možno preklepnutá alebo stránka už neexistuje. Vyber si test alebo pokračuj na úvodnú stránku.</p>
-      <div class="links">
-        <a class="hp-btn hp-btn-primary" href="/">Úvodná stránka</a>
-        {readyTests.map((t) => <a class="hp-btn hp-btn-ghost" href={`/test/${t.slug}/`}>{t.title}</a>)}
+  <body class="ms">
+    <a class="skip-link" href="#obsah">Preskočiť na hlavný obsah</a>
+    <MsHeader />
+    <main id="obsah" class="nf">
+      <div class="ms-wrap">
+        <div class="nf-in">
+          <span class="nf-code">Chyba 404</span>
+          <h1>Táto stránka sa nenašla</h1>
+          <p>Adresa je možno preklepnutá alebo stránka už neexistuje. Pokračuj na úvodnú stránku, vyber si test alebo slohový útvar.</p>
+          <div class="nf-acts">
+            <a class="ms-btn ms-btn-primary" href="/">Úvodná stránka<Fragment set:html={icon(I.arrow)} /></a>
+            <a class="ms-btn ms-btn-ghost" href="/sloh/"><Fragment set:html={icon(I.feather)} />Slohové útvary</a>
+          </div>
+          <h2>Testy externej časti</h2>
+          <ul class="nf-tests">
+            {readyTests.map((t) => <li><a href={`/test/${t.slug}/`}>{t.title}</a></li>)}
+          </ul>
+        </div>
       </div>
     </main>
+    <MsFooter />
   </body>
 </html>

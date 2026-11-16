@@ -542,7 +542,7 @@
 }
 
 .sl-score span:nth-child(3) {
-  background: var(--ms-accent);
+  background: var(--ms-accent-ink);
 }
 
 .sl-score-total {
@@ -603,7 +603,7 @@
 .sl-crit-card header span {
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--ms-accent);
+  color: var(--ms-accent-ink);
   white-space: nowrap;
 }
 

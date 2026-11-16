@@ -75,7 +75,7 @@ const UI = {
 };
 
 const variantLower = testItem.variant.replace(/^V/, 'v');
-const pageTitle = `${testItem.title} zo slovenčiny – test externej časti online s riešením`;
+const pageTitle = `${testItem.title} zo slovenčiny – test s riešením online`;
 const pageDescription = `Maturita zo slovenčiny ${testItem.year} – test externej časti (${variantLower}, kód ${testItem.code}) online: ${testItem.questionsCount} úloh s ukážkami, kľúčom odpovedí, nápovedou a postupom riešenia. Zadarmo.`;
 
 const jsonLd = {
@@ -99,7 +99,7 @@ const jsonLd = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Maturita zo slovenčiny', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 1, name: 'Písomné maturity', item: `${SITE_URL}/` },
         { '@type': 'ListItem', position: 2, name: testItem.title, item: canonicalUrl }
       ]
     }
@@ -117,6 +117,8 @@ const jsonLd = {
       themeColor={accent.base}
       jsonLd={jsonLd}
       noindex={!ALLOW_INDEXING}
+      ogImage={`/og/${testItem.slug}.png`}
+      ogImageAlt={`${testItem.title} zo slovenčiny – test externej časti s nápovedou a postupom riešenia`}
     />
   </head>
   <body class={`tp-page tp-dyslexic tp-intro-active acc-${testItem.accent}`}>
@@ -337,7 +339,7 @@ const jsonLd = {
         <div class="print-export-bar">
           <div class="print-name-group">
             <label for="studentNameInput">Meno žiaka pre tlač:</label>
-            <input id="studentNameInput" class="student-name-input" type="text" placeholder="Napr. Ján Novák, 9. A" />
+            <input id="studentNameInput" class="student-name-input" type="text" placeholder="Napr. Ján Novák, 4. A" />
           </div>
           <button class="btn-PrintReport" type="button" id="printReportBtn">
             <Fragment set:html={icon(I.printer)} />
@@ -1979,7 +1981,7 @@ const jsonLd = {
         printableReport.innerHTML = `
           <div class="print-header-box">
             <div>
-              <h1>VÝSLEDKOVÝ LIST – TESTOVANIE 9 (SLOVENSKÝ JAZYK A LITERATÚRA ${testYear})</h1>
+              <h1>VÝSLEDKOVÝ LIST – MATURITA ${testYear} (SLOVENSKÝ JAZYK A LITERATÚRA, EXTERNÁ ČASŤ)</h1>
               <p>Riadny termín (šk. rok ${testSchoolYear}) • ${testVariant} (kód ${testCode}) • Režim: ${modeLabel.toLowerCase()} • Úlohy a kľúč odpovedí © NIVaM</p>
             </div>
             <div style="text-align:right;">

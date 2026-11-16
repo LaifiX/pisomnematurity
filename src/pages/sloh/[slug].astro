@@ -3,7 +3,7 @@ import '../../styles/fonts.css';
 import '../../styles/ms.css';
 import '../../styles/sloh.css';
 import SeoHead from '../../components/SeoHead.astro';
-import { ALLOW_INDEXING } from '../../lib/site';
+import { ALLOW_INDEXING, SITE_URL } from '../../lib/site';
 import MsHeader from '../../components/MsHeader.astro';
 import MsFooter from '../../components/MsFooter.astro';
 import { slohoveUtvary, temyPre, YEARS, NO_EXAM_YEARS, CRITERIA_COMMON, PROJEKT, PROJEKT_LOGA, LITERATURA, ZDROJE, ZDROJE_NIVAM, youtubeUrl, type SlohovyUtvar } from '../../data/sloh';
@@ -23,6 +23,34 @@ const heldYears = YEARS.filter((y) => !NO_EXAM_YEARS.includes(y));
 const lastYear = themes.length ? Math.max(...themes.map((t) => t.year)) : null;
 const timesWord = (n: number) => (n === 0 ? 'ani raz' : n === 1 ? 'raz' : `${n}-krát`);
 const zdroj = ZDROJE[u.slug];
+const utvarJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['LearningResource', 'Article'],
+      headline: `${u.name.replace(/<[^>]+>/g, '')} – slohový útvar na maturite zo slovenčiny`,
+      name: u.name.replace(/<[^>]+>/g, ''),
+      description: u.lead.replace(/<[^>]+>/g, ''),
+      url: `${SITE_URL}/sloh/${u.slug}/`,
+      inLanguage: 'sk',
+      learningResourceType: 'Študijný text',
+      educationalLevel: 'Stredná škola – maturitný ročník',
+      about: 'Písomná forma internej časti maturitnej skúšky zo slovenského jazyka a literatúry',
+      author: { '@type': 'Person', name: PROJEKT.author },
+      dateModified: `${PROJEKT.updated}`,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      ...(zdroj.prezentacia ? { isBasedOn: { '@type': 'PresentationDigitalDocument', name: zdroj.prezentacia, author: { '@type': 'Person', name: PROJEKT.author }, dateCreated: `${PROJEKT.year}` } } : {})
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Písomné maturity', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Slohové útvary', item: `${SITE_URL}/sloh/` },
+        { '@type': 'ListItem', position: 3, name: u.name.replace(/<[^>]+>/g, ''), item: `${SITE_URL}/sloh/${u.slug}/` }
+      ]
+    }
+  ]
+};
 
 // obsah stránky (kotvy)
 const toc = [
@@ -51,11 +79,14 @@ const checklist = [
 <html lang="sk">
   <head>
     <SeoHead
-      title={`${u.name} – slohový útvar na maturitu zo SJL | Písomné maturity`}
+      title={`${plain(u.name)} – maturita zo SJL | Písomné maturity`}
       description={`${plain(u.name)} na maturite zo slovenčiny: znaky, kompozícia, jazyk, dobré rady, témy z rokov 2007 – 2026 a kritériá hodnotenia NIVaM.`}
       path={`/sloh/${u.slug}/`}
+      ogImage={`/og/sloh-${u.slug}.png`}
+      ogImageAlt={`${plain(u.name)} – slohový útvar na maturite zo slovenčiny`}
       themeColor="#11162d"
       noindex={!ALLOW_INDEXING}
+      jsonLd={utvarJsonLd}
     />
   </head>
   <body class="ms">

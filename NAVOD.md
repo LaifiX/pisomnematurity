@@ -58,7 +58,10 @@ a na konci stránky každého útvaru („Pôvod a literatúra“). Výklad v pr
 1. Doména **pisomnematurity.sk** je v `SITE_URL` v `src/lib/site.ts` a v `public/robots.txt`.
    PAY by square QR kód `public/images/qr-dar.svg` má správu `Dar - pisomnematurity.sk` (príjemca Beno Peter, Mgr,
    IBAN SK97 1100 0000 0029 3029 3777). Pri zmene ho vygeneruj knižnicami `bysquare` + `qrcode` (npm) a uprav aj text pri QR v `src/pages/index.astro`.
-2. V `src/lib/site.ts` prepnúť `ALLOW_INDEXING` na `true` (dovtedy stránku vyhľadávače neindexujú).
+2. Indexovanie je zapnuté (`ALLOW_INDEXING = true` v `src/lib/site.ts`): každá stránka má kanonickú adresu na
+   pisomnematurity.sk, štruktúrované dáta (JSON-LD) a vlastný obrázok na zdieľanie. Pri testovacom nasadení na inej
+   adrese ho prepni na `false`. Po spustení pridaj web do Google Search Console a odošli `https://pisomnematurity.sk/sitemap.xml`.
+   `npm run check` kontroluje SEO (titulok do 65 znakov, popis 70 – 165, canonical, og:image, platný JSON-LD) na všetkých stránkach.
 3. Repozitár na GitHube, v Netlify „Import from Git“ (build `npm run build`, priečinok `dist`).
 4. Súhlas NIVaM s použitím maturitných testov (pätička už obsahuje vetu o súhlase).
 
@@ -68,7 +71,10 @@ Názov **Písomné maturity** (doména pisomnematurity.sk) je v `SITE_NAME`, `SI
 Značka – hrot plniaceho pera s kvapkou atramentu – je v `src/components/BrandMark.astro` (rovnaké SVG aj v `public/favicon.svg`
 a v `public/pwa.js`). Ikony aplikácie (`icon-192/512`, `icon-maskable-512`, `apple-touch-icon`, `favicon.ico`) a obrázok
 na zdieľanie `og-image.png` sa vyrenderujú z `scripts/brand/icon.html` a `scripts/brand/og.html` príkazom
-`node scripts/brand/render.mjs` (potrebuje Edge alebo Chrome). Po zmene ikon zvýš verziu `CACHE` v `public/sw.js`.
+`node scripts/brand/render.mjs` (potrebuje Edge alebo Chrome). Ten istý príkaz vytvorí aj obrázky pre jednotlivé
+testy a slohové útvary v `public/og/` (šablóna `scripts/brand/og-page.html`; údaje číta z katalógu testov,
+zo `stepperGroups` testov a zo `src/data/sloh.ts`). **Po pridaní ročníka alebo zmene tém ho spusti znova.**
+Po zmene ikon zvýš verziu `CACHE` v `public/sw.js`.
 
 ## Farby a písma
 

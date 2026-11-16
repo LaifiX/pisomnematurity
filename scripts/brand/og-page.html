@@ -1,0 +1,80 @@
+<!doctype html>
+<!-- Obrázok na zdieľanie pre konkrétny test alebo slohový útvar (public/og/*.png, 1200 × 630).
+     Údaje prichádzajú v parametri ?d=<JSON> z render.mjs: { kind: 'test'|'sloh', kicker, title, sub, items[], stat, cardTitle } -->
+<html lang="sk">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face { font-family: 'Fraunces'; src: url('../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-ext-wght-normal.woff2') format('woff2'); font-weight: 100 900; }
+  @font-face { font-family: 'Fraunces'; src: url('../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2') format('woff2'); font-weight: 100 900; unicode-range: U+0000-00FF, U+2013, U+201C-201E; }
+  @font-face { font-family: 'Fraunces'; font-style: italic; src: url('../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-ext-wght-italic.woff2') format('woff2'); font-weight: 100 900; }
+  @font-face { font-family: 'Fraunces'; font-style: italic; src: url('../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-wght-italic.woff2') format('woff2'); font-weight: 100 900; unicode-range: U+0000-00FF; }
+  @font-face { font-family: 'Inter Tight'; src: url('../../node_modules/@fontsource-variable/inter-tight/files/inter-tight-latin-ext-wght-normal.woff2') format('woff2'); font-weight: 100 900; }
+  @font-face { font-family: 'Inter Tight'; src: url('../../node_modules/@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2') format('woff2'); font-weight: 100 900; unicode-range: U+0000-00FF, U+2013; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: 'Inter Tight', sans-serif;
+    color: #eef0f8;
+    background:
+      radial-gradient(620px 360px at 92% -8%, rgba(176, 125, 35, 0.3), transparent 62%),
+      radial-gradient(520px 320px at -6% 108%, rgba(70, 90, 180, 0.28), transparent 62%),
+      #11162d;
+  }
+  .left { position: absolute; left: 72px; top: 60px; width: 600px; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .brand svg { width: 56px; height: 56px; border-radius: 12px; box-shadow: 0 10px 30px -10px rgba(0,0,0,.6); }
+  .brand strong { font-family: 'Fraunces'; font-weight: 600; font-size: 28px; letter-spacing: -0.015em; color: #fff; }
+  .kicker { display: flex; align-items: center; gap: 14px; margin-top: 70px; font-family: 'Fraunces'; font-style: italic; font-size: 26px; color: #d9b064; }
+  .kicker::before { content: ''; width: 36px; height: 1.5px; background: currentColor; }
+  h1 { margin: 14px 0 0; font-family: 'Fraunces'; font-weight: 600; font-size: 84px; line-height: 1.02; letter-spacing: -0.03em; color: #fff; }
+  h1.long { font-size: 66px; }
+  .sub { margin: 22px 0 0; font-size: 25px; line-height: 1.45; color: #c3c7de; }
+  .domain { position: absolute; left: 72px; bottom: 52px; display: flex; align-items: center; gap: 14px; font-size: 23px; font-weight: 650; color: #fff; }
+  .domain::before { content: ''; width: 36px; height: 2px; background: #d1a24a; }
+
+  .card { position: absolute; right: 64px; top: 70px; width: 410px; padding: 26px 28px 24px; border-radius: 6px; background: #fffdf9; color: #151a2d; transform: rotate(1.6deg); box-shadow: 0 40px 80px -30px rgba(0,0,0,.75); }
+  .card::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 6px; background: #ece6d8; transform: translate(9px, 11px) rotate(1.2deg); }
+  .card-title { margin: 0 0 14px; padding-bottom: 12px; border-bottom: 1px solid #e5e0d5; font-family: 'Fraunces'; font-style: italic; font-size: 20px; color: #855c14; }
+  ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; counter-reset: i; }
+  ol li { counter-increment: i; display: flex; gap: 12px; align-items: baseline; font-size: 20px; line-height: 1.3; }
+  ol li::before { content: counter(i); flex-shrink: 0; width: 20px; font-family: 'Fraunces'; font-weight: 600; color: #b07d23; text-align: right; }
+  .deck { font-family: 'Fraunces'; font-weight: 600; font-size: 30px; line-height: 1.15; color: #1e2a5e; }
+  .deck small { display: block; margin-top: 10px; font-family: 'Inter Tight'; font-weight: 500; font-size: 18px; color: #6e7187; }
+  .stat { margin-top: 22px; padding-top: 16px; border-top: 1px solid #e5e0d5; display: flex; align-items: baseline; gap: 12px; }
+  .stat b { font-family: 'Fraunces'; font-weight: 600; font-size: 54px; line-height: 1; color: #b07d23; }
+  .stat span { font-size: 19px; line-height: 1.35; color: #3c4158; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="14" fill="#1e2a5e"/><g transform="rotate(40 32 32)"><path d="M32 54 21.4 34c-1.8-3.4-1-7.6 2-10.4V11h17.2v12.6c3 2.8 3.8 7 2 10.4Z" fill="#d1a24a"/><rect x="23.4" y="16.6" width="17.2" height="1.8" fill="#1e2a5e"/><circle cx="32" cy="30" r="3.1" fill="#1e2a5e"/><rect x="31.15" y="32" width="1.7" height="20" fill="#1e2a5e"/></g></svg>
+      <strong>Písomné maturity</strong>
+    </div>
+    <div class="kicker" id="kicker"></div>
+    <h1 id="title"></h1>
+    <p class="sub" id="sub"></p>
+  </div>
+  <div class="card" id="card"></div>
+  <div class="domain">pisomnematurity.sk</div>
+<script>
+  const d = JSON.parse(new URLSearchParams(location.search).get('d') || '{}');
+  const esc = (s) => String(s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  document.getElementById('kicker').textContent = d.kicker || '';
+  const h = document.getElementById('title');
+  h.textContent = d.title || '';
+  if ((d.title || '').length > 14) h.classList.add('long');
+  document.getElementById('sub').textContent = d.sub || '';
+  const card = document.getElementById('card');
+  if (d.kind === 'test') {
+    card.innerHTML = `<p class="card-title">${esc(d.cardTitle)}</p><ol>${(d.items || []).map((i) => `<li>${esc(i)}</li>`).join('')}</ol>`;
+  } else {
+    card.innerHTML = `<p class="card-title">${esc(d.cardTitle)}</p><div class="deck">${esc(d.deck)}<small>${esc(d.deckSub)}</small></div>` +
+      (d.stat ? `<div class="stat"><b>${esc(d.stat)}</b><span>${esc(d.statLabel)}</span></div>` : '');
+  }
+</script>
+</body>
+</html>

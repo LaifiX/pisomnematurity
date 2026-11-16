@@ -1,8 +1,8 @@
 // Doména stránky (zmena aj v public/robots.txt). Stránky majú noindex, kým ALLOW_INDEXING nie je true.
 export const SITE_URL = 'https://pisomnematurity.sk';
 export const SITE_DOMAIN = 'pisomnematurity.sk';
-// Kým stránka nie je hotová a na vlastnej doméne, vyhľadávače ju nemajú indexovať. Pri spustení prepni na true.
-export const ALLOW_INDEXING = false;
+// Indexovanie vyhľadávačmi (robots index + kanonické adresy). false = všetky stránky noindex (napr. pri testovacom nasadení).
+export const ALLOW_INDEXING = true;
 export const SITE_NAME = 'Písomné maturity';
 /** Doplnok k názvu (hlavička, pätička) */
 export const SITE_TAGLINE = 'Slovenský jazyk a literatúra';

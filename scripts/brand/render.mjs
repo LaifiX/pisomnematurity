@@ -72,6 +72,68 @@ const entries = sizes.map((s, i) => {
 });
 out('favicon.ico', Buffer.concat([header, ...entries, ...pngs]));
 
+// ---------- obrázky na zdieľanie pre jednotlivé testy a slohové útvary (public/og/) ----------
+const read = (rel) => fs.readFileSync(path.join(root, rel), 'utf8');
+const ogDir = path.join(pub, 'og');
+fs.mkdirSync(ogDir, { recursive: true });
+const shot = async (name, data) => {
+  const buf = await render('og-page.html', '?d=' + encodeURIComponent(JSON.stringify(data)), 1200, 630, false);
+  fs.writeFileSync(path.join(ogDir, name), buf);
+  console.log('✔ og/' + name, buf.length, 'B');
+};
+
+// testy: katalóg (slug, rok, školský rok, stav) + názvy ukážok zo stepperGroups
+const catalog = read('src/data/testsCatalog.ts');
+const readyTests = catalog.split(/\r?\n\s*\{\r?\n/).slice(1).map((block) => ({
+  slug: (block.match(/slug: '([^']+)'/) || [])[1],
+  year: (block.match(/year: (\d{4})/) || [])[1],
+  schoolYear: (block.match(/schoolYear: '([^']+)'/) || [])[1],
+  status: (block.match(/status: '([^']+)'/) || [])[1]
+})).filter((t) => t.slug && t.status === 'ready');
+for (const t of readyTests) {
+  const idx = read(`src/data/tests/${t.slug}/index.ts`);
+  const labels = [...idx.matchAll(/label: 'Ukážka \d+ · ([^']+)'/g)].map((m) => m[1]);
+  await shot(`${t.slug}.png`, {
+    kind: 'test',
+    kicker: `Riadny termín ${t.schoolYear}`,
+    title: `Maturita ${t.year}`,
+    sub: 'Test externej časti zo slovenčiny: 64 úloh, 100 minút, s nápovedou a postupom riešenia.',
+    cardTitle: 'Ukážky v teste',
+    items: labels
+  });
+}
+
+// slohové útvary: názov, krátky popis, počet tém 2007 – 2026 a posledný rok
+const sloh = read('src/data/sloh.ts');
+const utvary = [...sloh.matchAll(/\r?\n {4}slug: '([^']+)',\r?\n {4}name: '([^']+)',\r?\n {4}short: '([^']+)'/g)].map((m) => ({ slug: m[1], name: m[2], short: m[3] }));
+const hasDeck = (slug) => new RegExp(String.raw`'?${slug}'?: \{ prezentacia: '`).test(sloh);
+for (const u of utvary) {
+  const years = [...sloh.matchAll(new RegExp(String.raw`t\((\d{4}), '${u.slug}'`, 'g'))].map((m) => Number(m[1]));
+  const n = years.length;
+  await shot(`sloh-${u.slug}.png`, {
+    kind: 'sloh',
+    kicker: 'Slohový útvar na maturite',
+    title: u.name,
+    sub: u.short.replace(/<[^>]+>/g, ''),
+    cardTitle: hasDeck(u.slug) ? 'Rukoväť na písanie slohovej práce' : 'Písomná forma internej časti',
+    deck: u.name,
+    deckSub: 'znaky, kompozícia, jazyk, témy 2007 – 2026 a kritériá NIVaM',
+    stat: n ? `${n}×` : '',
+    statLabel: n ? `na maturite v rokoch 2007 – 2026, naposledy ${Math.max(...years)}` : ''
+  });
+}
+await shot('sloh.png', {
+  kind: 'sloh',
+  kicker: 'Písomná forma internej časti',
+  title: 'Slohové útvary',
+  sub: 'Osem útvarov, ktoré môže NIVaM zadať: znaky, kompozícia, jazyk a všetky témy 2007 – 2026.',
+  cardTitle: 'Rukoväť na písanie slohovej práce',
+  deck: 'Úvaha, rozprávanie, charakteristika a ďalšie',
+  deckSub: 'podľa prezentácií z roku 2014, aktualizované 2026',
+  stat: '28',
+  statLabel: 'bodov môžeš získať za slohovú prácu'
+});
+
 ws.close();
 proc.kill();
 process.exit(0);

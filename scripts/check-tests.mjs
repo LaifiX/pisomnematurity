@@ -110,7 +110,13 @@ for (const slug of readdirSync(DIST)) {
 
 // SEO: titulok, popis, kanonická adresa na hlavnej doméne, náhľadový obrázok a JSON-LD na každej stránke
 const siteUrl = (readFileSync('src/lib/site.ts', 'utf8').match(/SITE_URL = '([^']+)'/) || [])[1];
-const seoPages = [['index', 'dist/index.html'], ...readdirSync(DIST).map((slug) => [slug, join(DIST, slug, 'index.html')])].filter(([, f]) => existsSync(f));
+const SLOH_DIST = 'dist/sloh';
+const seoPages = [
+  ['index', 'dist/index.html'],
+  ...readdirSync(DIST).map((slug) => [slug, join(DIST, slug, 'index.html')]),
+  ['sloh', join(SLOH_DIST, 'index.html')],
+  ...(existsSync(SLOH_DIST) ? readdirSync(SLOH_DIST).filter((s) => !s.endsWith('.html')).map((slug) => [`sloh/${slug}`, join(SLOH_DIST, slug, 'index.html')]) : [])
+].filter(([, f]) => existsSync(f));
 console.log(`\nSEO (${seoPages.length} stránok, doména ${siteUrl}):`);
 for (const [name, file] of seoPages) {
   const html = readFileSync(file, 'utf8');

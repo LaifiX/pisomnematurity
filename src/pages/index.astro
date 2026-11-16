@@ -11,9 +11,12 @@ import { slohoveUtvary, temy, PROJEKT } from '../data/sloh';
 import { testsDataBySlug } from '../data/tests';
 // Ukážková úloha pre sekciu „Ako to funguje“ – skutočná úloha 02 z Maturity 2023 (text, nápoveda, postup z dát testu)
 const demoQ = testsDataBySlug['ms-2023'].questions.find((q) => q.code === '02')!;
+// Autori / názvy ukážok pre kartu ročníka (zo stepperGroups: „Ukážka 1 · Hevier“ → „Hevier“)
+const passageNames = (slug: string) => (testsDataBySlug[slug]?.stepperGroups ?? []).map((g) => g.label.replace(/^Ukážka \d+ · /, ''));
 const plainMarks = (t: string) => t.replace(/\/\/(.+?)\/\//g, '<em>$1</em>');
 const slohCount = (slug: string) => temy.filter((t) => t.slug === slug).length;
-import { MATH_SITE_URL, CONTACT_EMAIL } from '../lib/site';
+const slohMax = Math.max(...slohoveUtvary.map((u) => slohCount(u.slug)));
+import { MATH_SITE_URL, CONTACT_EMAIL, SITE_URL, SITE_NAME } from '../lib/site';
 import { I, icon } from '../lib/icons';
 
 const SJL9_SITE_URL = 'https://monitorsolina.sk';
@@ -23,6 +26,8 @@ const first = ready[0] ?? tests[0];
 const years = tests.map((t) => t.year);
 const yearsRange = `${Math.min(...years)} – ${Math.max(...years)}`;
 
+const author = { '@type': 'Person', name: 'Mgr. Peter Beňo', jobTitle: 'Bývalý učiteľ slovenského jazyka a literatúry' };
+// faqs je definované nižšie – JSON-LD sa skladá až po ňom (homeJsonLd)
 const faqs = [
   {
     q: 'Ako vyzerá test externej časti maturity zo slovenčiny?',
@@ -45,17 +50,46 @@ const faqs = [
     a: 'Všetko je zadarmo, bez registrácie a bez reklám. Úlohy a kľúče správnych odpovedí pochádzajú z oficiálnych testov externej časti maturitnej skúšky, ktorých autorom je Národný inštitút vzdelávania a mládeže (NIVaM). Nápovedy a postupy riešenia pripravuje učiteľ slovenčiny.'
   }
 ];
+
+const homeJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: SITE_NAME,
+      alternateName: 'pisomnematurity.sk',
+      description: 'Bezplatná príprava na maturitu zo slovenského jazyka a literatúry: oficiálne testy externej časti s nápovedou a postupom riešenia a slohové útvary.',
+      inLanguage: 'sk',
+      author,
+      publisher: author
+    },
+    {
+      '@type': 'ItemList',
+      name: 'Testy externej časti maturity zo slovenčiny',
+      itemListElement: tests
+        .filter((t) => t.status === 'ready')
+        .map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: `Maturita ${t.year}`, url: `${SITE_URL}/test/${t.slug}/` }))
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
+    }
+  ]
+};
 ---
 
 <!DOCTYPE html>
 <html lang="sk">
   <head>
     <SeoHead
-      title={`Písomné maturity – maturita zo slovenčiny: testy ${yearsRange} a sloh`}
-      description={`Bezplatná príprava na maturitu zo slovenského jazyka a literatúry: oficiálne testy externej časti ${yearsRange} s nápovedou a postupom riešenia a prehľad slohových útvarov.`}
+      title={`Písomné maturity – maturita zo SJL: testy ${yearsRange} a sloh`}
+      description={`Bezplatná príprava na maturitu zo slovenčiny: oficiálne testy externej časti ${yearsRange} s nápovedou a postupom riešenia a všetky slohové útvary.`}
       path="/"
       themeColor="#1e2a5e"
-      ogTitle="Maturita zo slovenčiny – online príprava zadarmo"
+      ogTitle="Písomné maturity – maturita zo slovenčiny na skutočných testoch"
+      jsonLd={homeJsonLd}
       noindex={!ALLOW_INDEXING}
     />
   </head>
@@ -108,6 +142,7 @@ const faqs = [
               </ul>
             </div>
 
+            <div class="ms-sheet-wrap">
             <figure class="ms-sheet" aria-label="Ilustračná ukážka úlohy">
               <div class="ms-sheet-top">
                 <span class="ms-sheet-tag">Ukážka 6 · náučný text</span>
@@ -125,6 +160,7 @@ const faqs = [
               </ol>
               <p class="ms-sheet-hint"><Fragment set:html={icon(I.bulb)} /><span><b>Nápoveda:</b> Text vysvetľuje, prečo sa jazyk mení. Ktorý postup odpovedá na otázku „prečo“?</span></p>
             </figure>
+            </div>
           </div>
 
           <dl class="ms-facts">
@@ -153,8 +189,11 @@ const faqs = [
                   <span class="ms-test-year">{t.year}</span>
                   <ul class="ms-test-specs">
                     <li>{t.questionsCount}&nbsp;úloh · {t.durationMinutes}&nbsp;minút</li>
-                    <li>{t.passagesCount}&nbsp;ukážok · ©&nbsp;NIVaM</li>
+                    <li>©&nbsp;NIVaM</li>
                   </ul>
+                  {passageNames(t.slug).length > 0 && (
+                    <p class="ms-test-authors"><span class="ms-sr">Ukážky v teste: </span>{passageNames(t.slug).join(', ')}</p>
+                  )}
                   <div class="ms-saved hidden" data-saved-slot></div>
                   <div class="ms-test-foot">
                     <span class="ms-dot" data-cta>Spustiť test</span>
@@ -195,16 +234,21 @@ const faqs = [
               </div>
             </div>
           </div>
-          <div class="ms-sloh-grid">
+          <ol class="ms-sloh-list">
             {slohoveUtvary.map((u) => (
-              <a class="ms-utvar" href={`/sloh/${u.slug}/`}>
-                <span class="ms-utvar-num">{slohCount(u.slug)}× na maturite</span>
-                <h3>{u.name}</h3>
-                <p set:html={u.short} />
-                <Fragment set:html={icon(I.arrow)} />
-              </a>
+              <li>
+                <a href={`/sloh/${u.slug}/`}>
+                  <span class="ms-sl-line">
+                    <span class="ms-sl-name">{u.name}</span>
+                    <span class="ms-sl-lead" aria-hidden="true"></span>
+                    <span class="ms-sl-count">{slohCount(u.slug)}×<span class="ms-sr"> na maturite</span></span>
+                  </span>
+                  <span class="ms-sl-desc" set:html={u.short} />
+                  <span class="ms-sl-bar" aria-hidden="true"><span style={`width:${Math.round((slohCount(u.slug) / slohMax) * 100)}%`}></span></span>
+                </a>
+              </li>
             ))}
-          </div>
+          </ol>
           <div class="ms-sloh-foot">
             <a class="ms-btn ms-btn-ghost" href="/sloh/#prehlad">
               Prehľad tém 2007 – 2026
