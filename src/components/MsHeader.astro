@@ -1,24 +1,79 @@
 ---
-import { I, icon } from '../lib/icons';
+import BrandMark from './BrandMark.astro';
+import { SITE_NAME, SITE_TAGLINE } from '../lib/site';
 interface Props { active?: 'sloh' | 'home' }
 const { active = 'home' } = Astro.props;
+// Odkazy hlavnej navigácie. `spy` = id sekcie na hlavnej stránke, ktorú odkaz zvýrazní pri posúvaní.
+const links = [
+  { href: '/#testy', label: 'Testy', spy: 'testy' },
+  { href: '/sloh/', label: 'Slohové útvary', short: 'Sloh', spy: 'sloh' },
+  { href: '/#ako-to-funguje', label: 'Ako to funguje', spy: 'ako-to-funguje' },
+  { href: '/#otazky', label: 'Otázky', spy: 'otazky' }
+];
 ---
 
 <header class="ms-nav">
   <div class="ms-wrap ms-nav-in">
-    <a class="ms-brand" href="/">
-      <span class="ms-mark" aria-hidden="true">M</span>
+    <a class="ms-brand" href="/" aria-label={`${SITE_NAME} – úvodná stránka`}>
+      <BrandMark size={40} class="ms-mark" />
       <span class="ms-brand-text">
-        <strong>Maturita zo SJL</strong>
-        <small>Online príprava na maturitu</small>
+        <strong>{SITE_NAME}</strong>
+        <small>{SITE_TAGLINE}</small>
       </span>
     </a>
     <nav class="ms-nav-links" aria-label="Hlavná navigácia">
-      <a href="/#testy">Testy</a>
-      <a href="/sloh/" aria-current={active === 'sloh' ? 'page' : undefined}>Slohové útvary</a>
-      <a href="/#ako-to-funguje">Ako to funguje</a>
-      <a href="/#otazky">Otázky</a>
+      {links.map((l) => (
+        <a href={l.href} data-spy={active === 'home' ? l.spy : undefined} aria-current={active === 'sloh' && l.spy === 'sloh' ? 'page' : undefined}>
+          {l.short ? (<><span class="nl-long">{l.label}</span><span class="nl-short" aria-hidden="true">{l.short}</span></>) : l.label}
+        </a>
+      ))}
     </nav>
     <a class="ms-btn ms-btn-primary ms-btn-sm ms-nav-cta" href="/#testy">Začať test</a>
   </div>
 </header>
+
+{active === 'home' && (
+  <script is:inline>
+    // Hlavná stránka: odkaz v navigácii sa zvýrazní podľa sekcie, ktorá je práve na obrazovke
+    // (hlavička je pred obsahom – sekcie existujú až po načítaní dokumentu)
+    document.addEventListener('DOMContentLoaded', function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.ms-nav-links [data-spy]'));
+      var items = links
+        .map(function (a) { return { a: a, sec: document.getElementById(a.getAttribute('data-spy')) }; })
+        .filter(function (x) { return x.sec; });
+      if (!items.length) return;
+      var current = null;
+      function setActive(a) {
+        if (a === current) return;
+        current = a;
+        links.forEach(function (l) {
+          if (l === a) l.setAttribute('aria-current', 'location');
+          else l.removeAttribute('aria-current');
+        });
+        // na mobile posunie rad odkazov tak, aby bol aktívny odkaz viditeľný
+        if (a && a.parentElement.scrollWidth > a.parentElement.clientWidth) {
+          var nav = a.parentElement;
+          var left = a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2;
+          nav.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+        }
+      }
+      function update() {
+        var line = window.innerHeight * 0.35;
+        var found = null;
+        items.forEach(function (x) {
+          var r = x.sec.getBoundingClientRect();
+          if (r.top <= line && r.bottom > line) found = x.a;
+        });
+        setActive(found);
+      }
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; update(); });
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    });
+  </script>
+)}

@@ -9,6 +9,7 @@ import '../../styles/ms.css';
 import SeoHead from '../../components/SeoHead.astro';
 import { ALLOW_INDEXING } from '../../lib/site';
 import { SITE_URL, CONTACT_EMAIL, NIVAM_URL } from '../../lib/site';
+import BrandMark from '../../components/BrandMark.astro';
 import { I, icon } from '../../lib/icons';
 import { ACCENTS } from '../../lib/accents';
 
@@ -54,6 +55,8 @@ const testMeta = {
 const UI = {
   checkCircle: icon(I.checkCircle),
   xCircle: icon(I.xCircle),
+  bulb: icon(I.bulb),
+  book: icon(I.book),
   alert: icon(I.alert),
   arrow: icon(I.arrow),
   flag: icon(I.flag),
@@ -123,10 +126,10 @@ const jsonLd = {
     <header class="tp-header">
       <div class="tp-header-in">
         <div class="tp-hleft">
-          <a class="tp-back" href="/" aria-label="Späť na úvodnú stránku" title="Späť na úvodnú stránku">
+          <a class="tp-back" href="/#testy" aria-label="Späť na zoznam testov" title="Späť na zoznam testov">
             <Fragment set:html={icon(I.arrowLeft)} />
           </a>
-          <span class="brand-mark tp-hmark" aria-hidden="true">M</span>
+          <BrandMark size={38} class="tp-hmark" />
           <div class="tp-htitle">
             <div class="tp-htitle-row">
               <h1 aria-label={`${testItem.title} · Slovenčina`}><span class="tp-h1-long">{testItem.title}</span><span class="tp-h1-short">MS&nbsp;{testItem.year}</span><span class="tp-h1-subj"> · Slovenčina</span></h1>
@@ -220,7 +223,7 @@ const jsonLd = {
           <article class="tp-mode-card is-exam">
             <span class="tp-mode-ico"><Fragment set:html={icon(I.hourglass)} /></span>
             <h3>Ostrý test</h3>
-            <p>Ako na skutočnom Testovaní&nbsp;9. Výsledok, správne odpovede a&nbsp;postupy uvidíš až po vyhodnotení.</p>
+            <p>Ako na skutočnej maturite. Výsledok, správne odpovede a&nbsp;postupy uvidíš až po vyhodnotení.</p>
             <ul class="tp-mode-list">
               <li><Fragment set:html={icon(I.check)} />Odpočítavanie {testItem.durationMinutes} minút</li>
               <li><Fragment set:html={icon(I.check)} />Bez nápovedy a&nbsp;priebežnej kontroly</li>
@@ -424,41 +427,51 @@ const jsonLd = {
 
           <div id="answerSection"></div>
 
-          <div class="tp-action-strip" id="questionHelpStrip">
-            <button class="hp-btn hp-btn-primary hp-btn-sm hidden" type="button" id="checkSingleBtn">
-              <Fragment set:html={icon(I.check)} />
-              <span>Overiť odpoveď</span>
-            </button>
+          <div class="tp-interact" id="questionInteract">
+            <div class="tp-action-strip" id="questionHelpStrip">
+              <button class="hp-btn hp-btn-primary hp-btn-sm hidden" type="button" id="checkSingleBtn">
+                <Fragment set:html={icon(I.check)} />
+                <span>Overiť odpoveď</span>
+              </button>
 
-            <div class="tp-help-btns">
-              <button class="hp-btn hp-btn-ghost hp-btn-sm tp-btn-hint" type="button" id="openHintBtn">
-                <Fragment set:html={icon(I.bulb)} />
-                <span>Nápoveda</span>
-              </button>
-              <button class="hp-btn hp-btn-ghost hp-btn-sm tp-btn-sol" type="button" id="openSolutionBtn">
-                <Fragment set:html={icon(I.book)} />
-                <span>Postup riešenia</span>
-              </button>
+              <div class="tp-help-btns">
+                <button class="hp-btn hp-btn-ghost hp-btn-sm tp-btn-hint" type="button" id="openHintBtn">
+                  <Fragment set:html={icon(I.bulb)} />
+                  <span>Nápoveda</span>
+                </button>
+                <button class="hp-btn hp-btn-ghost hp-btn-sm tp-btn-sol" type="button" id="openSolutionBtn">
+                  <Fragment set:html={icon(I.book)} />
+                  <span>Postup riešenia</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="tp-feedback hidden" id="evalFeedbackBanner">
+              <span class="tp-feedback-ico" id="evalFeedbackIcon"></span>
+              <div class="tp-feedback-text" id="evalFeedbackInfo"></div>
+              <button class="hp-btn hp-btn-ghost hp-btn-sm hidden" type="button" id="evalOpenSolutionBtn">Pozrieť postup</button>
             </div>
           </div>
 
-          <div class="tp-feedback hidden" id="evalFeedbackBanner">
-            <span id="evalFeedbackIcon"></span>
-            <div class="tp-feedback-text" id="evalFeedbackInfo"></div>
-            <button class="hp-btn hp-btn-ghost hp-btn-sm hidden" type="button" id="evalOpenSolutionBtn">Pozrieť postup</button>
-          </div>
-
-          <div class="tp-qfoot">
-            <button class="hp-btn hp-btn-ghost hp-btn-sm" type="button" id="prevQuestionBtn">
+          <nav class="tp-qfoot no-print" id="questionFootNav" aria-label="Predošlá a ďalšia úloha">
+            <button class="hp-btn hp-btn-ghost hp-btn-sm" type="button" id="prevQuestionBtn" aria-label="Predošlá úloha">
               <Fragment set:html={icon(I.arrowLeft)} />
               <span>Predošlá</span>
             </button>
             <span class="tp-pos" id="footerPositionText">1 / {testItem.questionsCount}</span>
+            <div class="tp-nav-tools" id="navHelpTools" role="group" aria-label="Pomôcky k úlohe">
+              <button class="tp-nav-tool t-hint" type="button" id="navHintBtn" title="Nápoveda k úlohe" aria-label="Nápoveda">
+                <Fragment set:html={icon(I.bulb)} />
+              </button>
+              <button class="tp-nav-tool t-sol" type="button" id="navSolutionBtn" title="Postup riešenia" aria-label="Postup riešenia">
+                <Fragment set:html={icon(I.book)} />
+              </button>
+            </div>
             <button class="hp-btn hp-btn-primary hp-btn-sm" type="button" id="nextQuestionBtn">
               <span id="nextBtnText">Ďalšia úloha</span>
               <span id="nextBtnArrow"><Fragment set:html={icon(I.arrow)} /></span>
             </button>
-          </div>
+          </nav>
         </article>
       </section>
 
@@ -1005,6 +1018,10 @@ const jsonLd = {
       const evalFeedbackIcon = document.getElementById('evalFeedbackIcon');
       const evalFeedbackInfo = document.getElementById('evalFeedbackInfo');
       const evalOpenSolutionBtn = document.getElementById('evalOpenSolutionBtn');
+      const navHintBtn = document.getElementById('navHintBtn');
+      const navSolutionBtn = document.getElementById('navSolutionBtn');
+      const questionInteract = document.getElementById('questionInteract');
+      const questionFootNav = document.getElementById('questionFootNav');
 
       const prevQuestionBtn = document.getElementById('prevQuestionBtn');
       const nextQuestionBtn = document.getElementById('nextQuestionBtn');
@@ -1164,14 +1181,19 @@ const jsonLd = {
 
         openHintBtn.disabled = locked;
         openSolutionBtn.disabled = locked;
+        navHintBtn.disabled = locked;
+        navSolutionBtn.disabled = locked;
         const lockedTitle = 'V ostrom teste sa odomkne po vyhodnotení';
         openHintBtn.title = locked ? lockedTitle : 'Nápoveda k úlohe';
         openSolutionBtn.title = locked ? lockedTitle : 'Postup riešenia';
+        document.body.classList.toggle('tp-help-unlocked', !locked);
 
         checkSingleBtn.classList.toggle('hidden', isExam || isEvaluated);
         timerResetBtn.classList.toggle('hidden', isExam);
         evaluateBtnLabel.textContent = isEvaluated ? 'Výsledkový panel' : 'Vyhodnotiť test';
         document.getElementById('evaluateBtnShort').textContent = isEvaluated ? 'Výsledok' : 'Vyhodnotiť';
+        syncInteractVisibility();
+        syncFootNavVisibility();
       }
 
       function enterWorkspace(selectedMode, fromRestore = false) {
@@ -1264,6 +1286,7 @@ const jsonLd = {
         clearArchiveView(true);
         mode = null;
         document.body.classList.add('tp-intro-active');
+        syncFootNavVisibility();
         introScreen.classList.remove('hidden');
         stepperCard.classList.add('hidden');
         workspace.classList.add('hidden');
@@ -1410,6 +1433,40 @@ const jsonLd = {
         });
       }
 
+      // Široké tabuľky v ukážke: na úzkom displeji nápoveda „posuň do strany“ a tieň na strane,
+      // kde tabuľka pokračuje. ResizeObserver stav obnoví aj po rozbalení ukážky či otočení telefónu.
+      const tableResizeObserver = typeof ResizeObserver !== 'undefined' ? new ResizeObserver((entries) => entries.forEach((en) => en.target._syncScroll && en.target._syncScroll())) : null;
+      function enhanceScrollTables(container) {
+        container.querySelectorAll('.ms-table-wrap').forEach((wrap) => {
+          if (wrap.closest('.tp-scroll-frame')) return;
+          const hint = document.createElement('div');
+          hint.className = 'tp-scroll-hint hidden';
+          hint.setAttribute('aria-hidden', 'true');
+          hint.innerHTML = `<span>Tabuľka je širšia – posuň ju prstom do strany</span>${UI.arrow}`;
+          const frame = document.createElement('div');
+          frame.className = 'tp-scroll-frame';
+          wrap.parentNode.insertBefore(hint, wrap);
+          wrap.parentNode.insertBefore(frame, wrap);
+          frame.appendChild(wrap);
+          wrap.setAttribute('role', 'region');
+          wrap.setAttribute('aria-label', 'Tabuľka, dá sa posúvať do strany');
+          const sync = () => {
+            const max = wrap.scrollWidth - wrap.clientWidth;
+            const scrollable = wrap.clientWidth > 0 && max > 2;
+            hint.classList.toggle('hidden', !scrollable);
+            wrap.tabIndex = scrollable ? 0 : -1;
+            frame.classList.toggle('can-left', scrollable && wrap.scrollLeft > 2);
+            frame.classList.toggle('can-right', scrollable && wrap.scrollLeft < max - 2);
+            if (scrollable && wrap.scrollLeft > 24) hint.classList.add('is-used');
+          };
+          wrap._syncScroll = sync;
+          wrap.addEventListener('scroll', sync, { passive: true });
+          if (tableResizeObserver) tableResizeObserver.observe(wrap);
+          else window.addEventListener('resize', sync, { passive: true });
+          sync();
+        });
+      }
+
       // Skladanie spoločnej ukážky
       ctxToggleBtn.addEventListener('click', () => {
         const q = questions[currentIndex];
@@ -1436,6 +1493,7 @@ const jsonLd = {
         ctxToggleBtn.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
         sharedContextBody.innerHTML = passage.html;
         wireZoomables(sharedContextBody);
+        enhanceScrollTables(sharedContextBody);
         bindSlovakTypography(sharedContextBody);
       }
 
@@ -1571,6 +1629,8 @@ const jsonLd = {
                 delete singleCheckedState[q.id];
                 inp.classList.remove('is-correct', 'is-wrong');
                 evalFeedbackBanner.classList.add('hidden');
+                questionInteract.classList.remove('has-inline-help');
+                syncInteractVisibility();
               }
               updateProgressAndStepper();
               saveStateToStorage();
@@ -1588,6 +1648,7 @@ const jsonLd = {
         // Spätná väzba (vyhodnotený test alebo okamžitá kontrola v Precvičovaní)
         evalFeedbackBanner.classList.remove('hidden', 'is-ok', 'is-err', 'is-warn');
         evalOpenSolutionBtn.classList.add('hidden');
+        questionInteract.classList.remove('has-inline-help');
 
         if (isEvaluated) {
           const ok = isQuestionCorrect(q, currentVal);
@@ -1607,8 +1668,10 @@ const jsonLd = {
             const nearMiss = diagnoseNearMiss(q, currentVal);
             evalFeedbackBanner.classList.add('is-err');
             evalFeedbackIcon.innerHTML = UI.xCircle;
-            evalFeedbackInfo.innerHTML = `<strong>Zatiaľ nesprávne.</strong> ${nearMiss ? escHtml(nearMiss) : 'Skús si pozrieť nápovedu alebo postup riešenia.'}`;
-            evalOpenSolutionBtn.classList.remove('hidden');
+            const ansNote = currentVal ? ` (tvoja odpoveď: <b>${escHtml(currentVal)}</b>)` : '';
+            const hintLead = nearMiss ? `${escHtml(nearMiss)} Alebo si pomôž:` : 'Skús to ešte raz, alebo si pomôž:';
+            evalFeedbackInfo.innerHTML = `<strong>Zatiaľ nesprávne</strong>${ansNote}. ${hintLead}<div class="tp-feedback-links"><button type="button" class="tp-link-btn t-hint" data-open-helper="hint">${UI.bulb}<span>Nápoveda</span></button><button type="button" class="tp-link-btn t-sol" data-open-helper="solution">${UI.book}<span>Postup</span></button></div>`;
+            questionInteract.classList.add('has-inline-help');
           }
         } else {
           evalFeedbackBanner.classList.add('hidden');
@@ -1653,6 +1716,8 @@ const jsonLd = {
           evalFeedbackIcon.innerHTML = UI.alert;
           evalFeedbackInfo.innerHTML = '<strong>Najprv vyber alebo zapíš odpoveď.</strong>';
           evalOpenSolutionBtn.classList.add('hidden');
+          questionInteract.classList.remove('has-inline-help');
+          syncInteractVisibility();
           announce('Najprv vyber alebo zapíš odpoveď.');
           return;
         }
@@ -2249,6 +2314,51 @@ const jsonLd = {
       openHintBtn.addEventListener('click', showHintForCurrentQuestion);
       openSolutionBtn.addEventListener('click', showSolutionForCurrentQuestion);
       evalOpenSolutionBtn.addEventListener('click', showSolutionForCurrentQuestion);
+      navHintBtn.addEventListener('click', showHintForCurrentQuestion);
+      navSolutionBtn.addEventListener('click', showSolutionForCurrentQuestion);
+      evalFeedbackBanner.addEventListener('click', (e) => {
+        const helperBtn = e.target.closest('[data-open-helper]');
+        if (!helperBtn) return;
+        if (helperBtn.getAttribute('data-open-helper') === 'hint') showHintForCurrentQuestion();
+        else showSolutionForCurrentQuestion();
+      });
+
+      // Mobilná spodná lišta (Predošlá · Nápoveda · Postup · Ďalšia): skryje sa na úvodnej obrazovke,
+      // pri otvorenej klávesnici a keď je po vyhodnotení na obrazovke výsledkový panel
+      function syncInteractVisibility() {
+        const hasCheck = !checkSingleBtn.classList.contains('hidden');
+        const hasFb = !evalFeedbackBanner.classList.contains('hidden');
+        questionInteract.classList.toggle('is-mobile-empty', !hasCheck && !hasFb);
+      }
+
+      function syncFootNavVisibility() {
+        if (!mode || document.body.classList.contains('tp-intro-active')) {
+          questionFootNav.classList.add('is-offscreen');
+          return;
+        }
+        if (isEvaluated && !resultsDashboard.classList.contains('hidden')) {
+          const rect = stepperCard.getBoundingClientRect();
+          questionFootNav.classList.toggle('is-offscreen', rect.top > window.innerHeight * 0.82);
+          return;
+        }
+        questionFootNav.classList.remove('is-offscreen');
+      }
+
+      window.addEventListener('scroll', syncFootNavVisibility, { passive: true });
+      window.addEventListener('resize', syncFootNavVisibility, { passive: true });
+
+      document.addEventListener('focusin', (e) => {
+        if (e.target && e.target.matches && e.target.matches('input[type="text"], textarea')) {
+          document.body.classList.add('is-typing');
+        }
+      });
+      document.addEventListener('focusout', () => {
+        requestAnimationFrame(() => {
+          const active = document.activeElement;
+          const stillTyping = Boolean(active && active.matches && active.matches('input[type="text"], textarea'));
+          document.body.classList.toggle('is-typing', stillTyping);
+        });
+      });
       switchHintToSolutionBtn.addEventListener('click', () => {
         closeModal(hintModal);
         showSolutionForCurrentQuestion();
@@ -2265,7 +2375,7 @@ const jsonLd = {
         playSound('click');
         const q = questions[currentIndex];
         const detail = REPORT_PARTS[part] || REPORT_PARTS.question;
-        const subject = `Maturita SJL – ${testYear}: úloha ${q.code} – nahlásenie chyby`;
+        const subject = `Písomné maturity – ${testYear}: úloha ${q.code} – nahlásenie chyby`;
         const body = [
           'Dobrý deň,',
           '',

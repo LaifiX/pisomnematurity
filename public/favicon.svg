@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Maturita zo SJL">
-  <rect width="64" height="64" rx="15" fill="#1e2a5e" />
-  <text x="30" y="45" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="36" fill="#ffffff">M</text>
-  <circle cx="50" cy="44" r="4.2" fill="#c9952e" />
-</svg>
+<svg viewBox="0 0 64 64" role="img" aria-label="Písomné maturity" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="14" fill="#1e2a5e"/><g transform="rotate(40 32 32)"><path d="M32 54 21.4 34c-1.8-3.4-1-7.6 2-10.4V11h17.2v12.6c3 2.8 3.8 7 2 10.4Z" fill="#d1a24a"/><rect x="23.4" y="16.6" width="17.2" height="1.8" fill="#1e2a5e"/><circle cx="32" cy="30" r="3.1" fill="#1e2a5e"/><rect x="31.15" y="32" width="1.7" height="20" fill="#1e2a5e"/></g></svg>

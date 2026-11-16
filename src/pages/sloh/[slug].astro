@@ -6,7 +6,7 @@ import SeoHead from '../../components/SeoHead.astro';
 import { ALLOW_INDEXING } from '../../lib/site';
 import MsHeader from '../../components/MsHeader.astro';
 import MsFooter from '../../components/MsFooter.astro';
-import { slohoveUtvary, temyPre, YEARS, NO_EXAM_YEARS, CRITERIA_COMMON, type SlohovyUtvar } from '../../data/sloh';
+import { slohoveUtvary, temyPre, YEARS, NO_EXAM_YEARS, CRITERIA_COMMON, PROJEKT, PROJEKT_LOGA, LITERATURA, ZDROJE, ZDROJE_NIVAM, youtubeUrl, type SlohovyUtvar } from '../../data/sloh';
 import { I, icon } from '../../lib/icons';
 
 export function getStaticPaths() {
@@ -22,6 +22,7 @@ const byYear = new Map(themes.map((t) => [t.year, t]));
 const heldYears = YEARS.filter((y) => !NO_EXAM_YEARS.includes(y));
 const lastYear = themes.length ? Math.max(...themes.map((t) => t.year)) : null;
 const timesWord = (n: number) => (n === 0 ? 'ani raz' : n === 1 ? 'raz' : `${n}-krát`);
+const zdroj = ZDROJE[u.slug];
 
 // obsah stránky (kotvy)
 const toc = [
@@ -30,7 +31,8 @@ const toc = [
   ...(u.sample ? [{ id: 'ukazka', title: 'Ukážka' }] : []),
   { id: 'temy', title: 'Témy z minulých rokov' },
   { id: 'hodnotenie', title: 'Ako sa hodnotí' },
-  { id: 'kontrola', title: 'Kontrola pred odovzdaním' }
+  { id: 'kontrola', title: 'Kontrola pred odovzdaním' },
+  { id: 'zdroje', title: 'Pôvod a literatúra' }
 ];
 const num = (id: string) => String(toc.findIndex((t) => t.id === id) + 1).padStart(2, '0');
 const pointsWord = (n: number) => `${n} ${n === 1 ? 'bod' : n >= 2 && n < 5 ? 'body' : 'bodov'}`;
@@ -49,7 +51,7 @@ const checklist = [
 <html lang="sk">
   <head>
     <SeoHead
-      title={`${u.name} – slohový útvar na maturitu zo SJL | Maturita zo SJL`}
+      title={`${u.name} – slohový útvar na maturitu zo SJL | Písomné maturity`}
       description={`${plain(u.name)} na maturite zo slovenčiny: znaky, kompozícia, jazyk, dobré rady, témy z rokov 2007 – 2026 a kritériá hodnotenia NIVaM.`}
       path={`/sloh/${u.slug}/`}
       themeColor="#11162d"
@@ -64,13 +66,14 @@ const checklist = [
       <section class="sl-hero">
         <div class="ms-wrap">
           <nav class="sl-crumbs" aria-label="Omrvinková navigácia">
-            <a href="/">Maturita zo SJL</a>
+            <a class="sl-back" href="/sloh/" aria-label="Späť na prehľad slohových útvarov"><Fragment set:html={icon(I.arrowLeft)} /><span>Späť</span></a>
+            <a href="/">Písomné maturity</a>
             <span aria-hidden="true">/</span>
             <a href="/sloh/">Slohové útvary</a>
             <span aria-hidden="true">/</span>
             <span>{u.name}</span>
           </nav>
-          <span class="sl-num">{String(idx + 1).padStart(2, '0')} / {String(slohoveUtvary.length).padStart(2, '0')}</span>
+          <span class="sl-num">{zdroj.prezentacia ? PROJEKT.series : 'Slohové útvary na maturite'}</span>
           <h1>{u.name}</h1>
           <p class="sl-lead" set:html={u.lead} />
           <dl class="sl-facts">
@@ -145,6 +148,23 @@ const checklist = [
             </div>
           </section>
 
+          {zdroj.video && (
+            <aside class="sl-fun" aria-labelledby="sl-fun-title">
+              <div class="sl-fun-player">
+                <button class="sl-fun-poster" type="button" data-yt={zdroj.video} data-yt-title={`${u.name} – video na oživenie`} aria-label={`Prehrať video na oživenie: ${u.name}`}>
+                  <img class="sl-fun-thumb" src={`https://i.ytimg.com/vi/${zdroj.video}/hqdefault.jpg`} alt="" width="480" height="360" loading="lazy" decoding="async" />
+                  <span class="sl-fun-play" aria-hidden="true"><Fragment set:html={icon(I.play)} /></span>
+                </button>
+              </div>
+              <div class="sl-fun-text">
+                <span class="sl-fun-kicker"><Fragment set:html={icon(I.sparkle)} />Na oživenie</span>
+                <h2 id="sl-fun-title">Krátke video: {u.name.toLowerCase()}</h2>
+                <p>To isté učivo v&nbsp;neformálnej podobe. Ak si chceš oddýchnuť od textu, môžeš si ho pozrieť aj tu. Hodí sa na rýchle zopakovanie útvaru.</p>
+                <a href={youtubeUrl(zdroj.video)} target="_blank" rel="noopener noreferrer">Pozrieť na YouTube<Fragment set:html={icon(I.external)} /></a>
+              </div>
+            </aside>
+          )}
+
           {u.sample && (
             <section class="sl-sec" id="ukazka">
               <span class="sl-sec-num">{num('ukazka')}</span>
@@ -200,7 +220,7 @@ const checklist = [
               })}
             </ol>
             <p class="sl-src">
-              Témy 2014 – 2026: zadania NIVaM (NÚCEM), zdroj <a href="https://www2.nucem.sk/sk/merania/narodne-merania/maturita" target="_blank" rel="noopener noreferrer">www2.nucem.sk</a>. Témy 2007 – 2013: materiály Mgr. Petra Beňa.
+              Témy 2014 – 2026: zadania NIVaM (NÚCEM), zdroj <a href="https://www2.nucem.sk/sk/merania/narodne-merania/maturita" target="_blank" rel="noopener noreferrer">www2.nucem.sk</a>. Témy 2007 – 2013: prezentácie <cite>{PROJEKT.series}</cite>.
             </p>
           </section>
 
@@ -275,19 +295,68 @@ const checklist = [
             </ul>
           </section>
 
+          <section class="sl-sec sl-sources" id="zdroje">
+            <span class="sl-sec-num">{num('zdroje')}</span>
+            <h2>Pôvod a&nbsp;literatúra</h2>
+            {zdroj.prezentacia ? (
+              <div class="sl-src-card">
+                <p class="sl-src-deck"><cite>{zdroj.prezentacia}</cite></p>
+                <p class="sl-src-meta">{PROJEKT.author}, {PROJEKT.school}, {PROJEKT.year}. Aktualizované {PROJEKT.updated}.</p>
+                <p class="sl-src-eu">
+                  Učebný materiál vznikol v&nbsp;projekte <strong>{PROJEKT.name}</strong> {PROJEKT.scope}. {PROJEKT.program}. {PROJEKT.funding}.
+                </p>
+                <div class="sl-eu-logos is-small">
+                  {PROJEKT_LOGA.map((l) => <img src={l.src} alt={l.alt} width={l.width} height={l.height} loading="lazy" decoding="async" />)}
+                </div>
+              </div>
+            ) : (
+              <p class="sl-sec-lead">
+                {u.name} v&nbsp;sérii prezentácií <cite>{PROJEKT.series}</cite> ({PROJEKT.year}) nebol. Text je pripravený nanovo podľa kritérií NIVaM a&nbsp;rovnakej štruktúry ako ostatné útvary.
+              </p>
+            )}
+            {zdroj.literatura.length > 0 && (
+              <>
+                <h3 class="sl-src-h">Použitá literatúra</h3>
+                <ol class="sl-biblio">
+                  {zdroj.literatura.map((k) => <li set:html={LITERATURA[k]} />)}
+                </ol>
+              </>
+            )}
+            <h3 class="sl-src-h">Kritériá a&nbsp;témy</h3>
+            <ol class="sl-biblio">
+              {ZDROJE_NIVAM.map((r) => <li set:html={r} />)}
+            </ol>
+            <p class="sl-credit">Texty o&nbsp;slohových útvaroch nie sú dielom NIVaM. <a href="/sloh/#povod">Viac o&nbsp;pôvode materiálov</a></p>
+          </section>
+
+          <a class="sl-back-all" href="/sloh/"><Fragment set:html={icon(I.arrowLeft)} />Späť na všetky slohové útvary</a>
+
           <nav class="sl-pager" aria-label="Ďalšie slohové útvary">
             <a href={`/sloh/${prev.slug}/`}><small>← Predchádzajúci</small><strong>{prev.name}</strong></a>
             <a class="is-next" href={`/sloh/${next.slug}/`}><small>Ďalší →</small><strong>{next.name}</strong></a>
           </nav>
 
-          <p class="sl-credit">
-            Spracované podľa materiálov Mgr. Petra Beňa (Rukoväť na písanie slohovej práce) a&nbsp;Kritérií na hodnotenie PFIČ MS NIVaM (2026). Texty o&nbsp;slohových útvaroch nie sú dielom NIVaM.
-          </p>
         </div>
       </div>
     </main>
 
     <MsFooter />
+
+    <script is:inline>
+      // Video: YouTube (youtube-nocookie) sa načíta až po kliknutí na náhľad
+      document.querySelectorAll('[data-yt]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(btn.getAttribute('data-yt')) + '?autoplay=1&rel=0';
+          f.title = btn.getAttribute('data-yt-title') || 'Video';
+          f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+          f.allowFullscreen = true;
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          btn.replaceWith(f);
+          f.focus();
+        });
+      });
+    </script>
 
     <script is:inline>
       // Kontrolný zoznam – stav sa pamätá v prehliadači (len pre pohodlie)

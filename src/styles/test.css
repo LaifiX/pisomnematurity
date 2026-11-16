@@ -95,9 +95,10 @@
 }
 
 .tp-hmark {
-  width: 36px;
-  height: 36px;
-  font-size: 0.88rem;
+  display: block;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
 }
 
 .tp-htitle {
@@ -3332,4 +3333,578 @@ body.tp-intro-active .tp-mode-chip {
 .acc-atrament .passage-badge {
   background: #f4e8cd;
   color: #7a5513;
+}
+
+/* Doplnkové prvky maturitných ukážok (zakryté miesto, podčiarknutie, vysvetlivky, zdroj, list, inzerát, štvorica textov) */
+.passage-box .ms-blank {
+  display: inline-block;
+  min-width: 4.8em;
+  height: 1.15em;
+  margin: 0 0.18em;
+  padding: 0 0.4em;
+  vertical-align: -0.2em;
+  background: #d5d7df;
+  border: 1px dashed #999fb3;
+  border-radius: 4px;
+}
+
+.passage-box u {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.passage-box .passage-source {
+  margin: 0.9rem 0 0 !important;
+  text-align: right;
+  text-indent: 0 !important;
+  font-size: 0.86rem;
+  color: var(--tp-ink-3);
+}
+
+.passage-box .passage-footnotes {
+  margin-top: 1rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--tp-line);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--tp-ink-2);
+}
+
+.passage-box .passage-footnotes p {
+  margin: 0.15rem 0 !important;
+  text-indent: 0 !important;
+}
+
+.ms-table td.is-center,
+.ms-table th.is-center {
+  text-align: center;
+}
+
+.ms-exhibit-letter {
+  margin: 1rem auto 0.25rem;
+  max-width: 28rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--tp-line-2);
+  border-radius: 10px;
+  background: #fcfbf8;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.ms-letter-box {
+  margin-top: 0.75rem;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--tp-line-2);
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(21, 26, 45, 0.04);
+}
+
+.ms-letter-sender {
+  margin: 0 0 0.9rem !important;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--tp-ink-2);
+  text-indent: 0 !important;
+  font-size: 0.84rem;
+}
+
+.ms-letter-recipient {
+  margin: 0 0 0.85rem auto !important;
+  width: fit-content;
+  min-width: 46%;
+  text-indent: 0 !important;
+  line-height: 1.45;
+}
+
+.ms-letter-date {
+  margin: 0 0 0.75rem !important;
+  text-align: right;
+  text-indent: 0 !important;
+}
+
+.ms-letter-subject {
+  margin: 0 0 0.85rem !important;
+  text-indent: 0 !important;
+  font-weight: 700;
+}
+
+.ms-letter-sign {
+  margin-top: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 0 1.2rem;
+}
+
+.ms-letter-sig-script {
+  display: block;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--tp-ink-3);
+  line-height: 1.1;
+  text-align: center;
+}
+
+.ms-subtexts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 620px) {
+  .ms-subtexts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ms-subtext {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--tp-line);
+  border-radius: 10px;
+  background: #fcfbf8;
+}
+
+.ms-subtext-tag {
+  margin: 0 0 0.25rem !important;
+  text-indent: 0 !important;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--tp-ink-3);
+}
+
+.ms-subtext-head {
+  margin: 0 0 0.55rem !important;
+  text-indent: 0 !important;
+  font-weight: 700;
+  font-size: 0.94rem;
+}
+
+.ms-ad-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 1rem;
+  align-items: start;
+  margin: 0.75rem 0;
+}
+
+@media (max-width: 620px) {
+  .ms-ad-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ms-ad-params {
+  list-style: none;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  line-height: 1.65;
+}
+
+.ms-ad-photo {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--tp-line-2);
+  display: block;
+}
+
+/* ===== Spätná väzba s odkazmi na pomôcky (Nápoveda / Postup priamo v hlásení) ===== */
+.tp-feedback-ico {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-top: 0.12rem;
+}
+
+.tp-feedback-ico .hp-ico {
+  width: 22px;
+  height: 22px;
+}
+
+.tp-feedback.is-ok .tp-feedback-ico { color: var(--tp-green); }
+.tp-feedback.is-err .tp-feedback-ico { color: var(--tp-red); }
+.tp-feedback.is-warn .tp-feedback-ico { color: #d97706; }
+
+.tp-feedback-text {
+  min-width: 0;
+}
+
+.tp-feedback-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.55rem;
+}
+
+.tp-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 34px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  background: #ffffff;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: background-color 0.14s ease, border-color 0.14s ease;
+}
+
+.tp-link-btn .hp-ico {
+  width: 15px;
+  height: 15px;
+}
+
+.tp-link-btn.t-hint { border-color: #fde3a0; color: #a45e05; }
+.tp-link-btn.t-hint:hover { background: #fffbeb; border-color: #f59e0b; }
+.tp-link-btn.t-sol { border-color: #a1e7e2; color: #085955; }
+.tp-link-btn.t-sol:hover { background: #f0fdfa; border-color: #39b0a9; }
+
+/* Ikony Nápoveda / Postup v spodnej lište – len na mobile */
+.tp-nav-tools {
+  display: none;
+  flex: 1;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tp-nav-tool {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, background-color 0.14s ease, border-color 0.14s ease;
+}
+
+.tp-nav-tool:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.tp-nav-tool:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tp-nav-tool:focus-visible {
+  outline: 2px solid var(--brand-500, #1e2a5e);
+  outline-offset: 2px;
+}
+
+.tp-nav-tool .hp-ico {
+  width: 21px;
+  height: 21px;
+}
+
+.tp-nav-tool.t-hint { background: var(--tp-amber-50); border-color: #fde3a0; color: #a45e05; }
+.tp-nav-tool.t-sol { background: var(--tp-teal-50); border-color: #a1e7e2; color: #085955; }
+
+/* ===== Mobil: prilepená spodná lišta s prechodom medzi úlohami a pomôckami ===== */
+@media (max-width: 640px) {
+  .tp-interact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+    padding-top: 1.15rem;
+    border-top: 1px dashed var(--tp-line-2);
+  }
+
+  .tp-interact.is-mobile-empty {
+    display: none;
+  }
+
+  .tp-action-strip {
+    display: contents;
+  }
+
+  #checkSingleBtn {
+    order: 1;
+    width: 100%;
+    min-height: 52px;
+    font-size: 1rem;
+    justify-content: center;
+  }
+
+  .tp-feedback {
+    order: 2;
+    margin-top: 0;
+    padding: 0.95rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tp-feedback-text {
+    flex: 1 1 calc(100% - 2.4rem);
+  }
+
+  /* pomôcky sú v lište aj v hlásení – samostatné tlačidlá a „Pozrieť postup“ netreba */
+  .tp-help-btns {
+    display: none;
+  }
+
+  #evalOpenSolutionBtn {
+    flex: 1 1 100%;
+    justify-content: center;
+    margin-top: 0.25rem;
+  }
+
+  .tp-qfoot {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 48;
+    margin: 0;
+    padding: 0.6rem 0.75rem calc(0.6rem + env(safe-area-inset-bottom));
+    gap: 0.45rem;
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--tp-line);
+    box-shadow: 0 -8px 24px -12px rgba(21, 26, 45, 0.18);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .tp-qfoot.is-offscreen,
+  body.is-typing .tp-qfoot {
+    transform: translateY(115%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #prevQuestionBtn {
+    position: relative;
+    width: 46px;
+    min-height: 46px;
+    padding: 0;
+    flex-shrink: 0;
+    justify-content: center;
+  }
+
+  #prevQuestionBtn span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  #nextQuestionBtn {
+    min-height: 46px;
+    padding: 0.6rem 1rem;
+    font-size: 0.94rem;
+    flex-shrink: 0;
+  }
+
+  #footerPositionText {
+    flex: 1;
+    text-align: center;
+    font-size: 0.86rem;
+  }
+
+  body.tp-help-unlocked .tp-nav-tools {
+    display: flex;
+  }
+
+  body.tp-help-unlocked #footerPositionText {
+    display: none;
+  }
+
+  /* miesto pod obsahom, aby lišta nezakrývala pätičku ani posledné tlačidlá */
+  body.tp-page:not(.tp-intro-active) .ms-footer {
+    padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+  }
+
+  body.tp-page:not(.tp-intro-active) .t9-toast {
+    bottom: calc(5.2rem + env(safe-area-inset-bottom));
+  }
+}
+
+@media print {
+  .tp-qfoot {
+    position: static !important;
+  }
+}
+
+/* Najužšie telefóny (do 360 px): „Vyhodnotiť“ len ako ikona (názov ostáva pre čítačky),
+   aby sa zmestil štítok režimu; spodná lišta s menšími medzerami, aby „Ďalšia úloha“ nesiahala po okraj */
+@media (max-width: 360px) {
+  .tp-eval-btn .tp-eval-short {
+    display: none;
+  }
+
+  .tp-eval-btn {
+    padding: 0.45rem 0.55rem;
+  }
+
+  .tp-qfoot {
+    gap: 0.35rem;
+    padding-inline: 0.6rem;
+  }
+
+  .tp-nav-tools {
+    gap: 0.35rem;
+  }
+
+  .tp-nav-tool {
+    width: 42px;
+    height: 42px;
+  }
+
+  #prevQuestionBtn {
+    width: 42px;
+    min-height: 42px;
+  }
+
+  #nextQuestionBtn {
+    min-height: 42px;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.86rem;
+    gap: 0.35rem;
+  }
+}
+
+/* ===== Výsledkový panel na úzkom mobile ===== */
+/* Mapa odpovedí: 8 úloh ukážky v dvoch rovnakých radoch po 4 (nie 6 + 2) */
+@media (max-width: 480px) {
+  .tp-map-cells {
+    display: grid;
+    grid-template-columns: repeat(4, 44px);
+    gap: 0.4rem;
+  }
+
+  .tp-map-cell {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Dlaždice výsledku pod sebou s ikonou vľavo – v troch stĺpcoch sa „1 min“ lámalo a popis bol stiesnený */
+@media (max-width: 400px) {
+  .tp-res-tiles {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 20rem;
+  }
+
+  .tp-tile {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: 0.6rem 0.85rem;
+    text-align: left;
+  }
+
+  .tp-tile-txt {
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 0.45rem;
+  }
+
+  .tp-tile-txt strong {
+    white-space: nowrap;
+  }
+}
+
+/* ===== Široká tabuľka v ukážke: nápoveda a tiene pri okrajoch ===== */
+.tp-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 1.1rem 0 0.45rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--tp-brand);
+  text-indent: 0;
+}
+
+.tp-scroll-hint.hidden {
+  display: none;
+}
+
+.tp-scroll-hint .hp-ico {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  animation: tpNudge 1.4s ease-in-out 3;
+}
+
+.tp-scroll-hint.is-used {
+  color: var(--tp-ink-3);
+}
+
+.tp-scroll-hint.is-used .hp-ico {
+  animation: none;
+}
+
+@keyframes tpNudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+.tp-scroll-frame {
+  position: relative;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.tp-scroll-hint + .tp-scroll-frame {
+  margin-top: 0;
+}
+
+.tp-scroll-frame .ms-table-wrap {
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tp-scroll-frame .ms-table-wrap:focus-visible {
+  outline: 2px solid var(--tp-brand);
+  outline-offset: 3px;
+}
+
+.tp-scroll-frame::before,
+.tp-scroll-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 28px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.tp-scroll-frame::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(21, 26, 45, 0.16), rgba(21, 26, 45, 0));
+}
+
+.tp-scroll-frame::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(21, 26, 45, 0.16), rgba(21, 26, 45, 0));
+}
+
+.tp-scroll-frame.can-left::before,
+.tp-scroll-frame.can-right::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tp-scroll-hint .hp-ico {
+    animation: none;
+  }
 }

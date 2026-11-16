@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Doménu doplň po kúpe (src/lib/site.ts)
-Sitemap: https://maturita-sjl.netlify.app/sitemap.xml
+# Doména je aj v src/lib/site.ts (SITE_URL)
+Sitemap: https://pisomnematurity.sk/sitemap.xml

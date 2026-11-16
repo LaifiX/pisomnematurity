@@ -5,8 +5,10 @@ import SeoHead from '../components/SeoHead.astro';
 import { ALLOW_INDEXING } from '../lib/site';
 import MsHeader from '../components/MsHeader.astro';
 import MsFooter from '../components/MsFooter.astro';
+import BrandMark from '../components/BrandMark.astro';
 import { maturitaCatalog } from '../data/maturitaCatalog';
-import { slohoveUtvary } from '../data/sloh';
+import { slohoveUtvary, temy, PROJEKT } from '../data/sloh';
+const slohCount = (slug: string) => temy.filter((t) => t.slug === slug).length;
 import { MATH_SITE_URL, CONTACT_EMAIL } from '../lib/site';
 import { I, icon } from '../lib/icons';
 
@@ -45,7 +47,7 @@ const faqs = [
 <html lang="sk">
   <head>
     <SeoHead
-      title={`Maturita zo slovenčiny online – testy ${yearsRange} s riešením a slohové útvary`}
+      title={`Písomné maturity – maturita zo slovenčiny: testy ${yearsRange} a sloh`}
       description={`Bezplatná príprava na maturitu zo slovenského jazyka a literatúry: oficiálne testy externej časti ${yearsRange} s nápovedou a postupom riešenia a prehľad slohových útvarov.`}
       path="/"
       themeColor="#1e2a5e"
@@ -61,6 +63,22 @@ const faqs = [
     <main id="obsah">
       <section class="ms-hero">
         <div class="ms-wrap">
+          <div class="ms-utility">
+            <div class="ms-utility-acts">
+              <button class="ms-chip" type="button" data-install="any" title="Pridať stránku na plochu ako aplikáciu">
+                <Fragment set:html={icon(I.appAdd)} />
+                <span>Pridať na plochu</span>
+              </button>
+              <button class="ms-chip" type="button" data-share title="Zdieľať odkaz na stránku">
+                <Fragment set:html={icon(I.share)} />
+                <span data-share-label>Zdieľať</span>
+              </button>
+              <a class="ms-chip is-support" href="#podpora">
+                <Fragment set:html={icon(I.heart)} />
+                <span>Podporiť</span>
+              </a>
+            </div>
+          </div>
           <div class="ms-hero-grid">
             <div>
               <span class="ms-eyebrow">Slovenský jazyk a&nbsp;literatúra</span>
@@ -83,6 +101,7 @@ const faqs = [
                 <li><Fragment set:html={icon(I.user)} />Bez registrácie</li>
                 <li><Fragment set:html={icon(I.phone)} />Na počítači aj v&nbsp;mobile</li>
                 <li><Fragment set:html={icon(I.heart)} />Zadarmo, bez reklám</li>
+                <li class="ms-visits hidden" id="visitsBox"><Fragment set:html={icon(I.eye)} /><span><strong id="visitsCount">0</strong> <span id="visitsLabel">návštev</span></span></li>
               </ul>
             </div>
 
@@ -135,24 +154,36 @@ const faqs = [
             </div>
           </div>
           <div class="ms-tests">
-            {tests.map((t) => (
-              <article class="ms-test">
-                <span class="ms-test-term">Riadny termín · {t.schoolYear}</span>
-                <span class="ms-test-year">{t.year}</span>
-                <ul class="ms-test-specs">
-                  <li>{t.questionsCount}&nbsp;úloh · {t.durationMinutes}&nbsp;minút</li>
-                  <li>{t.passagesCount}&nbsp;ukážok · ©&nbsp;NIVaM</li>
-                </ul>
-                <div class="ms-test-foot">
-                  {t.status === 'ready' ? (
-                    <a class="ms-dot" href={`/test/${t.slug}/`}>Spustiť test</a>
-                  ) : (
+            {tests.map((t) =>
+              t.status === 'ready' ? (
+                <a class="ms-test" href={`/test/${t.slug}/`} data-test-card={t.slug} data-total={t.questionsCount}>
+                  <span class="ms-test-term">Riadny termín {t.schoolYear}</span>
+                  <span class="ms-test-year">{t.year}</span>
+                  <ul class="ms-test-specs">
+                    <li>{t.questionsCount}&nbsp;úloh · {t.durationMinutes}&nbsp;minút</li>
+                    <li>{t.passagesCount}&nbsp;ukážok · ©&nbsp;NIVaM</li>
+                  </ul>
+                  <div class="ms-saved hidden" data-saved-slot></div>
+                  <div class="ms-test-foot">
+                    <span class="ms-dot" data-cta>Spustiť test</span>
+                    <Fragment set:html={icon(I.arrow)} />
+                  </div>
+                </a>
+              ) : (
+                <article class="ms-test">
+                  <span class="ms-test-term">Riadny termín {t.schoolYear}</span>
+                  <span class="ms-test-year">{t.year}</span>
+                  <ul class="ms-test-specs">
+                    <li>{t.questionsCount}&nbsp;úloh · {t.durationMinutes}&nbsp;minút</li>
+                    <li>{t.passagesCount}&nbsp;ukážok · ©&nbsp;NIVaM</li>
+                  </ul>
+                  <div class="ms-test-foot">
                     <span class="ms-dot">Pripravujeme</span>
-                  )}
-                  <Fragment set:html={icon(t.status === 'ready' ? I.arrow : I.hourglass)} />
-                </div>
-              </article>
-            ))}
+                    <Fragment set:html={icon(I.hourglass)} />
+                  </div>
+                </article>
+              )
+            )}
           </div>
         </div>
       </section>
@@ -173,20 +204,23 @@ const faqs = [
             </div>
           </div>
           <div class="ms-sloh-grid">
-            {slohoveUtvary.map((u, i) => (
+            {slohoveUtvary.map((u) => (
               <a class="ms-utvar" href={`/sloh/${u.slug}/`}>
-                <span class="ms-utvar-num">{String(i + 1).padStart(2, '0')}</span>
+                <span class="ms-utvar-num">{slohCount(u.slug)}× na maturite</span>
                 <h3>{u.name}</h3>
                 <p set:html={u.short} />
                 <Fragment set:html={icon(I.arrow)} />
               </a>
             ))}
           </div>
-          <div style="margin-top: 1.75rem">
+          <div class="ms-sloh-foot">
             <a class="ms-btn ms-btn-ghost" href="/sloh/#prehlad">
               Prehľad tém 2007 – 2026
               <Fragment set:html={icon(I.arrow)} />
             </a>
+            <p class="ms-sloh-origin">
+              Vychádza z&nbsp;učebných materiálov <a href="/sloh/#povod">{PROJEKT.series}</a>, ktoré vznikli v&nbsp;projekte EÚ {PROJEKT.name} ({PROJEKT.year}).
+            </p>
           </div>
         </div>
       </section>
@@ -254,46 +288,311 @@ const faqs = [
         </div>
       </section>
 
-      <section class="ms-sec" id="autor">
+      <section class="ms-sec" id="autor" aria-labelledby="ms-autor-name">
         <div class="ms-wrap">
-          <div class="ms-guarantor">
-            <img src="/images/autor-peter.webp" alt="Peter Beňo" width="132" height="132" />
-            <div>
-              <blockquote>Nápovedy a&nbsp;postupy riešenia pripravuje a&nbsp;kontroluje učiteľ slovenčiny, aby boli presné a&nbsp;zrozumiteľné.</blockquote>
-              <div class="ms-guarantor-name">
-                <strong>Peter Beňo</strong>
-                <span>bývalý učiteľ slovenského jazyka a&nbsp;literatúry na strednej škole · garant riešení</span>
+          <article class="ms-guarantor">
+            <span class="ms-guarantor-photo">
+              <img src="/images/autor-peter-trencin.webp" alt="Peter Beňo pred Trenčianskym hradom" width="800" height="924" loading="lazy" decoding="async" />
+            </span>
+            <div class="ms-guarantor-body">
+              <h3 id="ms-autor-name">Peter Beňo</h3>
+              <div class="ms-roles">
+                <span class="ms-role">Bývalý učiteľ strednej školy</span>
+                <span class="ms-role is-guarantor"><Fragment set:html={icon(I.checkCircle)} />Garant riešení</span>
               </div>
+              <p>
+                Ako bývalý stredoškolský učiteľ ručí za&nbsp;správnosť výsledkov, nápovied aj&nbsp;postupov riešenia a&nbsp;dbá na&nbsp;to, aby bol každý postup zrozumiteľný pre&nbsp;každého žiaka a&nbsp;umožnil mu riešenie pochopiť. Jeho špecializáciou bolo vydolovať aj&nbsp;z&nbsp;tých najlenivejších žiakov najlepší možný výsledok&nbsp;– dôkazom boli ich jednotky a&nbsp;dvojky z&nbsp;maturity.
+              </p>
             </div>
-          </div>
+          </article>
 
-          <div class="ms-sisters">
-            <a class="ms-sister" href={SJL9_SITE_URL} target="_blank" rel="noopener noreferrer">
-              <span class="ms-sister-logo" style="background: linear-gradient(150deg, #ca4675, #92144a)">T9</span>
-              <span><small>Testovanie 9 zo slovenčiny</small><strong>monitorsolina.sk</strong></span>
-              <Fragment set:html={icon(I.external)} />
-            </a>
-            <a class="ms-sister" href={MATH_SITE_URL} target="_blank" rel="noopener noreferrer">
-              <span class="ms-sister-logo" style="background: #2457e6">T9</span>
-              <span><small>Testovanie 9 z&nbsp;matematiky</small><strong>monitormatika.sk</strong></span>
-              <Fragment set:html={icon(I.external)} />
-            </a>
-          </div>
+          <aside class="ms-volunteer" id="podpora" aria-labelledby="ms-volunteer-title">
+            <span class="ms-volunteer-ico" aria-hidden="true"><Fragment set:html={icon(I.heart)} /></span>
 
-          <aside class="ms-volunteer">
-            <div>
-              <h3>Stránku tvoríme dobrovoľne, vo voľnom čase</h3>
-              <p>Príprava je pre žiakov aj učiteľov bezplatná a&nbsp;bez reklám. Jediným nákladom je prenájom domény. Radi privítame partnerov a&nbsp;sponzorov, ktorí nám symbolickým príspevkom pomôžu zachovať stránku dostupnú aj pre ďalšie ročníky.</p>
+            <div class="ms-volunteer-main">
+              <div class="ms-volunteer-txt">
+                <span class="ms-volunteer-kicker">Podpor stránku</span>
+                <h3 id="ms-volunteer-title">Stránku tvoríme dobrovoľne, vo&nbsp;voľnom čase</h3>
+                <p>
+                  Táto stránka je bezplatná. Ak ti priniesla hodnotu a&nbsp;pomohla ti, môžeš sa&nbsp;rozhodnúť ju podporiť dobrovoľným príspevkom, ktorý bude použitý <strong>výlučne len na&nbsp;prenájom domény pre&nbsp;ďalšie roky</strong>, aby mohla byť k&nbsp;dispozícii aj pre&nbsp;tvojich mladších spolužiakov.
+                </p>
+              </div>
+
+              <div class="ms-pay-bar">
+                <div class="ms-pay-info">
+                  <code class="ms-pay-iban">SK97 1100 0000 0029 3029 3777</code>
+                  <span class="ms-pay-sub">Príjemca: <strong>Beňo Peter, Mgr</strong> · Správa: <strong>Dar - pisomnematurity.sk</strong></span>
+                </div>
+                <button
+                  type="button"
+                  class="ms-btn ms-btn-ghost ms-btn-sm ms-pay-copy"
+                  id="copyIbanBtn"
+                  data-iban="SK9711000000002930293777"
+                >
+                  <Fragment set:html={icon(I.copy)} />
+                  <span id="copyIbanLabel">Skopírovať IBAN</span>
+                </button>
+              </div>
+
+              <p class="ms-volunteer-legal">
+                Dobrovoľný dar je bezodplatný, bez protihodnoty a&nbsp;bez vplyvu na&nbsp;voľný prístup k&nbsp;testom a&nbsp;slohovým útvarom.
+                <button type="button" class="ms-legal-link" id="openLegalBtn">Podmienky darovania a&nbsp;ochrana osobných údajov (GDPR)</button>
+              </p>
             </div>
-            <a class="ms-btn ms-btn-primary ms-btn-sm" href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Podpora projektu Maturita zo SJL')}`}>
-              <Fragment set:html={icon(I.mail)} />
-              Chcem projekt podporiť
-            </a>
+
+            <figure class="ms-qr-card">
+              <img src="/images/qr-dar.svg" alt="PAY by square QR kód na dobrovoľný dar s predvyplnenou správou Dar - pisomnematurity.sk" width="148" height="148" loading="lazy" />
+              <figcaption>
+                <strong>PAY by square</strong>
+                <small>Naskenuj v&nbsp;bankovej appke</small>
+              </figcaption>
+            </figure>
           </aside>
+
+          <div class="ms-siblings">
+            <h3>Ak máš mladšieho súrodenca, možno ho bude zaujímať</h3>
+            <div class="ms-sisters">
+              <a class="ms-sister" href={SJL9_SITE_URL} target="_blank" rel="noopener noreferrer">
+                <span class="ms-sister-logo" style="background: linear-gradient(150deg, #ca4675, #92144a)">T9</span>
+                <span><small>Testovanie 9 zo slovenčiny</small><strong>monitorsolina.sk</strong></span>
+                <Fragment set:html={icon(I.external)} />
+              </a>
+              <a class="ms-sister" href={MATH_SITE_URL} target="_blank" rel="noopener noreferrer">
+                <span class="ms-sister-logo" style="background: #2457e6">T9</span>
+                <span><small>Testovanie 9 z&nbsp;matematiky</small><strong>monitormatika.sk</strong></span>
+                <Fragment set:html={icon(I.external)} />
+              </a>
+            </div>
+          </div>
+
+          <div class="ms-partner">
+            <span>Projekt podporili</span>
+            <a href="https://www.kyticaodsrdca.sk/" target="_blank" rel="noopener noreferrer">
+              <img src="/images/partner-kytica-od-srdca.webp" alt="Kytica od srdca" width="76" height="76" loading="lazy" decoding="async" />
+              <small>kyticaodsrdca.sk</small>
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
     <MsFooter />
+
+    <div class="ms-modal-backdrop hidden" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+      <div class="ms-modal">
+        <div class="ms-modal-head">
+          <div class="ms-modal-title">
+            <BrandMark size={36} class="ms-modal-mark" />
+            <div>
+              <span class="ms-modal-eyebrow">Informácie pre darcov</span>
+              <h3 id="legalModalTitle">Podmienky darovania a&nbsp;ochrana osobných údajov (GDPR)</h3>
+            </div>
+          </div>
+          <button class="ms-modal-close" type="button" id="closeLegalBtn" aria-label="Zavrieť okno">
+            <Fragment set:html={icon(I.x)} />
+          </button>
+        </div>
+        <div class="ms-modal-body ms-legal-body">
+          <h4>1. Právna povaha dobrovoľného daru</h4>
+          <p>
+            Peňažný príspevok zaslaný na uvedený bankový účet alebo prostredníctvom QR&nbsp;kódu (PAY by square) je dobrovoľným a&nbsp;bezodplatným darom fyzickej osobe v&nbsp;zmysle §&nbsp;628 a&nbsp;nasl. Občianskeho zákonníka, určeným výlučne na úhradu prenájmu domény portálu <strong>Písomné maturity</strong> (pisomnematurity.sk).
+            Odoslaním daru nevzniká darcovi nárok na žiadnu protihodnotu, tovar, službu ani reklamné plnenie. Prístup ku všetkým testom, nápovedám, postupom riešenia aj slohovým útvarom je a&nbsp;ostáva bezplatný pre každého bez ohľadu na poskytnutie daru. Nejde o&nbsp;verejnú zbierku podľa zákona č.&nbsp;162/2014&nbsp;Z.&nbsp;z.
+          </p>
+
+          <h4>2. Prevádzkovateľ osobných údajov (čl. 13 GDPR)</h4>
+          <p>
+            Prevádzkovateľom je <strong>Mgr.&nbsp;Peter&nbsp;Beňo</strong> (<a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Ochrana osobných údajov – Písomné maturity')}`}>kontaktovať e-mailom</a>).
+          </p>
+
+          <h4>3. Rozsah, účel a právny základ spracúvania</h4>
+          <p>
+            Pri bezhotovostnom prevode daru sa na bankovom výpise príjemcu zobrazia údaje odosielateľa v&nbsp;rozsahu sprístupnenom bankou (meno a&nbsp;priezvisko alebo názov účtu, IBAN, suma a&nbsp;správa pre prijímateľa).
+            Údaje sa spracúvajú výlučne na účely evidencie prijatého daru, preukázania pôvodu prostriedkov a&nbsp;plnenia povinností podľa osobitných predpisov (čl.&nbsp;6 ods.&nbsp;1 písm.&nbsp;c) a&nbsp;f) nariadenia GDPR a&nbsp;zákon č.&nbsp;18/2018&nbsp;Z.&nbsp;z.).
+          </p>
+
+          <h4>4. Príjemcovia a doba uchovávania údajov</h4>
+          <p>
+            Údaje sú evidované v&nbsp;systéme banky príjemcu (Tatra banka,&nbsp;a.&nbsp;s.) a&nbsp;prípadne sprístupnené orgánom verejnej moci, ak to vyžaduje zákon. Mená ani iné údaje darcov sa na stránke <strong>nikdy nezverejňujú</strong> a&nbsp;neposkytujú sa tretím stranám na marketingové účely.
+            Bankové výpisy sa uchovávajú po dobu vyžadovanú príslušnými bankovými a&nbsp;daňovými predpismi SR (najviac 10&nbsp;rokov po skončení roka, v&nbsp;ktorom bol dar prijatý).
+          </p>
+
+          <h4>5. Práva dotknutej osoby (darcu)</h4>
+          <p>
+            Darca má podľa čl.&nbsp;15 až&nbsp;22 GDPR právo požadovať od prevádzkovateľa prístup k&nbsp;svojim osobným údajom, ich opravu, vymazanie alebo obmedzenie spracúvania (v&nbsp;rozsahu, v&nbsp;akom to neodporuje zákonnej povinnosti archivácie bankových výpisov), právo namietať proti spracúvaniu a&nbsp;právo podať návrh na začatie konania na <strong>Úrad na ochranu osobných údajov SR</strong> (dataprotection.gov.sk).
+          </p>
+        </div>
+        <div class="ms-modal-foot">
+          <button class="ms-btn ms-btn-primary ms-btn-sm" type="button" id="okLegalBtn">Rozumiem</button>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline src="/pwa.js"></script>
+    <script is:inline>
+      // Návštevnosť (Netlify funkcia /api/stats): návšteva sa zapíše raz za reláciu prehliadača.
+      // Lokálne alebo pri výpadku sa počítadlo jednoducho nezobrazí.
+      (function () {
+        var box = document.getElementById('visitsBox');
+        if (!box || typeof fetch !== 'function') return;
+        var KEY = 'maturitasjl_visited_session';
+        var first = true;
+        try { first = !sessionStorage.getItem(KEY); } catch (e) {}
+        fetch('/api/stats', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(first ? { visit: true } : {})
+        })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) {
+            if (!d || typeof d.visits !== 'number') return;
+            try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+            var n = d.visits;
+            document.getElementById('visitsCount').textContent = n.toLocaleString('sk-SK');
+            document.getElementById('visitsLabel').textContent = n === 1 ? 'návšteva' : n >= 2 && n <= 4 ? 'návštevy' : 'návštev';
+            box.classList.remove('hidden');
+          })
+          .catch(function () {});
+      })();
+    </script>
+    <script is:inline>
+      // Stav testov na kartách ročníkov (len z tohto prehliadača): rozpracovaný, vyhodnotený, posledný výsledok
+      (function () {
+        const read = (k) => {
+          try {
+            return JSON.parse(localStorage.getItem(k) || 'null');
+          } catch (e) {
+            return null;
+          }
+        };
+        const pct = (a, b) => Math.max(0, Math.min(100, Math.round((a / b) * 100)));
+        document.querySelectorAll('[data-test-card]').forEach((card) => {
+          const slug = card.getAttribute('data-test-card');
+          const total = Number(card.getAttribute('data-total')) || 64;
+          const slot = card.querySelector('[data-saved-slot]');
+          const cta = card.querySelector('[data-cta]');
+          const st = read('maturitasjl_test_' + slug + '_v1');
+          const snap = read('maturitasjl_result_' + slug + '_v1');
+          const last = read('maturitasjl_last_' + slug + '_v1');
+          const best = snap && typeof snap.correct === 'number' ? snap : last && typeof last.correct === 'number' ? last : null;
+          const bestTotal = best ? best.total || total : total;
+          const score = best ? `${best.correct}/${bestTotal} · ${pct(best.correct, bestTotal)} %` : '';
+          const answered = st && st.userAnswers ? Object.keys(st.userAnswers).filter((k) => String(st.userAnswers[k]).trim() !== '').length : 0;
+          const bar = (w) => `<span class="ms-saved-track"><span style="width:${w}%"></span></span>`;
+          const show = (cls, label, value, w, extra) => {
+            slot.className = 'ms-saved ' + cls;
+            slot.innerHTML = `<span class="ms-saved-row"><span>${label}</span><b>${value}</b></span>${bar(w)}${extra || ''}`;
+          };
+
+          if (st && st.isEvaluated) {
+            show('is-done', 'Vyhodnotený', score || `${answered}/${total}`, best ? pct(best.correct, bestTotal) : 100);
+            cta.textContent = 'Pozrieť výsledok';
+            card.setAttribute('href', `/test/${slug}/#vysledok`);
+            card.setAttribute('aria-label', `Maturita ${slug.replace('ms-', '')}: vyhodnotený, ${score}. Pozrieť výsledok`);
+          } else if (answered > 0) {
+            show('is-progress', 'Rozpracovaný', `${answered}/${total} úloh`, pct(answered, total), best ? `<span class="ms-saved-note">Posledný výsledok ${score}</span>` : '');
+            cta.textContent = 'Pokračovať';
+            card.setAttribute('aria-label', `Maturita ${slug.replace('ms-', '')}: rozpracovaný, ${answered} z ${total} úloh. Pokračovať`);
+          } else if (best) {
+            show('is-last', 'Posledný výsledok', score, pct(best.correct, bestTotal));
+            cta.textContent = 'Skúsiť znova';
+          }
+        });
+      })();
+
+      (function () {
+        const CHECK_PATH = '<path d="M20 6 9 17l-5-5"/>';
+        const copyBtn = document.getElementById('copyIbanBtn');
+        const copyLabel = document.getElementById('copyIbanLabel');
+        let copyTimer = null;
+        let toastEl = null;
+        let toastTimer = null;
+
+        function showToast(msg) {
+          if (!toastEl) {
+            toastEl = document.createElement('div');
+            toastEl.className = 'ms-toast hidden';
+            toastEl.setAttribute('role', 'status');
+            toastEl.setAttribute('aria-live', 'polite');
+            document.body.appendChild(toastEl);
+          }
+          toastEl.textContent = msg;
+          toastEl.classList.remove('hidden');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => toastEl.classList.add('hidden'), 2600);
+        }
+
+        async function copyText(text) {
+          if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            try {
+              await navigator.clipboard.writeText(text);
+              return true;
+            } catch (e) {}
+          }
+          try {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            ta.style.pointerEvents = 'none';
+            document.body.appendChild(ta);
+            ta.select();
+            const ok = document.execCommand('copy');
+            document.body.removeChild(ta);
+            return ok;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        if (copyBtn && copyLabel) {
+          copyBtn.addEventListener('click', async () => {
+            const iban = copyBtn.dataset.iban || 'SK9711000000002930293777';
+            const ok = await copyText(iban);
+            if (ok) {
+              const svg = copyBtn.querySelector('svg');
+              if (svg && !copyBtn.dataset.origSvg) copyBtn.dataset.origSvg = svg.innerHTML;
+              if (svg) svg.innerHTML = CHECK_PATH;
+              copyLabel.textContent = 'Skopírované!';
+              copyBtn.classList.add('is-copied');
+              showToast('IBAN bol skopírovaný do schránky.');
+              clearTimeout(copyTimer);
+              copyTimer = setTimeout(() => {
+                if (svg && copyBtn.dataset.origSvg) svg.innerHTML = copyBtn.dataset.origSvg;
+                copyLabel.textContent = 'Skopírovať IBAN';
+                copyBtn.classList.remove('is-copied');
+              }, 2400);
+            } else {
+              window.prompt('Skopíruj IBAN:', iban);
+            }
+          });
+        }
+
+        const legalModal = document.getElementById('legalModal');
+        const openLegalBtn = document.getElementById('openLegalBtn');
+        const closeLegalBtn = document.getElementById('closeLegalBtn');
+        const okLegalBtn = document.getElementById('okLegalBtn');
+
+        function toggleLegal(show) {
+          if (!legalModal) return;
+          legalModal.classList.toggle('hidden', !show);
+          document.body.style.overflow = show ? 'hidden' : '';
+          if (show) closeLegalBtn?.focus();
+          else openLegalBtn?.focus();
+        }
+
+        openLegalBtn?.addEventListener('click', () => toggleLegal(true));
+        closeLegalBtn?.addEventListener('click', () => toggleLegal(false));
+        okLegalBtn?.addEventListener('click', () => toggleLegal(false));
+        legalModal?.addEventListener('click', (e) => {
+          if (e.target === legalModal) toggleLegal(false);
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && legalModal && !legalModal.classList.contains('hidden')) {
+            toggleLegal(false);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

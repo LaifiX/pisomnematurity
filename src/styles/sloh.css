@@ -49,12 +49,23 @@
 }
 
 .sl-num {
-  display: block;
-  margin-bottom: 0.6rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+  font-family: var(--ms-head);
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 450;
   color: var(--ms-accent);
+}
+
+.sl-num::before {
+  flex-shrink: 0;
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: currentColor;
 }
 
 .sl-hero h1 {
@@ -77,7 +88,7 @@
   gap: 1px;
   margin: 2.5rem 0 0;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
+  border-radius: var(--ms-radius);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.12);
 }
@@ -88,10 +99,8 @@
 }
 
 .sl-facts dt {
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 550;
   color: var(--ms-on-dark-2);
 }
 
@@ -125,9 +134,10 @@
 .sl-toc strong {
   display: block;
   margin-bottom: 0.75rem;
-  font-size: 0.74rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-family: var(--ms-head);
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 450;
   color: var(--ms-ink-3);
 }
 
@@ -159,7 +169,7 @@
 }
 
 .sl-sec {
-  scroll-margin-top: 90px;
+  scroll-margin-top: 0;
   padding-bottom: 3rem;
   margin-bottom: 3rem;
   border-bottom: 1px solid var(--ms-line);
@@ -170,13 +180,16 @@
   margin-bottom: 0;
 }
 
+/* kapitoly príručky – číslo ako v knihe, nie ako štítok */
 .sl-sec-num {
   display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--ms-accent);
+  margin-bottom: 0.35rem;
+  font-family: var(--ms-head);
+  font-size: 1.05rem;
+  font-weight: 450;
+  font-style: italic;
+  font-variant-numeric: oldstyle-nums;
+  color: var(--ms-accent-ink);
 }
 
 .sl-sec h2 {
@@ -239,7 +252,7 @@
 
 .sl-card {
   padding: 1.1rem 1.2rem 1.15rem;
-  border-radius: 14px;
+  border-radius: var(--ms-radius);
   background: var(--ms-paper);
   border: 1px solid var(--ms-line);
 }
@@ -333,7 +346,7 @@
 /* rady */
 .sl-tips {
   padding: 1.6rem 1.75rem;
-  border-radius: 18px;
+  border-radius: var(--ms-radius);
   background: var(--ms-accent-soft);
 }
 
@@ -568,7 +581,7 @@
 
 .sl-crit-card {
   padding: 1.1rem 1.2rem;
-  border-radius: 14px;
+  border-radius: var(--ms-radius);
   background: var(--ms-paper);
   border: 1px solid var(--ms-line);
 }
@@ -703,7 +716,7 @@
 .sl-pager a {
   display: block;
   padding: 1.1rem 1.25rem;
-  border-radius: 16px;
+  border-radius: var(--ms-radius);
   background: var(--ms-paper);
   border: 1px solid var(--ms-line);
   text-decoration: none;
@@ -740,61 +753,453 @@
 }
 
 /* ---------- Prehľad /sloh/ ---------- */
-.sl-index-grid {
+
+/* úvod s titulnou stranou prezentácií */
+.sl-hero-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 3.5rem;
+  align-items: center;
 }
 
-.sl-icard {
+.sl-title-page {
+  margin: 0 1.25rem 0 0;
+}
+
+.sl-tp-stack {
+  position: relative;
+}
+
+.sl-tp-sheet {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: #e9e4d8;
+  border: 1px solid rgba(17, 22, 45, 0.18);
+  transform: translate(10px, 10px) rotate(1.4deg);
+}
+
+.sl-tp-sheet + .sl-tp-sheet {
+  background: #f1ede3;
+  transform: translate(5px, 5px) rotate(0.6deg);
+}
+
+.sl-tp-front {
+  position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 210px;
-  padding: 1.4rem 1.35rem;
-  border-radius: 18px;
-  background: var(--ms-paper);
-  border: 1px solid var(--ms-line);
-  text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  min-height: 360px;
+  padding: 1.6rem 1.75rem 1.4rem;
+  border-radius: 4px;
+  background: #ffffff;
+  color: var(--ms-ink);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+  text-align: center;
 }
 
-.sl-icard:hover {
-  transform: translateY(-3px);
-  border-color: var(--ms-line-2);
-  box-shadow: 0 24px 40px -26px rgba(20, 24, 50, 0.4);
-}
-
-.sl-icard h3 {
-  margin: 0.7rem 0 0.45rem;
-  font-size: 1.35rem;
-}
-
-.sl-icard p {
+.sl-tp-front p {
   margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.55;
+}
+
+/* hlavička titulnej strany ako v origináli: logá a svetlomodrý pás */
+.sl-tp-logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: -0.4rem 0 0.6rem;
+}
+
+.sl-tp-logos img {
+  display: block;
+  height: 54px;
+  width: auto;
+  min-width: 0;
+  object-fit: contain;
+}
+
+.sl-tp-logos img:nth-child(2) {
+  height: auto;
+  width: 46%;
+  max-height: 46px;
+}
+
+.sl-tp-band {
+  margin: 0 -1.75rem !important;
+  padding: 0.35rem 1rem;
+  background: #95b3d7;
+  color: #10183a;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.sl-tp-project {
+  margin-top: 1rem !important;
+  font-size: 0.8rem;
+  line-height: 1.5;
   color: var(--ms-ink-2);
 }
 
-.sl-icard-foot {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: auto;
-  padding-top: 1rem;
-  font-size: 0.82rem;
-  font-weight: 700;
+.sl-tp-project b {
+  color: var(--ms-brand);
+}
+
+.sl-tp-title {
+  margin: auto 0 !important;
+  padding: 1.5rem 0;
+  font-family: var(--ms-head);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.4vw, 1.95rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ms-brand);
+  text-wrap: balance;
+}
+
+.sl-tp-author {
+  font-size: 0.86rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.sl-tp-author span {
+  font-weight: 450;
+  font-size: 0.78rem;
   color: var(--ms-ink-3);
 }
 
-.sl-icard-foot .hp-ico {
-  color: var(--ms-accent);
+.sl-tp-place {
+  margin-top: 0.8rem !important;
+  font-family: var(--ms-head);
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--ms-accent-ink);
+}
+
+.sl-tp-updated {
+  align-self: center;
+  margin-top: 0.55rem !important;
+  padding: 0.2rem 0.75rem;
+  border: 1px solid var(--ms-accent);
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 650;
+  color: var(--ms-accent-ink);
+  transform: rotate(-2deg);
+}
+
+.sl-title-page figcaption {
+  position: relative;
+  margin-top: 1.25rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--ms-on-dark-2);
+}
+
+.sl-title-page figcaption a {
+  color: var(--ms-on-dark);
+  font-weight: 650;
+  text-decoration-color: var(--ms-accent);
+  text-underline-offset: 3px;
+}
+
+/* obsah ako v knihe: názov, bodková čiara, počet */
+.sl-contents {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 3.5rem;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ms-ink);
+}
+
+.sl-contents li {
+  border-bottom: 1px solid var(--ms-line-2);
+}
+
+.sl-contents a {
+  display: block;
+  padding: 1.2rem 0 1.1rem;
+  text-decoration: none;
+}
+
+.sl-c-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.sl-c-name {
+  font-family: var(--ms-head);
+  font-weight: var(--ms-head-weight);
+  font-size: 1.45rem;
+  letter-spacing: var(--ms-head-track);
+  line-height: 1.2;
+  transition: color 0.15s ease;
+}
+
+.sl-c-lead {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 2px dotted var(--ms-line-2);
+  transform: translateY(-0.3em);
+}
+
+.sl-c-count {
+  font-family: var(--ms-head);
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--ms-accent-ink);
+}
+
+.sl-c-desc {
+  display: block;
+  margin-top: 0.3rem;
+  max-width: 30rem;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: var(--ms-ink-2);
+}
+
+.sl-c-bar {
+  display: block;
+  height: 3px;
+  margin-top: 0.85rem;
+  border-radius: 2px;
+  background: var(--ms-line);
+  overflow: hidden;
+}
+
+.sl-c-bar span {
+  display: block;
+  height: 100%;
+  background: var(--ms-accent);
+}
+
+.sl-contents a:hover .sl-c-name {
+  color: var(--ms-brand-2);
+}
+
+.sl-contents a:hover .sl-c-lead {
+  border-bottom-color: var(--ms-accent);
+}
+
+.sl-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.sl-aids {
+  margin: 1.5rem 0 0;
+  font-size: 0.92rem;
+  color: var(--ms-ink-3);
+}
+
+/* pôvod a literatúra */
+.sl-origin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 4rem;
+  align-items: start;
+}
+
+.sl-origin-story p {
+  margin: 0 0 1rem;
+  max-width: 36rem;
+  font-size: 1.04rem;
+  line-height: 1.75;
+  color: var(--ms-ink-2);
+  text-wrap: pretty;
+}
+
+.sl-origin-story cite,
+.sl-sources cite {
+  font-style: italic;
+  font-family: var(--ms-head);
+  font-size: 1.04em;
+  color: var(--ms-ink);
+}
+
+.sl-origin h3 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.sl-refs h3:first-child {
+  margin-top: 0;
+}
+
+.sl-decks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ms-line);
+}
+
+.sl-decks li {
+  border-bottom: 1px solid var(--ms-line);
+}
+
+.sl-decks a {
+  display: block;
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  color: var(--ms-ink-2);
+  text-decoration: none;
+}
+
+.sl-decks a:hover {
+  color: var(--ms-brand);
+}
+
+/* logá projektu (biely podklad – JPEG z prezentácie) */
+.sl-eu-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  margin: 1.5rem 0 0.5rem;
+  padding: 1rem 1.25rem;
+  max-width: 36rem;
+  border-radius: var(--ms-radius);
+  background: #ffffff;
+  border: 1px solid var(--ms-line);
+}
+
+.sl-eu-logos img {
+  display: block;
+  height: 64px;
+  width: auto;
+}
+
+.sl-eu-logos img:nth-child(2) {
+  height: 48px;
+}
+
+.sl-eu-logos.is-small {
+  max-width: none;
+  margin: 1rem 0 0;
+  padding: 0.75rem 0;
+  border: 0;
+  border-top: 1px solid var(--ms-line);
+  border-radius: 0;
+  background: transparent;
+  gap: 0.75rem 1.5rem;
+}
+
+.sl-eu-logos.is-small img {
+  height: 56px;
+  mix-blend-mode: multiply;
+}
+
+.sl-eu-logos.is-small img:nth-child(2) {
+  height: 42px;
+}
+
+.sl-origin-note {
+  margin-top: 1.25rem !important;
+  font-size: 0.92rem !important;
+  color: var(--ms-ink-3) !important;
+}
+
+.sl-refs {
+  padding: 1.75rem 1.9rem;
+  border-radius: var(--ms-radius);
+  background: var(--ms-paper);
+  border: 1px solid var(--ms-line);
+}
+
+.sl-refs-lead {
+  margin: -0.35rem 0 1rem;
+  font-size: 0.88rem;
+  color: var(--ms-ink-3);
+}
+
+/* bibliografia s visiacim odsadením */
+.sl-biblio {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sl-biblio li {
+  margin: 0 0 0.8rem;
+  padding-left: 1.6rem;
+  text-indent: -1.6rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ms-ink-2);
+  overflow-wrap: anywhere;
+}
+
+.sl-biblio li:last-child {
+  margin-bottom: 0;
+}
+
+.sl-biblio em {
+  color: var(--ms-ink);
+}
+
+.sl-biblio a {
+  color: var(--ms-brand);
+}
+
+/* stránka útvaru: karta prezentácie */
+.sl-src-card {
+  padding: 1.25rem 1.4rem;
+  border-left: 3px solid var(--ms-accent);
+  background: var(--ms-paper);
+  border-radius: 0 var(--ms-radius) var(--ms-radius) 0;
+}
+
+.sl-src-card p {
+  margin: 0;
+}
+
+.sl-src-deck {
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+.sl-src-meta {
+  margin-top: 0.3rem !important;
+  font-size: 0.9rem;
+  color: var(--ms-ink-3);
+}
+
+.sl-src-eu {
+  margin-top: 0.85rem !important;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--ms-line);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ms-ink-2);
+}
+
+.sl-sources .sl-src-h {
+  margin: 1.75rem 0 0.75rem;
+  font-size: 1.15rem;
+}
+
+.sl-sources .sl-credit {
+  margin-top: 1.75rem;
+}
+
+.sl-sources .sl-credit a {
+  color: var(--ms-brand);
 }
 
 /* mriežka rokov × útvarov */
 .sl-matrix-wrap {
   overflow-x: auto;
-  border-radius: 18px;
+  border-radius: var(--ms-radius);
   border: 1px solid var(--ms-line);
   background: var(--ms-paper);
 }
@@ -884,9 +1289,50 @@
 }
 
 /* ---------- Responzivita ---------- */
-@media (max-width: 1080px) {
-  .sl-index-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (max-width: 980px) {
+  .sl-hero-grid,
+  .sl-origin-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .sl-title-page {
+    max-width: 440px;
+  }
+
+  .sl-contents {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .sl-tp-front {
+    min-height: 280px;
+    padding: 1.3rem 1.2rem 1.2rem;
+  }
+
+  .sl-tp-band {
+    margin: 0 -1.2rem !important;
+  }
+
+  .sl-tp-logos img {
+    height: 42px;
+  }
+
+  .sl-tp-logos img:nth-child(2) {
+    max-height: 36px;
+  }
+
+  .sl-title-page {
+    margin-right: 0.75rem;
+  }
+
+  .sl-c-name {
+    font-size: 1.25rem;
+  }
+
+  .sl-refs {
+    padding: 1.35rem 1.2rem;
   }
 }
 
@@ -937,13 +1383,8 @@
 
   .sl-cards,
   .sl-crit,
-  .sl-index-grid,
   .sl-pager {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .sl-icard {
-    min-height: 0;
   }
 
   .sl-sample {
@@ -966,4 +1407,197 @@
   .sl-pager .is-next {
     text-align: left;
   }
+}
+
+/* Tlačidlo späť v omrvinkovej navigácii a pod obsahom útvaru */
+.sl-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-right: 0.6rem;
+  padding: 0.35rem 0.8rem 0.35rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff !important;
+  font-weight: 650;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.sl-back:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.sl-back .hp-ico {
+  width: 16px;
+  height: 16px;
+}
+
+.sl-back + a {
+  margin-left: 0.1rem;
+}
+
+.sl-back-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem;
+  padding: 0.6rem 1rem 0.6rem 0.8rem;
+  border-radius: var(--ms-radius-sm);
+  border: 1.5px solid var(--ms-line-2);
+  background: var(--ms-paper);
+  font-size: 0.92rem;
+  font-weight: 650;
+  color: var(--ms-ink);
+  text-decoration: none;
+}
+
+.sl-back-all:hover {
+  border-color: var(--ms-ink-3);
+}
+
+.sl-back-all .hp-ico {
+  width: 17px;
+  height: 17px;
+}
+
+/* ---------- Na oživenie: krátke AI video (YouTube až po kliknutí) ---------- */
+.sl-fun {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: center;
+  margin: -1rem 0 3rem;
+  padding: 1rem;
+  border-radius: var(--ms-radius);
+  border: 1px dashed var(--ms-line-2);
+  background: var(--ms-paper);
+}
+
+.sl-fun-player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--ms-radius-sm);
+  overflow: hidden;
+  background: var(--ms-dark);
+}
+
+.sl-fun-player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.sl-fun-poster {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  border: 0;
+  background:
+    radial-gradient(14rem 7rem at 85% 0%, rgba(176, 125, 35, 0.3), transparent 60%),
+    linear-gradient(160deg, #1b2448, var(--ms-dark));
+  cursor: pointer;
+}
+
+.sl-fun-poster:focus-visible {
+  outline: 3px solid var(--ms-accent);
+  outline-offset: -3px;
+}
+
+.sl-fun-play {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--ms-dark);
+  transition: transform 0.15s ease;
+}
+
+.sl-fun-poster:hover .sl-fun-play {
+  transform: scale(1.06);
+}
+
+.sl-fun-play .hp-ico {
+  width: 18px;
+  height: 18px;
+  margin-left: 3px;
+  fill: currentColor;
+}
+
+.sl-fun-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--ms-head);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ms-accent-ink);
+}
+
+.sl-fun-kicker .hp-ico {
+  width: 15px;
+  height: 15px;
+}
+
+.sl-content .sl-fun h2 {
+  margin: 0.15rem 0 0.35rem;
+  font-size: 1.15rem;
+}
+
+.sl-fun p {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ms-ink-3);
+}
+
+.sl-fun a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 650;
+  color: var(--ms-brand);
+  text-decoration: none;
+}
+
+.sl-fun a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sl-fun a .hp-ico {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 620px) {
+  .sl-fun {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* náhľadový obrázok z YouTube (4 : 3 s pásmi – orezaný na 16 : 9) */
+.sl-fun-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.sl-fun-poster:hover .sl-fun-thumb {
+  transform: scale(1.03);
+}
+
+.sl-fun-play {
+  position: relative;
+  box-shadow: 0 8px 22px -8px rgba(0, 0, 0, 0.65);
 }

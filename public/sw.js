@@ -2,21 +2,21 @@
 // Pages and data: network first, so pupils always get the latest fixes; the cached copy is used only offline.
 // Hashed build files (/_astro/) never change, so they come from the cache first.
 // The stats function (/api/) is never cached.
-const CACHE = 't9-sjl-v1';
+const CACHE = 'pisomnematurity-v3';
 
 const OFFLINE_HTML = `<!doctype html>
 <html lang="sk">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Si offline – Testovanie 9 zo slovenčiny</title>
+  <title>Si offline – Písomné maturity</title>
   <style>
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1.5rem; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fcfafb; color: #101828; }
-    .card { max-width: 28rem; background: #fff; border: 1px solid #eee7ea; border-radius: 20px; padding: 2rem 1.75rem; text-align: center; box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06); }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1.5rem; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f6f4ef; color: #151a2d; }
+    .card { max-width: 28rem; background: #fff; border: 1px solid #e5e0d5; border-radius: 12px; padding: 2rem 1.75rem; text-align: center; box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06); }
     h1 { margin: 0 0 0.65rem; font-size: 1.35rem; line-height: 1.3; }
-    p { margin: 0 0 1.35rem; color: #475569; line-height: 1.6; font-size: 0.96rem; }
-    a { display: inline-block; padding: 0.75rem 1.35rem; border-radius: 12px; background: #b1255e; color: #fff; font-weight: 700; text-decoration: none; font-size: 0.95rem; }
-    a:hover { background: #92144a; }
+    p { margin: 0 0 1.35rem; color: #3c4158; line-height: 1.6; font-size: 0.96rem; }
+    a { display: inline-block; padding: 0.75rem 1.35rem; border-radius: 8px; background: #1e2a5e; color: #fff; font-weight: 700; text-decoration: none; font-size: 0.95rem; }
+    a:hover { background: #2e3f88; }
   </style>
 </head>
 <body>

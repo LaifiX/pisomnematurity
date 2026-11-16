@@ -47,12 +47,28 @@ Obsah je v `src/data/sloh.ts` (8 útvarov, témy 2007 – 2026, kritériá NIVaM
 Novú tému pridáš riadkom `t(<rok>, '<útvar>', '<téma>', { author, spec })` – každý rok má presne 4 témy.
 Oficiálne témy sú na www2.nucem.sk (Maturita → rok → „Témy PFIČ MS – slovenský jazyk a literatúra“).
 
+**Pôvod a literatúra:** texty vychádzajú z prezentácií „Rukoväť na písanie slohovej práce“ (projekt EÚ
+Moderná škola – základ úspechu, SOŠ podnikania Trenčín, 2014; súbory v `Desktop/sloh`). Údaje o projekte
+(`PROJEKT`), zoznam literatúry (`LITERATURA`) a priradenie prezentácie a literatúry ku každému útvaru (`ZDROJE`)
+sú na konci `src/data/sloh.ts`. Zobrazujú sa na `/sloh/` (titulná strana, sekcia „Pôvod a zdroje“)
+a na konci stránky každého útvaru („Pôvod a literatúra“). Výklad v prezentáciách nebol – `prezentacia: null`.
+
 ## Spustenie na internete (GitHub + Netlify)
 
-1. Vybrať a kúpiť doménu, zapísať ju do `SITE_URL` v `src/lib/site.ts` a do `public/robots.txt`.
+1. Doména **pisomnematurity.sk** je v `SITE_URL` v `src/lib/site.ts` a v `public/robots.txt`.
+   PAY by square QR kód `public/images/qr-dar.svg` má správu `Dar - pisomnematurity.sk` (príjemca Beno Peter, Mgr,
+   IBAN SK97 1100 0000 0029 3029 3777). Pri zmene ho vygeneruj knižnicami `bysquare` + `qrcode` (npm) a uprav aj text pri QR v `src/pages/index.astro`.
 2. V `src/lib/site.ts` prepnúť `ALLOW_INDEXING` na `true` (dovtedy stránku vyhľadávače neindexujú).
 3. Repozitár na GitHube, v Netlify „Import from Git“ (build `npm run build`, priečinok `dist`).
 4. Súhlas NIVaM s použitím maturitných testov (pätička už obsahuje vetu o súhlase).
+
+## Logo, ikony a obrázok na zdieľanie
+
+Názov **Písomné maturity** (doména pisomnematurity.sk) je v `SITE_NAME`, `SITE_TAGLINE` a `SITE_DOMAIN` v `src/lib/site.ts`.
+Značka – hrot plniaceho pera s kvapkou atramentu – je v `src/components/BrandMark.astro` (rovnaké SVG aj v `public/favicon.svg`
+a v `public/pwa.js`). Ikony aplikácie (`icon-192/512`, `icon-maskable-512`, `apple-touch-icon`, `favicon.ico`) a obrázok
+na zdieľanie `og-image.png` sa vyrenderujú z `scripts/brand/icon.html` a `scripts/brand/og.html` príkazom
+`node scripts/brand/render.mjs` (potrebuje Edge alebo Chrome). Po zmene ikon zvýš verziu `CACHE` v `public/sw.js`.
 
 ## Farby a písma
 

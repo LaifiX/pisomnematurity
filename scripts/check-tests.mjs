@@ -12,7 +12,11 @@ const MODE_WORDS = /(?<=[a-záäčďéíĺľňóôŕšťúýž,] )(Ostr[ýéého
 const UNVOCALIZED_PREP = /\b([vV] 4\.\s*odsek|[sSzZ] [467]\.\s*[a-záäčďéíĺľňóôŕšťúýž])/;
 const SPLIT_ADVERBS = /\b(do|od)\s+kedy\b/i;
 // Words written in capitals for emphasis (abbreviations and case labels are fine)
-const CAPS_OK = new Set(['EÚ', 'CO', 'CO₂', 'CO2', 'NIVaM', 'SJL', 'T9', 'ZŠ', 'PDF', 'OSN', 'USA', 'SR', 'EU', 'WWW', 'ZPH', 'II', 'III', 'IV']);
+const CAPS_OK = new Set([
+  'EÚ', 'CO', 'CO₂', 'CO2', 'NIVaM', 'SJL', 'T9', 'ZŠ', 'SŠ', 'PDF', 'OSN', 'USA', 'SR', 'EU', 'WWW', 'ZPH',
+  'II', 'III', 'IV', 'VI', 'VII', 'VIII', 'IX', 'UNESCO', 'KSSJ', 'PSP', 'CK', 'CV', 'IT', 'CT', '3D', 'NLC',
+  'RTVS', 'NP', 'HZS', 'ČSR', 'DPH', 'SACR', 'AABB', 'ABAB', 'ABBA', 'ABCB', 'VPU'
+]);
 
 let errors = 0;
 let warnings = 0;

@@ -68,7 +68,7 @@
         <ol class="hp-install-steps">
           <li>V&nbsp;lište prehliadača ťukni na&nbsp;ikonu <strong>Zdieľať</strong> (štvorček so&nbsp;šípkou nahor).</li>
           <li>Posuň ponuku nižšie a&nbsp;vyber možnosť <strong>Pridať na&nbsp;plochu</strong>.</li>
-          <li>Potvrď ťuknutím na&nbsp;<strong>Pridať</strong>&nbsp;– ikona <strong>T9 Slovenčina</strong> sa&nbsp;objaví priamo na&nbsp;ploche.</li>
+          <li>Potvrď ťuknutím na&nbsp;<strong>Pridať</strong>&nbsp;– ikona <strong>Písomné maturity</strong> sa&nbsp;objaví priamo na&nbsp;ploche.</li>
         </ol>`;
     }
     if (isAndroid) {
@@ -76,7 +76,7 @@
         <ol class="hp-install-steps">
           <li>Ťukni na&nbsp;ponuku prehliadača <strong>⋮</strong> (tri bodky v&nbsp;rohu obrazovky).</li>
           <li>Vyber možnosť <strong>Inštalovať aplikáciu</strong> alebo <strong>Pridať na&nbsp;plochu</strong>.</li>
-          <li>Potvrď pridanie&nbsp;– na&nbsp;ploche telefónu pribudne ikona <strong>T9 Slovenčina</strong>.</li>
+          <li>Potvrď pridanie&nbsp;– na&nbsp;ploche telefónu pribudne ikona <strong>Písomné maturity</strong>.</li>
         </ol>`;
     }
     if (isMacSafari) {
@@ -84,13 +84,13 @@
         <ol class="hp-install-steps">
           <li>V&nbsp;hornej lište prehliadača Safari klikni na&nbsp;<strong>Súbor</strong>.</li>
           <li>Vyber možnosť <strong>Pridať do&nbsp;Docku…</strong> a&nbsp;potvrď tlačidlom <strong>Pridať</strong>.</li>
-          <li>Aplikácia <strong>T9 Slovenčina</strong> sa&nbsp;uloží do&nbsp;Docku a&nbsp;otvorí sa&nbsp;vo&nbsp;vlastnom okne.</li>
+          <li>Aplikácia <strong>Písomné maturity</strong> sa&nbsp;uloží do&nbsp;Docku a&nbsp;otvorí sa&nbsp;vo&nbsp;vlastnom okne.</li>
         </ol>`;
     }
     return `
       <ol class="hp-install-steps">
         <li>V&nbsp;prehliadači <strong>Chrome</strong> alebo <strong>Edge</strong> klikni na&nbsp;ikonu <strong>Inštalovať</strong> vpravo v&nbsp;adresnom riadku (alebo otvor menu <strong>⋮ → Uložiť a&nbsp;zdieľať → Inštalovať stránku ako aplikáciu</strong>).</li>
-        <li>Potvrď tlačidlom <strong>Inštalovať</strong>&nbsp;– na&nbsp;ploche a&nbsp;v&nbsp;ponuke Štart pribudne ikona <strong>T9 Slovenčina</strong>.</li>
+        <li>Potvrď tlačidlom <strong>Inštalovať</strong>&nbsp;– na&nbsp;ploche a&nbsp;v&nbsp;ponuke Štart pribudne ikona <strong>Písomné maturity</strong>.</li>
         <li>Vo&nbsp;<strong>Firefoxe</strong> si môžeš stránku pridať na&nbsp;plochu pretiahnutím ikony vľavo v&nbsp;adresnom riadku priamo na&nbsp;pracovnú plochu.</li>
       </ol>`;
   }
@@ -118,7 +118,7 @@
         <div class="modal-window hp-install-modal">
           <div class="modal-header">
             <div class="modal-title-group">
-              <span class="brand-mark hp-install-mark" aria-hidden="true">T9</span>
+              <svg class="brand-svg" width="36" height="36" viewBox="0 0 64 64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="14" fill="#1e2a5e"/><g transform="rotate(40 32 32)"><path d="M32 54 21.4 34c-1.8-3.4-1-7.6 2-10.4V11h17.2v12.6c3 2.8 3.8 7 2 10.4Z" fill="#d1a24a"/><rect x="23.4" y="16.6" width="17.2" height="1.8" fill="#1e2a5e"/><circle cx="32" cy="30" r="3.1" fill="#1e2a5e"/><rect x="31.15" y="32" width="1.7" height="20" fill="#1e2a5e"/></g></svg>
               <div>
                 <span class="modal-eyebrow">Aplikácia v zariadení</span>
                 <h3 id="installAppModalTitle">Pridať na plochu</h3>
@@ -183,7 +183,7 @@
   }
 
   function markButtonCopied(btn) {
-    const labelEl = btn.querySelector('[data-share-label]');
+    const labelEl = btn.querySelector('[data-share-label], [data-copy-label]');
     const svgEl = btn.querySelector('svg');
     if (!btn.dataset.origLabel && labelEl) {
       btn.dataset.origLabel = labelEl.textContent || '';
@@ -201,6 +201,17 @@
       if (svgEl && btn.dataset.origSvg) svgEl.innerHTML = btn.dataset.origSvg;
       btn.classList.remove('is-copied');
     }, 2400);
+  }
+
+  async function copyWithFeedback(btn, value, toastMsg, promptLabel) {
+    const copied = await copyTextToClipboard(value);
+    if (copied) {
+      if (window.T9Sound) window.T9Sound.play('on');
+      markButtonCopied(btn);
+      showToast(toastMsg);
+    } else {
+      window.prompt(promptLabel || 'Skopíruj text:', value);
+    }
   }
 
   async function handleShare(btn) {
@@ -223,14 +234,7 @@
       }
     }
 
-    const copied = await copyTextToClipboard(url);
-    if (copied) {
-      if (window.T9Sound) window.T9Sound.play('on');
-      markButtonCopied(btn);
-      showToast('Odkaz na stránku bol skopírovaný do schránky.');
-    } else {
-      window.prompt('Skopíruj odkaz na stránku:', url);
-    }
+    await copyWithFeedback(btn, url, 'Odkaz na stránku bol skopírovaný do schránky.', 'Skopíruj odkaz na stránku:');
   }
 
   syncInstallButtons();
@@ -250,7 +254,7 @@
     deferredPrompt = null;
     closeInstallModal();
     syncInstallButtons();
-    showToast('Aplikácia T9 Slovenčina bola pridaná na plochu.');
+    showToast('Aplikácia Písomné maturity bola pridaná na plochu.');
   });
 
   document.addEventListener('click', async (e) => {
@@ -261,6 +265,15 @@
     if (shareBtn) {
       e.preventDefault();
       await handleShare(shareBtn);
+      return;
+    }
+
+    const copyBtn = target.closest('[data-copy]');
+    if (copyBtn) {
+      e.preventDefault();
+      const val = copyBtn.getAttribute('data-copy') || '';
+      const msg = copyBtn.getAttribute('data-copy-msg') || 'Skopírované do schránky.';
+      await copyWithFeedback(copyBtn, val, msg);
       return;
     }
 

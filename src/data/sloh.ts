@@ -823,3 +823,74 @@ export const slohoveUtvary: SlohovyUtvar[] = [
 ];
 
 export const utvarBySlug = Object.fromEntries(slohoveUtvary.map((u) => [u.slug, u])) as Record<SlohSlug, SlohovyUtvar>;
+
+// ---------------------------------------------------------------- pôvod a zdroje
+// Údaje z titulných a záverečných snímok prezentácií (Desktop/sloh, 2014). Literatúra je prepísaná
+// tak, ako ju uvádzajú prezentácie; ukážky zo zones.sk sa na webe nepoužívajú, preto tu nie sú.
+
+/** Projekt, v ktorom prezentácie vznikli (text z titulných snímok) */
+export const PROJEKT = {
+  name: 'Moderná škola – základ úspechu',
+  scope: 'v rámci inovácie obsahu, metód a foriem vzdelávania',
+  program: 'Moderné vzdelávanie pre vedomostnú spoločnosť',
+  funding: 'Projekt je spolufinancovaný zo zdrojov EÚ',
+  series: 'Rukoväť na písanie slohovej práce',
+  author: 'Mgr. Peter Beňo',
+  school: 'Stredná odborná škola podnikania, Veľkomoravská 14, Trenčín',
+  year: 2014,
+  /** rok poslednej aktualizácie obsahu na webe */
+  updated: 2026,
+  /** podľa log na titulnej snímke */
+  operacnyProgram: 'Operačný program Vzdelávanie',
+  fond: 'Európsky sociálny fond'
+};
+
+/** Logá z titulnej snímky prezentácií (public/images/projekt-eu), v pôvodnom poradí */
+export const PROJEKT_LOGA = [
+  { src: '/images/projekt-eu/op-vzdelavanie.jpg', alt: 'Operačný program Vzdelávanie', width: 268, height: 268 },
+  { src: '/images/projekt-eu/asfeu.jpg', alt: 'Agentúra Ministerstva školstva, vedy, výskumu a športu SR pre štrukturálne fondy EÚ', width: 669, height: 154 },
+  { src: '/images/projekt-eu/eu-esf.jpg', alt: 'Európska únia – Európsky sociálny fond', width: 291, height: 270 }
+];
+
+export type LitKey = 'weidler' | 'hincova' | 'caltikova3' | 'caltikova4' | 'caltikovaEnigma' | 'interne';
+
+/** Použitá literatúra zo záverečných snímok prezentácií (HTML: <em> pre názov diela) */
+export const LITERATURA: Record<LitKey, string> = {
+  caltikova3: 'CALTÍKOVÁ, M.: <em>Slovenský jazyk 3 pre stredné školy.</em> Bratislava: Orbis Pictus Istropolitana 2010, 64 s. ISBN 978-80-81-20017-5',
+  caltikova4: 'CALTÍKOVÁ, M.: <em>Slovenský jazyk 4 pre stredné školy.</em> Bratislava: Orbis Pictus Istropolitana 2009, 64 s. ISBN 978-80-81-20017-5',
+  caltikovaEnigma: 'CALTÍKOVÁ, M.: <em>Slovenský jazyk a literatúra.</em> Bratislava: Enigma 2010, 369 s. ISBN 978-80-89132-93-5',
+  hincova: 'HINCOVÁ, K. – HÚSKOVÁ, A.: <em>Slovenský jazyk pre 1. – 4. ročník stredných škôl.</em> Bratislava: Slovenské pedagogické nakladateľstvo 2008. ISBN 978-80-10-01557-3',
+  weidler: 'WEIDLEROVÁ, A. – WEIDLER, E.: <em>Sloh na dlani.</em> Druhé vydanie. Bratislava: Príroda 2005. ISBN 80-07-01332-6',
+  interne: 'Interné materiály SOŠ podnikania Trenčín (ukážka žiackej práce).'
+};
+
+/** Poradie v súhrnnom zozname literatúry (abecedne podľa autora) */
+export const LITERATURA_PORADIE: LitKey[] = ['caltikova3', 'caltikova4', 'caltikovaEnigma', 'hincova', 'weidler', 'interne'];
+
+export interface SlohZdroj {
+  /** názov prezentácie, z ktorej útvar vychádza; null = text bez predlohy v prezentáciách */
+  prezentacia: string | null;
+  literatura: LitKey[];
+  /** ID krátkeho výukového videa na YouTube (youtu.be/<id>) – neformálna podoba učiva, na stránke útvaru ako „Na oživenie“ */
+  video?: string;
+}
+
+export const youtubeUrl = (id: string) => `https://youtu.be/${id}`;
+
+/** Ku každému útvaru: prezentácia a literatúra uvedená na jej poslednej snímke */
+export const ZDROJE: Record<SlohSlug, SlohZdroj> = {
+  uvaha: { prezentacia: 'Rukoväť na písanie slohovej práce – úvaha', literatura: ['caltikova3', 'hincova', 'weidler', 'interne'], video: 'CUef75lLeBo' },
+  charakteristika: { prezentacia: 'Rukoväť na písanie slohovej práce – charakteristika', literatura: ['weidler', 'hincova', 'caltikova3'], video: 'C1qRQk0qglI' },
+  'umelecky-opis': { prezentacia: 'Rukoväť na písanie slohovej práce – umelecký opis', literatura: ['weidler', 'hincova', 'caltikovaEnigma'] },
+  rozpravanie: { prezentacia: 'Rukoväť na písanie slohovej práce – rozprávanie', literatura: ['caltikova3', 'hincova', 'weidler'] },
+  'diskusny-prispevok': { prezentacia: 'Rukoväť na písanie slohovej práce – diskusný príspevok', literatura: ['caltikovaEnigma', 'hincova', 'weidler'] },
+  'beletrizovany-zivotopis': { prezentacia: 'Rukoväť na písanie slohovej práce – beletrizovaný životopis', literatura: ['weidler', 'hincova', 'caltikova3'], video: 'k9z7-3RXGFE' },
+  vyklad: { prezentacia: null, literatura: [] },
+  'slavnostny-prejav': { prezentacia: 'Rukoväť na písanie slohovej práce – slávnostný prejav', literatura: ['caltikova4', 'hincova'], video: 'RKjHqJs5PwE' }
+};
+
+/** Oficiálne dokumenty NIVaM, z ktorých sú kritériá a témy */
+export const ZDROJE_NIVAM = [
+  'NIVaM: <em>Kritériá na hodnotenie písomnej formy internej časti maturitnej skúšky zo slovenského jazyka a literatúry, maďarského jazyka a literatúry a ukrajinského jazyka a literatúry.</em> Február 2026.',
+  'NIVaM (NÚCEM): <em>Témy PFIČ MS – slovenský jazyk a literatúra</em>, ročníky 2014 – 2026. Dostupné na <a href="https://www2.nucem.sk/sk/merania/narodne-merania/maturita" target="_blank" rel="noopener noreferrer">www2.nucem.sk</a>.'
+];

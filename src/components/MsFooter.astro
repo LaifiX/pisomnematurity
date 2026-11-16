@@ -1,5 +1,6 @@
 ---
-import { SITE_NAME, MATH_SITE_URL, CONTACT_EMAIL } from '../lib/site';
+import { SITE_NAME, SITE_DOMAIN, MATH_SITE_URL, CONTACT_EMAIL } from '../lib/site';
+import BrandMark from './BrandMark.astro';
 const SJL9_SITE_URL = 'https://monitorsolina.sk';
 const NIVAM_MS_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita';
 ---
@@ -8,10 +9,10 @@ const NIVAM_MS_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita'
       <div class="ms-wrap">
         <div class="ms-footer-top">
           <a class="ms-brand" href="/">
-            <span class="ms-mark" aria-hidden="true">M</span>
+            <BrandMark size={40} class="ms-mark" />
             <span class="ms-brand-text">
-              <strong>Maturita zo SJL</strong>
-              <small>{SITE_NAME}</small>
+              <strong>{SITE_NAME}</strong>
+              <small>{SITE_DOMAIN}</small>
             </span>
           </a>
           <nav class="ms-footer-links" aria-label="Odkazy v pätičke">
@@ -30,6 +31,6 @@ const NIVAM_MS_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita'
             <strong>Prepis úloh a&nbsp;autorské vzorové riešenia:</strong> Texty ukážok, úloh a&nbsp;grafické objekty boli pre potreby interaktívneho online zobrazenia prepisované a&nbsp;graficky upravované – NIVaM nezodpovedá za prípadné chyby vzniknuté z&nbsp;tohto dôvodu. Postupy riešenia, nápovedy a&nbsp;texty o&nbsp;slohových útvaroch nie sú autorským dielom NIVaM a&nbsp;NIVaM nezodpovedá za ich obsah.
           </p>
         </div>
-        <p class="ms-footer-copy">© {new Date().getFullYear()} Maturita zo SJL · Peter Beňo</p>
+        <p class="ms-footer-copy">© {new Date().getFullYear()} {SITE_DOMAIN} · Peter Beňo</p>
       </div>
     </footer>

@@ -6,7 +6,7 @@ import SeoHead from '../../components/SeoHead.astro';
 import { ALLOW_INDEXING } from '../../lib/site';
 import MsHeader from '../../components/MsHeader.astro';
 import MsFooter from '../../components/MsFooter.astro';
-import { slohoveUtvary, temy, temyPre, YEARS, NO_EXAM_YEARS, CRITERIA_COMMON } from '../../data/sloh';
+import { slohoveUtvary, temy, YEARS, NO_EXAM_YEARS, CRITERIA_COMMON, PROJEKT, PROJEKT_LOGA, LITERATURA, LITERATURA_PORADIE, ZDROJE, ZDROJE_NIVAM } from '../../data/sloh';
 import { I, icon } from '../../lib/icons';
 
 const heldYears = YEARS.filter((y) => !NO_EXAM_YEARS.includes(y)).length;
@@ -22,14 +22,16 @@ const short = {
   'slavnostny-prejav': 'Slávnostný prejav'
 } as Record<string, string>;
 const themeAt = (year: number, slug: string) => temy.find((t) => t.year === year && t.slug === slug);
-const timesWord = (n: number) => (n === 0 ? 'ani raz' : n === 1 ? 'raz' : `${n}-krát`);
+const maxCount = Math.max(...slohoveUtvary.map((u) => count(u.slug)));
+const fromDeck = slohoveUtvary.filter((u) => ZDROJE[u.slug].prezentacia);
+const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
 ---
 
 <!DOCTYPE html>
 <html lang="sk">
   <head>
     <SeoHead
-      title="Slohové útvary na maturite zo SJL – úvaha, rozprávanie, charakteristika a ďalšie | Maturita zo SJL"
+      title="Slohové útvary na maturite zo SJL – úvaha, rozprávanie, charakteristika a ďalšie | Písomné maturity"
       description="Všetkých 8 slohových útvarov písomnej maturity zo slovenčiny: znaky, kompozícia, jazyk, dobré rady, témy 2007 – 2026 a kritériá hodnotenia NIVaM."
       path="/sloh/"
       themeColor="#11162d"
@@ -41,18 +43,43 @@ const timesWord = (n: number) => (n === 0 ? 'ani raz' : n === 1 ? 'raz' : `${n}-
     <MsHeader active="sloh" />
 
     <main id="obsah">
-      <section class="sl-hero">
+      <section class="sl-hero sl-hero-index">
         <div class="ms-wrap">
           <nav class="sl-crumbs" aria-label="Omrvinková navigácia">
-            <a href="/">Maturita zo SJL</a>
+            <a class="sl-back" href="/" aria-label="Späť na úvodnú stránku"><Fragment set:html={icon(I.arrowLeft)} /><span>Späť</span></a>
+            <a href="/">Písomné maturity</a>
             <span aria-hidden="true">/</span>
             <span>Slohové útvary</span>
           </nav>
-          <span class="sl-num">PÍSOMNÁ FORMA INTERNEJ ČASTI</span>
-          <h1>Slohové útvary na maturite</h1>
-          <p class="sl-lead">
-            Zo štyroch tém si vyberieš jednu a&nbsp;každá určuje slohový útvar. Pri každom útvare nájdeš, čo ho robí typickým, ako ho postaviť, aký jazyk použiť, dobré rady, všetky témy z&nbsp;rokov 2007 – 2026 a&nbsp;presne podľa čoho sa hodnotí.
-          </p>
+          <div class="sl-hero-grid">
+            <div>
+              <span class="sl-num">Písomná forma internej časti</span>
+              <h1>Slohové útvary na maturite</h1>
+              <p class="sl-lead">
+                Zo štyroch tém si vyberieš jednu a&nbsp;každá určuje slohový útvar. Pri každom útvare nájdeš, čo ho robí typickým, ako ho postaviť, aký jazyk použiť, dobré rady, všetky témy z&nbsp;rokov 2007 – 2026 a&nbsp;presne podľa čoho sa hodnotí.
+              </p>
+            </div>
+            <figure class="sl-title-page">
+              <div class="sl-tp-stack">
+              <div class="sl-tp-sheet" aria-hidden="true"></div>
+              <div class="sl-tp-sheet" aria-hidden="true"></div>
+              <div class="sl-tp-front">
+                <div class="sl-tp-logos">
+                  {PROJEKT_LOGA.map((l) => <img src={l.src} alt={l.alt} width={l.width} height={l.height} loading="eager" decoding="async" />)}
+                </div>
+                <p class="sl-tp-band">{PROJEKT.program}/{PROJEKT.funding}</p>
+                <p class="sl-tp-project">Učebný materiál vznikol v&nbsp;projekte <b>{PROJEKT.name}</b> {PROJEKT.scope}</p>
+                <p class="sl-tp-title">{PROJEKT.series}</p>
+                <p class="sl-tp-author">{PROJEKT.author}<br /><span>{PROJEKT.school}</span></p>
+                <p class="sl-tp-place">Trenčín {PROJEKT.year}</p>
+                <p class="sl-tp-updated">Aktualizované {PROJEKT.updated}</p>
+              </div>
+              </div>
+              <figcaption>
+                Titulná strana pôvodných prezentácií. <a href="#povod">Pôvod a&nbsp;použitá literatúra</a>
+              </figcaption>
+            </figure>
+          </div>
           <dl class="sl-facts">
             <div><dt>Čas</dt><dd>150 minút</dd></div>
             <div><dt>Výber</dt><dd>1 zo 4 tém</dd></div>
@@ -66,24 +93,27 @@ const timesWord = (n: number) => (n === 0 ? 'ani raz' : n === 1 ? 'raz' : `${n}-
         <div class="ms-wrap">
           <div class="ms-sec-head">
             <div>
-              <span class="ms-kicker">8 útvarov podľa NIVaM</span>
+              <span class="ms-kicker">Obsah</span>
               <h2>Vyber si útvar</h2>
-              <p>Pomôcky: Pravidlá slovenského pravopisu, Synonymický slovník a&nbsp;Krátky slovník slovenského jazyka.</p>
+              <p>Osem útvarov, ktoré môže NIVaM zadať. Číslo vpravo ukazuje, koľkokrát bol útvar medzi témami v&nbsp;rokoch 2007 – 2026.</p>
             </div>
           </div>
-          <div class="sl-index-grid">
-            {slohoveUtvary.map((u, i) => (
-              <a class="sl-icard" href={`/sloh/${u.slug}/`}>
-                <span class="ms-utvar-num">{String(i + 1).padStart(2, '0')}</span>
-                <h3>{u.name}</h3>
-                <p set:html={u.short} />
-                <span class="sl-icard-foot">
-                  <span>Na maturite {timesWord(count(u.slug))}</span>
-                  <Fragment set:html={icon(I.arrow)} />
-                </span>
-              </a>
+          <ol class="sl-contents">
+            {slohoveUtvary.map((u) => (
+              <li>
+                <a href={`/sloh/${u.slug}/`}>
+                  <span class="sl-c-line">
+                    <span class="sl-c-name">{u.name}</span>
+                    <span class="sl-c-lead" aria-hidden="true"></span>
+                    <span class="sl-c-count">{count(u.slug)}×<span class="sl-sr"> na maturite</span></span>
+                  </span>
+                  <span class="sl-c-desc" set:html={u.short} />
+                  <span class="sl-c-bar" aria-hidden="true"><span style={`width:${Math.round((count(u.slug) / maxCount) * 100)}%`}></span></span>
+                </a>
+              </li>
             ))}
-          </div>
+          </ol>
+          <p class="sl-aids">Na písomnej maturite môžeš používať Pravidlá slovenského pravopisu, Synonymický slovník a&nbsp;Krátky slovník slovenského jazyka.</p>
         </div>
       </section>
 
@@ -91,7 +121,7 @@ const timesWord = (n: number) => (n === 0 ? 'ani raz' : n === 1 ? 'raz' : `${n}-
         <div class="ms-wrap">
           <div class="ms-sec-head">
             <div>
-              <span class="ms-kicker">Prehľad 2007 – 2026</span>
+              <span class="ms-kicker">Tabuľka 1</span>
               <h2>Ktoré útvary boli na maturite</h2>
               <p>Bodka znamená, že útvar bol v&nbsp;danom roku medzi štyrmi vyžrebovanými témami. Po prejdení myšou na bodku uvidíš tému.</p>
             </div>
@@ -128,7 +158,53 @@ const timesWord = (n: number) => (n === 0 ? 'ani raz' : n === 1 ? 'raz' : `${n}-
           </div>
           <div class="sl-legend">
             <span><span class="sl-dot" aria-hidden="true"></span> útvar bol vyžrebovaný</span>
-            <span>{heldYears} ročníkov · 4 témy v&nbsp;každom</span>
+            <span>{heldYears} ročníkov, v&nbsp;každom 4 témy</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="ms-sec sl-origin" id="povod">
+        <div class="ms-wrap">
+          <div class="ms-sec-head">
+            <div>
+              <span class="ms-kicker">Pôvod a&nbsp;zdroje</span>
+              <h2>Z&nbsp;čoho táto časť vychádza</h2>
+            </div>
+          </div>
+          <div class="sl-origin-grid">
+            <div class="sl-origin-story">
+              <p>
+                Texty o&nbsp;slohových útvaroch vychádzajú zo série prezentácií <cite>{PROJEKT.series}</cite>. Pripravil ich {PROJEKT.author} v&nbsp;roku {PROJEKT.year} pre žiakov Strednej odbornej školy podnikania v&nbsp;Trenčíne.
+              </p>
+              <p>
+                Prezentácie vznikli ako učebný materiál v&nbsp;projekte <strong>{PROJEKT.name}</strong>, ktorý bol spolufinancovaný zo zdrojov Európskej únie – z&nbsp;Európskeho sociálneho fondu v&nbsp;rámci Operačného programu Vzdelávanie. Pre web sú upravené, doplnené o&nbsp;témy do roku 2026 a&nbsp;zosúladené s&nbsp;kritériami NIVaM pre maturitu 2026.
+              </p>
+              <div class="sl-eu-logos">
+                {PROJEKT_LOGA.map((l) => <img src={l.src} alt={l.alt} width={l.width} height={l.height} loading="lazy" decoding="async" />)}
+              </div>
+              <h3>Prezentácie zo série</h3>
+              <ul class="sl-decks">
+                {fromDeck.map((u) => (
+                  <li><a href={`/sloh/${u.slug}/`}>{ZDROJE[u.slug].prezentacia}</a></li>
+                ))}
+              </ul>
+              {newTexts.length > 0 && (
+                <p class="sl-origin-note">
+                  {newTexts.map((u) => u.name).join(', ')} v&nbsp;sérii z&nbsp;roku {PROJEKT.year} nebol. Text k&nbsp;nemu je pripravený nanovo podľa kritérií NIVaM.
+                </p>
+              )}
+            </div>
+            <div class="sl-refs">
+              <h3>Použitá literatúra</h3>
+              <p class="sl-refs-lead">Tak, ako ju uvádzajú záverečné snímky prezentácií.</p>
+              <ol class="sl-biblio">
+                {LITERATURA_PORADIE.map((k) => <li set:html={LITERATURA[k]} />)}
+              </ol>
+              <h3>Oficiálne dokumenty</h3>
+              <ol class="sl-biblio">
+                {ZDROJE_NIVAM.map((r) => <li set:html={r} />)}
+              </ol>
+            </div>
           </div>
         </div>
       </section>
