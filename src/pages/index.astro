@@ -1,0 +1,343 @@
+---
+import '../styles/fonts.css';
+import '../styles/ms.css';
+import SeoHead from '../components/SeoHead.astro';
+import { maturitaCatalog } from '../data/maturitaCatalog';
+import { slohoveUtvary } from '../data/sloh';
+import { SITE_NAME, MATH_SITE_URL, CONTACT_EMAIL } from '../lib/site';
+import { I, icon } from '../lib/icons';
+
+const SJL9_SITE_URL = 'https://monitorsolina.sk';
+const NIVAM_MS_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita';
+const tests = maturitaCatalog;
+const ready = tests.filter((t) => t.status === 'ready');
+const first = ready[0] ?? tests[0];
+const years = tests.map((t) => t.year);
+const yearsRange = `${Math.min(...years)} – ${Math.max(...years)}`;
+
+const faqs = [
+  {
+    q: 'Ako vyzerá test externej časti maturity zo slovenčiny?',
+    a: 'Test má 64 úloh – 40 s výberom zo štyroch možností a 24 s krátkou odpoveďou. Úlohy sa viažu na 8 ukážok: päť umeleckých textov, dva publicistické (alebo publicistický a administratívny) a jeden náučný text. Na riešenie máš 100 minút a za každú správnu odpoveď získaš 1 bod.'
+  },
+  {
+    q: 'Môžem na maturite používať pravidlá alebo slovník?',
+    a: 'Pri teste externej časti nie – nesmieš používať slovníky, učebnice ani inú literatúru. Pri písomnej forme internej časti (sloh) môžeš mať Pravidlá slovenského pravopisu, Synonymický slovník a Krátky slovník slovenského jazyka.'
+  },
+  {
+    q: 'Ako prebieha písomná forma internej časti (sloh)?',
+    a: 'Zo štyroch zadaných tém si vyberieš jednu. Každá téma určuje slohový útvar – napríklad úvahu, rozprávanie alebo diskusný príspevok. Máš 150 minút a rozsah práce je 1,5 až 3 strany. V časti Slohové útvary nájdeš ku každému útvaru, čo musí obsahovať a ako ho postaviť.'
+  },
+  {
+    q: 'Ako sa líši ostrý test od precvičovania?',
+    a: 'Ostrý test beží na čas ako na skutočnej maturite a vyhodnotíš ho naraz na konci. Pri precvičovaní si každú úlohu overíš hneď a môžeš si otvoriť nápovedu aj postup riešenia.'
+  },
+  {
+    q: 'Je príprava zadarmo a odkiaľ sú úlohy?',
+    a: 'Všetko je zadarmo, bez registrácie a bez reklám. Úlohy a kľúče správnych odpovedí pochádzajú z oficiálnych testov externej časti maturitnej skúšky, ktorých autorom je Národný inštitút vzdelávania a mládeže (NIVaM). Nápovedy a postupy riešenia pripravuje učiteľ slovenčiny.'
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <SeoHead
+      title={`Maturita zo slovenčiny online – testy ${yearsRange} s riešením a slohové útvary`}
+      description={`Bezplatná príprava na maturitu zo slovenského jazyka a literatúry: oficiálne testy externej časti ${yearsRange} s nápovedou a postupom riešenia a prehľad slohových útvarov.`}
+      path="/"
+      themeColor="#1e2a5e"
+      ogTitle="Maturita zo slovenčiny – online príprava zadarmo"
+      noindex={true}
+    />
+    <!-- Náhľad farebných variantov: ?v=a | b | c (po výbere sa odstráni) -->
+    <script is:inline>
+      try {
+        var v = new URLSearchParams(location.search).get('v');
+        if (v === 'a' || v === 'b' || v === 'c') document.documentElement.setAttribute('data-theme', v);
+      } catch (e) {}
+    </script>
+  </head>
+  <body class="ms">
+    <a class="skip-link" href="#obsah">Preskočiť na hlavný obsah</a>
+
+    <header class="ms-nav">
+      <div class="ms-wrap ms-nav-in">
+        <a class="ms-brand" href="/">
+          <span class="ms-mark" aria-hidden="true">M</span>
+          <span class="ms-brand-text">
+            <strong>Maturita zo SJL</strong>
+            <small>Online príprava na maturitu</small>
+          </span>
+        </a>
+        <nav class="ms-nav-links" aria-label="Hlavná navigácia">
+          <a href="#testy">Testy</a>
+          <a href="#sloh">Slohové útvary</a>
+          <a href="#ako-to-funguje">Ako to funguje</a>
+          <a href="#otazky">Otázky</a>
+        </nav>
+        <a class="ms-btn ms-btn-primary ms-btn-sm ms-nav-cta" href="#testy">Začať test</a>
+      </div>
+    </header>
+
+    <main id="obsah">
+      <section class="ms-hero">
+        <div class="ms-wrap">
+          <div class="ms-hero-grid">
+            <div>
+              <span class="ms-eyebrow">Slovenský jazyk a&nbsp;literatúra</span>
+              <h1 class="ms-h1">Maturita zo slovenčiny <em>na skutočných testoch</em></h1>
+              <p class="ms-lead">
+                Rieš oficiálne testy externej časti z&nbsp;rokov {yearsRange} presne tak, ako na maturite – s&nbsp;ukážkou vedľa úloh a&nbsp;časom 100&nbsp;minút.
+                Pri každej úlohe máš nápovedu a&nbsp;postup riešenia, ktorý pripravil učiteľ slovenčiny. A&nbsp;k&nbsp;slohu prehľad všetkých maturitných útvarov.
+              </p>
+              <div class="ms-ctas">
+                <a class="ms-btn ms-btn-primary" href="#testy">
+                  Vybrať test
+                  <Fragment set:html={icon(I.arrow)} />
+                </a>
+                <a class="ms-btn ms-btn-ghost" href="#sloh">
+                  <Fragment set:html={icon(I.feather)} />
+                  Slohové útvary
+                </a>
+              </div>
+              <ul class="ms-meta">
+                <li><Fragment set:html={icon(I.user)} />Bez registrácie</li>
+                <li><Fragment set:html={icon(I.phone)} />Na počítači aj v&nbsp;mobile</li>
+                <li><Fragment set:html={icon(I.heart)} />Zadarmo, bez reklám</li>
+              </ul>
+            </div>
+
+            <figure class="ms-sheet" aria-label="Ilustračná ukážka úlohy">
+              <div class="ms-sheet-top">
+                <span class="ms-sheet-tag">Ukážka 6 · náučný text</span>
+                <span>Úloha 43 / 64</span>
+              </div>
+              <p class="ms-sheet-text">
+                Jazyk sa neustále mení. S&nbsp;novými vecami prichádzajú nové slová, iné postupne zastarávajú a&nbsp;z&nbsp;bežnej reči miznú. Príčinou nie je náhoda, ale potreby ľudí, ktorí jazyk používajú.
+              </p>
+              <p class="ms-sheet-q">Ktorý slohový postup v&nbsp;ukážke prevláda?</p>
+              <ol class="ms-sheet-opts">
+                <li><b>A</b>opisný</li>
+                <li><b>B</b>rozprávací</li>
+                <li class="is-ok"><b>C</b>výkladový</li>
+                <li><b>D</b>informačný</li>
+              </ol>
+              <div class="ms-sheet-tools">
+                <span class="ms-tool-hint"><Fragment set:html={icon(I.bulb)} />Nápoveda</span>
+                <span class="ms-tool-sol"><Fragment set:html={icon(I.book)} />Postup riešenia</span>
+              </div>
+              <div class="ms-float ms-float-ok" aria-hidden="true">
+                <Fragment set:html={icon(I.check)} />
+                <span>Správne<small>+1 bod</small></span>
+              </div>
+              <div class="ms-float ms-float-time" aria-hidden="true">
+                <Fragment set:html={icon(I.clock)} />
+                <span>78:42<small>zostáva do konca</small></span>
+              </div>
+            </figure>
+          </div>
+
+          <dl class="ms-facts">
+            <div><dt>64 úloh</dt><dd>40 s&nbsp;výberom odpovede, 24 s&nbsp;krátkou odpoveďou</dd></div>
+            <div><dt>100 minút</dt><dd>časový limit ako na maturite</dd></div>
+            <div><dt>8 ukážok</dt><dd>umelecké, publicistické aj náučné texty</dd></div>
+            <div><dt>{tests.length} ročníkov</dt><dd>riadne termíny {yearsRange}</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="ms-sec ms-sec-alt" id="testy">
+        <div class="ms-wrap">
+          <div class="ms-sec-head">
+            <div>
+              <span class="ms-kicker">Externá časť</span>
+              <h2>Testy z&nbsp;minulých rokov</h2>
+              <p>Oficiálne testy NIVaM z&nbsp;riadnych termínov. Rozpracovaný test sa ti priebežne ukladá, takže môžeš kedykoľvek pokračovať.</p>
+            </div>
+          </div>
+          <div class="ms-tests">
+            {tests.map((t) => (
+              <article class="ms-test">
+                <span class="ms-test-term">Riadny termín · {t.schoolYear}</span>
+                <span class="ms-test-year">{t.year}</span>
+                <ul class="ms-test-specs">
+                  <li>{t.questionsCount}&nbsp;úloh · {t.durationMinutes}&nbsp;minút</li>
+                  <li>{t.passagesCount}&nbsp;ukážok · ©&nbsp;NIVaM</li>
+                </ul>
+                <div class="ms-test-foot">
+                  {t.status === 'ready' ? (
+                    <a class="ms-dot" href={`/test/${t.slug}/`}>Spustiť test</a>
+                  ) : (
+                    <span class="ms-dot">Pripravujeme</span>
+                  )}
+                  <Fragment set:html={icon(t.status === 'ready' ? I.arrow : I.hourglass)} />
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="ms-sec ms-sloh" id="sloh">
+        <div class="ms-wrap">
+          <div class="ms-sec-head">
+            <div>
+              <span class="ms-kicker">Písomná forma internej časti</span>
+              <h2>Slohové útvary na maturite</h2>
+              <p>Zo štyroch tém si vyberieš jednu a&nbsp;každá určuje slohový útvar. Ku každému nájdeš znaky, kompozíciu, jazykové prostriedky, časté chyby a&nbsp;kontrolný zoznam pred odovzdaním.</p>
+              <div class="ms-sloh-rules">
+                <span>150 minút</span>
+                <span>1 zo 4 tém</span>
+                <span>1,5 – 3 strany</span>
+                <span>Pravidlá a&nbsp;slovníky povolené</span>
+              </div>
+            </div>
+          </div>
+          <div class="ms-sloh-grid">
+            {slohoveUtvary.map((u, i) => (
+              <a class="ms-utvar" href={`/sloh/${u.slug}/`}>
+                <span class="ms-utvar-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{u.name}</h3>
+                <p set:html={u.short} />
+                <Fragment set:html={icon(I.arrow)} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="ms-sec" id="ako-to-funguje">
+        <div class="ms-wrap">
+          <div class="ms-sec-head">
+            <div>
+              <span class="ms-kicker">Ako to funguje</span>
+              <h2>Všetko, čo potrebuješ pri riešení</h2>
+            </div>
+          </div>
+          <div class="ms-features">
+            <article class="ms-feat">
+              <span class="ms-feat-ico"><Fragment set:html={icon(I.book)} /></span>
+              <h3>Ukážka vedľa úloh</h3>
+              <p>Text, ku ktorému sa úlohy viažu, máš stále na očiach. Netreba listovať ani hľadať.</p>
+            </article>
+            <article class="ms-feat">
+              <span class="ms-feat-ico"><Fragment set:html={icon(I.check)} /></span>
+              <h3>Okamžité overenie</h3>
+              <p>Pri precvičovaní hneď vidíš, či máš pravdu. Upozorní ťa aj na chýbajúcu diakritiku či veľké písmeno.</p>
+            </article>
+            <article class="ms-feat">
+              <span class="ms-feat-ico"><Fragment set:html={icon(I.bulb)} /></span>
+              <h3>Nápoveda</h3>
+              <p>Krátky tip, kde v&nbsp;texte hľadať alebo na aký jav myslieť – bez prezradenia odpovede.</p>
+            </article>
+            <article class="ms-feat">
+              <span class="ms-feat-ico"><Fragment set:html={icon(I.feather)} /></span>
+              <h3>Postup riešenia</h3>
+              <p>Vysvetlenie krok za krokom s&nbsp;teóriou, ktorú k&nbsp;úlohe potrebuješ. Pripravené a&nbsp;skontrolované učiteľom.</p>
+            </article>
+            <article class="ms-feat">
+              <span class="ms-feat-ico"><Fragment set:html={icon(I.timer)} /></span>
+              <h3>Ostrý test na 100 minút</h3>
+              <p>Odpočet, bez pomôcok, vyhodnotenie na konci. Vyskúšaš si, ako zvládaš tempo skutočnej maturity.</p>
+            </article>
+            <article class="ms-feat">
+              <span class="ms-feat-ico"><Fragment set:html={icon(I.target)} /></span>
+              <h3>Výsledok podľa oblastí</h3>
+              <p>Uvidíš úspešnosť v&nbsp;čítaní s&nbsp;porozumením, jazyku aj literatúre a&nbsp;vieš, čo si zopakovať.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ms-sec ms-sec-alt" id="otazky">
+        <div class="ms-wrap ms-faq">
+          <div>
+            <span class="ms-kicker">Otázky</span>
+            <h2 style="font-size: clamp(2rem, 3.6vw, 2.8rem)">Čo potrebuješ vedieť o&nbsp;maturite</h2>
+          </div>
+          <div>
+            {faqs.map((f) => (
+              <details class="ms-faq-item">
+                <summary>
+                  <span>{f.q}</span>
+                  <Fragment set:html={icon(I.chevron)} />
+                </summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="ms-sec" id="autor">
+        <div class="ms-wrap">
+          <div class="ms-guarantor">
+            <img src="/images/autor-peter.webp" alt="Peter Beňo" width="132" height="132" />
+            <div>
+              <blockquote>Nápovedy a&nbsp;postupy riešenia pripravuje a&nbsp;kontroluje učiteľ slovenčiny, aby boli presné a&nbsp;zrozumiteľné.</blockquote>
+              <div class="ms-guarantor-name">
+                <strong>Peter Beňo</strong>
+                <span>bývalý učiteľ slovenského jazyka a&nbsp;literatúry na strednej škole · garant riešení</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ms-sisters">
+            <a class="ms-sister" href={SJL9_SITE_URL} target="_blank" rel="noopener noreferrer">
+              <span class="ms-sister-logo" style="background: linear-gradient(150deg, #ca4675, #92144a)">T9</span>
+              <span><small>Testovanie 9 zo slovenčiny</small><strong>monitorsolina.sk</strong></span>
+              <Fragment set:html={icon(I.external)} />
+            </a>
+            <a class="ms-sister" href={MATH_SITE_URL} target="_blank" rel="noopener noreferrer">
+              <span class="ms-sister-logo" style="background: #2457e6">T9</span>
+              <span><small>Testovanie 9 z&nbsp;matematiky</small><strong>monitormatika.sk</strong></span>
+              <Fragment set:html={icon(I.external)} />
+            </a>
+          </div>
+
+          <aside class="ms-volunteer">
+            <div>
+              <h3>Stránku tvoríme dobrovoľne, vo voľnom čase</h3>
+              <p>Príprava je pre žiakov aj učiteľov bezplatná a&nbsp;bez reklám. Jediným nákladom je prenájom domény. Radi privítame partnerov a&nbsp;sponzorov, ktorí nám symbolickým príspevkom pomôžu zachovať stránku dostupnú aj pre ďalšie ročníky.</p>
+            </div>
+            <a class="ms-btn ms-btn-primary ms-btn-sm" href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Podpora projektu Maturita zo SJL')}`}>
+              <Fragment set:html={icon(I.mail)} />
+              Chcem projekt podporiť
+            </a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ms-footer">
+      <div class="ms-wrap">
+        <div class="ms-footer-top">
+          <a class="ms-brand" href="/">
+            <span class="ms-mark" aria-hidden="true">M</span>
+            <span class="ms-brand-text">
+              <strong>Maturita zo SJL</strong>
+              <small>{SITE_NAME}</small>
+            </span>
+          </a>
+          <nav class="ms-footer-links" aria-label="Odkazy v pätičke">
+            <a href="#testy">Testy</a>
+            <a href="#sloh">Slohové útvary</a>
+            <a href={SJL9_SITE_URL} target="_blank" rel="noopener noreferrer">Testovanie 9 zo slovenčiny</a>
+            <a href={MATH_SITE_URL} target="_blank" rel="noopener noreferrer">Testovanie 9 z&nbsp;matematiky</a>
+            <a href={`mailto:${CONTACT_EMAIL}`}>Kontakt</a>
+          </nav>
+        </div>
+        <div class="ms-footer-legal">
+          <p>
+            <strong>Nositeľ autorských práv k&nbsp;testom a&nbsp;kľúčom odpovedí:</strong> Nositeľom autorských práv k&nbsp;zverejneným testom externej časti maturitnej skúšky zo slovenského jazyka a&nbsp;literatúry a&nbsp;ku kľúčom správnych odpovedí k&nbsp;nim je <strong>Národný inštitút vzdelávania a&nbsp;mládeže (NIVaM)</strong>. Zdrojové dokumenty sú verejne prístupné na portáli <a href={NIVAM_MS_URL} target="_blank" rel="noopener noreferrer">www2.nucem.sk (Maturita – dokumenty na stiahnutie)</a>.
+          </p>
+          <p>
+            <strong>Prepis úloh a&nbsp;autorské vzorové riešenia:</strong> Texty ukážok, úloh a&nbsp;grafické objekty boli pre potreby interaktívneho online zobrazenia prepisované a&nbsp;graficky upravované – NIVaM nezodpovedá za prípadné chyby vzniknuté z&nbsp;tohto dôvodu. Postupy riešenia, nápovedy a&nbsp;texty o&nbsp;slohových útvaroch nie sú autorským dielom NIVaM a&nbsp;NIVaM nezodpovedá za ich obsah.
+          </p>
+        </div>
+        <p class="ms-footer-copy">© {new Date().getFullYear()} Maturita zo SJL · Peter Beňo</p>
+      </div>
+    </footer>
+  </body>
+</html>

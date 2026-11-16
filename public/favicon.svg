@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Testovanie 9 SJL">
+  <defs>
+    <pattern id="lines" width="64" height="12" patternUnits="userSpaceOnUse" y="4">
+      <line x1="0" y1="0" x2="64" y2="0" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1" />
+    </pattern>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#b1255e" />
+  <rect width="64" height="64" rx="15" fill="url(#lines)" />
+  <text x="32" y="43.5" text-anchor="middle" font-family="'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="31" letter-spacing="-1" fill="#ffffff">T9</text>
+</svg>

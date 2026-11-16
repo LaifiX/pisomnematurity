@@ -1,0 +1,23 @@
+/* Lokálne písma z @fontsource – bez volania Google Fonts, plná slovenská diakritika */
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/400-italic.css';
+@import '@fontsource/plus-jakarta-sans/500.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+@import '@fontsource/plus-jakarta-sans/700-italic.css';
+@import '@fontsource/plus-jakarta-sans/800.css';
+
+@import '@fontsource/atkinson-hyperlegible-next/400.css';
+@import '@fontsource/atkinson-hyperlegible-next/400-italic.css';
+@import '@fontsource/atkinson-hyperlegible-next/700.css';
+@import '@fontsource/atkinson-hyperlegible-next/700-italic.css';
+
+@import '@fontsource/jetbrains-mono/500.css';
+@import '@fontsource/jetbrains-mono/700.css';
+
+/* Knižná pätková Literata – nadpisy a ukážky textov (odlíšenie SJL od matematiky) */
+@import '@fontsource/literata/400.css';
+@import '@fontsource/literata/400-italic.css';
+@import '@fontsource/literata/600.css';
+@import '@fontsource/literata/700.css';
+@import '@fontsource/literata/700-italic.css';

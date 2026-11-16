@@ -1,0 +1,73 @@
+---
+import '../styles/fonts.css';
+import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+import { testsCatalog } from '../data/testsCatalog';
+
+const readyTests = testsCatalog.filter((t) => t.status === 'ready');
+---
+
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <SeoHead
+      title="Stránka sa nenašla · Testovanie 9 zo slovenčiny"
+      description="Táto stránka neexistuje. Pokračuj na úvodnú stránku alebo si vyber test Testovania 9 zo slovenčiny."
+      path="/404/"
+      themeColor="#b1255e"
+      noindex
+    />
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 1.5rem;
+        font-family: var(--font-ui);
+        color: var(--ink);
+        background-color: var(--bg);
+        background-image: repeating-linear-gradient(to bottom, transparent 0 31px, rgba(var(--brand-rgb), 0.07) 31px 32px);
+      }
+      main {
+        max-width: 34rem;
+        text-align: center;
+      }
+      .big {
+        font-family: var(--font-book);
+        font-size: clamp(4rem, 14vw, 7rem);
+        font-weight: 700;
+        line-height: 1;
+        color: var(--brand);
+      }
+      h1 {
+        margin: 0.6rem 0 0.5rem;
+        font-family: var(--font-book);
+        font-size: 1.7rem;
+        font-weight: 600;
+      }
+      p {
+        margin: 0 0 1.4rem;
+        line-height: 1.6;
+        color: var(--ink-2);
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="big" aria-hidden="true">404</div>
+      <h1>Táto stránka sa nenašla</h1>
+      <p>Adresa je možno preklepnutá alebo stránka už neexistuje. Vyber si test alebo pokračuj na úvodnú stránku.</p>
+      <div class="links">
+        <a class="hp-btn hp-btn-primary" href="/">Úvodná stránka</a>
+        {readyTests.map((t) => <a class="hp-btn hp-btn-ghost" href={`/test/${t.slug}/`}>{t.title}</a>)}
+      </div>
+    </main>
+  </body>
+</html>

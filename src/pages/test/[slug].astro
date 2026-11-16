@@ -1,0 +1,2441 @@
+---
+import '../../styles/fonts.css';
+import '../../styles/global.css';
+import '../../styles/test.css';
+import { testsCatalog } from '../../data/testsCatalog';
+import { testsDataBySlug } from '../../data/tests';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SeoHead from '../../components/SeoHead.astro';
+import { SITE_URL, CONTACT_EMAIL, NIVAM_URL } from '../../lib/site';
+import { I, icon } from '../../lib/icons';
+import { ACCENTS } from '../../lib/accents';
+
+export function getStaticPaths() {
+  return testsCatalog
+    .filter((t) => t.status === 'ready')
+    .map((testItem) => ({
+      params: { slug: testItem.slug },
+      props: { testItem }
+    }));
+}
+
+const { testItem } = Astro.props;
+const activeModule = testsDataBySlug[testItem.slug];
+const accent = ACCENTS[testItem.accent];
+
+if (!activeModule) {
+  throw new Error(`Chýba testový modul pre slug: ${testItem.slug}`);
+}
+
+const canonicalUrl = `${SITE_URL}/test/${testItem.slug}/`;
+const initialTimerDisplay = `${String(testItem.durationMinutes).padStart(2, '0')}:00`;
+
+const testData = {
+  questions: activeModule.questions,
+  passages: activeModule.passages,
+  diagrams: activeModule.diagrams,
+  stepperGroups: activeModule.stepperGroups,
+  topicGroups: activeModule.topicGroups
+};
+
+const testMeta = {
+  slug: testItem.slug,
+  year: testItem.year,
+  schoolYear: testItem.schoolYear,
+  variant: testItem.variant,
+  code: testItem.code,
+  durationMinutes: testItem.durationMinutes,
+  canonicalUrl,
+  CONTACT_EMAIL
+};
+
+const UI = {
+  checkCircle: icon(I.checkCircle),
+  xCircle: icon(I.xCircle),
+  alert: icon(I.alert),
+  arrow: icon(I.arrow),
+  flag: icon(I.flag),
+  lock: icon(I.lock),
+  grid: icon(I.grid),
+  target: icon(I.target),
+  trophy: icon(I.trophy),
+  play: icon(I.play),
+  pause: icon(I.pause),
+  volume: icon(I.volume),
+  mute: icon(I.mute),
+  topic_porozumenie: icon(I.book),
+  topic_pravopis_lexika: icon(I.spellcheck),
+  topic_tvaroslovie: icon(I.feather),
+  topic_skladba_literatura: icon(I.quote)
+};
+
+const variantLower = testItem.variant.replace(/^V/, 'v');
+const pageTitle = `${testItem.title} zo slovenčiny online s riešením`;
+const pageDescription = `Testovanie 9 zo slovenčiny ${testItem.year} (${variantLower}, kód ${testItem.code}) online: ${testItem.questionsCount} úloh s ukážkami, kľúčom odpovedí, nápovedou a postupom riešenia. Zadarmo.`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['LearningResource', 'Quiz'],
+      name: `${testItem.title} – ${testItem.subtitle}`,
+      description: pageDescription,
+      inLanguage: 'sk',
+      educationalLevel: '9. ročník ZŠ',
+      learningResourceType: 'Test',
+      about: 'Slovenský jazyk a literatúra',
+      url: canonicalUrl,
+      timeRequired: `PT${testItem.durationMinutes}M`,
+      isAccessibleForFree: true,
+      copyrightHolder: { '@type': 'Organization', name: 'Národný inštitút vzdelávania a mládeže (NIVaM)', url: NIVAM_URL },
+      copyrightYear: testItem.year,
+      isPartOf: { '@id': `${SITE_URL}/#website` }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Testovanie 9 zo slovenčiny', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: testItem.title, item: canonicalUrl }
+      ]
+    }
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <SeoHead
+      title={pageTitle}
+      description={pageDescription}
+      path={`/test/${testItem.slug}/`}
+      themeColor={accent.base}
+      jsonLd={jsonLd}
+    />
+  </head>
+  <body class={`tp-page tp-dyslexic tp-intro-active acc-${testItem.accent}`}>
+    <a class="skip-link" href="#hlavna-uloha">Preskočiť na úlohu</a>
+    <div id="liveRegion" class="sr-only" aria-live="polite"></div>
+
+    <header class="tp-header">
+      <div class="tp-header-in">
+        <div class="tp-hleft">
+          <a class="tp-back" href="/" aria-label="Späť na úvodnú stránku" title="Späť na úvodnú stránku">
+            <Fragment set:html={icon(I.arrowLeft)} />
+          </a>
+          <span class="brand-mark tp-hmark" aria-hidden="true">T9</span>
+          <div class="tp-htitle">
+            <div class="tp-htitle-row">
+              <h1 aria-label={`${testItem.title} · Slovenčina`}><span class="tp-h1-long">{testItem.title}</span><span class="tp-h1-short">T9&nbsp;{testItem.year}</span><span class="tp-h1-subj"> · Slovenčina</span></h1>
+              <span class="tp-mode-chip" id="modeChip">Režim</span>
+            </div>
+            <span class="tp-hmeta">Šk.&nbsp;rok {testItem.schoolYear} · {testItem.variant} (kód&nbsp;{testItem.code}) · ©&nbsp;NIVaM</span>
+          </div>
+        </div>
+
+        <div class="tp-hright">
+          <div class="tp-prog-pill" aria-label="Postup vyplnenia">
+            <span id="progressText">0/{testItem.questionsCount}</span>
+            <span class="tp-prog-track"><span class="tp-prog-fill" id="headerProgressFill"></span></span>
+          </div>
+
+          <div class="tp-timer" id="timerWidget">
+            <Fragment set:html={icon(I.clock)} />
+            <span class="tp-timer-val" id="timerDisplay">{initialTimerDisplay}</span>
+            <button class="tp-ico-btn" type="button" id="timerToggleBtn" title="Pozastaviť / spustiť časovač" aria-label="Pozastaviť alebo spustiť časovač">
+              <Fragment set:html={icon(I.pause)} />
+            </button>
+            <button class="tp-ico-btn" type="button" id="timerResetBtn" title="Resetovať čas" aria-label="Resetovať časovač">
+              <Fragment set:html={icon(I.rotate)} />
+            </button>
+          </div>
+
+          <button class="tp-hbtn tp-eval-btn" type="button" id="evaluateTestBtn">
+            <Fragment set:html={icon(I.checkCircle)} />
+            <span class="tp-eval-label" id="evaluateBtnLabel">Vyhodnotiť test</span>
+            <span class="tp-eval-short" id="evaluateBtnShort" aria-hidden="true">Vyhodnotiť</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="tp-subbar no-print">
+        <div class="tp-subbar-in">
+          <div class="tp-a11y-tools">
+            <button class="tp-chip-btn" type="button" id="soundToggleBtn" aria-pressed="true" data-sfx="none">
+              <span id="soundToggleIco"><Fragment set:html={icon(I.volume)} /></span>
+              <span id="soundToggleText">Zvuky: zap.</span>
+            </button>
+            <button class="tp-chip-btn" type="button" id="changeModeBtn" title="Vrátiť sa na výber režimu">
+              <Fragment set:html={icon(I.rotate)} />
+              <span>Zmeniť režim</span>
+            </button>
+            <button class="tp-chip-btn" type="button" data-install="any" title="Pridať aplikáciu na plochu">
+              <Fragment set:html={icon(I.appAdd)} />
+              <span>Pridať na plochu</span>
+            </button>
+            <button class="tp-chip-btn" type="button" data-share title="Zdieľať odkaz na tento test">
+              <Fragment set:html={icon(I.share)} />
+              <span data-share-label>Zdieľať</span>
+            </button>
+          </div>
+        </div>
+    </div>
+
+    <main class="tp-main" id="hlavna-uloha">
+      <!-- Úvodná voľba režimu -->
+      <section class="tp-intro" id="introScreen">
+        <div class="tp-intro-head">
+          <h2>Ako chceš dnes trénovať?</h2>
+          <p>Vyber si režim. Odpovede sa ti priebežne ukladajú v&nbsp;tomto prehliadači, takže sa môžeš kedykoľvek vrátiť.</p>
+        </div>
+
+        <ul class="tp-facts">
+          <li>
+            <span class="tp-facts-ico"><Fragment set:html={icon(I.file)} /></span>
+            <span><strong>{testItem.questionsCount} úloh</strong><small>{testItem.choiceCount} s výberom A – D, {testItem.openCount} s krátkou odpoveďou</small></span>
+          </li>
+          <li>
+            <span class="tp-facts-ico"><Fragment set:html={icon(I.clock)} /></span>
+            <span><strong>{testItem.durationMinutes} minút</strong><small>ako na skutočnom teste</small></span>
+          </li>
+          <li>
+            <span class="tp-facts-ico"><Fragment set:html={icon(I.lock)} /></span>
+            <span><strong>Bez pomôcok</strong><small>slovníky ani pravidlá nie sú povolené</small></span>
+          </li>
+        </ul>
+
+        <div class="tp-intro-resume hidden" id="introResumeBox">
+          <p id="introResumeText"></p>
+          <div class="tp-intro-resume-acts">
+            <button class="hp-btn hp-btn-primary hp-btn-sm" type="button" id="resumeSavedBtn">Pokračovať v uloženom teste</button>
+            <button class="hp-btn hp-btn-ghost hp-btn-sm" type="button" id="discardSavedBtn">Začať odznova</button>
+          </div>
+        </div>
+
+        <div class="tp-modes">
+          <article class="tp-mode-card is-exam">
+            <span class="tp-mode-ico"><Fragment set:html={icon(I.hourglass)} /></span>
+            <h3>Ostrý test</h3>
+            <p>Ako na skutočnom Testovaní&nbsp;9. Výsledok, správne odpovede a&nbsp;postupy uvidíš až po vyhodnotení.</p>
+            <ul class="tp-mode-list">
+              <li><Fragment set:html={icon(I.check)} />Odpočítavanie {testItem.durationMinutes} minút</li>
+              <li><Fragment set:html={icon(I.check)} />Bez nápovedy a&nbsp;priebežnej kontroly</li>
+              <li><Fragment set:html={icon(I.check)} />Poctivý obraz o&nbsp;tom, čo už vieš</li>
+            </ul>
+            <button class="hp-btn hp-btn-primary" type="button" id="startExamModeBtn">
+              Spustiť ostrý test
+              <Fragment set:html={icon(I.arrow)} />
+            </button>
+          </article>
+
+          <article class="tp-mode-card is-practice">
+            <span class="tp-mode-ico"><Fragment set:html={icon(I.target)} /></span>
+            <h3>Precvičovanie</h3>
+            <p>Bez časového tlaku. Každú úlohu si hneď overíš, a&nbsp;keď si nevieš rady, máš po ruke pomoc.</p>
+            <ul class="tp-mode-list">
+              <li><Fragment set:html={icon(I.check)} />Okamžité overenie odpovede</li>
+              <li><Fragment set:html={icon(I.check)} />Nápoveda a&nbsp;postup krok za krokom</li>
+              <li><Fragment set:html={icon(I.check)} />Upozornenie na diakritiku a&nbsp;veľké písmená</li>
+            </ul>
+            <button class="hp-btn tp-btn-teal" type="button" id="startPracticeModeBtn">
+              Začať precvičovať
+              <Fragment set:html={icon(I.arrow)} />
+            </button>
+          </article>
+        </div>
+
+        <p class="tp-intro-note">
+          Pri otvorených úlohách píš odpoveď so správnou diakritikou a&nbsp;veľkými písmenami presne podľa zadania. Na počítači môžeš odpovedať aj klávesmi A&nbsp;–&nbsp;D a&nbsp;prepínať úlohy šípkami.
+        </p>
+      </section>
+
+      <!-- Výsledkový prehľad po vyhodnotení -->
+      <section class="tp-results hidden" id="resultsDashboard" aria-live="polite">
+        <div class="tp-archive-note hidden" id="archiveNote">
+          <Fragment set:html={icon(I.info)} />
+          <p id="archiveNoteText"></p>
+          <button class="hp-btn hp-btn-ghost hp-btn-sm hidden" type="button" id="archiveBackBtn">Pokračovať v rozpracovanom teste</button>
+        </div>
+
+        <div class="tp-res-hero">
+          <div class="tp-ring" id="scoreRing">
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <defs>
+                <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" class="tp-ring-stop-a" />
+                  <stop offset="100%" class="tp-ring-stop-b" />
+                </linearGradient>
+              </defs>
+              <circle class="tp-ring-bg" cx="80" cy="80" r="68" />
+              <circle class="tp-ring-fill" id="scoreRingFill" cx="80" cy="80" r="68" />
+            </svg>
+            <div class="tp-ring-center">
+              <strong id="scorePoints">0/30</strong>
+              <span id="scorePercent">0 %</span>
+            </div>
+          </div>
+
+          <div class="tp-res-info">
+            <span class="tp-intro-eyebrow" id="resultsEyebrow">Výsledok testu</span>
+            <h2 id="scoreTitle">Výsledok testu</h2>
+            <p class="tp-res-lead" id="scoreLead"></p>
+            <div class="tp-res-tiles">
+              <div class="tp-tile is-ok">
+                <span class="tp-tile-ico"><Fragment set:html={icon(I.check)} /></span>
+                <span class="tp-tile-txt"><strong id="statCorrectCount">0</strong><small>správne</small></span>
+              </div>
+              <div class="tp-tile is-err">
+                <span class="tp-tile-ico"><Fragment set:html={icon(I.x)} /></span>
+                <span class="tp-tile-txt"><strong id="statWrongCount">0</strong><small id="statWrongLabel">nesprávne</small></span>
+              </div>
+              <div class="tp-tile is-time">
+                <span class="tp-tile-ico"><Fragment set:html={icon(I.clock)} /></span>
+                <span class="tp-tile-txt"><strong id="statTimeSpent">0 min</strong><small>čas</small></span>
+              </div>
+            </div>
+            <p class="tp-timeup-note hidden" id="timeUpNote">Čas vypršal – test bol vyhodnotený automaticky.</p>
+          </div>
+        </div>
+
+        <div class="tp-res-actions">
+          <button class="hp-btn hp-btn-ghost hp-btn-sm" type="button" id="toggleWrongOnlyBtn">
+            <Fragment set:html={icon(I.target)} />
+            <span>Prejsť len chybné úlohy</span>
+          </button>
+          <button class="hp-btn hp-btn-ghost hp-btn-sm" type="button" data-share>
+            <Fragment set:html={icon(I.share)} />
+            <span data-share-label>Zdieľať test</span>
+          </button>
+          <button class="hp-btn hp-btn-primary hp-btn-sm" type="button" id="retryTestBtn">
+            <Fragment set:html={icon(I.rotate)} />
+            <span>Skúsiť test odznova</span>
+          </button>
+        </div>
+
+        <div class="tp-res-block">
+          <div class="tp-res-block-head">
+            <h3>Mapa odpovedí</h3>
+            <span class="tp-map-legend"><i class="is-ok"></i>správne <i class="is-err"></i>chyba <i class="is-empty"></i>nevyplnená</span>
+          </div>
+          <div class="tp-map" id="answerMap"></div>
+        </div>
+
+        <div class="tp-res-block">
+          <div class="tp-res-block-head">
+            <h3>Úspešnosť podľa oblastí slovenčiny</h3>
+          </div>
+          <div class="tp-topics" id="topicsBreakdownGrid"></div>
+        </div>
+
+        <div class="print-export-bar">
+          <div class="print-name-group">
+            <label for="studentNameInput">Meno žiaka pre tlač:</label>
+            <input id="studentNameInput" class="student-name-input" type="text" placeholder="Napr. Ján Novák, 9. A" />
+          </div>
+          <button class="btn-PrintReport" type="button" id="printReportBtn">
+            <Fragment set:html={icon(I.printer)} />
+            <span>Vytlačiť / uložiť výsledkový list (PDF)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Navigátor úloh -->
+      <section class="tp-stepper hidden" id="stepperCard" aria-label="Navigácia medzi úlohami">
+        <div class="tp-stepper-head">
+          <button class="tp-stepper-toggle" type="button" id="stepperToggleBtn" aria-expanded="true">
+            <Fragment set:html={icon(I.grid)} />
+            <span>Prehľad úloh (01 – {testItem.questionsCount})</span>
+            <Fragment set:html={icon(I.chevron)} />
+          </button>
+          <div class="tp-stepper-legend">
+            <span><i class="tp-leg-dot"></i>nevyplnená</span>
+            <span><i class="tp-leg-dot is-done"></i>vyplnená</span>
+            <span><i class="tp-leg-dot is-ok"></i>správne</span>
+            <span><i class="tp-leg-dot is-err"></i>chyba</span>
+          </div>
+        </div>
+        <div class="tp-stepper-grid" id="stepperGrid">
+          {activeModule.stepperGroups.map((grp) => (
+            <div class="tp-stepper-group">
+              <span class="tp-stepper-glabel">{grp.label}:</span>
+              {activeModule.questions.slice(grp.fromIndex, grp.toIndex + 1).map((q, localIdx) => {
+                const idx = grp.fromIndex + localIdx;
+                return (
+                  <button
+                    class="tp-pill"
+                    type="button"
+                    data-step-idx={idx}
+                    data-qid={q.id}
+                    aria-label={`Úloha ${q.code}`}
+                  >
+                    {q.code}
+                  </button>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Filter chybných úloh -->
+      <div class="tp-wrong-banner hidden" id="wrongModeBanner">
+        <span>Zobrazujú sa len chybne zodpovedané alebo nevyplnené úlohy.</span>
+        <button class="hp-btn hp-btn-ghost hp-btn-sm" type="button" id="exitWrongModeBtn">Zobraziť všetky úlohy</button>
+      </div>
+
+      <!-- Pracovný priestor: ukážka vľavo + karta úlohy vpravo -->
+      <section class="tp-workspace hidden" id="workspace">
+        <div class="tp-ctx-col hidden" id="sharedContextContainer">
+          <div class="tp-ctx" id="sharedContextCard">
+            <button class="tp-ctx-toggle" type="button" id="ctxToggleBtn" aria-expanded="true">
+              <span id="ctxToggleLabel">Ukážka k úlohe</span>
+              <span class="tp-ctx-chv"><Fragment set:html={icon(I.chevron)} /></span>
+            </button>
+            <div class="tp-ctx-body" id="sharedContextBody"></div>
+          </div>
+        </div>
+
+        <article class="tp-qcard" id="questionCard">
+          <div class="tp-qhead">
+            <div class="tp-qbadges">
+              <span class="tp-qnum" id="qNumberBadge">Úloha 01</span>
+              <span class="tp-qcat" id="qCategoryBadge">Téma</span>
+              <span class="tp-qtype" id="qTypeBadge">Výber odpovede</span>
+            </div>
+            <div class="tp-qactions">
+              <button class="tp-flag-btn" type="button" id="flagQuestionBtn" title="Označiť úlohu na neskoršiu kontrolu">
+                <Fragment set:html={icon(I.flag)} />
+                <span id="flagQuestionBtnText">Označiť</span>
+              </button>
+              <button class="tp-report-btn" type="button" id="reportQuestionBtn" title="Nahlásiť chybu v zadaní">
+                <Fragment set:html={icon(I.alert)} />
+                <span>Chyba</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="tp-qtext" id="questionText"></div>
+          <div id="questionDiagramContainer"></div>
+          <div class="tp-qtext hidden" id="questionTextAfter"></div>
+
+          <div id="answerSection"></div>
+
+          <div class="tp-action-strip" id="questionHelpStrip">
+            <button class="hp-btn hp-btn-primary hp-btn-sm hidden" type="button" id="checkSingleBtn">
+              <Fragment set:html={icon(I.check)} />
+              <span>Overiť odpoveď</span>
+            </button>
+
+            <div class="tp-help-btns">
+              <button class="hp-btn hp-btn-ghost hp-btn-sm tp-btn-hint" type="button" id="openHintBtn">
+                <Fragment set:html={icon(I.bulb)} />
+                <span>Nápoveda</span>
+              </button>
+              <button class="hp-btn hp-btn-ghost hp-btn-sm tp-btn-sol" type="button" id="openSolutionBtn">
+                <Fragment set:html={icon(I.book)} />
+                <span>Postup riešenia</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="tp-feedback hidden" id="evalFeedbackBanner">
+            <span id="evalFeedbackIcon"></span>
+            <div class="tp-feedback-text" id="evalFeedbackInfo"></div>
+            <button class="hp-btn hp-btn-ghost hp-btn-sm hidden" type="button" id="evalOpenSolutionBtn">Pozrieť postup</button>
+          </div>
+
+          <div class="tp-qfoot">
+            <button class="hp-btn hp-btn-ghost hp-btn-sm" type="button" id="prevQuestionBtn">
+              <Fragment set:html={icon(I.arrowLeft)} />
+              <span>Predošlá</span>
+            </button>
+            <span class="tp-pos" id="footerPositionText">1 / {testItem.questionsCount}</span>
+            <button class="hp-btn hp-btn-primary hp-btn-sm" type="button" id="nextQuestionBtn">
+              <span id="nextBtnText">Ďalšia úloha</span>
+              <span id="nextBtnArrow"><Fragment set:html={icon(I.arrow)} /></span>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- Výtlačok výsledkového listu -->
+      <section class="printable-report" id="printableReport" aria-hidden="true"></section>
+    </main>
+
+    <SiteFooter test={testItem} />
+
+    <!-- Modal Nápoveda -->
+    <div class="modal-backdrop hidden" id="hintModal" role="dialog" aria-modal="true" aria-labelledby="hintModalTitle">
+      <div class="modal-window">
+        <div class="modal-header hint-header">
+          <div class="modal-title-group">
+            <Fragment set:html={icon(I.bulb)} />
+            <div>
+              <span class="modal-eyebrow">Nápoveda k úlohe</span>
+              <h3 id="hintModalTitle">Úloha</h3>
+            </div>
+          </div>
+          <button class="modal-close-btn" type="button" data-close-modal="hintModal" aria-label="Zavrieť nápovedu">
+            <Fragment set:html={icon(I.x)} />
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="tp-hint-box" id="hintModalContent"></div>
+          <p class="tp-modal-note">Nápoveda nie je autorským dielom NIVaM a&nbsp;NIVaM nezodpovedá za&nbsp;jej obsah.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="hp-btn hp-btn-ghost hp-btn-sm" type="button" data-report="hint">Nahlásiť chybu v nápovede</button>
+          <div class="modal-footer-right">
+            <button class="hp-btn hp-btn-ghost hp-btn-sm tp-btn-sol" type="button" id="switchHintToSolutionBtn">
+              <Fragment set:html={icon(I.book)} />
+              <span>Zobraziť postup riešenia</span>
+            </button>
+            <button class="hp-btn hp-btn-primary hp-btn-sm" type="button" data-close-modal="hintModal">Zavrieť</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Postup riešenia -->
+    <div class="modal-backdrop hidden" id="solutionModal" role="dialog" aria-modal="true" aria-labelledby="solutionModalTitle">
+      <div class="modal-window modal-large">
+        <div class="modal-header solution-header">
+          <div class="modal-title-group">
+            <Fragment set:html={icon(I.book)} />
+            <div>
+              <span class="modal-eyebrow">Postup riešenia krok za krokom</span>
+              <h3 id="solutionModalTitle">Úloha</h3>
+            </div>
+          </div>
+          <button class="modal-close-btn" type="button" data-close-modal="solutionModal" aria-label="Zavrieť postup riešenia">
+            <Fragment set:html={icon(I.x)} />
+          </button>
+        </div>
+        <div class="modal-body">
+          <ol class="tp-steps" id="solutionStepsList"></ol>
+          <div class="tp-conclusion" id="solutionConclusionBox"></div>
+          <p class="tp-modal-note">Postup riešenia nie je autorským dielom NIVaM a&nbsp;NIVaM nezodpovedá za&nbsp;jeho obsah.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="hp-btn hp-btn-ghost hp-btn-sm" type="button" data-report="solution">Nahlásiť chybu v postupe</button>
+          <div class="modal-footer-right">
+            <button class="hp-btn hp-btn-primary hp-btn-sm" type="button" data-close-modal="solutionModal">Zavrieť</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal potvrdenia odovzdania / resetu -->
+    <div class="modal-backdrop hidden" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <div class="modal-window">
+        <div class="modal-header tp-confirm-head" id="confirmHeader">
+          <div class="modal-title-group">
+            <span id="confirmIcon"><Fragment set:html={icon(I.checkCircle)} /></span>
+            <div>
+              <span class="modal-eyebrow" id="confirmEyebrow">Potvrdenie</span>
+              <h3 id="confirmTitle">Vyhodnotiť test?</h3>
+            </div>
+          </div>
+          <button class="modal-close-btn" type="button" data-close-modal="confirmModal" aria-label="Zavrieť">
+            <Fragment set:html={icon(I.x)} />
+          </button>
+        </div>
+        <div class="modal-body" id="confirmBody"></div>
+        <div class="modal-footer">
+          <div class="modal-footer-right">
+            <button class="hp-btn hp-btn-ghost hp-btn-sm" type="button" id="confirmCancelBtn">Späť k testu</button>
+            <button class="hp-btn hp-btn-primary hp-btn-sm" type="button" id="confirmProceedBtn">Potvrdiť</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zväčšenie grafu / ilustrácie -->
+    <div class="tp-zoom-backdrop hidden" id="zoomModal" role="dialog" aria-modal="true" aria-label="Zväčšený náhľad grafu">
+      <div class="tp-zoom-box">
+        <button class="tp-zoom-close" type="button" id="closeZoomBtn" aria-label="Zavrieť zväčšenie">
+          <Fragment set:html={icon(I.x)} />
+        </button>
+        <div id="zoomContent"></div>
+      </div>
+    </div>
+
+    <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+    <script is:inline src="/pwa.js"></script>
+    <script is:inline src="/sounds.js"></script>
+    <script is:inline define:vars={{ testData, testMeta, UI, ACCENT: accent }}>
+      const questions = testData.questions;
+      const passages = testData.passages;
+      const diagrams = testData.diagrams;
+      const TOPIC_GROUPS = testData.topicGroups;
+      const LAST_INDEX = questions.length - 1;
+      const INITIAL_SECONDS = testMeta.durationMinutes * 60;
+
+      const testSlug = testMeta.slug;
+      const testYear = testMeta.year;
+      const testSchoolYear = testMeta.schoolYear;
+      const testVariant = testMeta.variant;
+      const testCode = testMeta.code;
+      const canonicalUrl = testMeta.canonicalUrl;
+      const CONTACT_EMAIL = testMeta.CONTACT_EMAIL;
+
+      const STORAGE_KEY = 'monitorsjl_test_' + testSlug + '_v1';
+      const LAST_KEY = 'monitorsjl_last_' + testSlug + '_v1';
+      // Posledný vyhodnotený pokus – nový pokus ho neprepíše, úvodná stránka naň odkazuje (#vysledok)
+      const RESULT_KEY = 'monitorsjl_result_' + testSlug + '_v1';
+      let viewingArchive = false;
+      const A11Y_KEY = 'monitorsjl_a11y_v1';
+
+      function safeStorageGet(k) {
+        try {
+          return localStorage.getItem(k);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function safeStorageSet(k, v) {
+        try {
+          localStorage.setItem(k, v);
+        } catch (e) {}
+      }
+
+      function safeStorageRemove(k) {
+        try {
+          localStorage.removeItem(k);
+        } catch (e) {}
+      }
+
+      function escHtml(s) {
+        return String(s ?? '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function inlineMarks(s) {
+        return escHtml(s)
+          .replace(/(^|[^:])\/\/((?:(?!\/\/)[^\n])+)\/\//g, '$1<em>$2</em>')
+          .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
+          .replace(/__([^_\n]+)__/g, '<u>$1</u>');
+      }
+
+      function formatQuestionText(text) {
+        return String(text ?? '')
+          .split('\n')
+          .map((line) => inlineMarks(line))
+          .join('<br />');
+      }
+
+      function bindSlovakTypography(root) {
+        if (!root || typeof NodeFilter === 'undefined') return;
+        const SKIP = new Set(['SCRIPT', 'STYLE', 'CODE', 'PRE', 'INPUT', 'TEXTAREA']);
+        const INLINE = new Set(['STRONG', 'EM', 'U', 'B', 'I', 'SPAN', 'A', 'SUB', 'SUP', 'MARK', 'SMALL']);
+        // Pevné medzery podľa slovenskej typografie: jednopísmenové predložky a spojky,
+        // radová číslovka + slovo (9. ročník), číslo + slovo alebo % (30 úloh, 13,4 %), Testovanie 9
+        const PREP = /(^|[\s\u00A0„(\[])([ksvzauoiKSVZAUOI])[ \t\r\n]+(?=\S)/g;
+        const PREP_TRAIL = /(^|[\s\u00A0„(\[])([ksvzauoiKSVZAUOI])[ \t\r\n]+$/;
+        const RULES = [
+          PREP,
+          PREP,
+          [/(\d+\.)[ \t\r\n]+(?=[\p{L}])/gu, '$1\u00A0'],
+          [/(\d+(?:,\d+)?)[ \t\r\n]+(?=[\p{L}%])/gu, '$1\u00A0'],
+          [/(Testovani[ea]|Testovaní|Testovaniu|Testovaním)[ \t\r\n]+(?=\d)/g, '$1\u00A0']
+        ];
+        const hasInlineNext = (node) => {
+          const next = node.nextSibling;
+          return Boolean(next && next.nodeType === 1 && INLINE.has(next.tagName) && (next.textContent || '').trim() !== '');
+        };
+        const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+          acceptNode(node) {
+            let el = node.parentElement;
+            while (el && el !== root) {
+              if (SKIP.has(el.tagName)) return NodeFilter.FILTER_REJECT;
+              el = el.parentElement;
+            }
+            const val = node.nodeValue || '';
+            if (!val) return NodeFilter.FILTER_SKIP;
+            if (hasInlineNext(node) && PREP_TRAIL.test(val)) return NodeFilter.FILTER_ACCEPT;
+            for (const entry of RULES) {
+              const re = Array.isArray(entry) ? entry[0] : entry;
+              re.lastIndex = 0;
+              if (re.test(val)) return NodeFilter.FILTER_ACCEPT;
+            }
+            return NodeFilter.FILTER_SKIP;
+          }
+        });
+        const nodes = [];
+        let n;
+        while ((n = w.nextNode())) nodes.push(n);
+        for (const node of nodes) {
+          let t = node.nodeValue;
+          for (const entry of RULES) {
+            if (Array.isArray(entry)) {
+              entry[0].lastIndex = 0;
+              t = t.replace(entry[0], entry[1]);
+            } else {
+              entry.lastIndex = 0;
+              t = t.replace(entry, '$1$2\u00A0');
+            }
+          }
+          if (hasInlineNext(node)) {
+            t = t.replace(PREP_TRAIL, '$1$2\u00A0');
+          }
+          node.nodeValue = t;
+        }
+      }
+
+      function cleanSjlSpacing(raw) {
+        return String(raw ?? '')
+          .replace(/[\u00A0\u2007\u202F]/g, ' ')
+          .replace(/[\u2060\u200B-\u200D\uFEFF]/g, '')
+          .replace(/[–—]/g, '-')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .replace(/\.+$/, '')
+          .trim();
+      }
+
+      function stripDiacritics(str) {
+        return String(str ?? '')
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '');
+      }
+
+      function splitWordList(cleaned, keepHyphen = false) {
+        const src = keepHyphen ? cleaned.replace(/\s+-\s+/g, ' ') : cleaned;
+        const sep = keepHyphen ? /[\s,;.:=+/↔–—·•|]+/ : /[\s,;.:=+\-/↔–—·•|]+/;
+        return src
+          .split(sep)
+          .map((w) => w.trim())
+          .filter(Boolean);
+      }
+
+      function stripOuterQuotes(raw) {
+        return cleanSjlSpacing(String(raw ?? '').trim().replace(/^[„"”‚'’«»]+|[“"”‘'’«»]+$/g, ''));
+      }
+
+      function isQuestionCorrect(q, rawAns) {
+        const cleaned = cleanSjlSpacing(rawAns);
+        if (!cleaned) return false;
+
+        if (q.type === 'choice') {
+          return cleaned.toUpperCase() === cleanSjlSpacing(q.acceptedAnswers[0]).toUpperCase();
+        }
+
+        if (Array.isArray(q.orderedWords) && q.orderedWords.length > 0) {
+          const keepHyphen = q.orderedWords.some((w) => w.includes('-'));
+          const words = splitWordList(cleaned, keepHyphen).map((w) => (q.caseSensitive ? w : w.toLocaleLowerCase('sk')));
+          const target = q.orderedWords.map((w) => (q.caseSensitive ? w : w.toLocaleLowerCase('sk')));
+          if (words.length !== target.length) return false;
+          return words.every((w, idx) => w === target[idx]);
+        }
+
+        if (Array.isArray(q.unorderedWords) && q.unorderedWords.length > 0) {
+          const keepHyphen = q.unorderedWords.some((w) => w.includes('-'));
+          const words = splitWordList(cleaned, keepHyphen)
+            .map((w) => (q.caseSensitive ? w : w.toLocaleLowerCase('sk')))
+            .sort((a, b) => a.localeCompare(b, 'sk'));
+          const target = q.unorderedWords
+            .map((w) => (q.caseSensitive ? w : w.toLocaleLowerCase('sk')))
+            .sort((a, b) => a.localeCompare(b, 'sk'));
+          if (words.length !== target.length) return false;
+          return words.every((w, idx) => w === target[idx]);
+        }
+
+        const accepted = Array.isArray(q.acceptedAnswers) ? q.acceptedAnswers : [];
+        if (q.caseSensitive) {
+          return accepted.some((acc) => cleaned === cleanSjlSpacing(acc));
+        }
+
+        const low = cleaned.toLocaleLowerCase('sk');
+        return accepted.some((acc) => low === cleanSjlSpacing(acc).toLocaleLowerCase('sk'));
+      }
+
+      function diagnoseNearMiss(q, rawAns) {
+        const cleaned = cleanSjlSpacing(rawAns);
+        if (!cleaned || q.type !== 'text') return '';
+
+        const unquoted = stripOuterQuotes(rawAns);
+        if (unquoted && unquoted !== cleaned) {
+          if (isQuestionCorrect(q, unquoted)) return 'Odpoveď píš bez úvodzoviek.';
+        }
+
+        const candidate = unquoted || cleaned;
+
+        if (Array.isArray(q.orderedWords) && q.orderedWords.length > 0) {
+          const keepHyphen = q.orderedWords.some((w) => w.includes('-'));
+          const rawWords = splitWordList(candidate, keepHyphen);
+          const words = rawWords.map((w) => w.toLocaleLowerCase('sk'));
+          const target = q.orderedWords.map((w) => w.toLocaleLowerCase('sk'));
+          const sortedTarget = [...target].sort((a, b) => a.localeCompare(b, 'sk'));
+
+          if (words.length > target.length) {
+            const withoutConj = words.filter((w) => w !== 'a' && w !== 'i');
+            if (withoutConj.length === target.length) {
+              if (withoutConj.every((w, i) => w === target[i])) {
+                return 'Vypíš len samotné hľadané slová bez spojky „a“ (oddelené napr. čiarkou).';
+              }
+              const sortedNoConj = [...withoutConj].sort((a, b) => a.localeCompare(b, 'sk'));
+              if (sortedNoConj.every((w, i) => w === sortedTarget[i])) {
+                return 'Vypíš len samotné slová bez spojky „a“ a zoraď ich v abecednom poradí.';
+              }
+            }
+          }
+
+          if (words.length === target.length) {
+            if (q.caseSensitive && words.every((w, i) => w === target[i])) {
+              return q.caseHint || 'Pozor na malé a veľké začiatočné písmená.';
+            }
+            const sortedUser = [...words].sort((a, b) => a.localeCompare(b, 'sk'));
+            if (sortedUser.every((w, i) => w === sortedTarget[i])) {
+              const countPhrase =
+                target.length === 2 ? 'obe slová' : target.length <= 4 ? `všetky ${target.length} slová` : `všetkých ${target.length} slov`;
+              return `Máš správne ${countPhrase}, ale zadanie žiada vypísať ich v abecednom poradí.`;
+            }
+            if (words.every((w, i) => stripDiacritics(w) === stripDiacritics(target[i]))) {
+              return 'Slová máš v správnom poradí, ale chýba alebo nesedí diakritika (dĺžne či mäkčene).';
+            }
+            const strippedUser = words.map(stripDiacritics).sort((a, b) => a.localeCompare(b, 'sk'));
+            const strippedTarget = target.map(stripDiacritics).sort((a, b) => a.localeCompare(b, 'sk'));
+            if (strippedUser.every((w, i) => w === strippedTarget[i])) {
+              return 'Slová sú blízko, skontroluj správnu slovenskú diakritiku a abecedné poradie.';
+            }
+          }
+
+          const mistake = (q.commonMistakes || []).find((m) => {
+            try {
+              return new RegExp(m.pattern, 'i').test(candidate);
+            } catch (e) {
+              return false;
+            }
+          });
+          if (mistake) return mistake.hint;
+
+          if (words.length < target.length) {
+            const countPhrase = target.length === 2 ? 'obe hľadané slová' : `všetky ${target.length} hľadané slová`;
+            return `Zadanie žiada uviesť ${countPhrase}.`;
+          }
+          return '';
+        }
+
+        if (Array.isArray(q.unorderedWords) && q.unorderedWords.length > 0) {
+          const keepHyphen = q.unorderedWords.some((w) => w.includes('-'));
+          const rawWords = splitWordList(candidate, keepHyphen);
+          const words = rawWords.map((w) => w.toLocaleLowerCase('sk'));
+          const target = q.unorderedWords.map((w) => w.toLocaleLowerCase('sk'));
+          const sortedTarget = [...target].sort((a, b) => a.localeCompare(b, 'sk'));
+
+          if (words.length > target.length) {
+            const withoutConj = words.filter((w) => w !== 'a' && w !== 'i');
+            const sortedNoConj = [...withoutConj].sort((a, b) => a.localeCompare(b, 'sk'));
+            if (withoutConj.length === target.length && sortedNoConj.every((w, i) => w === sortedTarget[i])) {
+              return 'Vypíš len samotné hľadané slová bez spojky „a“ (oddelené napr. čiarkou).';
+            }
+          }
+
+          if (words.length === target.length) {
+            const sortedUser = [...words].sort((a, b) => a.localeCompare(b, 'sk'));
+            if (q.caseSensitive && sortedUser.every((w, i) => w === sortedTarget[i])) {
+              return q.caseHint || 'Pozor na malé a veľké začiatočné písmená.';
+            }
+            const strippedUser = words.map(stripDiacritics).sort((a, b) => a.localeCompare(b, 'sk'));
+            const strippedTarget = target.map(stripDiacritics).sort((a, b) => a.localeCompare(b, 'sk'));
+            if (strippedUser.every((w, i) => w === strippedTarget[i])) {
+              return 'Slová máš takmer správne, ale chýba alebo nesedí diakritika (dĺžne či mäkčene).';
+            }
+          }
+
+          const mistake = (q.commonMistakes || []).find((m) => {
+            try {
+              return new RegExp(m.pattern, 'i').test(candidate);
+            } catch (e) {
+              return false;
+            }
+          });
+          if (mistake) return mistake.hint;
+
+          if (words.length < target.length) {
+            const countPhrase = target.length === 2 ? 'obe hľadané slová' : `všetky ${target.length} hľadané slová`;
+            return `Zadanie žiada uviesť ${countPhrase}.`;
+          }
+          return '';
+        }
+
+        const accepted = Array.isArray(q.acceptedAnswers) ? q.acceptedAnswers : [];
+
+        if (q.caseSensitive) {
+          const ciMatch = accepted.some((acc) => candidate.toLocaleLowerCase('sk') === cleanSjlSpacing(acc).toLocaleLowerCase('sk'));
+          if (ciMatch) return q.caseHint || 'Pozor na malé a veľké začiatočné písmeno.';
+        }
+
+        const strippedUser = stripDiacritics(candidate).toLocaleLowerCase('sk');
+        const noDiacMatch = accepted.some((acc) => strippedUser === stripDiacritics(cleanSjlSpacing(acc)).toLocaleLowerCase('sk'));
+        if (noDiacMatch) {
+          const caseAlsoWrong =
+            q.caseSensitive && !accepted.some((acc) => stripDiacritics(candidate) === stripDiacritics(cleanSjlSpacing(acc)));
+          if (caseAlsoWrong) return 'Skontroluj diakritiku (dĺžne, mäkčene) aj veľkosť začiatočného písmena.';
+          return 'Odpoveď máš takmer správne, ale chýba alebo nesedí diakritika (dĺžne či mäkčene).';
+        }
+
+        // Typické chyby konkrétnej úlohy (pole commonMistakes v dátach testu)
+        const mistake = (q.commonMistakes || []).find((m) => {
+          try {
+            return new RegExp(m.pattern, 'i').test(candidate);
+          } catch (e) {
+            return false;
+          }
+        });
+        return mistake ? mistake.hint : '';
+      }
+
+      // Zvuky: spoločný modul /sounds.js (T9Sound) – jemné tóny, stav zdieľaný s úvodnou stránkou
+      function playSound(kind, i) {
+        if (window.T9Sound) window.T9Sound.play(kind, i);
+      }
+
+      const liveRegion = document.getElementById('liveRegion');
+      function announce(msg) {
+        if (!liveRegion) return;
+        liveRegion.textContent = '';
+        requestAnimationFrame(() => {
+          liveRegion.textContent = msg;
+        });
+      }
+
+      // Stav testu
+      let mode = null; // 'exam' | 'practice' | null
+      let currentIndex = 0;
+      const userAnswers = {};
+      const singleCheckedState = {};
+      const flaggedQuestions = {};
+      let isEvaluated = false;
+      let filterWrongOnly = false;
+      let studentName = '';
+      let lastRenderedIndex = null;
+      const collapsedContexts = {};
+
+      let remainingSeconds = INITIAL_SECONDS;
+      let elapsedSeconds = 0;
+      let timerRunning = true;
+      let timerInterval = null;
+
+      const isExamLocked = () => mode === 'exam' && !isEvaluated;
+
+      // DOM prvky
+      const introScreen = document.getElementById('introScreen');
+      const modeChip = document.getElementById('modeChip');
+      const timerWidget = document.getElementById('timerWidget');
+      const timerDisplay = document.getElementById('timerDisplay');
+      const timerToggleBtn = document.getElementById('timerToggleBtn');
+      const timerResetBtn = document.getElementById('timerResetBtn');
+      const evaluateTestBtn = document.getElementById('evaluateTestBtn');
+      const evaluateBtnLabel = document.getElementById('evaluateBtnLabel');
+
+      const resultsDashboard = document.getElementById('resultsDashboard');
+      const resultsEyebrow = document.getElementById('resultsEyebrow');
+      const scoreRing = document.getElementById('scoreRing');
+      const scoreRingFill = document.getElementById('scoreRingFill');
+      const scorePoints = document.getElementById('scorePoints');
+      const scorePercent = document.getElementById('scorePercent');
+      const scoreTitle = document.getElementById('scoreTitle');
+      const statCorrectCount = document.getElementById('statCorrectCount');
+      const statWrongCount = document.getElementById('statWrongCount');
+      const statTimeSpent = document.getElementById('statTimeSpent');
+      const toggleWrongOnlyBtn = document.getElementById('toggleWrongOnlyBtn');
+      const retryTestBtn = document.getElementById('retryTestBtn');
+      const topicsBreakdownGrid = document.getElementById('topicsBreakdownGrid');
+      const studentNameInput = document.getElementById('studentNameInput');
+      const printReportBtn = document.getElementById('printReportBtn');
+      const printableReport = document.getElementById('printableReport');
+
+      const progressText = document.getElementById('progressText');
+      const headerProgressFill = document.getElementById('headerProgressFill');
+      const stepperCard = document.getElementById('stepperCard');
+      const stepperToggleBtn = document.getElementById('stepperToggleBtn');
+      const stepperGrid = document.getElementById('stepperGrid');
+      const stepPills = Array.from(stepperGrid.querySelectorAll('.tp-pill'));
+
+      const wrongModeBanner = document.getElementById('wrongModeBanner');
+      const exitWrongModeBtn = document.getElementById('exitWrongModeBtn');
+
+      const workspace = document.getElementById('workspace');
+      const sharedContextContainer = document.getElementById('sharedContextContainer');
+      const sharedContextCard = document.getElementById('sharedContextCard');
+      const ctxToggleBtn = document.getElementById('ctxToggleBtn');
+      const ctxToggleLabel = document.getElementById('ctxToggleLabel');
+      const sharedContextBody = document.getElementById('sharedContextBody');
+      // Mobil a tablet: ukážka je nad úlohou (nie vedľa nej)
+      const stackedLayout = window.matchMedia('(max-width: 1079px)');
+
+      const questionCard = document.getElementById('questionCard');
+      const qNumberBadge = document.getElementById('qNumberBadge');
+      const qCategoryBadge = document.getElementById('qCategoryBadge');
+      const qTypeBadge = document.getElementById('qTypeBadge');
+      const flagQuestionBtn = document.getElementById('flagQuestionBtn');
+      const flagQuestionBtnText = document.getElementById('flagQuestionBtnText');
+      const questionText = document.getElementById('questionText');
+      const questionDiagramContainer = document.getElementById('questionDiagramContainer');
+      const questionTextAfter = document.getElementById('questionTextAfter');
+      const answerSection = document.getElementById('answerSection');
+      const checkSingleBtn = document.getElementById('checkSingleBtn');
+      const openHintBtn = document.getElementById('openHintBtn');
+      const openSolutionBtn = document.getElementById('openSolutionBtn');
+      const evalFeedbackBanner = document.getElementById('evalFeedbackBanner');
+      const evalFeedbackIcon = document.getElementById('evalFeedbackIcon');
+      const evalFeedbackInfo = document.getElementById('evalFeedbackInfo');
+      const evalOpenSolutionBtn = document.getElementById('evalOpenSolutionBtn');
+
+      const prevQuestionBtn = document.getElementById('prevQuestionBtn');
+      const nextQuestionBtn = document.getElementById('nextQuestionBtn');
+      const nextBtnText = document.getElementById('nextBtnText');
+      const nextBtnArrow = document.getElementById('nextBtnArrow');
+      const footerPositionText = document.getElementById('footerPositionText');
+
+      const hintModal = document.getElementById('hintModal');
+      const hintModalTitle = document.getElementById('hintModalTitle');
+      const hintModalContent = document.getElementById('hintModalContent');
+      const switchHintToSolutionBtn = document.getElementById('switchHintToSolutionBtn');
+
+      const solutionModal = document.getElementById('solutionModal');
+      const solutionModalTitle = document.getElementById('solutionModalTitle');
+      const solutionStepsList = document.getElementById('solutionStepsList');
+      const solutionConclusionBox = document.getElementById('solutionConclusionBox');
+
+      const confirmModal = document.getElementById('confirmModal');
+      const confirmHeader = document.getElementById('confirmHeader');
+      const confirmIcon = document.getElementById('confirmIcon');
+      const confirmEyebrow = document.getElementById('confirmEyebrow');
+      const confirmTitle = document.getElementById('confirmTitle');
+      const confirmBody = document.getElementById('confirmBody');
+      const confirmCancelBtn = document.getElementById('confirmCancelBtn');
+      const confirmProceedBtn = document.getElementById('confirmProceedBtn');
+
+      const zoomModal = document.getElementById('zoomModal');
+      const zoomContent = document.getElementById('zoomContent');
+      const closeZoomBtn = document.getElementById('closeZoomBtn');
+
+      // Zvuk a prístupnosť
+      const soundToggleBtn = document.getElementById('soundToggleBtn');
+      const soundToggleIco = document.getElementById('soundToggleIco');
+      const soundToggleText = document.getElementById('soundToggleText');
+
+      function updateSoundToggleUI() {
+        const muted = !window.T9Sound || window.T9Sound.isMuted();
+        soundToggleIco.innerHTML = muted ? UI.mute : UI.volume;
+        soundToggleText.textContent = muted ? 'Zvuky: vyp.' : 'Zvuky: zap.';
+        soundToggleBtn.setAttribute('aria-pressed', muted ? 'false' : 'true');
+      }
+
+      updateSoundToggleUI();
+      if (window.T9Sound) window.T9Sound.onChange(updateSoundToggleUI);
+      soundToggleBtn.addEventListener('click', () => {
+        if (window.T9Sound) window.T9Sound.toggle();
+      });
+
+      // Čitateľnejšie písmo (Atkinson Hyperlegible Next) je v teste vždy zapnuté (trieda tp-dyslexic na <body>).
+      // Prepínače veľkosti písma, kontrastu a písma boli zrušené – staré uložené nastavenia sa mažú.
+      safeStorageRemove(A11Y_KEY);
+
+      // Ukladanie a obnova stavu
+      function saveStateToStorage() {
+        // Pri prezeraní archivovaného výsledku sa nesmie prepísať rozpracovaný nový pokus
+        if (!mode || viewingArchive) return;
+        try {
+          safeStorageSet(
+            STORAGE_KEY,
+            JSON.stringify({
+              mode,
+              currentIndex,
+              userAnswers,
+              singleCheckedState,
+              flaggedQuestions,
+              isEvaluated,
+              filterWrongOnly,
+              studentName,
+              remainingSeconds,
+              elapsedSeconds,
+              savedAt: Date.now()
+            })
+          );
+        } catch (e) {}
+      }
+
+      function loadStateFromStorage() {
+        try {
+          const raw = safeStorageGet(STORAGE_KEY);
+          return raw ? JSON.parse(raw) : null;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function clearSavedState() {
+        safeStorageRemove(STORAGE_KEY);
+      }
+
+      // Časovač
+      function formatTime(sec) {
+        const s = Math.max(0, Math.floor(sec));
+        const mm = String(Math.floor(s / 60)).padStart(2, '0');
+        const ss = String(s % 60).padStart(2, '0');
+        return `${mm}:${ss}`;
+      }
+
+      function updateTimerUI() {
+        if (!mode) return;
+        const val = mode === 'exam' ? remainingSeconds : elapsedSeconds;
+        timerDisplay.textContent = formatTime(val);
+        timerWidget.classList.toggle('is-warn', mode === 'exam' && remainingSeconds <= 300);
+        timerToggleBtn.innerHTML = timerRunning ? UI.pause : UI.play;
+      }
+
+      function stopTimer() {
+        if (timerInterval) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+        }
+      }
+
+      function startTimer() {
+        stopTimer();
+        timerRunning = true;
+        updateTimerUI();
+        timerInterval = setInterval(() => {
+          if (!timerRunning || !mode || isEvaluated) return;
+          if (mode === 'exam') {
+            remainingSeconds = Math.max(0, remainingSeconds - 1);
+            updateTimerUI();
+            if (remainingSeconds <= 0) {
+              stopTimer();
+              evaluateTest(true);
+            }
+          } else {
+            elapsedSeconds += 1;
+            updateTimerUI();
+          }
+          if ((mode === 'exam' ? remainingSeconds : elapsedSeconds) % 5 === 0) {
+            saveStateToStorage();
+          }
+        }, 1000);
+      }
+
+      timerToggleBtn.addEventListener('click', () => {
+        playSound('click');
+        timerRunning = !timerRunning;
+        updateTimerUI();
+      });
+
+      timerResetBtn.addEventListener('click', () => {
+        playSound('click');
+        if (mode === 'exam') remainingSeconds = INITIAL_SECONDS;
+        else elapsedSeconds = 0;
+        updateTimerUI();
+        saveStateToStorage();
+      });
+
+      // Režimy a intro
+      function updateModeUI() {
+        if (!mode) return;
+        const locked = isExamLocked();
+        const isExam = mode === 'exam';
+        modeChip.textContent = isExam ? 'Ostrý test' : 'Precvičovanie';
+        modeChip.classList.toggle('is-exam', isExam);
+
+        openHintBtn.disabled = locked;
+        openSolutionBtn.disabled = locked;
+        const lockedTitle = 'V ostrom teste sa odomkne po vyhodnotení';
+        openHintBtn.title = locked ? lockedTitle : 'Nápoveda k úlohe';
+        openSolutionBtn.title = locked ? lockedTitle : 'Postup riešenia';
+
+        checkSingleBtn.classList.toggle('hidden', isExam || isEvaluated);
+        timerResetBtn.classList.toggle('hidden', isExam);
+        evaluateBtnLabel.textContent = isEvaluated ? 'Výsledkový panel' : 'Vyhodnotiť test';
+        document.getElementById('evaluateBtnShort').textContent = isEvaluated ? 'Výsledok' : 'Vyhodnotiť';
+      }
+
+      function enterWorkspace(selectedMode, fromRestore = false) {
+        mode = selectedMode;
+        document.body.classList.remove('tp-intro-active');
+        introScreen.classList.add('hidden');
+        stepperCard.classList.remove('hidden');
+        workspace.classList.remove('hidden');
+
+        if (!fromRestore) {
+          remainingSeconds = INITIAL_SECONDS;
+          elapsedSeconds = 0;
+          currentIndex = 0;
+        }
+
+        updateModeUI();
+        renderQuestion();
+        if (isEvaluated) {
+          resultsDashboard.classList.remove('hidden');
+          renderResultsBreakdownAndPrintReport();
+          stopTimer();
+          updateTimerUI();
+        } else {
+          resultsDashboard.classList.add('hidden');
+          startTimer();
+        }
+        saveStateToStorage();
+        // Po otvorení testu (nový aj pokračovanie) začína stránka na začiatku ukážky
+        // (úloha bez ukážky – na úlohe); vyhodnotený test na výsledku
+        requestAnimationFrame(() => {
+          syncHeaderHeight();
+          if (isEvaluated) resultsDashboard.scrollIntoView({ block: 'start' });
+          else workspace.scrollIntoView({ block: 'start' });
+        });
+      }
+
+      function clearAnswerObjects() {
+        Object.keys(userAnswers).forEach((k) => delete userAnswers[k]);
+        Object.keys(singleCheckedState).forEach((k) => delete singleCheckedState[k]);
+        Object.keys(flaggedQuestions).forEach((k) => delete flaggedQuestions[k]);
+      }
+
+      function clearArchiveView(stripHash = true) {
+        viewingArchive = false;
+        document.getElementById('archiveNote').classList.add('hidden');
+        if (stripHash && window.location.hash === '#vysledok') {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      }
+
+      function resetAnswers() {
+        clearArchiveView(true);
+        clearSavedState();
+        clearAnswerObjects();
+        isEvaluated = false;
+        filterWrongOnly = false;
+      }
+
+      function startFresh(selectedMode) {
+        playSound('click');
+        const saved = loadStateFromStorage();
+        const savedFilled =
+          saved && saved.userAnswers ? Object.values(saved.userAnswers).filter((v) => String(v).trim() !== '').length : 0;
+        const begin = () => {
+          resetAnswers();
+          enterWorkspace(selectedMode, false);
+        };
+        // Uložený rozpracovaný test sa nesmie stratiť jedným nechceným kliknutím
+        if (savedFilled > 0) {
+          const savedPart = savedFilled === 1 ? 'uloženú' : savedFilled <= 4 ? 'uložené' : 'uložených';
+          const savedPron = savedFilled === 1 ? 'ju' : 'ich';
+          openConfirm({
+            eyebrow: 'Uložený postup',
+            title: 'Začať nový test?',
+            html: `<p class="tp-confirm-lead">Máš ${savedPart} <strong>${savedFilled} z ${questions.length}</strong> odpovedí. Nový test ${savedPron} vymaže.</p>`,
+            proceedLabel: 'Áno, začať nový',
+            onProceed: begin
+          });
+          return;
+        }
+        begin();
+      }
+
+      document.getElementById('startExamModeBtn').addEventListener('click', () => startFresh('exam'));
+      document.getElementById('startPracticeModeBtn').addEventListener('click', () => startFresh('practice'));
+
+      document.getElementById('changeModeBtn').addEventListener('click', () => {
+        playSound('click');
+        stopTimer();
+        clearArchiveView(true);
+        mode = null;
+        document.body.classList.add('tp-intro-active');
+        introScreen.classList.remove('hidden');
+        stepperCard.classList.add('hidden');
+        workspace.classList.add('hidden');
+        resultsDashboard.classList.add('hidden');
+        wrongModeBanner.classList.add('hidden');
+        refreshIntroResumeBox();
+      });
+
+      function refreshIntroResumeBox() {
+        const saved = loadStateFromStorage();
+        const box = document.getElementById('introResumeBox');
+        const txt = document.getElementById('introResumeText');
+        if (!saved || !saved.mode) {
+          box.classList.add('hidden');
+          return;
+        }
+        const filled = Object.keys(saved.userAnswers || {}).filter((k) => String(saved.userAnswers[k]).trim() !== '').length;
+        const mLabel = saved.mode === 'exam' ? 'ostrý test' : 'test v režime precvičovania';
+        txt.innerHTML = `Máš uložený <strong>${mLabel}</strong> (${filled}/${questions.length} vyplnených úloh${saved.isEvaluated ? ', vyhodnotený' : ''}).`;
+        box.classList.remove('hidden');
+      }
+
+      document.getElementById('resumeSavedBtn').addEventListener('click', () => {
+        const saved = loadStateFromStorage();
+        if (!saved || !saved.mode) return;
+        playSound('click');
+        clearArchiveView(!saved.isEvaluated);
+        clearAnswerObjects();
+        Object.assign(userAnswers, saved.userAnswers || {});
+        Object.assign(singleCheckedState, saved.singleCheckedState || {});
+        Object.assign(flaggedQuestions, saved.flaggedQuestions || {});
+        isEvaluated = Boolean(saved.isEvaluated);
+        filterWrongOnly = Boolean(saved.filterWrongOnly);
+        studentName = saved.studentName || '';
+        studentNameInput.value = studentName;
+        currentIndex = Math.max(0, Math.min(LAST_INDEX, saved.currentIndex || 0));
+        remainingSeconds = typeof saved.remainingSeconds === 'number' ? saved.remainingSeconds : INITIAL_SECONDS;
+        elapsedSeconds = typeof saved.elapsedSeconds === 'number' ? saved.elapsedSeconds : 0;
+        enterWorkspace(saved.mode, true);
+      });
+
+      document.getElementById('discardSavedBtn').addEventListener('click', () => {
+        playSound('click');
+        clearSavedState();
+        refreshIntroResumeBox();
+      });
+
+      // Stepper
+      stepperToggleBtn.addEventListener('click', () => {
+        const collapsed = stepperCard.classList.toggle('is-collapsed');
+        stepperToggleBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      });
+
+      stepPills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          playSound('click');
+          goToQuestion(Number(pill.getAttribute('data-step-idx')));
+        });
+      });
+
+      function hasAnswer(q) {
+        const val = userAnswers[q.id];
+        return val !== undefined && String(val).trim() !== '';
+      }
+
+      function getWrongQuestionIndices() {
+        return questions
+          .map((q, idx) => (isQuestionCorrect(q, userAnswers[q.id]) ? -1 : idx))
+          .filter((idx) => idx >= 0);
+      }
+
+      function updateProgressAndStepper() {
+        let answeredCount = 0;
+        questions.forEach((q, idx) => {
+          const answered = hasAnswer(q);
+          if (answered) answeredCount++;
+
+          const pill = stepPills[idx];
+          if (!pill) return;
+          pill.classList.remove('is-active', 'is-done', 'is-ok', 'is-err', 'is-flag');
+          if (idx === currentIndex) pill.classList.add('is-active');
+          if (flaggedQuestions[q.id]) pill.classList.add('is-flag');
+
+          if (isEvaluated) {
+            pill.classList.add(isQuestionCorrect(q, userAnswers[q.id]) ? 'is-ok' : 'is-err');
+          } else if (mode === 'practice' && singleCheckedState[q.id]) {
+            pill.classList.add(singleCheckedState[q.id] === 'correct' ? 'is-ok' : 'is-err');
+          } else if (answered) {
+            pill.classList.add('is-done');
+          }
+
+          const hidePill = isEvaluated && filterWrongOnly && isQuestionCorrect(q, userAnswers[q.id]);
+          pill.classList.toggle('hidden', hidePill);
+        });
+
+        progressText.textContent = `${answeredCount}/${questions.length}`;
+        headerProgressFill.style.width = `${Math.round((answeredCount / questions.length) * 100)}%`;
+        wrongModeBanner.classList.toggle('hidden', !(isEvaluated && filterWrongOnly));
+      }
+
+      function goToQuestion(idx) {
+        if (idx < 0 || idx > LAST_INDEX) return;
+        currentIndex = idx;
+        renderQuestion();
+        saveStateToStorage();
+        // Na mobile a tablete: ak je začiatok novej úlohy mimo obrazovky, posuň naň
+        if (stackedLayout.matches) {
+          const top = document.getElementById('questionCard').getBoundingClientRect().top;
+          const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--tp-header-h')) || 64;
+          if (top < headerH || top > window.innerHeight * 0.6) scrollToQuestion('smooth');
+        }
+      }
+
+      // Posun stránky tak, aby začiatok úlohy bol hneď pod hlavičkou
+      function scrollToQuestion(behavior = 'auto') {
+        const card = document.getElementById('questionCard');
+        const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--tp-header-h')) || 64;
+        const top = card.getBoundingClientRect().top + window.scrollY - headerH - 12;
+        window.scrollTo({ top: Math.max(0, top), behavior });
+      }
+
+      // Zoom obrázkov
+      function openZoomWithHtml(html) {
+        zoomContent.innerHTML = html;
+        zoomModal.classList.remove('hidden');
+      }
+
+      function closeZoom() {
+        zoomModal.classList.add('hidden');
+        zoomContent.innerHTML = '';
+      }
+
+      closeZoomBtn.addEventListener('click', closeZoom);
+      zoomModal.addEventListener('click', (e) => {
+        if (e.target === zoomModal) closeZoom();
+      });
+
+      function wireZoomables(container) {
+        container.querySelectorAll('.sjl-figure').forEach((fig) => {
+          fig.setAttribute('title', 'Kliknutím zväčšíš graf alebo ilustráciu');
+          fig.addEventListener('click', () => {
+            openZoomWithHtml(fig.innerHTML);
+          });
+        });
+      }
+
+      // Skladanie spoločnej ukážky
+      ctxToggleBtn.addEventListener('click', () => {
+        const q = questions[currentIndex];
+        if (!q || !q.sharedContextId) return;
+        const nextCollapsed = !sharedContextCard.classList.contains('is-collapsed');
+        collapsedContexts[q.sharedContextId] = nextCollapsed;
+        sharedContextCard.classList.toggle('is-collapsed', nextCollapsed);
+        ctxToggleBtn.setAttribute('aria-expanded', nextCollapsed ? 'false' : 'true');
+      });
+
+      function renderSharedContext(q) {
+        if (!q.sharedContextId || !passages[q.sharedContextId]) {
+          sharedContextContainer.classList.add('hidden');
+          workspace.classList.remove('has-ctx');
+          sharedContextBody.innerHTML = '';
+          return;
+        }
+        const passage = passages[q.sharedContextId];
+        sharedContextContainer.classList.remove('hidden');
+        workspace.classList.add('has-ctx');
+        ctxToggleLabel.textContent = passage.label;
+        const isCollapsed = Boolean(collapsedContexts[q.sharedContextId]);
+        sharedContextCard.classList.toggle('is-collapsed', isCollapsed);
+        ctxToggleBtn.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        sharedContextBody.innerHTML = passage.html;
+        wireZoomables(sharedContextBody);
+        bindSlovakTypography(sharedContextBody);
+      }
+
+      // Renderovanie aktuálnej úlohy
+      function selectChoice(key) {
+        if (isEvaluated) return;
+        const q = questions[currentIndex];
+        playSound('select', ['A', 'B', 'C', 'D'].indexOf(key));
+        userAnswers[q.id] = key;
+        if (singleCheckedState[q.id]) delete singleCheckedState[q.id];
+        saveStateToStorage();
+        renderQuestion();
+      }
+
+      function renderQuestion() {
+        const q = questions[currentIndex];
+        if (!q) return;
+
+        if (lastRenderedIndex !== currentIndex) {
+          questionCard.classList.remove('is-entering');
+          void questionCard.offsetWidth;
+          questionCard.classList.add('is-entering');
+          lastRenderedIndex = currentIndex;
+        }
+
+        renderSharedContext(q);
+
+        qNumberBadge.textContent = `Úloha ${q.code}`;
+        qCategoryBadge.textContent = q.category;
+        qTypeBadge.textContent = q.type === 'choice' ? 'Výber A\u00A0–\u00A0D' : 'Krátka odpoveď';
+
+        const isFlagged = Boolean(flaggedQuestions[q.id]);
+        flagQuestionBtn.classList.toggle('is-flagged', isFlagged);
+        flagQuestionBtnText.textContent = isFlagged ? 'Označené' : 'Označiť';
+
+        questionText.innerHTML = formatQuestionText(q.questionText);
+
+        if (q.diagramId && diagrams[q.diagramId]) {
+          questionDiagramContainer.innerHTML = diagrams[q.diagramId];
+          wireZoomables(questionDiagramContainer);
+        } else {
+          questionDiagramContainer.innerHTML = '';
+        }
+
+        if (q.questionTextAfter) {
+          questionTextAfter.innerHTML = formatQuestionText(q.questionTextAfter);
+          questionTextAfter.classList.remove('hidden');
+        } else {
+          questionTextAfter.innerHTML = '';
+          questionTextAfter.classList.add('hidden');
+        }
+
+        const currentVal = userAnswers[q.id] ?? '';
+        const checkedStatus = singleCheckedState[q.id];
+
+        if (q.type === 'choice') {
+          answerSection.innerHTML = `
+            <div class="tp-choices" role="radiogroup" aria-label="Možnosti odpovede">
+              ${(q.options || [])
+                .map((opt) => {
+                  const isSel = String(currentVal).toUpperCase() === opt.key;
+                  const cls = ['tp-choice'];
+                  if (isEvaluated) {
+                    if (opt.key === q.correctAnswerDisplay) cls.push('is-correct');
+                    else if (isSel) cls.push('is-wrong');
+                  } else if (mode === 'practice' && checkedStatus) {
+                    if (isSel && checkedStatus === 'correct') cls.push('is-correct');
+                    else if (isSel && checkedStatus === 'wrong') cls.push('is-wrong');
+                  } else if (isSel) {
+                    cls.push('is-selected');
+                  }
+                  return `
+                    <button
+                      type="button"
+                      class="${cls.join(' ')}"
+                      data-choice-key="${opt.key}"
+                      role="radio"
+                      aria-checked="${isSel ? 'true' : 'false'}"
+                      ${isEvaluated ? 'disabled' : ''}
+                    >
+                      <span class="tp-choice-key">${opt.key}</span>
+                      <span>${inlineMarks(opt.text)}</span>
+                    </button>
+                  `;
+                })
+                .join('')}
+            </div>
+          `;
+          answerSection.querySelectorAll('[data-choice-key]').forEach((btn) => {
+            btn.addEventListener('click', () => selectChoice(btn.getAttribute('data-choice-key')));
+          });
+        } else {
+          const inputCls = ['tp-input'];
+          if (q.fillSentenceHtml) inputCls.push('tp-input-inline');
+          if (isEvaluated) {
+            inputCls.push(isQuestionCorrect(q, currentVal) ? 'is-correct' : 'is-wrong');
+          } else if (mode === 'practice' && checkedStatus) {
+            inputCls.push(checkedStatus === 'correct' ? 'is-correct' : 'is-wrong');
+          }
+
+          const inputHtml = `
+            <input
+              type="text"
+              id="textAnswerInput"
+              class="${inputCls.join(' ')}"
+              aria-label="${escHtml(q.placeholder || 'Napíš odpoveď')}"
+              placeholder="${escHtml(q.placeholder || 'Napíš odpoveď')}"
+              value="${escHtml(currentVal)}"
+              autocomplete="off"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              ${isEvaluated ? 'disabled' : ''}
+            />
+          `;
+
+          if (q.fillSentenceHtml) {
+            const sentenceWithBlank = inlineMarks(q.fillSentenceHtml).replace('{{blank}}', inputHtml);
+            answerSection.innerHTML = `<div class="tp-fill-sentence">${sentenceWithBlank}</div>`;
+          } else {
+            answerSection.innerHTML = `<div class="tp-answer-row">${inputHtml}</div>`;
+          }
+
+          if (q.footnote) {
+            answerSection.insertAdjacentHTML('beforeend', `<p class="tp-footnote">* ${escHtml(q.footnote)}</p>`);
+          }
+
+          const inp = document.getElementById('textAnswerInput');
+          if (inp) {
+            inp.addEventListener('input', () => {
+              userAnswers[q.id] = inp.value;
+              if (singleCheckedState[q.id]) {
+                delete singleCheckedState[q.id];
+                inp.classList.remove('is-correct', 'is-wrong');
+                evalFeedbackBanner.classList.add('hidden');
+              }
+              updateProgressAndStepper();
+              saveStateToStorage();
+            });
+            inp.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' && !isEvaluated) {
+                e.preventDefault();
+                if (mode === 'practice') checkCurrentQuestionImmediately();
+                else if (currentIndex < LAST_INDEX) goToQuestion(currentIndex + 1);
+              }
+            });
+          }
+        }
+
+        // Spätná väzba (vyhodnotený test alebo okamžitá kontrola v Precvičovaní)
+        evalFeedbackBanner.classList.remove('hidden', 'is-ok', 'is-err', 'is-warn');
+        evalOpenSolutionBtn.classList.add('hidden');
+
+        if (isEvaluated) {
+          const ok = isQuestionCorrect(q, currentVal);
+          const nearMiss = !ok ? diagnoseNearMiss(q, currentVal) : '';
+          evalFeedbackBanner.classList.add(ok ? 'is-ok' : 'is-err');
+          evalFeedbackIcon.innerHTML = ok ? UI.checkCircle : UI.xCircle;
+          evalFeedbackInfo.innerHTML = ok
+            ? `<strong>Správne! (+1 bod)</strong> Tvoja odpoveď zodpovedá oficiálnemu kľúču (${escHtml(q.correctAnswerDisplay)}).`
+            : `<strong>Nesprávne (0 bodov).</strong> ${currentVal ? `Tvoja odpoveď: <b>${escHtml(currentVal)}</b>. ` : 'Nezodpovedané. '}Správna odpoveď: <b>${escHtml(q.correctAnswerDisplay)}</b>.${nearMiss ? `<span class="tp-feedback-note">${escHtml(nearMiss)}</span>` : ''}`;
+          evalOpenSolutionBtn.classList.remove('hidden');
+        } else if (mode === 'practice' && checkedStatus) {
+          if (checkedStatus === 'correct') {
+            evalFeedbackBanner.classList.add('is-ok');
+            evalFeedbackIcon.innerHTML = UI.checkCircle;
+            evalFeedbackInfo.innerHTML = `<strong>Výborne, správne!</strong> Odpoveď <b>${escHtml(q.correctAnswerDisplay)}</b> je správna.`;
+          } else {
+            const nearMiss = diagnoseNearMiss(q, currentVal);
+            evalFeedbackBanner.classList.add('is-err');
+            evalFeedbackIcon.innerHTML = UI.xCircle;
+            evalFeedbackInfo.innerHTML = `<strong>Zatiaľ nesprávne.</strong> ${nearMiss ? escHtml(nearMiss) : 'Skús si pozrieť nápovedu alebo postup riešenia.'}`;
+            evalOpenSolutionBtn.classList.remove('hidden');
+          }
+        } else {
+          evalFeedbackBanner.classList.add('hidden');
+        }
+
+        // Dolná navigácia
+        footerPositionText.textContent = `${currentIndex + 1} / ${questions.length}`;
+        if (isEvaluated && filterWrongOnly) {
+          const wrongs = getWrongQuestionIndices();
+          const prevW = [...wrongs].reverse().find((i) => i < currentIndex);
+          const nextW = wrongs.find((i) => i > currentIndex);
+          prevQuestionBtn.disabled = prevW === undefined;
+          nextQuestionBtn.disabled = nextW === undefined;
+          nextBtnText.textContent = 'Ďalšia chybná';
+          nextBtnArrow.innerHTML = UI.arrow;
+        } else {
+          prevQuestionBtn.disabled = currentIndex === 0;
+          nextQuestionBtn.disabled = isEvaluated && currentIndex === LAST_INDEX;
+          if (!isEvaluated && currentIndex === LAST_INDEX) {
+            nextBtnText.textContent = 'Vyhodnotiť test';
+            nextBtnArrow.innerHTML = UI.checkCircle;
+          } else {
+            nextBtnText.textContent = 'Ďalšia úloha';
+            nextBtnArrow.innerHTML = UI.arrow;
+          }
+        }
+
+        updateModeUI();
+        updateProgressAndStepper();
+        bindSlovakTypography(questionCard);
+      }
+
+      // Okamžité overenie v režime Precvičovanie
+      function checkCurrentQuestionImmediately() {
+        if (isExamLocked() || isEvaluated) return;
+        const q = questions[currentIndex];
+        const raw = userAnswers[q.id];
+        if (cleanSjlSpacing(raw) === '') {
+          playSound('wrong');
+          evalFeedbackBanner.classList.remove('hidden', 'is-ok', 'is-err');
+          evalFeedbackBanner.classList.add('is-warn');
+          evalFeedbackIcon.innerHTML = UI.alert;
+          evalFeedbackInfo.innerHTML = '<strong>Najprv vyber alebo zapíš odpoveď.</strong>';
+          evalOpenSolutionBtn.classList.add('hidden');
+          announce('Najprv vyber alebo zapíš odpoveď.');
+          return;
+        }
+        const ok = isQuestionCorrect(q, raw);
+        singleCheckedState[q.id] = ok ? 'correct' : 'wrong';
+        playSound(ok ? 'correct' : 'wrong');
+        saveStateToStorage();
+        renderQuestion();
+        announce(ok ? 'Správne!' : 'Zatiaľ nesprávne.');
+      }
+
+      checkSingleBtn.addEventListener('click', checkCurrentQuestionImmediately);
+
+      flagQuestionBtn.addEventListener('click', () => {
+        const q = questions[currentIndex];
+        flaggedQuestions[q.id] = !flaggedQuestions[q.id];
+        playSound('click');
+        saveStateToStorage();
+        renderQuestion();
+      });
+
+      prevQuestionBtn.addEventListener('click', () => {
+        playSound('click');
+        if (isEvaluated && filterWrongOnly) {
+          const wrongs = getWrongQuestionIndices();
+          const prevW = [...wrongs].reverse().find((i) => i < currentIndex);
+          if (prevW !== undefined) goToQuestion(prevW);
+          return;
+        }
+        if (currentIndex > 0) goToQuestion(currentIndex - 1);
+      });
+
+      nextQuestionBtn.addEventListener('click', () => {
+        if (isEvaluated && filterWrongOnly) {
+          playSound('click');
+          const wrongs = getWrongQuestionIndices();
+          const nextW = wrongs.find((i) => i > currentIndex);
+          if (nextW !== undefined) goToQuestion(nextW);
+          return;
+        }
+        if (currentIndex < LAST_INDEX) {
+          playSound('click');
+          goToQuestion(currentIndex + 1);
+        } else if (!isEvaluated) {
+          evaluateTest(false);
+        }
+      });
+
+      // Výsledky, témy a tlač do PDF
+      function getSpentSeconds() {
+        return mode === 'practice' ? elapsedSeconds : INITIAL_SECONDS - remainingSeconds;
+      }
+
+      function renderResultsBreakdownAndPrintReport() {
+        let correctCount = 0;
+        questions.forEach((q) => {
+          if (isQuestionCorrect(q, userAnswers[q.id])) correctCount++;
+        });
+
+        const wrongCount = questions.length - correctCount;
+        const pctNum = (correctCount / questions.length) * 100;
+        const pct = pctNum.toFixed(1).replace('.', ',');
+        const spentMin = Math.max(1, Math.round(getSpentSeconds() / 60));
+        const scoreLevel = pctNum >= 75 ? 'good' : pctNum >= 50 ? 'mid' : 'low';
+        const modeLabel = mode === 'exam' ? 'Ostrý test' : 'Precvičovanie';
+
+        resultsEyebrow.textContent = `Výsledok testu · ${modeLabel}`;
+        document.getElementById('timeUpNote').classList.toggle('hidden', !(mode === 'exam' && remainingSeconds <= 0));
+        const emptyCount = questions.filter((q) => String(userAnswers[q.id] ?? '').trim() === '').length;
+        scorePercent.textContent = `${pct} %`;
+        statCorrectCount.textContent = String(correctCount);
+        statWrongCount.textContent = String(wrongCount);
+        const emptyWord = emptyCount === 1 ? 'nevyplnená' : emptyCount <= 4 ? 'nevyplnené' : 'nevyplnených';
+        document.getElementById('statWrongLabel').textContent = emptyCount > 0 ? `nesprávne, z toho ${emptyCount} ${emptyWord}` : 'nesprávne';
+        statTimeSpent.textContent = `${spentMin} min`;
+
+        // Kruh sa pri novom výsledku plynulo naplní a body sa napočítajú (pri prepínaní filtra už nie)
+        const ringLen = 2 * Math.PI * 68;
+        const ringTarget = ringLen * (1 - pctNum / 100);
+        const shownKey = `${correctCount}/${questions.length}`;
+        const animate = scoreRing.dataset.shown !== shownKey && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        scoreRing.dataset.shown = shownKey;
+        scoreRingFill.style.strokeDasharray = `${ringLen}`;
+        scoreRing.classList.remove('good', 'mid', 'low');
+        scoreRing.classList.add(scoreLevel);
+        if (animate) {
+          scoreRingFill.style.transition = 'none';
+          scoreRingFill.style.strokeDashoffset = `${ringLen}`;
+          requestAnimationFrame(() =>
+            requestAnimationFrame(() => {
+              scoreRingFill.style.transition = '';
+              scoreRingFill.style.strokeDashoffset = `${ringTarget}`;
+            })
+          );
+          const t0 = performance.now();
+          const step = (now) => {
+            const k = Math.min(1, (now - t0) / 1100);
+            const eased = 1 - Math.pow(1 - k, 3);
+            scorePoints.textContent = `${Math.round(correctCount * eased)}/${questions.length}`;
+            if (k < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+          // Poistka: ak prehliadač snímky spomalí (karta na pozadí), konečný stav sa nastaví aj tak
+          setTimeout(() => {
+            scorePoints.textContent = shownKey;
+            scoreRingFill.style.transition = '';
+            scoreRingFill.style.strokeDashoffset = `${ringTarget}`;
+          }, 1250);
+        } else {
+          scoreRingFill.style.strokeDashoffset = `${ringTarget}`;
+          scorePoints.textContent = shownKey;
+        }
+
+        const scoreLead = document.getElementById('scoreLead');
+        if (pctNum >= 90) {
+          scoreTitle.textContent = 'Vynikajúci výsledok!';
+          scoreLead.textContent = 'Takmer bez chyby. S takouto prípravou môžeš ísť na Testovanie 9 pokojne.';
+        } else if (pctNum >= 75) {
+          scoreTitle.textContent = 'Veľmi pekný výsledok!';
+          scoreLead.textContent = 'Väčšinu úloh zvládaš. Prejdi si zvyšné chyby s postupom riešenia a máš to.';
+        } else if (pctNum >= 50) {
+          scoreTitle.textContent = 'Dobrý základ – pozri si chyby';
+          scoreLead.textContent = 'Polovicu bodov už máš. Najviac získaš, keď si chybné úlohy prejdeš s postupom riešenia.';
+        } else {
+          scoreTitle.textContent = 'Nevadí! Pozri si postupy a vysvetlenia';
+          scoreLead.textContent = 'Každá chyba ti ukáže, čo si zopakovať. Otvor si chybné úlohy a prečítaj si postup krok za krokom.';
+        }
+
+        if (wrongCount === 0) {
+          toggleWrongOnlyBtn.disabled = true;
+          toggleWrongOnlyBtn.classList.remove('is-active');
+          toggleWrongOnlyBtn.innerHTML = `${UI.trophy}<span>Žiadna chyba!</span>`;
+        } else {
+          toggleWrongOnlyBtn.disabled = false;
+          toggleWrongOnlyBtn.classList.toggle('is-active', filterWrongOnly);
+          toggleWrongOnlyBtn.innerHTML = filterWrongOnly
+            ? `${UI.grid}<span>Zobraziť všetky úlohy (${questions.length})</span>`
+            : `${UI.target}<span>Prejsť len chybné úlohy (${wrongCount})</span>`;
+        }
+
+        const topicStats = TOPIC_GROUPS.map((grp) => {
+          const grpQuestions = grp.questionIds.map((id) => questions.find((q) => q.id === id)).filter(Boolean);
+          let grpCorrect = 0;
+          grpQuestions.forEach((q) => {
+            if (isQuestionCorrect(q, userAnswers[q.id])) grpCorrect++;
+          });
+          const grpTotal = grpQuestions.length;
+          const grpPctNum = grpTotal > 0 ? (grpCorrect / grpTotal) * 100 : 0;
+          const grpPctStr = grpPctNum.toFixed(1).replace('.', ',');
+          const level = grpPctNum >= 75 ? 'good' : grpPctNum >= 50 ? 'mid' : 'low';
+          return { ...grp, grpQuestions, grpCorrect, grpTotal, grpPctNum, grpPctStr, level };
+        });
+
+        // Najsilnejšia oblasť a oblasť na zopakovanie (len ak sa líšia)
+        const sortedTopics = [...topicStats].sort((a, b) => b.grpPctNum - a.grpPctNum);
+        const bestTopic = sortedTopics[0];
+        const weakTopic = sortedTopics[sortedTopics.length - 1];
+        const showBadges = topicStats.length > 1 && bestTopic.grpPctNum > weakTopic.grpPctNum;
+
+        // Mapa odpovedí podľa častí testu (ukážky a jazyková časť)
+        document.getElementById('answerMap').innerHTML = (testData.stepperGroups || [])
+          .map((grp) => {
+            const cells = questions
+              .slice(grp.fromIndex, grp.toIndex + 1)
+              .map((q, i) => {
+                const idx = grp.fromIndex + i;
+                const raw = userAnswers[q.id];
+                const empty = String(raw ?? '').trim() === '';
+                const ok = !empty && isQuestionCorrect(q, raw);
+                const cls = ok ? 'is-ok' : empty ? 'is-empty' : 'is-err';
+                const state = ok ? 'správne' : empty ? 'nevyplnená' : 'chyba';
+                return `<button type="button" class="tp-map-cell ${cls}" data-jump-idx="${idx}" title="Úloha ${q.code} – ${state}" aria-label="Úloha ${q.code} – ${state}">${q.code}</button>`;
+              })
+              .join('');
+            return `<div class="tp-map-group"><span class="tp-map-label">${escHtml(grp.label)}</span><div class="tp-map-cells">${cells}</div></div>`;
+          })
+          .join('');
+        const jumpFromResults = (jumpIdx) => {
+          playSound('click');
+          const targetQ = questions[jumpIdx];
+          if (filterWrongOnly && targetQ && isQuestionCorrect(targetQ, userAnswers[targetQ.id])) {
+            filterWrongOnly = false;
+            renderResultsBreakdownAndPrintReport();
+          }
+          goToQuestion(jumpIdx);
+          workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+
+        document.querySelectorAll('#answerMap [data-jump-idx]').forEach((btn) => {
+          btn.addEventListener('click', () => jumpFromResults(Number(btn.getAttribute('data-jump-idx'))));
+        });
+
+        topicsBreakdownGrid.innerHTML = topicStats
+          .map((st) => {
+            const badge = !showBadges
+              ? ''
+              : st.id === bestTopic.id
+                ? '<span class="tp-topic-badge is-best">Najsilnejšia oblasť</span>'
+                : st.id === weakTopic.id
+                  ? '<span class="tp-topic-badge is-weak">Na zopakovanie</span>'
+                  : '';
+            const pillsHtml = st.grpQuestions
+              .map((q) => {
+                const ok = isQuestionCorrect(q, userAnswers[q.id]);
+                const qIdx = questions.findIndex((item) => item.id === q.id);
+                return `<button type="button" class="tp-mini ${ok ? 'is-ok' : 'is-err'}" data-jump-idx="${qIdx}" title="Prejsť na úlohu ${q.code}">${q.code}</button>`;
+              })
+              .join('');
+
+            return `
+              <div class="tp-topic ${st.level}">
+                <div class="tp-topic-top">
+                  <span class="tp-topic-ico">${UI['topic_' + st.id] || UI.grid}</span>
+                  <span class="tp-topic-name">${st.name}</span>
+                  ${badge}
+                </div>
+                <div class="tp-topic-score">
+                  <strong>${st.grpCorrect}<small>/${st.grpTotal}</small></strong>
+                  <span>${st.grpPctStr} %</span>
+                </div>
+                <div class="tp-topic-track"><span style="width: ${Math.round(st.grpPctNum)}%;"></span></div>
+                <div class="tp-topic-minis">${pillsHtml}</div>
+              </div>
+            `;
+          })
+          .join('');
+
+        topicsBreakdownGrid.querySelectorAll('[data-jump-idx]').forEach((btn) => {
+          btn.addEventListener('click', () => jumpFromResults(Number(btn.getAttribute('data-jump-idx'))));
+        });
+
+        const dateStr = new Date().toLocaleDateString('sk-SK', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+        const buildQuestionsRows = (sliceQuestions) =>
+          sliceQuestions
+            .map((q) => {
+              const rawAns = userAnswers[q.id];
+              const userDisp = rawAns && String(rawAns).trim() !== '' ? escHtml(rawAns) : '—';
+              const ok = isQuestionCorrect(q, rawAns);
+              return `
+                <tr>
+                  <td><strong>${q.code}</strong></td>
+                  <td>${escHtml(q.category)}</td>
+                  <td><strong>${userDisp}</strong></td>
+                  <td>${escHtml(q.correctAnswerDisplay)}</td>
+                  <td style="font-weight:700;color:${ok ? '#237c40' : '#bc3233'};">${ok ? '✔ 1 b' : '✖ 0 b'}</td>
+                </tr>
+              `;
+            })
+            .join('');
+
+        const half = Math.ceil(questions.length / 2);
+        printableReport.innerHTML = `
+          <div class="print-header-box">
+            <div>
+              <h1>VÝSLEDKOVÝ LIST – TESTOVANIE 9 (SLOVENSKÝ JAZYK A LITERATÚRA ${testYear})</h1>
+              <p>Riadny termín (šk. rok ${testSchoolYear}) • ${testVariant} (kód ${testCode}) • Režim: ${modeLabel.toLowerCase()} • Úlohy a kľúč odpovedí © NIVaM</p>
+            </div>
+            <div style="text-align:right;">
+              <p><strong>Meno žiaka:</strong> ${studentName ? escHtml(studentName) : '______________________'}</p>
+              <p><strong>Dátum vyhodnotenia:</strong> ${dateStr}</p>
+            </div>
+          </div>
+
+          <div class="print-summary-grid">
+            <div class="print-summary-cell">
+              <small>Získané body</small>
+              <strong>${correctCount} / ${questions.length} bodov</strong>
+            </div>
+            <div class="print-summary-cell">
+              <small>Percentuálna úspešnosť</small>
+              <strong>${pct} %</strong>
+            </div>
+            <div class="print-summary-cell">
+              <small>Správne / Nesprávne</small>
+              <strong>${correctCount} ✔ / ${wrongCount} ✖</strong>
+            </div>
+            <div class="print-summary-cell">
+              <small>Čas riešenia</small>
+              <strong>${spentMin} min${mode === 'exam' ? ` (z ${testMeta.durationMinutes} min)` : ''}</strong>
+            </div>
+          </div>
+
+          <h3 style="margin:0 0 0.35rem 0;font-size:10.5pt;">Prehľad podľa oblastí SJL</h3>
+          <table class="print-topics-table">
+            <thead>
+              <tr>
+                <th>Oblasť SJL</th>
+                <th>Úlohy v teste</th>
+                <th>Získané body</th>
+                <th>Úspešnosť</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${topicStats
+                .map(
+                  (st) => `
+                <tr>
+                  <td><strong>${escHtml(st.name)}</strong></td>
+                  <td>${st.grpQuestions.map((q) => q.code).join(', ')}</td>
+                  <td><strong>${st.grpCorrect} / ${st.grpTotal}</strong></td>
+                  <td><strong>${st.grpPctStr} %</strong></td>
+                </tr>
+              `
+                )
+                .join('')}
+            </tbody>
+          </table>
+
+          <h3 style="margin:0 0 0.35rem 0;font-size:10.5pt;">Podrobný prehľad odpovedí (úlohy 01 – ${questions.length})</h3>
+          <div class="print-two-col-tables">
+            <table class="print-questions-table">
+              <thead>
+                <tr>
+                  <th>Úl.</th>
+                  <th>Téma</th>
+                  <th>Žiak</th>
+                  <th>Kľúč</th>
+                  <th>Body</th>
+                </tr>
+              </thead>
+              <tbody>${buildQuestionsRows(questions.slice(0, half))}</tbody>
+            </table>
+
+            <table class="print-questions-table">
+              <thead>
+                <tr>
+                  <th>Úl.</th>
+                  <th>Téma</th>
+                  <th>Žiak</th>
+                  <th>Kľúč</th>
+                  <th>Body</th>
+                </tr>
+              </thead>
+              <tbody>${buildQuestionsRows(questions.slice(half))}</tbody>
+            </table>
+          </div>
+
+          <p style="margin:0.55rem 0 0;font-size:8pt;color:#475569;">
+            Nositeľom autorských práv k úlohám Testovania 9 (${testYear}) a kľúču správnych odpovedí je Národný inštitút vzdelávania a mládeže (NIVaM).
+            Texty a grafické objekty boli prepisované a graficky upravované – NIVaM nezodpovedá za chyby vzniknuté z tohto dôvodu.
+            Postupy riešenia a nápovedy nie sú autorským dielom NIVaM a NIVaM nezodpovedá za ich obsah.
+          </p>
+        `;
+
+        return pctNum;
+      }
+
+      // Potvrdzovací dialóg
+      let pendingConfirmAction = null;
+
+      function openConfirm({ eyebrow, title, html, proceedLabel, onProceed }) {
+        confirmEyebrow.textContent = eyebrow;
+        confirmTitle.textContent = title;
+        confirmBody.innerHTML = html;
+        confirmProceedBtn.textContent = proceedLabel;
+        pendingConfirmAction = onProceed;
+        openModal(confirmModal);
+      }
+
+      confirmCancelBtn.addEventListener('click', () => {
+        closeModal(confirmModal);
+        pendingConfirmAction = null;
+      });
+
+      confirmProceedBtn.addEventListener('click', () => {
+        const fn = pendingConfirmAction;
+        pendingConfirmAction = null;
+        closeModal(confirmModal);
+        if (typeof fn === 'function') fn();
+      });
+
+      function buildReviewHtml() {
+        const unanswered = [];
+        const flagged = [];
+        questions.forEach((q, idx) => {
+          if (!hasAnswer(q)) unanswered.push({ q, idx });
+          if (flaggedQuestions[q.id]) flagged.push({ q, idx });
+        });
+        const answered = questions.length - unanswered.length;
+        const ansPart = answered === 1 ? 'vyplnenú' : answered >= 2 && answered <= 4 ? 'vyplnené' : 'vyplnených';
+        const hasChips = unanswered.length > 0 || flagged.length > 0;
+        const chips = (list, cls) =>
+          list
+            .map(
+              (item) =>
+                `<button type="button" class="tp-review-chip ${cls}" data-review-jump="${item.idx}" aria-label="Úloha ${item.q.code}">${item.q.code}</button>`
+            )
+            .join('');
+
+        return `
+          <p class="tp-confirm-lead">Máš ${ansPart} <strong>${answered} z ${questions.length}</strong> úloh.</p>
+          ${
+            unanswered.length > 0
+              ? `<p class="tp-confirm-lead">Nevyplnené úlohy (${unanswered.length}):</p><div class="tp-review-chips">${chips(unanswered, '')}</div>`
+              : ''
+          }
+          ${
+            flagged.length > 0
+              ? `<p class="tp-confirm-lead">Označené úlohy na kontrolu (${flagged.length}):</p><div class="tp-review-chips">${chips(flagged, 'is-flag')}</div>`
+              : ''
+          }
+          <p style="margin:0;font-size:0.86rem;color:var(--tp-ink-3);">${
+            hasChips
+              ? 'Kliknutím na číslo úlohy sa k nej vrátiš, alebo potvrď vyhodnotenie testu.'
+              : 'Všetky úlohy máš vyplnené. Potvrď odovzdanie a vyhodnotenie testu.'
+          }</p>
+        `;
+      }
+
+      function finalizeEvaluation() {
+        isEvaluated = true;
+        stopTimer();
+        playSound('finish');
+        const pctNum = renderResultsBreakdownAndPrintReport();
+        resultsDashboard.classList.remove('hidden');
+        updateModeUI();
+        renderQuestion();
+        saveStateToStorage();
+
+        let correctCount = 0;
+        questions.forEach((q) => {
+          if (isQuestionCorrect(q, userAnswers[q.id])) correctCount++;
+        });
+        safeStorageSet(LAST_KEY, JSON.stringify({ correct: correctCount, total: questions.length, savedAt: Date.now() }));
+        safeStorageSet(
+          RESULT_KEY,
+          JSON.stringify({
+            mode,
+            userAnswers,
+            singleCheckedState,
+            flaggedQuestions,
+            studentName,
+            remainingSeconds,
+            elapsedSeconds,
+            correct: correctCount,
+            total: questions.length,
+            savedAt: Date.now()
+          })
+        );
+
+        resultsDashboard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (pctNum >= 75) launchConfetti();
+      }
+
+      function evaluateTest(autoTimeUp = false) {
+        if (isEvaluated) {
+          resultsDashboard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
+        if (autoTimeUp) {
+          finalizeEvaluation();
+          return;
+        }
+        openConfirm({
+          eyebrow: 'Vyhodnotenie testu',
+          title: 'Odovzdať a vyhodnotiť test?',
+          html: buildReviewHtml(),
+          proceedLabel: 'Vyhodnotiť test',
+          onProceed: finalizeEvaluation
+        });
+        confirmBody.querySelectorAll('[data-review-jump]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            closeModal(confirmModal);
+            goToQuestion(Number(btn.getAttribute('data-review-jump')));
+          });
+        });
+      }
+
+      evaluateTestBtn.addEventListener('click', () => evaluateTest(false));
+
+      toggleWrongOnlyBtn.addEventListener('click', () => {
+        playSound('click');
+        filterWrongOnly = !filterWrongOnly;
+        if (filterWrongOnly) {
+          const wrongs = getWrongQuestionIndices();
+          if (wrongs.length > 0 && isQuestionCorrect(questions[currentIndex], userAnswers[questions[currentIndex].id])) {
+            currentIndex = wrongs[0];
+          }
+        }
+        renderResultsBreakdownAndPrintReport();
+        renderQuestion();
+        saveStateToStorage();
+        if (filterWrongOnly) {
+          requestAnimationFrame(() => wrongModeBanner.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+        }
+      });
+
+      exitWrongModeBtn.addEventListener('click', () => {
+        playSound('click');
+        filterWrongOnly = false;
+        renderResultsBreakdownAndPrintReport();
+        renderQuestion();
+        saveStateToStorage();
+      });
+
+      retryTestBtn.addEventListener('click', () => {
+        // Z archivovaného výsledku sa ide na úvod testu, kde sa dá pokračovať v rozpracovanom pokuse alebo začať nový
+        if (viewingArchive) {
+          window.location.href = window.location.pathname;
+          return;
+        }
+        openConfirm({
+          eyebrow: 'Nový pokus',
+          title: 'Skúsiť test odznova?',
+          html: '<p class="tp-confirm-lead">Vymazať aktuálne odpovede a začať tento test od začiatku?</p>',
+          proceedLabel: 'Áno, začať odznova',
+          onProceed: () => {
+            resetAnswers();
+            enterWorkspace(mode || 'practice', false);
+          }
+        });
+      });
+
+      studentNameInput.addEventListener('input', () => {
+        studentName = studentNameInput.value;
+        saveStateToStorage();
+        if (isEvaluated) renderResultsBreakdownAndPrintReport();
+      });
+
+      printReportBtn.addEventListener('click', () => {
+        playSound('click');
+        renderResultsBreakdownAndPrintReport();
+        window.print();
+      });
+
+      // Modálne okná (Nápoveda, Postup riešenia)
+      let lastFocused = null;
+      function openModal(modal) {
+        lastFocused = document.activeElement;
+        modal.classList.remove('hidden');
+        const closeBtn = modal.querySelector('.modal-close-btn');
+        if (closeBtn) closeBtn.focus();
+      }
+
+      function closeModal(modal) {
+        modal.classList.add('hidden');
+        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+      }
+
+      document.querySelectorAll('[data-close-modal]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-close-modal');
+          const m = document.getElementById(id);
+          if (m) closeModal(m);
+        });
+      });
+
+      [hintModal, solutionModal, confirmModal].forEach((m) => {
+        m.addEventListener('click', (e) => {
+          if (e.target === m) closeModal(m);
+        });
+      });
+
+      function showHintForCurrentQuestion() {
+        if (isExamLocked()) return;
+        playSound('click');
+        const q = questions[currentIndex];
+        hintModalTitle.textContent = `Úloha ${q.code}`;
+        hintModalContent.textContent = q.hint;
+        bindSlovakTypography(hintModalContent);
+        openModal(hintModal);
+      }
+
+      function showSolutionForCurrentQuestion() {
+        if (isExamLocked()) return;
+        playSound('click');
+        const q = questions[currentIndex];
+        solutionModalTitle.textContent = `Úloha ${q.code}`;
+        solutionStepsList.innerHTML = q.solutionSteps
+          .map(
+            (s, idx) => `
+            <li class="tp-step">
+              <span class="tp-step-num">${idx + 1}</span>
+              <div class="tp-step-body">
+                <h4>${escHtml(s.title)}</h4>
+                <p>${formatQuestionText(s.text)}</p>
+              </div>
+            </li>
+          `
+          )
+          .join('');
+        solutionConclusionBox.innerHTML = `${UI.checkCircle}<div><strong>Záver:</strong> ${inlineMarks(q.solutionConclusion)}</div>`;
+        bindSlovakTypography(solutionModal);
+        openModal(solutionModal);
+      }
+
+      openHintBtn.addEventListener('click', showHintForCurrentQuestion);
+      openSolutionBtn.addEventListener('click', showSolutionForCurrentQuestion);
+      evalOpenSolutionBtn.addEventListener('click', showSolutionForCurrentQuestion);
+      switchHintToSolutionBtn.addEventListener('click', () => {
+        closeModal(hintModal);
+        showSolutionForCurrentQuestion();
+      });
+
+      // Nahlásenie chyby e-mailom
+      const REPORT_PARTS = {
+        question: 'zadanie alebo správna odpoveď úlohy',
+        hint: 'nápoveda',
+        solution: 'postup riešenia'
+      };
+
+      function openReport(part) {
+        playSound('click');
+        const q = questions[currentIndex];
+        const detail = REPORT_PARTS[part] || REPORT_PARTS.question;
+        const subject = `Testovanie 9 SJL – ${testYear}: úloha ${q.code} – nahlásenie chyby`;
+        const body = [
+          'Dobrý deň,',
+          '',
+          `chcem nahlásiť chybu v teste Testovanie 9 – ${testYear} (slovenský jazyk a literatúra).`,
+          '',
+          `Úloha: ${q.code} (${q.category})`,
+          `Časť: ${detail}`,
+          `Odkaz: ${canonicalUrl}`,
+          '',
+          'Popis chyby:',
+          '',
+          ''
+        ].join('\n');
+        window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      }
+
+      document.getElementById('reportQuestionBtn').addEventListener('click', () => openReport('question'));
+      document.querySelectorAll('[data-report]').forEach((btn) => {
+        btn.addEventListener('click', () => openReport(btn.getAttribute('data-report')));
+      });
+
+      // Klávesové skratky
+      const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+      document.addEventListener('keydown', (e) => {
+        const installAppModal = document.getElementById('installAppModal');
+        const topDialog =
+          [confirmModal, solutionModal, hintModal, installAppModal].find((m) => m && !m.classList.contains('hidden')) ||
+          (!zoomModal.classList.contains('hidden') ? zoomModal : null);
+
+        if (e.key === 'Escape' && topDialog) {
+          if (topDialog === installAppModal) return;
+          if (topDialog === zoomModal) closeZoom();
+          else closeModal(topDialog);
+          return;
+        }
+
+        if (e.key === 'Tab' && topDialog) {
+          const items = Array.from(topDialog.querySelectorAll(FOCUSABLE)).filter((el) => el.offsetParent !== null);
+          if (items.length > 0) {
+            const first = items[0];
+            const last = items[items.length - 1];
+            if (!topDialog.contains(document.activeElement)) {
+              e.preventDefault();
+              first.focus();
+            } else if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+          return;
+        }
+
+        if (topDialog || !mode || document.body.classList.contains('tp-intro-active') || e.altKey || e.ctrlKey || e.metaKey) return;
+
+        const tgt = e.target;
+        if (tgt && tgt.closest('input, textarea, select, [contenteditable="true"]')) return;
+
+        const q = questions[currentIndex];
+        if (e.key === 'ArrowRight') {
+          if (!nextQuestionBtn.disabled && !(currentIndex === LAST_INDEX && !isEvaluated)) {
+            e.preventDefault();
+            nextQuestionBtn.click();
+          }
+        } else if (e.key === 'ArrowLeft') {
+          if (!prevQuestionBtn.disabled) {
+            e.preventDefault();
+            prevQuestionBtn.click();
+          }
+        } else if (/^[abcd]$/i.test(e.key) && q.type === 'choice' && !isEvaluated) {
+          e.preventDefault();
+          selectChoice(e.key.toUpperCase());
+        } else if (e.key === 'Enter' && q.type === 'choice' && !(tgt && tgt.closest('button, a'))) {
+          if (!isExamLocked() && !isEvaluated) {
+            e.preventDefault();
+            checkCurrentQuestionImmediately();
+          } else if (isExamLocked() && currentIndex < LAST_INDEX) {
+            e.preventDefault();
+            nextQuestionBtn.click();
+          }
+        }
+      });
+
+      // Konfety pri >= 75 %
+      function launchConfetti() {
+        const canvas = document.getElementById('confettiCanvas');
+        if (!canvas || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const colors = [ACCENT.base, ACCENT.soft, '#007974', '#f59e0b', '#fef08a', '#2563eb'];
+        const pieces = Array.from({ length: 85 }, () => ({
+          x: Math.random() * canvas.width,
+          y: -20 - Math.random() * canvas.height * 0.4,
+          w: 6 + Math.random() * 6,
+          h: 4 + Math.random() * 6,
+          vx: (Math.random() - 0.5) * 4,
+          vy: 2.5 + Math.random() * 3.5,
+          rot: Math.random() * Math.PI * 2,
+          vr: (Math.random() - 0.5) * 0.2,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        }));
+
+        let frames = 0;
+        function tick() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          pieces.forEach((p) => {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.rot += p.vr;
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rot);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+            ctx.restore();
+          });
+          frames++;
+          if (frames < 150) requestAnimationFrame(tick);
+          else ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      // Výška prilepenej hlavičky pre prilepenú ukážku (mení sa pri zalomení a zväčšení písma)
+      const headerEl = document.querySelector('.tp-header');
+      const syncHeaderHeight = () => document.documentElement.style.setProperty('--tp-header-h', headerEl.offsetHeight + 'px');
+      syncHeaderHeight();
+      if (typeof ResizeObserver !== 'undefined') new ResizeObserver(syncHeaderHeight).observe(headerEl);
+
+      // Na mobile je prehľad úloh predvolene zbalený, aby bolo úlohu vidno hneď
+      if (window.matchMedia('(max-width: 720px)').matches) {
+        stepperCard.classList.add('is-collapsed');
+        stepperToggleBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      // Priamy odkaz na výsledok (#vysledok) z karty ročníka na úvodnej stránke
+      function openResultFromHash() {
+        if (window.location.hash !== '#vysledok') return;
+        const saved = loadStateFromStorage();
+        if (saved && saved.mode && saved.isEvaluated) {
+          document.getElementById('resumeSavedBtn').click();
+          resultsDashboard.scrollIntoView({ block: 'start' });
+          return;
+        }
+        let snap = null;
+        try {
+          snap = JSON.parse(safeStorageGet(RESULT_KEY) || 'null');
+        } catch (e) {}
+        if (!snap || !snap.mode) return;
+        viewingArchive = true;
+        clearAnswerObjects();
+        Object.assign(userAnswers, snap.userAnswers || {});
+        Object.assign(singleCheckedState, snap.singleCheckedState || {});
+        Object.assign(flaggedQuestions, snap.flaggedQuestions || {});
+        isEvaluated = true;
+        filterWrongOnly = false;
+        studentName = snap.studentName || '';
+        studentNameInput.value = studentName;
+        currentIndex = 0;
+        remainingSeconds = typeof snap.remainingSeconds === 'number' ? snap.remainingSeconds : INITIAL_SECONDS;
+        elapsedSeconds = typeof snap.elapsedSeconds === 'number' ? snap.elapsedSeconds : 0;
+        enterWorkspace(snap.mode, true);
+
+        const note = document.getElementById('archiveNote');
+        const when = new Date(snap.savedAt || Date.now()).toLocaleDateString('sk-SK', { day: 'numeric', month: 'numeric', year: 'numeric' });
+        const filled = saved && saved.userAnswers ? Object.values(saved.userAnswers).filter((v) => String(v).trim() !== '').length : 0;
+        document.getElementById('archiveNoteText').innerHTML =
+          `Prezeráš posledný vyhodnotený pokus z&nbsp;${when}.` + (saved && saved.mode ? ` Nový pokus máš rozpracovaný (${filled}/${questions.length}).` : '');
+        document.getElementById('archiveBackBtn').classList.toggle('hidden', !(saved && saved.mode));
+        note.classList.remove('hidden');
+        resultsDashboard.scrollIntoView({ block: 'start' });
+      }
+
+      document.getElementById('archiveBackBtn').addEventListener('click', () => {
+        window.location.href = window.location.pathname;
+      });
+
+      // Inicializácia
+      window.addEventListener('hashchange', openResultFromHash);
+      refreshIntroResumeBox();
+      openResultFromHash();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+---
+// Spoločné SEO a sociálne metaznačky pre všetky stránky (titulok, popis, kanonická adresa, Open Graph, Twitter, JSON-LD).
+import { SITE_URL, SITE_NAME, OG_IMAGE } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string; // napr. "/" alebo "/test/t9-2026/"
+  themeColor: string;
+  ogTitle?: string;
+  jsonLd?: Record<string, unknown>;
+  noindex?: boolean;
+}
+
+const { title, description, path, themeColor, ogTitle, jsonLd, noindex = false } = Astro.props;
+const canonicalUrl = new URL(path, SITE_URL).href;
+const ogImageUrl = new URL(OG_IMAGE.path, SITE_URL).href;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
+<meta name="author" content="Peter Beňo so synom Nikolajom" />
+{!noindex && <link rel="canonical" href={canonicalUrl} />}
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+<meta name="theme-color" content={themeColor} />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="sk_SK" />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:title" content={ogTitle || title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:width" content={String(OG_IMAGE.width)} />
+<meta property="og:image:height" content={String(OG_IMAGE.height)} />
+<meta property="og:image:alt" content={OG_IMAGE.alt} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={ogTitle || title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+{jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}

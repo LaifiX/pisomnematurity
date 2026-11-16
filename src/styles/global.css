@@ -1,0 +1,793 @@
+:root {
+  /* ===== Farebná paleta SJL – jediné miesto, kde sa definujú farby značky =====
+     Zmena palety = zmena hodnôt v tomto bloku (+ theme-color v hlavičkách a ikony v /public). */
+  /* Malinová – vybraná 15. 11. 2026 (matematika je modrá); zharmonizovaná v OKLCH,
+     aby mala rovnakú sýtosť a svetlosť ako odtiene ostatných ročníkov */
+  --brand-50: #fef4f6;
+  --brand-100: #fde8ec;
+  --brand-200: #fbd4dd;
+  --brand-300: #eda7b9;
+  --brand-400: #dc7a9a;
+  --brand-light: #ca4675;
+  --brand: #b1255e;
+  --brand-dark: #92144a;
+  --brand-deep: #670c33;
+  --brand-rgb: 177, 37, 94;
+  --brand-dark-rgb: 146, 20, 74;
+  --footer-bg: #211216;
+
+  /* Neutrálne tóny – veľmi jemne zafarbené odtieňom značky (pri teste odtieňom ročníka) */
+  --bg: #fcfafa;
+  --bg-rgb: 252, 250, 250;
+  --ink: #251b1d;
+  --ink-2: #4f4245;
+  --ink-3: #7e6e72;
+  --line: #f0e7e9;
+  --line-2: #e1d1d5;
+
+  --bg-canvas: var(--bg);
+  --text-main: var(--ink);
+  --text-muted: var(--ink-3);
+  --border-color: var(--line);
+  --border-strong: var(--line-2);
+
+  /* Primárna farba SJL */
+  --primary: var(--brand);
+  --primary-hover: var(--brand-dark);
+  --primary-50: var(--brand-50);
+  --primary-200: var(--brand-200);
+
+  /* Písma: Literata pre nadpisy a ukážky, Plus Jakarta Sans pre ovládanie */
+  --font-book: 'Literata', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Kontrastná tyrkysová pre Postup riešenia a jantárová pre Nápovedu */
+  --hint-bg: #fffbeb;
+  --hint-border: #f5d48a;
+
+  --solution-bg: #f0fbf9;
+  --solution-border: #a1e7e2;
+
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --shadow-lg: 0 18px 36px -10px rgba(34, 27, 30, 0.16), 0 4px 12px -2px rgba(34, 27, 30, 0.06);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===== Odtiene ročníkov =====
+   Každý test má v testsCatalog.ts pole `accent`. Trieda .acc-<názov> prefarbí kartu ročníka
+   na hlavnej stránke a celú stránku testu (je na <body>). Hlavná stránka ostáva malinová.
+   Odtiene nesmú pripomínať významové farby: zelenú „správne“, červenú chyby, jantárovú nápovedy
+   a tyrkysovú postupu. Všetky sú zladené v OKLCH: základný odtieň má svetlosť L ≈ 0,42 – 0,51
+   a sýtosť C ≈ 0,10 – 0,18, škály 50 – 300 majú pri všetkých rovnakú svetlosť. Neutrálne tóny
+   (pozadie, text, linky) sú na stránke testu jemne tónované odtieňom ročníka.
+   Hodnoty base/300 sú zopakované v src/lib/accents.ts (theme-color, konfety). */
+.acc-malina {
+  --acc-50: #fef4f6; --acc-100: #fde8ec; --acc-200: #fbd4dd; --acc-300: #eda7b9;
+  --acc-light: #ca4675; --acc: #b1255e; --acc-dark: #92144a; --acc-deep: #670c33;
+  --acc-rgb: 177, 37, 94; --acc-dark-rgb: 146, 20, 74;
+  --acc-bg: #fcfafa; --acc-bg-rgb: 252, 250, 250; --acc-ink: #251b1d; --acc-ink-2: #4f4245; --acc-ink-3: #7e6e72;
+  --acc-line: #f0e7e9; --acc-line-2: #e1d1d5; --acc-footer: #211216;
+}
+/* Vínová: hlbšia než malinová, odlišuje sa najmä tmavosťou */
+.acc-vino {
+  --acc-50: #fff4f5; --acc-100: #fde8ea; --acc-200: #fcd4d9; --acc-300: #efa7b1;
+  --acc-light: #9c3d51; --acc: #84203b; --acc-dark: #680f29; --acc-deep: #420216;
+  --acc-rgb: 132, 32, 59; --acc-dark-rgb: 104, 15, 41;
+  --acc-bg: #fcfafa; --acc-bg-rgb: 252, 250, 250; --acc-ink: #251b1c; --acc-ink-2: #504344; --acc-ink-3: #7e6e70;
+  --acc-line: #f1e7e8; --acc-line-2: #e1d1d3; --acc-footer: #221214;
+}
+.acc-slivka {
+  --acc-50: #fcf4fa; --acc-100: #f8e8f5; --acc-200: #f2d5ed; --acc-300: #dfaad6;
+  --acc-light: #9e4c94; --acc: #87317e; --acc-dark: #6c2164; --acc-deep: #481243;
+  --acc-rgb: 135, 49, 126; --acc-dark-rgb: 108, 33, 100;
+  --acc-bg: #fcfafb; --acc-bg-rgb: 252, 250, 251; --acc-ink: #231b21; --acc-ink-2: #4c434b; --acc-ink-3: #7a6f78;
+  --acc-line: #eee7ed; --acc-line-2: #ddd2db; --acc-footer: #1e131c;
+}
+/* Atramentová: tlmená tmavomodrá – nepletie sa so žiarivo modrou matematikou ani s tyrkysovým postupom */
+.acc-atrament {
+  --acc-50: #f3f7fe; --acc-100: #e5eeff; --acc-200: #d0e0fe; --acc-300: #a0bef5;
+  --acc-light: #496cac; --acc: #325496; --acc-dark: #224079; --acc-deep: #132851;
+  --acc-rgb: 50, 84, 150; --acc-dark-rgb: 34, 64, 121;
+  --acc-bg: #f9fafc; --acc-bg-rgb: 249, 250, 252; --acc-ink: #1a1e26; --acc-ink-2: #414750; --acc-ink-3: #6d737f;
+  --acc-line: #e5eaf1; --acc-line-2: #cfd6e2; --acc-footer: #111723;
+}
+/* Jedľová: tmavšia a modrastejšia než zelená „správne“ */
+.acc-jedla {
+  --acc-50: #f0f9f4; --acc-100: #e0f3e9; --acc-200: #c6ead7; --acc-300: #8bcfad;
+  --acc-light: #3c8564; --acc: #1a6e4d; --acc-dark: #08573a; --acc-deep: #023a26;
+  --acc-rgb: 26, 110, 77; --acc-dark-rgb: 8, 87, 58;
+  --acc-bg: #f9fbfa; --acc-bg-rgb: 249, 251, 250; --acc-ink: #17211c; --acc-ink-2: #3e4a43; --acc-ink-3: #69776f;
+  --acc-line: #e3ece7; --acc-line-2: #ccdad2; --acc-footer: #0c1b13;
+}
+.acc-malina,
+.acc-vino,
+.acc-slivka,
+.acc-atrament,
+.acc-jedla {
+  --brand-50: var(--acc-50);
+  --brand-100: var(--acc-100);
+  --brand-200: var(--acc-200);
+  --brand-300: var(--acc-300);
+  --brand-light: var(--acc-light);
+  --brand: var(--acc);
+  --brand-dark: var(--acc-dark);
+  --brand-deep: var(--acc-deep);
+  --brand-rgb: var(--acc-rgb);
+  --brand-dark-rgb: var(--acc-dark-rgb);
+  --primary: var(--acc);
+  --primary-hover: var(--acc-dark);
+  --primary-50: var(--acc-50);
+  --primary-200: var(--acc-200);
+  /* lokálne tokeny úvodnej stránky (.hp) a stránky testu (.tp-page) */
+  --hp-brand: var(--acc);
+  --hp-brand-dark: var(--acc-dark);
+  --hp-brand-50: var(--acc-50);
+  --hp-brand-100: var(--acc-100);
+  --hp-brand-200: var(--acc-200);
+  --hp-ruled: repeating-linear-gradient(to bottom, transparent 0 31px, rgba(var(--acc-rgb), 0.07) 31px 32px);
+  --tp-brand: var(--acc);
+  --tp-brand-dark: var(--acc-dark);
+  --tp-brand-50: var(--acc-50);
+  --tp-brand-100: var(--acc-100);
+  --tp-brand-200: var(--acc-200);
+}
+/* Na stránke testu (trieda na <body>) aj neutrálne tóny podľa ročníka */
+.tp-page:is(.acc-malina, .acc-vino, .acc-slivka, .acc-atrament, .acc-jedla) {
+  --bg: var(--acc-bg);
+  --bg-rgb: var(--acc-bg-rgb);
+  --ink: var(--acc-ink);
+  --ink-2: var(--acc-ink-2);
+  --ink-3: var(--acc-ink-3);
+  --line: var(--acc-line);
+  --line-2: var(--acc-line-2);
+  --footer-bg: var(--acc-footer);
+  --bg-canvas: var(--acc-bg);
+  --text-main: var(--acc-ink);
+  --text-muted: var(--acc-ink-3);
+  --border-color: var(--acc-line);
+  --border-strong: var(--acc-line-2);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-ui);
+  background-color: var(--bg-canvas);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: -120px;
+  left: 1rem;
+  z-index: 2500;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--text-main);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition: top 0.12s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/* Zdieľané SVG ikony a tlačidlá */
+/* Značka T9 – rovnaký tvar ako na monitormatika.sk, vo vínovej farbe */
+.brand-mark {
+  flex-shrink: 0;
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: linear-gradient(150deg, var(--brand-light), var(--brand-dark));
+  color: #ffffff;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  box-shadow: 0 1px 2px rgba(var(--brand-dark-rgb), 0.3), 0 6px 14px -6px rgba(var(--brand-dark-rgb), 0.55);
+}
+
+.hp-ico {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.hp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.25;
+  padding: 0.78rem 1.35rem;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease, transform 0.1s ease, box-shadow 0.14s ease;
+}
+
+.hp-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.hp-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.hp-btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(var(--brand-rgb), 0.2), 0 6px 16px -6px rgba(var(--brand-rgb), 0.45);
+}
+
+.hp-btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.hp-btn-ghost {
+  background: #ffffff;
+  color: var(--text-main);
+  border-color: var(--border-strong);
+}
+
+.hp-btn-ghost:hover:not(:disabled) {
+  background: var(--primary-50);
+  border-color: var(--primary-200);
+  color: var(--primary-hover);
+}
+
+.hp-btn-sm {
+  font-size: 0.86rem;
+  padding: 0.55rem 1.05rem;
+  border-radius: 999px;
+}
+
+.hp-btn.is-copied {
+  background: #f0fdf4 !important;
+  border-color: #86efac !important;
+  color: #166534 !important;
+}
+
+/* Grafy, obrázky a tabuľky v ukážkach */
+.diagram-svg-wrap {
+  margin: 1rem 0 1.2rem 0;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.test-svg {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Modálne okná */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(34, 27, 30, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-backdrop.hidden {
+  display: none;
+}
+
+.modal-window {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  animation: modalSlideIn 0.18s ease-out;
+}
+
+.modal-window.modal-large {
+  max-width: 780px;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-header {
+  padding: 1.05rem 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header.hint-header {
+  background: var(--hint-bg);
+  border-bottom-color: var(--hint-border);
+}
+
+.modal-header.solution-header {
+  background: var(--solution-bg);
+  border-bottom-color: var(--solution-border);
+}
+
+.modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.modal-title-group h3 {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.modal-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.modal-close-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(34, 27, 30, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.modal-close-btn:hover {
+  background: #ffffff;
+}
+
+.modal-body {
+  padding: 1.25rem 1.35rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer {
+  padding: 0.9rem 1.35rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.modal-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-left: auto;
+}
+
+/* Úzke telefóny: tlačidlá okna pod sebou na celú šírku, bez lámania textu */
+@media (max-width: 480px) {
+  .modal-footer,
+  .modal-footer-right {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .modal-footer .hp-btn {
+    width: 100%;
+    justify-content: center;
+    white-space: nowrap;
+  }
+}
+
+.hp-install-modal {
+  max-width: 480px;
+}
+
+.hp-install-mark {
+  width: 34px;
+  height: 34px;
+  font-size: 0.86rem;
+}
+
+.hp-install-steps {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.6rem;
+  line-height: 1.58;
+  color: var(--text-main);
+}
+
+.hp-install-note {
+  margin: 1rem 0 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  background: var(--primary-50);
+  border: 1px solid var(--primary-200);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.t9-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.4rem;
+  transform: translateX(-50%);
+  z-index: 1200;
+  max-width: min(92vw, 420px);
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  pointer-events: none;
+  animation: toastFadeIn 0.16s ease-out;
+}
+
+@keyframes toastFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Pätička s blokom autorských práv NIVaM (podľa pokynov NIVaM, rovnako ako na monitormatika.sk) */
+.site-legal-footer {
+  background: var(--footer-bg);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 2.6rem 1.25rem 2.4rem;
+}
+
+.site-legal-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.site-legal-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.site-legal-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.site-legal-brand strong {
+  display: block;
+  font-size: 0.98rem;
+}
+
+.site-legal-brand small {
+  display: block;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.site-legal-about {
+  margin: 0.7rem 0 0;
+  max-width: 300px;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.site-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 640px;
+  justify-content: flex-end;
+}
+
+.site-legal-links a,
+.site-legal-links button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+}
+
+.site-legal-links a:hover,
+.site-legal-links button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.site-legal-links button.is-copied {
+  background: rgba(74, 222, 128, 0.16);
+  border-color: rgba(134, 239, 172, 0.55);
+  color: #bbf7d0;
+}
+
+.site-legal-links .hp-ico {
+  width: 15px;
+  height: 15px;
+}
+
+.site-nivam-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+  color: #ffffff;
+  font-size: 0.92rem;
+}
+
+.site-nivam-badge {
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--footer-bg);
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.site-nivam-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.site-nivam-grid p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.site-nivam-grid strong {
+  color: #ffffff;
+}
+
+.site-nivam-grid a {
+  color: var(--brand-200);
+  text-underline-offset: 3px;
+}
+
+.site-legal-copy {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 760px) {
+  .site-nivam-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-legal-links {
+    justify-content: flex-start;
+  }
+}
+
+/* Tlač do PDF */
+.printable-report {
+  display: none;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10.5pt;
+  }
+
+  .tp-header,
+  .tp-results,
+  .tp-stepper,
+  #sharedContextContainer,
+  #questionCard,
+  #wrongModeBanner,
+  #introScreen,
+  .modal-backdrop,
+  .tp-zoom-backdrop,
+  #confettiCanvas,
+  .site-legal-footer,
+  .no-print {
+    display: none !important;
+  }
+
+  .tp-main,
+  #workspace {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  .printable-report {
+    display: block !important;
+    padding: 0.4cm;
+  }
+
+  .print-header-box {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.55rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .print-header-box h1 {
+    margin: 0 0 0.2rem 0;
+    font-size: 14pt;
+  }
+
+  .print-header-box p {
+    margin: 0;
+    font-size: 9pt;
+    color: #334155;
+  }
+
+  .print-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.45rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .print-summary-cell {
+    border: 1px solid #64748b;
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .print-summary-cell small {
+    display: block;
+    font-size: 7.5pt;
+    color: #475569;
+    text-transform: uppercase;
+  }
+
+  .print-summary-cell strong {
+    font-size: 11.5pt;
+  }
+
+  .print-topics-table,
+  .print-questions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0.75rem;
+    font-size: 8.5pt;
+  }
+
+  .print-topics-table th,
+  .print-topics-table td,
+  .print-questions-table th,
+  .print-questions-table td {
+    border: 1px solid #94a3b8;
+    padding: 0.24rem 0.42rem;
+    text-align: left;
+  }
+
+  .print-topics-table th,
+  .print-questions-table th {
+    background: var(--brand-50) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-weight: 700;
+  }
+
+  .print-two-col-tables {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+}
