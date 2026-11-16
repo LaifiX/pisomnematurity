@@ -3,6 +3,7 @@ import '../../styles/fonts.css';
 import '../../styles/ms.css';
 import '../../styles/sloh.css';
 import SeoHead from '../../components/SeoHead.astro';
+import { ALLOW_INDEXING } from '../../lib/site';
 import MsHeader from '../../components/MsHeader.astro';
 import MsFooter from '../../components/MsFooter.astro';
 import { slohoveUtvary, temyPre, YEARS, NO_EXAM_YEARS, CRITERIA_COMMON, type SlohovyUtvar } from '../../data/sloh';
@@ -52,7 +53,7 @@ const checklist = [
       description={`${plain(u.name)} na maturite zo slovenčiny: znaky, kompozícia, jazyk, dobré rady, témy z rokov 2007 – 2026 a kritériá hodnotenia NIVaM.`}
       path={`/sloh/${u.slug}/`}
       themeColor="#11162d"
-      noindex={true}
+      noindex={!ALLOW_INDEXING}
     />
   </head>
   <body class="ms">

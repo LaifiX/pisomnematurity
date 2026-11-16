@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro build && node scripts/check-tests.mjs"
+    "check": "astro build && node scripts/check-tests.mjs",
+    "novy-test": "node scripts/novy-test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",

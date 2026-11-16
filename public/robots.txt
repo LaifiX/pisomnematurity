@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://monitorsolina.sk/sitemap.xml
+# Doménu doplň po kúpe (src/lib/site.ts)
+Sitemap: https://maturita-sjl.netlify.app/sitemap.xml

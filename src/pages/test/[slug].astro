@@ -7,6 +7,7 @@ import { testsDataBySlug } from '../../data/tests';
 import MsFooter from '../../components/MsFooter.astro';
 import '../../styles/ms.css';
 import SeoHead from '../../components/SeoHead.astro';
+import { ALLOW_INDEXING } from '../../lib/site';
 import { SITE_URL, CONTACT_EMAIL, NIVAM_URL } from '../../lib/site';
 import { I, icon } from '../../lib/icons';
 import { ACCENTS } from '../../lib/accents';
@@ -112,6 +113,7 @@ const jsonLd = {
       path={`/test/${testItem.slug}/`}
       themeColor={accent.base}
       jsonLd={jsonLd}
+      noindex={!ALLOW_INDEXING}
     />
   </head>
   <body class={`tp-page tp-dyslexic tp-intro-active acc-${testItem.accent}`}>

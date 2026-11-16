@@ -91,11 +91,12 @@
 }
 /* Atramentová: tlmená tmavomodrá – nepletie sa so žiarivo modrou matematikou ani s tyrkysovým postupom */
 .acc-atrament {
-  --acc-50: #f3f7fe; --acc-100: #e5eeff; --acc-200: #d0e0fe; --acc-300: #a0bef5;
-  --acc-light: #496cac; --acc: #325496; --acc-dark: #224079; --acc-deep: #132851;
-  --acc-rgb: 50, 84, 150; --acc-dark-rgb: 34, 64, 121;
-  --acc-bg: #f9fafc; --acc-bg-rgb: 249, 250, 252; --acc-ink: #1a1e26; --acc-ink-2: #414750; --acc-ink-3: #6d737f;
-  --acc-line: #e5eaf1; --acc-line-2: #cfd6e2; --acc-footer: #111723;
+  /* MaturitaSJL: atrament + zlato (variant A) – rovnaké tóny ako hlavná stránka (ms.css) */
+  --acc-50: #eef0f8; --acc-100: #e1e5f3; --acc-200: #c9d0ea; --acc-300: #9aa6d3;
+  --acc-light: #3a4c98; --acc: #1e2a5e; --acc-dark: #151e47; --acc-deep: #0c1230;
+  --acc-rgb: 30, 42, 94; --acc-dark-rgb: 21, 30, 71;
+  --acc-bg: #f6f4ef; --acc-bg-rgb: 246, 244, 239; --acc-ink: #151a2d; --acc-ink-2: #3c4158; --acc-ink-3: #6e7187;
+  --acc-line: #e5e0d5; --acc-line-2: #d6cfc0; --acc-footer: #11162d;
 }
 /* Jedľová: tmavšia a modrastejšia než zelená „správne“ */
 .acc-jedla {

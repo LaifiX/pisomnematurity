@@ -2,6 +2,7 @@
 import '../styles/fonts.css';
 import '../styles/ms.css';
 import SeoHead from '../components/SeoHead.astro';
+import { ALLOW_INDEXING } from '../lib/site';
 import MsHeader from '../components/MsHeader.astro';
 import MsFooter from '../components/MsFooter.astro';
 import { maturitaCatalog } from '../data/maturitaCatalog';
@@ -49,7 +50,7 @@ const faqs = [
       path="/"
       themeColor="#1e2a5e"
       ogTitle="Maturita zo slovenčiny – online príprava zadarmo"
-      noindex={true}
+      noindex={!ALLOW_INDEXING}
     />
   </head>
   <body class="ms">

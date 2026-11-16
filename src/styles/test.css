@@ -1,6 +1,6 @@
 /* ============================================================
-   TESTOVANIE 9 · SJL — pracovný priestor testu
-   Vínová paleta, ukážky v knižnej Literate, ovládanie ako na monitormatika.sk
+   MATURITA ZO SJL — pracovný priestor testu (prevzatý z MonitorSJL)
+   Farby: trieda .acc-atrament na <body> (atrament + zlato), zlatý akcent nižšie
    ============================================================ */
 
 .tp-page {
@@ -3323,4 +3323,13 @@ body.tp-intro-active .tp-mode-chip {
 .passage-box p.ms-fig-title {
   margin: 1.4rem 0 0.25rem;
   text-indent: 0;
+}
+
+/* Zlatý akcent maturity: číslo úlohy a aktívna úloha v prehľade */
+.acc-atrament .tp-qnum {
+  box-shadow: inset 0 -3px 0 #b07d23;
+}
+.acc-atrament .passage-badge {
+  background: #f4e8cd;
+  color: #7a5513;
 }

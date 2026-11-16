@@ -117,7 +117,8 @@ for (const [name, file] of seoPages) {
   else if (title.length > 65) warn(name, `titulok má ${title.length} znakov (Google zobrazí asi 60): „${title}“`);
   if (!desc) err(name, 'chýba meta description');
   else if (desc.length < 70 || desc.length > 165) warn(name, `popis má ${desc.length} znakov (ideál 70 – 160)`);
-  if (!canonical.startsWith(siteUrl + '/')) err(name, `kanonická adresa „${canonical}“ nie je na doméne ${siteUrl}`);
+  const noindex = /<meta name="robots" content="noindex/.test(html);
+  if (!noindex && !canonical.startsWith(siteUrl + '/')) err(name, `kanonická adresa „${canonical}“ nie je na doméne ${siteUrl}`);
   if (!/property="og:image" content="https?:\/\//.test(html)) err(name, 'chýba og:image');
   for (const m of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) {
     try {

@@ -3,6 +3,7 @@ import '../../styles/fonts.css';
 import '../../styles/ms.css';
 import '../../styles/sloh.css';
 import SeoHead from '../../components/SeoHead.astro';
+import { ALLOW_INDEXING } from '../../lib/site';
 import MsHeader from '../../components/MsHeader.astro';
 import MsFooter from '../../components/MsFooter.astro';
 import { slohoveUtvary, temy, temyPre, YEARS, NO_EXAM_YEARS, CRITERIA_COMMON } from '../../data/sloh';
@@ -32,7 +33,7 @@ const timesWord = (n: number) => (n === 0 ? 'ani raz' : n === 1 ? 'raz' : `${n}-
       description="Všetkých 8 slohových útvarov písomnej maturity zo slovenčiny: znaky, kompozícia, jazyk, dobré rady, témy 2007 – 2026 a kritériá hodnotenia NIVaM."
       path="/sloh/"
       themeColor="#11162d"
-      noindex={true}
+      noindex={!ALLOW_INDEXING}
     />
   </head>
   <body class="ms">
