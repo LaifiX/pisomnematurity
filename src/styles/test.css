@@ -3230,3 +3230,97 @@ body.tp-intro-active .tp-mode-chip {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* ===== Maturita: prvky ukážok (zvýraznenie, poznámka pod názvom, repliky v dráme, tabuľka) ===== */
+.passage-box strong.hl {
+  font-weight: 700;
+  background: #f6ecd4;
+  border-radius: 3px;
+  padding: 0.05em 0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.passage-box p.passage-note {
+  margin: -0.35rem 0 1rem;
+  text-align: center;
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--tp-ink-3);
+}
+
+.passage-speaker {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-weight: 800;
+  font-size: 0.85em;
+  letter-spacing: 0.06em;
+}
+
+.ms-table-wrap {
+  margin: 1.25rem 0 0.5rem;
+  overflow-x: auto;
+}
+
+.ms-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.ms-table caption {
+  text-align: left;
+  font-weight: 800;
+  padding-bottom: 0.5rem;
+}
+
+.ms-table th,
+.ms-table td {
+  border: 1px solid var(--tp-line-2);
+  padding: 0.45rem 0.55rem;
+  text-align: right;
+}
+
+.ms-table thead th {
+  background: var(--tp-brand-50, #eef2fb);
+  text-align: center;
+}
+
+.ms-table tbody th {
+  text-align: left;
+  font-weight: 500;
+}
+
+.ms-table-note {
+  margin: 0.4rem 0 0 !important;
+  font-size: 0.82rem;
+  color: var(--tp-ink-3);
+}
+
+.ms-fig-title {
+  margin: 1.25rem 0 0.5rem;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.ms-table {
+  min-width: 480px;
+  font-size: 0.84rem;
+}
+
+.ms-table th,
+.ms-table td {
+  padding: 0.38rem 0.45rem;
+}
+
+.ms-table tbody th {
+  width: 32%;
+  line-height: 1.35;
+}
+
+.passage-box p.ms-fig-title {
+  margin: 1.4rem 0 0.25rem;
+  text-indent: 0;
+}

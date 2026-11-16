@@ -33,6 +33,8 @@ export interface QuestionData {
   options?: OptionItem[];
   correctAnswerDisplay: string;
   acceptedAnswers: string[];
+  /** kľúč: „prihliadať na vecnú správnosť, uznať aj odpoveď s pravopisnými chybami“ – porovnáva sa bez diakritiky a veľkosti písmen */
+  lenient?: boolean;
   caseSensitive?: boolean; // default false: capital/small first letter is ignored unless set
   caseHint?: string; // feedback when the answer differs only in capital/small letters (caseSensitive tasks)
   commonMistakes?: { pattern: string; hint: string }[]; // typical wrong answer (regex source, case-insensitive) + targeted feedback

@@ -21,5 +21,5 @@ export const maturitaCatalog: MaturitaTest[] = [
   { slug: 'ms-2025', year: 2025, schoolYear: '2024/2025', status: 'coming_soon', ...base },
   { slug: 'ms-2024', year: 2024, schoolYear: '2023/2024', status: 'coming_soon', ...base },
   { slug: 'ms-2023', year: 2023, schoolYear: '2022/2023', status: 'coming_soon', ...base },
-  { slug: 'ms-2022', year: 2022, schoolYear: '2021/2022', status: 'coming_soon', ...base }
+  { slug: 'ms-2022', year: 2022, schoolYear: '2021/2022', status: 'ready', ...base }
 ];
