@@ -1,13 +1,11 @@
 /* ===== MaturitaSJL – hlavná stránka =====
-   Tri farebné varianty na porovnanie (atrament, jedla, grafit). Prepínajú sa atribútom
-   data-theme na <html>; v náhľade cez ?v=a|b|c. Po výbere ostane len jeden blok. */
+   Paleta a písma sú len v bloku :root (atrament + zlato, Fraunces a Inter Tight). */
 @import '@fontsource-variable/fraunces';
 @import '@fontsource-variable/fraunces/opsz-italic.css';
 @import '@fontsource-variable/inter-tight';
 
-:root,
-[data-theme='a'] {
-  /* A – Atrament a zlato: akademický, elegantný */
+:root {
+  /* Atrament a zlato (vybraný variant A, 16. 11. 2026): akademický, elegantný */
   --ms-bg: #f6f4ef;
   --ms-paper: #fffdf9;
   --ms-ink: #151a2d;
@@ -28,54 +26,6 @@
   --ms-ui: 'Inter Tight Variable', system-ui, sans-serif;
   --ms-head-weight: 600;
   --ms-head-track: -0.02em;
-}
-
-[data-theme='b'] {
-  /* B – Lesná zelená a meď: knižný, pokojný */
-  --ms-bg: #f4f3ec;
-  --ms-paper: #fffefa;
-  --ms-ink: #16201b;
-  --ms-ink-2: #3a463f;
-  --ms-ink-3: #6b766f;
-  --ms-line: #e2e1d6;
-  --ms-line-2: #d1cfc0;
-  --ms-brand: #1c4a38;
-  --ms-brand-2: #276550;
-  --ms-brand-soft: #e5efe9;
-  --ms-accent: #b5652e;
-  --ms-accent-soft: #f5e2d2;
-  --ms-dark: #10211a;
-  --ms-dark-2: #183126;
-  --ms-on-dark: #edf3ef;
-  --ms-on-dark-2: #a6bbb0;
-  --ms-head: 'Literata', Georgia, serif;
-  --ms-ui: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --ms-head-weight: 700;
-  --ms-head-track: -0.015em;
-}
-
-[data-theme='c'] {
-  /* C – Grafit a koralová: moderný, minimalistický */
-  --ms-bg: #f5f5f3;
-  --ms-paper: #ffffff;
-  --ms-ink: #121316;
-  --ms-ink-2: #3b3d44;
-  --ms-ink-3: #6f717a;
-  --ms-line: #e4e4e1;
-  --ms-line-2: #d2d2ce;
-  --ms-brand: #17181c;
-  --ms-brand-2: #2c2e35;
-  --ms-brand-soft: #ececea;
-  --ms-accent: #e0503b;
-  --ms-accent-soft: #fde3de;
-  --ms-dark: #121316;
-  --ms-dark-2: #1d1f24;
-  --ms-on-dark: #f2f2f0;
-  --ms-on-dark-2: #a5a7ae;
-  --ms-head: 'Inter Tight Variable', system-ui, sans-serif;
-  --ms-ui: 'Inter Tight Variable', system-ui, sans-serif;
-  --ms-head-weight: 700;
-  --ms-head-track: -0.035em;
 }
 
 .ms {
@@ -320,11 +270,6 @@
   color: var(--ms-brand-2);
 }
 
-[data-theme='c'] .ms-h1 em {
-  font-style: normal;
-  font-weight: 700;
-  color: var(--ms-accent);
-}
 
 .ms-lead {
   max-width: 36rem;

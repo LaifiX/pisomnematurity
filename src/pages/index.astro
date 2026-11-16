@@ -50,13 +50,6 @@ const faqs = [
       ogTitle="Maturita zo slovenčiny – online príprava zadarmo"
       noindex={true}
     />
-    <!-- Náhľad farebných variantov: ?v=a | b | c (po výbere sa odstráni) -->
-    <script is:inline>
-      try {
-        var v = new URLSearchParams(location.search).get('v');
-        if (v === 'a' || v === 'b' || v === 'c') document.documentElement.setAttribute('data-theme', v);
-      } catch (e) {}
-    </script>
   </head>
   <body class="ms">
     <a class="skip-link" href="#obsah">Preskočiť na hlavný obsah</a>
