@@ -3908,3 +3908,203 @@ body.tp-intro-active .tp-mode-chip {
     animation: none;
   }
 }
+
+/* =====================================================================
+   AKADEMICKÝ ŠTÝL TESTU (16. 11. 2026) – zjednotenie s hlavnou stránkou a slohom
+   Rovnaké zaoblenia a tiene ako ms.css, nadpisy vo Fraunces, štítky namiesto guľatých odznakov.
+   Text ukážok a úloh ostáva v čitateľnom Atkinson Hyperlegible Next.
+   Selektory s body.tp-page (a .tp-dyslexic pri písme) majú vyššiu špecificitu než pôvodné pravidlá.
+   ===================================================================== */
+body.tp-page {
+  --tp-radius: 10px;
+  --tp-radius-sm: 7px;
+  --tp-shadow: 0 1px 2px rgba(21, 26, 45, 0.04), 0 10px 30px -22px rgba(21, 26, 45, 0.28);
+}
+
+/* nadpisy a slovná časť značky vo Fraunces */
+body.tp-page.tp-dyslexic .tp-htitle h1,
+body.tp-page.tp-dyslexic .tp-intro-head h2,
+body.tp-page.tp-dyslexic .tp-mode-card h3,
+body.tp-page.tp-dyslexic .passage-title,
+body.tp-page.tp-dyslexic #scoreTitle,
+body.tp-page.tp-dyslexic .tp-res-block-head h3,
+body.tp-page.tp-dyslexic .tp-res-block-head h2,
+body.tp-page.tp-dyslexic .tp-qnum,
+body.tp-page.tp-dyslexic .tp-ring-center strong,
+body.tp-page.tp-dyslexic .tp-tile-txt strong,
+body.tp-page.tp-dyslexic .tp-topic-name {
+  font-family: 'Fraunces Variable', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+body.tp-page.tp-dyslexic .tp-mode-chip,
+body.tp-page.tp-dyslexic .tp-intro-eyebrow,
+body.tp-page.tp-dyslexic .passage-badge {
+  font-family: 'Fraunces Variable', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+body.tp-page .tp-htitle h1 {
+  font-size: 1.12rem;
+}
+
+/* ---------- hlavička a lišta ---------- */
+body.tp-page .tp-mode-chip {
+  padding: 0.05rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+}
+
+body.tp-page .tp-back,
+body.tp-page .tp-chip-btn,
+body.tp-page .tp-hbtn,
+body.tp-page .tp-timer,
+body.tp-page .tp-prog-pill {
+  border-radius: var(--tp-radius-sm);
+}
+
+body.tp-page .tp-ico-btn {
+  border-radius: 6px;
+}
+
+/* ---------- karty ---------- */
+body.tp-page .tp-qcard,
+body.tp-page .tp-ctx,
+body.tp-page .tp-stepper,
+body.tp-page .tp-mode-card,
+body.tp-page .tp-res-hero,
+body.tp-page .tp-results,
+body.tp-page .tp-topic,
+body.tp-page .tp-facts li,
+body.tp-page .tp-intro-resume {
+  border-radius: var(--tp-radius);
+  box-shadow: var(--tp-shadow);
+}
+
+body.tp-page .tp-tile,
+body.tp-page .tp-choice,
+body.tp-page .tp-feedback,
+body.tp-page .tp-fill-sentence,
+body.tp-page .tp-text-input,
+body.tp-page #textAnswerInput {
+  border-radius: var(--tp-radius-sm);
+}
+
+body.tp-page .hp-btn {
+  border-radius: var(--tp-radius-sm);
+}
+
+body.tp-page .tp-choice-key,
+body.tp-page .tp-map-cell,
+body.tp-page .tp-pill {
+  border-radius: 6px;
+}
+
+body.tp-page .tp-pill,
+body.tp-page .tp-map-cell,
+body.tp-page .tp-step-num {
+  font-family: 'Inter Tight Variable', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- hlavička úlohy: „Úloha 01“ ako nadpis, téma ako štítok ---------- */
+body.tp-page .tp-qnum {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--tp-ink);
+  font-size: 1.3rem;
+  line-height: 1.2;
+  box-shadow: none;
+}
+
+body.tp-page .tp-qcat {
+  padding: 0.12rem 0.55rem;
+  border-radius: 4px;
+  background: var(--ms-brand-soft, #e9ecf7);
+  color: var(--ms-brand, #1e2a5e);
+  font-size: 0.8rem;
+}
+
+body.tp-page .tp-qbadges {
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+}
+
+/* ---------- ukážka ---------- */
+body.tp-page .tp-ctx {
+  border-width: 1px;
+  border-left: 3px solid var(--ms-accent, #b07d23);
+}
+
+body.tp-page .tp-ctx-toggle {
+  background: var(--ms-paper, #fffdf9);
+  color: var(--tp-ink);
+  font-weight: 700;
+}
+
+body.tp-page .passage-badge {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--ms-accent-ink, #855c14);
+  font-size: 0.95rem;
+}
+
+body.tp-page .passage-title {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+/* ---------- úvod testu ---------- */
+body.tp-page .tp-mode-ico {
+  border-radius: var(--tp-radius-sm);
+}
+
+body.tp-page .tp-intro-head h2 {
+  font-size: clamp(1.9rem, 3.8vw, 2.6rem);
+}
+
+/* ---------- výsledky: pokojná karta namiesto farebného prechodu ---------- */
+body.tp-page .tp-res-hero {
+  background: var(--ms-paper, #fffdf9);
+  background-image: none;
+  border: 1px solid var(--tp-line);
+  border-left: 3px solid var(--ms-accent, #b07d23);
+}
+
+body.tp-page #scoreTitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.15;
+}
+
+body.tp-page .tp-tile {
+  box-shadow: none;
+}
+
+body.tp-page .tp-topic-badge {
+  border-radius: 4px;
+}
+
+body.tp-page.tp-dyslexic .tp-htitle h1 *,
+body.tp-page.tp-dyslexic .tp-ring-center strong *,
+body.tp-page.tp-dyslexic .tp-tile-txt strong * {
+  font-family: inherit;
+}
+
+/* kruh výsledku bez ťažkého tieňa */
+body.tp-page .tp-ring {
+  box-shadow: none;
+  background: transparent;
+}
+
+/* slovná časť loga v pätičke testu ako na ostatných stránkach */
+body.tp-page.tp-dyslexic .ms-brand-text strong {
+  font-family: 'Fraunces Variable', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}

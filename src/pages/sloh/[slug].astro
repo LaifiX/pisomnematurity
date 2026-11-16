@@ -88,6 +88,10 @@ const checklist = [
               <dd>{themes.length ? `${timesWord(themes.length)} · naposledy ${lastYear}` : 'zatiaľ nebol'}</dd>
             </div>
           </dl>
+          <button class="sl-print-btn" type="button" data-print>
+            <Fragment set:html={icon(I.printer)} />
+            Vytlačiť ako ťahák
+          </button>
         </div>
       </section>
 
@@ -341,6 +345,41 @@ const checklist = [
     </main>
 
     <MsFooter />
+
+    <script is:inline>
+      // Tlač: kontrolný zoznam a video sa netlačia (print štýly v sloh.css)
+      document.querySelectorAll('[data-print]').forEach(function (b) {
+        b.addEventListener('click', function () { window.print(); });
+      });
+
+      // Obsah stránky: zvýrazní kapitolu, ktorá je práve na obrazovke
+      (function () {
+        var links = Array.prototype.slice.call(document.querySelectorAll('.sl-toc a[href^="#"]'));
+        var items = links
+          .map(function (a) { return { a: a, sec: document.getElementById(a.getAttribute('href').slice(1)) }; })
+          .filter(function (x) { return x.sec; });
+        if (!items.length) return;
+        var current = null;
+        function update() {
+          var line = window.innerHeight * 0.3;
+          var found = null;
+          items.forEach(function (x) { if (x.sec.getBoundingClientRect().top <= line) found = x.a; });
+          if (found === current) return;
+          current = found;
+          links.forEach(function (l) {
+            if (l === found) l.setAttribute('aria-current', 'location');
+            else l.removeAttribute('aria-current');
+          });
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function () { ticking = false; update(); });
+        }, { passive: true });
+        update();
+      })();
+    </script>
 
     <script is:inline>
       // Video: YouTube (youtube-nocookie) sa načíta až po kliknutí na náhľad

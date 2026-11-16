@@ -1601,3 +1601,175 @@
   position: relative;
   box-shadow: 0 8px 22px -8px rgba(0, 0, 0, 0.65);
 }
+
+/* ---------- Obsah stránky: aktuálna kapitola ---------- */
+.sl-toc a[aria-current] {
+  color: var(--ms-brand);
+  border-left-color: var(--ms-accent);
+}
+
+@media (max-width: 980px) {
+  .sl-toc a[aria-current] {
+    border-color: var(--ms-accent);
+    background: #f8eed8;
+    color: #5c3e0a;
+  }
+}
+
+/* ---------- Tlačidlo Vytlačiť v úvode ---------- */
+.sl-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--ms-radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.sl-print-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.sl-print-btn .hp-ico {
+  width: 17px;
+  height: 17px;
+}
+
+/* ---------- Tlač: útvar ako ťahák na papieri ---------- */
+@media print {
+  @page {
+    margin: 14mm 14mm 16mm;
+  }
+
+  .ms {
+    background: #ffffff !important;
+    color: #000000;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  .ms-nav,
+  .ms-footer,
+  .skip-link,
+  .sl-crumbs,
+  .sl-num,
+  .sl-print-btn,
+  .sl-toc,
+  .sl-fun,
+  .sl-back-all,
+  .sl-pager,
+  .sl-check-meta,
+  #kontrola,
+  #temy .sl-themes-sum,
+  .sl-eu-logos {
+    display: none !important;
+  }
+
+  .sl-hero {
+    padding: 0 0 6mm;
+    background: none !important;
+    color: #000000;
+    border-bottom: 1.5pt solid #000000;
+  }
+
+  .sl-hero::before {
+    display: none;
+  }
+
+  .sl-hero h1 {
+    color: #000000;
+    font-size: 24pt;
+  }
+
+  .sl-lead {
+    color: #222222;
+    opacity: 1;
+    font-size: 11pt;
+  }
+
+  .sl-facts {
+    margin-top: 4mm;
+    background: none;
+    border: 1px solid #999999;
+  }
+
+  .sl-facts div {
+    background: #ffffff;
+    padding: 2mm 3mm;
+  }
+
+  .sl-facts dt {
+    color: #444444;
+  }
+
+  .sl-facts dd,
+  .sl-facts .is-accent dd {
+    color: #000000;
+    font-family: inherit;
+    font-size: 10.5pt;
+  }
+
+  .ms-wrap,
+  .sl-layout {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+
+  .sl-content {
+    max-width: none;
+  }
+
+  .sl-sec {
+    padding-bottom: 4mm;
+    margin-bottom: 4mm;
+    border-bottom: 0.5pt solid #bbbbbb;
+  }
+
+  .sl-sec h2 {
+    font-size: 15pt;
+    margin-bottom: 2mm;
+    break-after: avoid;
+  }
+
+  .sl-card,
+  .sl-steps li,
+  .sl-crit-card,
+  .sl-tips,
+  .sl-sample,
+  .sl-year,
+  .sl-src-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+
+  .sl-tips,
+  .sl-src-card,
+  .sl-card,
+  .sl-crit-card {
+    background: #ffffff !important;
+    border: 0.5pt solid #999999 !important;
+  }
+
+  .sl-cards,
+  .sl-crit {
+    gap: 3mm;
+  }
+
+  .sl-year:not(.is-drawn) {
+    display: none;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: none !important;
+  }
+}

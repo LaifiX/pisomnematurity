@@ -2247,3 +2247,288 @@ html:has(body.ms) {
     padding-right: calc(1.1rem - 0.4rem);
   }
 }
+
+/* lokálny náhľad (npm run dev): miesto počítadla, kým nebeží Netlify funkcia */
+.ms-meta .ms-visits.is-preview {
+  border-style: dashed;
+  font-weight: 500;
+}
+
+.ms-meta .ms-visits.is-preview strong {
+  font-weight: 650;
+}
+
+/* ---------- Hero: nápoveda v ukážke namiesto plávajúcich bublín ---------- */
+.ms-sheet-hint {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  margin: 1rem 0 0;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--ms-radius-sm);
+  background: #fff7e3;
+  border: 1px solid #f1dfae;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #6a4708;
+}
+
+.ms-sheet-hint .hp-ico {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin-top: 0.1rem;
+  color: #b07d23;
+}
+
+/* horné odkazy (plocha, zdieľanie, podpora) ako tiché textové odkazy */
+.ms-chip {
+  min-height: 34px;
+  padding: 0.3rem 0.55rem;
+  border-color: transparent;
+  background: transparent;
+  color: var(--ms-ink-3) !important;
+}
+
+.ms-chip:hover {
+  border-color: var(--ms-line-2);
+  background: var(--ms-paper);
+  color: var(--ms-ink) !important;
+}
+
+.ms-chip.is-support {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ms-accent-ink) !important;
+}
+
+.ms-chip.is-support:hover {
+  border-color: #e4cf9f;
+  background: #f8eed8;
+}
+
+.ms-hero .ms-utility {
+  margin-bottom: 2rem;
+}
+
+/* ---------- Ako to funguje: jedna skutočná úloha krok za krokom ---------- */
+.ms-how {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.ms-how-task {
+  position: sticky;
+  top: 100px;
+  margin: 0;
+  padding: 1.6rem 1.6rem 1.4rem;
+  border-radius: var(--ms-radius);
+  background: var(--ms-paper);
+  border: 1px solid var(--ms-line);
+  box-shadow: 0 30px 60px -40px rgba(20, 24, 50, 0.35);
+}
+
+.ms-how-task-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+  padding-bottom: 0.9rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--ms-line);
+}
+
+.ms-how-num {
+  font-family: var(--ms-head);
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: -0.015em;
+}
+
+.ms-how-src {
+  font-family: var(--ms-head);
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--ms-accent-ink);
+}
+
+.ms-how-q {
+  margin: 0 0 1rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.ms-how-opts {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.ms-how-opts li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 48px;
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--ms-radius-sm);
+  border: 1.5px solid var(--ms-line);
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.ms-how-opts b {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--ms-bg);
+  font-size: 0.82rem;
+}
+
+.ms-how-opts .is-ok {
+  border-color: #3a9a63;
+  background: #eef8f1;
+}
+
+.ms-how-opts .is-ok b {
+  background: #2f8a55;
+  color: #ffffff;
+}
+
+.ms-how-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--ms-radius-sm);
+  background: #eef8f1;
+  border: 1px solid #bfe0c9;
+  color: #1d6338;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.ms-how-check .hp-ico {
+  width: 18px;
+  height: 18px;
+}
+
+.ms-how-steps {
+  list-style: none;
+  counter-reset: how;
+  margin: 0;
+  padding: 0;
+}
+
+.ms-how-steps li {
+  counter-increment: how;
+  position: relative;
+  padding: 0 0 1.9rem 3.4rem;
+}
+
+.ms-how-steps li::before {
+  content: counter(how);
+  position: absolute;
+  left: 0;
+  top: -0.15rem;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--ms-accent);
+  background: var(--ms-paper);
+  font-family: var(--ms-head);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ms-accent-ink);
+}
+
+.ms-how-steps li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 1.1rem;
+  top: 2.3rem;
+  bottom: 0.3rem;
+  width: 1px;
+  background: var(--ms-line-2);
+}
+
+.ms-how-steps h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+}
+
+.ms-how-steps p {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--ms-ink-2);
+}
+
+.ms-how-hint,
+.ms-how-sol {
+  margin: 0.6rem 0 0;
+  max-width: 36rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--ms-radius-sm);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.ms-how-hint {
+  display: flex;
+  gap: 0.55rem;
+  background: #fff7e3;
+  border: 1px solid #f1dfae;
+  color: #5c3e0a;
+}
+
+.ms-how-hint .hp-ico {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin-top: 0.2rem;
+  color: #b07d23;
+}
+
+.ms-how-sol {
+  background: #ecf7f5;
+  border: 1px solid #b9e2dc;
+  color: #0e4a45;
+}
+
+.ms-how-sol strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #0b5c56;
+}
+
+@media (max-width: 900px) {
+  .ms-how {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .ms-how-task {
+    position: static;
+  }
+}
+
+@media (max-width: 520px) {
+  .ms-how-task {
+    padding: 1.2rem 1.1rem;
+  }
+
+  .ms-how-steps li {
+    padding-left: 2.9rem;
+  }
+}

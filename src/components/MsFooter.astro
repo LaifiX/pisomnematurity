@@ -34,3 +34,31 @@ const NIVAM_MS_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita'
         <p class="ms-footer-copy">© {new Date().getFullYear()} {SITE_DOMAIN} · Peter Beňo</p>
       </div>
     </footer>
+
+<script is:inline>
+  // Slovenská typografia na celom webe: pevná medzera po jednopísmenových predložkách a spojkách (k, s, v, z, a, i, o, u)
+  // a medzi číslom a slovom (64 úloh, 100 minút, 3,1 %). V teste to robí aj jeho vlastný skript pri každej úlohe.
+  (function () {
+    var root = document.querySelector('main');
+    if (!root || typeof NodeFilter === 'undefined') return;
+    var SKIP = { SCRIPT: 1, STYLE: 1, CODE: 1, PRE: 1, INPUT: 1, TEXTAREA: 1, BUTTON: 0 };
+    var PREP = /(^|[\s\u00A0„(\[–])([ksvzauoiKSVZAUOI])[ \t\r\n]+(?=\S)/g;
+    var NUM = /(\d)[ \t\r\n]+(?=[A-Za-zÀ-žĽľŠšČčŤťŽžÝýÁáÍíÉéÚúÄäÔôŇňĎďĹĺŔŕÓó%])/g;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        for (var el = node.parentElement; el && el !== root; el = el.parentElement) {
+          if (SKIP[el.tagName]) return NodeFilter.FILTER_REJECT;
+        }
+        return /\s/.test(node.nodeValue || '') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      }
+    });
+    var nodes = [];
+    var n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function (node) {
+      var t = node.nodeValue;
+      var u = t.replace(PREP, '$1$2\u00A0').replace(PREP, '$1$2\u00A0').replace(NUM, '$1\u00A0');
+      if (u !== t) node.nodeValue = u;
+    });
+  })();
+</script>

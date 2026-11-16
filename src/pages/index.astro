@@ -8,6 +8,10 @@ import MsFooter from '../components/MsFooter.astro';
 import BrandMark from '../components/BrandMark.astro';
 import { maturitaCatalog } from '../data/maturitaCatalog';
 import { slohoveUtvary, temy, PROJEKT } from '../data/sloh';
+import { testsDataBySlug } from '../data/tests';
+// Ukážková úloha pre sekciu „Ako to funguje“ – skutočná úloha 02 z Maturity 2023 (text, nápoveda, postup z dát testu)
+const demoQ = testsDataBySlug['ms-2023'].questions.find((q) => q.code === '02')!;
+const plainMarks = (t: string) => t.replace(/\/\/(.+?)\/\//g, '<em>$1</em>');
 const slohCount = (slug: string) => temy.filter((t) => t.slug === slug).length;
 import { MATH_SITE_URL, CONTACT_EMAIL } from '../lib/site';
 import { I, icon } from '../lib/icons';
@@ -81,7 +85,6 @@ const faqs = [
           </div>
           <div class="ms-hero-grid">
             <div>
-              <span class="ms-eyebrow">Slovenský jazyk a&nbsp;literatúra</span>
               <h1 class="ms-h1">Maturita zo slovenčiny <em>na skutočných testoch</em></h1>
               <p class="ms-lead">
                 Rieš oficiálne testy externej časti z&nbsp;rokov {yearsRange} presne tak, ako na maturite – s&nbsp;ukážkou vedľa úloh a&nbsp;časom 100&nbsp;minút.
@@ -101,7 +104,7 @@ const faqs = [
                 <li><Fragment set:html={icon(I.user)} />Bez registrácie</li>
                 <li><Fragment set:html={icon(I.phone)} />Na počítači aj v&nbsp;mobile</li>
                 <li><Fragment set:html={icon(I.heart)} />Zadarmo, bez reklám</li>
-                <li class="ms-visits hidden" id="visitsBox"><Fragment set:html={icon(I.eye)} /><span><strong id="visitsCount">0</strong> <span id="visitsLabel">návštev</span></span></li>
+                <li class:list={['ms-visits', { hidden: !import.meta.env.DEV, 'is-preview': import.meta.env.DEV }]} id="visitsBox" data-dev={import.meta.env.DEV ? '1' : undefined}><Fragment set:html={icon(I.eye)} /><span><strong id="visitsCount">{import.meta.env.DEV ? 'Počítadlo návštev' : '0'}</strong> <span id="visitsLabel">{import.meta.env.DEV ? '– číslo sa zobrazí na pisomnematurity.sk' : 'návštev'}</span></span></li>
               </ul>
             </div>
 
@@ -120,18 +123,7 @@ const faqs = [
                 <li class="is-ok"><b>C</b>výkladový</li>
                 <li><b>D</b>informačný</li>
               </ol>
-              <div class="ms-sheet-tools">
-                <span class="ms-tool-hint"><Fragment set:html={icon(I.bulb)} />Nápoveda</span>
-                <span class="ms-tool-sol"><Fragment set:html={icon(I.book)} />Postup riešenia</span>
-              </div>
-              <div class="ms-float ms-float-ok" aria-hidden="true">
-                <Fragment set:html={icon(I.check)} />
-                <span>Správne<small>+1 bod</small></span>
-              </div>
-              <div class="ms-float ms-float-time" aria-hidden="true">
-                <Fragment set:html={icon(I.clock)} />
-                <span>78:42<small>zostáva do konca</small></span>
-              </div>
+              <p class="ms-sheet-hint"><Fragment set:html={icon(I.bulb)} /><span><b>Nápoveda:</b> Text vysvetľuje, prečo sa jazyk mení. Ktorý postup odpovedá na otázku „prečo“?</span></p>
             </figure>
           </div>
 
@@ -230,40 +222,47 @@ const faqs = [
           <div class="ms-sec-head">
             <div>
               <span class="ms-kicker">Ako to funguje</span>
-              <h2>Všetko, čo potrebuješ pri riešení</h2>
+              <h2>Jedna úloha od otázky po vysvetlenie</h2>
+              <p>Takto vyzerá práca s&nbsp;testom. Úloha, nápoveda aj postup riešenia sú skutočné, z&nbsp;Maturity 2023.</p>
             </div>
           </div>
-          <div class="ms-features">
-            <article class="ms-feat">
-              <span class="ms-feat-ico"><Fragment set:html={icon(I.book)} /></span>
-              <h3>Ukážka vedľa úloh</h3>
-              <p>Text, ku ktorému sa úlohy viažu, máš stále na očiach. Netreba listovať ani hľadať.</p>
-            </article>
-            <article class="ms-feat">
-              <span class="ms-feat-ico"><Fragment set:html={icon(I.check)} /></span>
-              <h3>Okamžité overenie</h3>
-              <p>Pri precvičovaní hneď vidíš, či máš pravdu. Upozorní ťa aj na chýbajúcu diakritiku či veľké písmeno.</p>
-            </article>
-            <article class="ms-feat">
-              <span class="ms-feat-ico"><Fragment set:html={icon(I.bulb)} /></span>
-              <h3>Nápoveda</h3>
-              <p>Krátky tip, kde v&nbsp;texte hľadať alebo na aký jav myslieť – bez prezradenia odpovede.</p>
-            </article>
-            <article class="ms-feat">
-              <span class="ms-feat-ico"><Fragment set:html={icon(I.feather)} /></span>
-              <h3>Postup riešenia</h3>
-              <p>Vysvetlenie krok za krokom s&nbsp;teóriou, ktorú k&nbsp;úlohe potrebuješ. Pripravené a&nbsp;skontrolované učiteľom.</p>
-            </article>
-            <article class="ms-feat">
-              <span class="ms-feat-ico"><Fragment set:html={icon(I.timer)} /></span>
-              <h3>Ostrý test na 100 minút</h3>
-              <p>Odpočet, bez pomôcok, vyhodnotenie na konci. Vyskúšaš si, ako zvládaš tempo skutočnej maturity.</p>
-            </article>
-            <article class="ms-feat">
-              <span class="ms-feat-ico"><Fragment set:html={icon(I.target)} /></span>
-              <h3>Výsledok podľa oblastí</h3>
-              <p>Uvidíš úspešnosť v&nbsp;čítaní s&nbsp;porozumením, jazyku aj literatúre a&nbsp;vieš, čo si zopakovať.</p>
-            </article>
+          <div class="ms-how">
+            <figure class="ms-how-task" aria-label={`Ukážková úloha ${demoQ.code} z Maturity 2023`}>
+              <div class="ms-how-task-top">
+                <span class="ms-how-num">Úloha {demoQ.code}</span>
+                <span class="ms-how-src">Maturita 2023 · ukážka 1 (D. Hevier)</span>
+              </div>
+              <p class="ms-how-q" set:html={plainMarks(demoQ.questionText)} />
+              <ol class="ms-how-opts">
+                {demoQ.options!.map((o) => (
+                  <li class={o.key === demoQ.correctAnswerDisplay ? 'is-ok' : undefined}><b>{o.key}</b>{o.text}</li>
+                ))}
+              </ol>
+              <div class="ms-how-check"><Fragment set:html={icon(I.checkCircle)} />Výborne, správne! Odpoveď {demoQ.correctAnswerDisplay} je správna.</div>
+            </figure>
+
+            <ol class="ms-how-steps">
+              <li>
+                <h3>Odpovieš s&nbsp;ukážkou vedľa úlohy</h3>
+                <p>Text, ku ktorému sa úlohy viažu, máš stále na očiach. Netreba listovať.</p>
+              </li>
+              <li>
+                <h3>Hneď si overíš, či máš pravdu</h3>
+                <p>Pri precvičovaní stačí ťuknúť na Overiť odpoveď. Upozorní ťa aj na chýbajúcu diakritiku či veľké písmeno.</p>
+              </li>
+              <li>
+                <h3>Keď nevieš, pomôže nápoveda</h3>
+                <blockquote class="ms-how-hint"><Fragment set:html={icon(I.bulb)} /><span set:html={plainMarks(demoQ.hint!)} /></blockquote>
+              </li>
+              <li>
+                <h3>Postup riešenia vysvetlí prečo</h3>
+                <blockquote class="ms-how-sol"><strong>{demoQ.solutionSteps![0].title}</strong><span set:html={plainMarks(demoQ.solutionSteps![0].text)} /></blockquote>
+              </li>
+              <li>
+                <h3>Na konci vieš, čo zopakovať</h3>
+                <p>Ostrý test beží 100&nbsp;minút bez pomôcok. Po vyhodnotení uvidíš úspešnosť v&nbsp;čítaní s&nbsp;porozumením, literatúre, pravopise a&nbsp;skladbe.</p>
+              </li>
+            </ol>
           </div>
         </div>
       </section>
@@ -445,6 +444,7 @@ const faqs = [
           .then(function (r) { return r.ok ? r.json() : null; })
           .then(function (d) {
             if (!d || typeof d.visits !== 'number') return;
+            box.classList.remove('is-preview');
             try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
             var n = d.visits;
             document.getElementById('visitsCount').textContent = n.toLocaleString('sk-SK');
