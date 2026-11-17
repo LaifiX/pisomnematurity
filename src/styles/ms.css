@@ -904,10 +904,10 @@
 
 .ms-guarantor-photo img {
   display: block;
-  width: 128%;
+  width: 215%;
   max-width: none;
   height: auto;
-  margin: -1% 0 0 0;
+  margin: -50% 0 0 -39%;
 }
 
 .ms-guarantor-body h3 {
@@ -2992,9 +2992,12 @@ html:has(body.ms) {
 
 .ms-partner-logo.is-rect {
   width: auto;
-  height: auto;
-  border-radius: var(--ms-radius);
+  height: 132px;
+  border-radius: 0;
   padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .ms-partner-logo.is-rect img {
@@ -3002,6 +3005,11 @@ html:has(body.ms) {
   width: 220px;
   height: auto;
   border-radius: 0;
+}
+
+.ms-partner a:hover .ms-partner-logo.is-rect,
+.ms-partner a:focus-visible .ms-partner-logo.is-rect {
+  box-shadow: none;
 }
 
 .ms-partner small {
