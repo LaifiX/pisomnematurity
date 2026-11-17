@@ -344,13 +344,6 @@ const homeJsonLd = {
 
       <section class="ms-sec" id="autor" aria-labelledby="ms-autor-name">
         <div class="ms-wrap">
-          <div class="ms-sec-head">
-            <div>
-              <span class="ms-kicker">O projekte</span>
-              <h2>Kto stránku pripravuje</h2>
-            </div>
-          </div>
-
           <div class="ms-about-sheet">
             <article class="ms-guarantor">
               <span class="ms-guarantor-photo">
@@ -373,7 +366,7 @@ const homeJsonLd = {
 
               <div class="ms-volunteer-main">
                 <div class="ms-volunteer-txt">
-                  <span class="ms-volunteer-kicker">Dobrovoľná podpora</span>
+                  <span class="ms-volunteer-kicker">Podpor stránku</span>
                   <h3 id="ms-volunteer-title">Stránku tvoríme dobrovoľne, vo&nbsp;voľnom čase</h3>
                   <p>
                     Táto stránka je bezplatná. Ak ti priniesla hodnotu a&nbsp;pomohla ti, môžeš sa&nbsp;rozhodnúť ju podporiť dobrovoľným príspevkom, ktorý bude použitý <strong>výlučne len na&nbsp;prenájom domény pre&nbsp;ďalšie roky</strong>, aby mohla byť k&nbsp;dispozícii aj pre&nbsp;tvojich mladších spolužiakov.
@@ -410,39 +403,39 @@ const homeJsonLd = {
                 </figcaption>
               </figure>
             </aside>
+          </div>
 
-            <div class="ms-about-foot">
-              <div class="ms-siblings">
-                <h3>Pre mladších súrodencov (Testovanie 9)</h3>
-                <div class="ms-sisters">
-                  <a class="ms-sister" href={SJL9_SITE_URL} target="_blank" rel="noopener noreferrer">
-                    <span class="ms-sister-logo" style="background: linear-gradient(150deg, #ca4675, #92144a)">T9</span>
-                    <span><small>Testovanie 9 zo slovenčiny</small><strong>monitorsolina.sk</strong></span>
-                    <Fragment set:html={icon(I.external)} />
-                  </a>
-                  <a class="ms-sister" href={MATH_SITE_URL} target="_blank" rel="noopener noreferrer">
-                    <span class="ms-sister-logo" style="background: #2457e6">T9</span>
-                    <span><small>Testovanie 9 z&nbsp;matematiky</small><strong>monitormatika.sk</strong></span>
-                    <Fragment set:html={icon(I.external)} />
-                  </a>
-                </div>
-              </div>
+          <div class="ms-siblings">
+            <h3>Ak máš mladšieho súrodenca, možno ho bude zaujímať</h3>
+            <div class="ms-sisters">
+              <a class="ms-sister" href={SJL9_SITE_URL} target="_blank" rel="noopener noreferrer">
+                <span class="ms-sister-logo" style="background: linear-gradient(150deg, #ca4675, #92144a)">T9</span>
+                <span><small>Testovanie 9 zo slovenčiny</small><strong>monitorsolina.sk</strong></span>
+                <Fragment set:html={icon(I.external)} />
+              </a>
+              <a class="ms-sister" href={MATH_SITE_URL} target="_blank" rel="noopener noreferrer">
+                <span class="ms-sister-logo" style="background: #2457e6">T9</span>
+                <span><small>Testovanie 9 z&nbsp;matematiky</small><strong>monitormatika.sk</strong></span>
+                <Fragment set:html={icon(I.external)} />
+              </a>
+            </div>
+          </div>
 
-              <div class="ms-partner">
-                <h3>Podporili nás</h3>
-                <div class="ms-partners">
-                  <a class="ms-partner-card" href="https://www.kyticaodsrdca.sk/" target="_blank" rel="noopener noreferrer">
-                    <img src="/images/partner-kytica-od-srdca.webp" alt="Kytica od srdca" width="52" height="52" loading="lazy" decoding="async" />
-                    <span><small>Kytica od srdca</small><strong>kyticaodsrdca.sk</strong></span>
-                    <Fragment set:html={icon(I.external)} />
-                  </a>
-                  <a class="ms-partner-card" href="https://www.restoreshop.sk/" target="_blank" rel="noopener noreferrer">
-                    <img class="is-wide" src="/images/partner-restore.webp" alt="Restore – restoreshop.sk" width="105" height="40" loading="lazy" decoding="async" />
-                    <span><small>Restore</small><strong>restoreshop.sk</strong></span>
-                    <Fragment set:html={icon(I.external)} />
-                  </a>
-                </div>
-              </div>
+          <div class="ms-partner">
+            <span>Projekt podporili</span>
+            <div class="ms-partner-list">
+              <a href="https://www.kyticaodsrdca.sk/" target="_blank" rel="noopener noreferrer" title="Kytica od srdca – otvorí sa v novom okne">
+                <span class="ms-partner-logo">
+                  <img src="/images/partner-kytica-od-srdca.webp" alt="Kytica od srdca" width="112" height="112" loading="lazy" decoding="async" />
+                </span>
+                <small>kyticaodsrdca.sk</small>
+              </a>
+              <a href="https://www.restoreshop.sk/" target="_blank" rel="noopener noreferrer" title="Restore – otvorí sa v novom okne">
+                <span class="ms-partner-logo">
+                  <img src="/images/partner-restore.webp" alt="Restore – restoreshop.sk" width="112" height="112" loading="lazy" decoding="async" />
+                </span>
+                <small>restoreshop.sk</small>
+              </a>
             </div>
           </div>
         </div>

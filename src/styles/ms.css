@@ -2898,93 +2898,93 @@ html:has(body.ms) {
   box-shadow: none;
 }
 
-.ms-about-foot {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 1.5rem 2rem;
-  padding: 1.6rem 2.4rem 1.8rem;
-  border-top: 1px solid var(--ms-line);
-  background: var(--ms-paper);
+.ms-partner {
+  margin-top: 3.2rem;
+  gap: 1.15rem;
 }
 
-.ms-about-foot .ms-siblings {
-  margin: 0;
-}
-
-.ms-about-foot .ms-siblings h3,
-.ms-about-foot .ms-partner h3 {
-  margin: 0 0 0.75rem;
+.ms-partner > span {
   font-family: var(--ms-ui);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-style: normal;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ms-ink-3);
+  max-width: 26rem;
 }
 
-.ms-about-foot .ms-sisters,
-.ms-partners {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0.65rem;
-  margin-top: 0;
-}
-
-.ms-about-foot .ms-sister,
-.ms-partner-card {
+.ms-partner-list {
   display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 0.85rem 1.05rem;
-  border-radius: var(--ms-radius-sm);
-  background: var(--ms-bg);
-  border: 1px solid var(--ms-line);
-  text-decoration: none;
-  transition: border-color 0.15s ease, background-color 0.15s ease;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem 2.75rem;
 }
 
-.ms-about-foot .ms-sister:hover,
-.ms-partner-card:hover {
-  border-color: var(--ms-ink-3);
-  background: var(--ms-paper);
+.ms-partner a {
+  gap: 0.55rem;
 }
 
-.ms-about-foot .ms-partner {
-  margin: 0;
-  display: block;
-}
-
-.ms-partner-card img {
-  width: 40px;
-  height: 40px;
+.ms-partner-logo {
+  display: grid;
+  place-items: center;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
-  border: 1px solid var(--ms-line-2);
   background: #ffffff;
-  flex-shrink: 0;
+  border: 1px solid var(--ms-line);
+  box-shadow: 0 2px 8px rgba(21, 26, 45, 0.05);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.ms-partner-card img.is-wide {
-  width: auto;
-  height: 40px;
-  border-radius: 6px;
+.ms-partner-logo img {
+  width: 112px;
+  height: 112px;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: none;
   object-fit: contain;
+  filter: grayscale(1) contrast(0.9);
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-.ms-partner-card small {
-  display: block;
-  font-size: 0.82rem;
+.ms-partner small {
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--ms-ink-3);
-  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-.ms-partner-card strong {
-  font-size: 1rem;
-  color: var(--ms-ink);
+.ms-partner a:hover {
+  transform: none;
 }
 
-.ms-partner-card .hp-ico {
-  margin-left: auto;
-  color: var(--ms-ink-3);
+.ms-partner a:hover .ms-partner-logo,
+.ms-partner a:focus-visible .ms-partner-logo {
+  transform: translateY(-2px);
+  border-color: var(--ms-line-2);
+  box-shadow: 0 10px 24px -12px rgba(21, 26, 45, 0.25);
+}
+
+.ms-partner a:hover .ms-partner-logo img,
+.ms-partner a:focus-visible .ms-partner-logo img {
+  filter: none;
+  opacity: 1;
+}
+
+.ms-partner a:hover small,
+.ms-partner a:focus-visible small {
+  color: var(--ms-brand);
+}
+
+@media (hover: none) {
+  .ms-partner-logo img {
+    filter: none;
+    opacity: 1;
+  }
 }
 
 @media (max-width: 920px) {
@@ -3004,16 +3004,11 @@ html:has(body.ms) {
     width: 96px;
     height: 96px;
   }
-
-  .ms-about-foot {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }
 
 @media (max-width: 640px) {
   .ms-about-sheet .ms-guarantor,
-  .ms-about-sheet .ms-volunteer,
-  .ms-about-foot {
+  .ms-about-sheet .ms-volunteer {
     padding: 1.35rem 1.15rem;
   }
 }
