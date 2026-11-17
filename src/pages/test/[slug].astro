@@ -469,10 +469,6 @@ const jsonLd = {
                 <Fragment set:html={icon(I.book)} />
               </button>
             </div>
-            <button class="tp-nav-tool t-ctx hidden" type="button" id="navPassageBtn" title="Ukážka k úlohe" aria-label="Zobraziť ukážku k úlohe" aria-pressed="false">
-              <Fragment set:html={icon(I.file)} />
-              <span>Ukážka</span>
-            </button>
             <button class="hp-btn hp-btn-primary hp-btn-sm" type="button" id="nextQuestionBtn">
               <span id="nextBtnText">Ďalšia úloha</span>
               <span id="nextBtnArrow"><Fragment set:html={icon(I.arrow)} /></span>
@@ -1439,7 +1435,6 @@ const jsonLd = {
 
       function goToQuestion(idx) {
         if (idx < 0 || idx > LAST_INDEX) return;
-        setPassageSheet(false);
         currentIndex = idx;
         renderQuestion();
         saveStateToStorage();
@@ -1518,13 +1513,8 @@ const jsonLd = {
         });
       }
 
-      // Skladanie spoločnej ukážky (v otvorenom mobilnom paneli ťuknutie na hlavičku panel zavrie)
+      // Skladanie spoločnej ukážky
       ctxToggleBtn.addEventListener('click', () => {
-        if (sharedContextContainer.classList.contains('is-sheet')) {
-          playSound('click');
-          setPassageSheet(false);
-          return;
-        }
         const q = questions[currentIndex];
         if (!q || !q.sharedContextId) return;
         const nextCollapsed = !sharedContextCard.classList.contains('is-collapsed');
@@ -1533,30 +1523,10 @@ const jsonLd = {
         ctxToggleBtn.setAttribute('aria-expanded', nextCollapsed ? 'false' : 'true');
       });
 
-      // Mobil: ukážka ako panel nad úlohou (tlačidlo „Ukážka“ v spodnej lište) – netreba rolovať hore a späť
-      const navPassageBtn = document.getElementById('navPassageBtn');
       const phoneLayout = window.matchMedia('(max-width: 640px)');
 
-      function setPassageSheet(open) {
-        const show = Boolean(open) && phoneLayout.matches && !sharedContextContainer.classList.contains('hidden');
-        sharedContextContainer.classList.toggle('is-sheet', show);
-        document.body.classList.toggle('tp-sheet-open', show);
-        navPassageBtn.setAttribute('aria-pressed', show ? 'true' : 'false');
-        navPassageBtn.setAttribute('aria-label', show ? 'Zavrieť ukážku a vrátiť sa k úlohe' : 'Zobraziť ukážku k úlohe');
-        navPassageBtn.querySelector('span').textContent = show ? 'Úloha' : 'Ukážka';
-        if (show) sharedContextContainer.scrollTop = 0;
-      }
-
-      navPassageBtn.addEventListener('click', () => {
-        playSound('click');
-        setPassageSheet(!sharedContextContainer.classList.contains('is-sheet'));
-      });
-      phoneLayout.addEventListener('change', () => setPassageSheet(false));
-
       function renderSharedContext(q) {
-        navPassageBtn.classList.toggle('hidden', !q.sharedContextId || !passages[q.sharedContextId]);
         if (!q.sharedContextId || !passages[q.sharedContextId]) {
-          setPassageSheet(false);
           sharedContextContainer.classList.add('hidden');
           workspace.classList.remove('has-ctx');
           sharedContextBody.innerHTML = '';
@@ -1854,7 +1824,6 @@ const jsonLd = {
           return;
         }
         if (barChecksAnswer()) {
-          setPassageSheet(false);
           checkCurrentQuestionImmediately();
           return;
         }
@@ -2505,11 +2474,6 @@ const jsonLd = {
         const topDialog =
           [confirmModal, solutionModal, hintModal, installAppModal].find((m) => m && !m.classList.contains('hidden')) ||
           (!zoomModal.classList.contains('hidden') ? zoomModal : null);
-
-        if (e.key === 'Escape' && !topDialog && sharedContextContainer.classList.contains('is-sheet')) {
-          setPassageSheet(false);
-          return;
-        }
 
         if (e.key === 'Escape' && topDialog) {
           if (topDialog === installAppModal) return;

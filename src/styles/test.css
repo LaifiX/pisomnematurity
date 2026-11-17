@@ -3624,32 +3624,6 @@ body.tp-intro-active .tp-mode-chip {
 .tp-nav-tool.t-hint { background: var(--tp-amber-50); border-color: #fde3a0; color: #a45e05; }
 .tp-nav-tool.t-sol { background: var(--tp-teal-50); border-color: #a1e7e2; color: #085955; }
 
-/* „Ukážka“: len na mobile (v lište), na širších displejoch je ukážka stále viditeľná */
-.tp-nav-tool.t-ctx {
-  display: none;
-  align-items: center;
-  gap: 0.35rem;
-  width: auto;
-  padding: 0 0.7rem;
-  font-family: inherit;
-  font-size: 0.86rem;
-  font-weight: 700;
-  background: var(--tp-brand-50);
-  border-color: var(--brand-200);
-  color: var(--tp-brand-dark);
-}
-
-.tp-nav-tool.t-ctx .hp-ico {
-  width: 19px;
-  height: 19px;
-}
-
-.tp-nav-tool.t-ctx[aria-pressed='true'] {
-  background: var(--tp-brand-dark);
-  border-color: var(--tp-brand-dark);
-  color: #ffffff;
-}
-
 /* ===== Mobil: prilepená spodná lišta s prechodom medzi úlohami a pomôckami ===== */
 @media (max-width: 640px) {
   .tp-interact {
@@ -3751,47 +3725,6 @@ body.tp-intro-active .tp-mode-chip {
 
   body.tp-help-unlocked #footerPositionText {
     display: none;
-  }
-
-  /* Tlačidlo „Ukážka“ v lište a ukážka ako panel nad úlohou (medzi hlavičkou a lištou) */
-  .tp-nav-tool.t-ctx {
-    display: flex;
-  }
-
-  .tp-ctx-col.is-sheet {
-    position: fixed;
-    top: var(--tp-header-h, 64px);
-    left: 0;
-    right: 0;
-    bottom: calc(46px + 1.2rem + env(safe-area-inset-bottom));
-    z-index: 47;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.75rem 0.75rem 1.25rem;
-    background: var(--tp-bg);
-  }
-
-  .tp-ctx-col.is-sheet .tp-ctx-toggle {
-    cursor: pointer;
-  }
-
-  .tp-ctx-col.is-sheet .tp-ctx-chv {
-    transform: rotate(180deg);
-  }
-
-  .tp-ctx-col.is-sheet .tp-ctx.is-collapsed .tp-ctx-body {
-    display: block;
-  }
-
-  body.tp-sheet-open {
-    overflow: hidden;
-  }
-
-  body.tp-sheet-open .tp-qfoot {
-    transform: none;
-    opacity: 1;
-    pointer-events: auto;
   }
 
   /* miesto pod obsahom, aby lišta nezakrývala pätičku ani posledné tlačidlá */
