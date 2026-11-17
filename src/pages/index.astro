@@ -429,12 +429,19 @@ const homeJsonLd = {
               </div>
 
               <div class="ms-partner">
-                <h3>Projekt podporili</h3>
-                <a class="ms-partner-card" href="https://www.kyticaodsrdca.sk/" target="_blank" rel="noopener noreferrer">
-                  <img src="/images/partner-kytica-od-srdca.webp" alt="Kytica od srdca" width="52" height="52" loading="lazy" decoding="async" />
-                  <span><small>Partner projektu</small><strong>kyticaodsrdca.sk</strong></span>
-                  <Fragment set:html={icon(I.external)} />
-                </a>
+                <h3>Podporili nás</h3>
+                <div class="ms-partners">
+                  <a class="ms-partner-card" href="https://www.kyticaodsrdca.sk/" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/partner-kytica-od-srdca.webp" alt="Kytica od srdca" width="52" height="52" loading="lazy" decoding="async" />
+                    <span><small>Kytica od srdca</small><strong>kyticaodsrdca.sk</strong></span>
+                    <Fragment set:html={icon(I.external)} />
+                  </a>
+                  <a class="ms-partner-card" href="https://www.restoreshop.sk/" target="_blank" rel="noopener noreferrer">
+                    <img class="is-wide" src="/images/partner-restore.webp" alt="Restore – restoreshop.sk" width="105" height="40" loading="lazy" decoding="async" />
+                    <span><small>Restore</small><strong>restoreshop.sk</strong></span>
+                    <Fragment set:html={icon(I.external)} />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
