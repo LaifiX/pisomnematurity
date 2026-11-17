@@ -1022,6 +1022,11 @@
   font-size: 1.04rem;
   cursor: pointer;
   list-style: none;
+  transition: color 0.22s ease;
+}
+
+.ms-faq-item summary:hover {
+  color: var(--ms-brand);
 }
 
 .ms-faq-item summary::-webkit-details-marker {
@@ -1029,17 +1034,54 @@
 }
 
 .ms-faq-item summary .hp-ico {
-  transition: transform 0.2s ease;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), color 0.22s ease;
   color: var(--ms-ink-3);
 }
 
-.ms-faq-item[open] summary .hp-ico {
-  transform: rotate(180deg);
+.ms-faq-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.24s ease;
+}
+
+.ms-faq-body-in {
+  overflow: hidden;
 }
 
 .ms-faq-item p {
   margin: 0 0 1.3rem;
   color: var(--ms-ink-2);
+  transform: translateY(-4px);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ms-faq-item[open]:not(.is-closing):not(.is-animating-open) summary {
+  color: var(--ms-brand);
+}
+
+.ms-faq-item[open]:not(.is-closing):not(.is-animating-open) summary .hp-ico {
+  transform: rotate(180deg);
+  color: var(--ms-accent);
+}
+
+.ms-faq-item[open]:not(.is-closing):not(.is-animating-open) .ms-faq-body {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.ms-faq-item[open]:not(.is-closing):not(.is-animating-open) p {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-faq-item summary .hp-ico,
+  .ms-faq-body,
+  .ms-faq-item p {
+    transition: none;
+  }
 }
 
 /* Dobrovoľný projekt, PAY by square QR a partner */
@@ -2918,7 +2960,7 @@ html:has(body.ms) {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 1.5rem 2.75rem;
 }
 
@@ -2946,6 +2988,20 @@ html:has(body.ms) {
   border-radius: 50%;
   box-shadow: none;
   object-fit: contain;
+}
+
+.ms-partner-logo.is-rect {
+  width: auto;
+  height: auto;
+  border-radius: var(--ms-radius);
+  padding: 0;
+}
+
+.ms-partner-logo.is-rect img {
+  display: block;
+  width: 220px;
+  height: auto;
+  border-radius: 0;
 }
 
 .ms-partner small {
