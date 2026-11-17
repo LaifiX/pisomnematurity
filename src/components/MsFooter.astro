@@ -44,6 +44,9 @@ const NIVAM_MS_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita'
     var SKIP = { SCRIPT: 1, STYLE: 1, CODE: 1, PRE: 1, INPUT: 1, TEXTAREA: 1, BUTTON: 0 };
     var PREP = /(^|[\s\u00A0„(\[–])([ksvzauoiKSVZAUOI])[ \t\r\n]+(?=\S)/g;
     var NUM = /(\d)[ \t\r\n]+(?=[A-Za-zÀ-žĽľŠšČčŤťŽžÝýÁáÍíÉéÚúÄäÔôŇňĎďĹĺŔŕÓó%])/g;
+    // Číselný rozsah (2022 – 2026, 1,5 – 3): pevné medzery a za pomlčkou spojovník slov (U+2060),
+    // inak prehliadač smie zalomiť riadok hneď za pomlčkou aj pred pevnou medzerou
+    var RANGE = /(\d)[  ]–[  ](?=\d)/g;
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: function (node) {
         for (var el = node.parentElement; el && el !== root; el = el.parentElement) {
@@ -57,7 +60,7 @@ const NIVAM_MS_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita'
     while ((n = walker.nextNode())) nodes.push(n);
     nodes.forEach(function (node) {
       var t = node.nodeValue;
-      var u = t.replace(PREP, '$1$2\u00A0').replace(PREP, '$1$2\u00A0').replace(NUM, '$1\u00A0');
+      var u = t.replace(PREP, '$1$2\u00A0').replace(PREP, '$1$2\u00A0').replace(NUM, '$1\u00A0').replace(RANGE, '$1\u00A0\u2013\u2060\u00A0');
       if (u !== t) node.nodeValue = u;
     });
   })();

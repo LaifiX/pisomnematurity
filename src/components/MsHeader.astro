@@ -14,13 +14,16 @@ const links = [
 
 <header class="ms-nav">
   <div class="ms-wrap ms-nav-in">
-    <a class="ms-brand" href="/" aria-label={`${SITE_NAME} – úvodná stránka`}>
-      <BrandMark size={40} class="ms-mark" />
-      <span class="ms-brand-text">
-        <strong>{SITE_NAME}</strong>
-        <small>{SITE_TAGLINE}</small>
-      </span>
-    </a>
+    <div class="ms-nav-top">
+      <a class="ms-brand" href="/" aria-label={`${SITE_NAME} – úvodná stránka`}>
+        <BrandMark size={40} class="ms-mark" />
+        <span class="ms-brand-text">
+          <strong>{SITE_NAME}</strong>
+          <small>{SITE_TAGLINE}</small>
+        </span>
+      </a>
+      <a class="ms-btn ms-btn-primary ms-btn-sm ms-nav-cta" href="/#testy">Vybrať test</a>
+    </div>
     <nav class="ms-nav-links" aria-label="Hlavná navigácia">
       {links.map((l) => (
         <a href={l.href} data-spy={active === 'home' ? l.spy : undefined} aria-current={active === 'sloh' && l.spy === 'sloh' ? 'page' : undefined}>
@@ -28,7 +31,6 @@ const links = [
         </a>
       ))}
     </nav>
-    <a class="ms-btn ms-btn-primary ms-btn-sm ms-nav-cta" href="/#testy">Začať test</a>
   </div>
 </header>
 

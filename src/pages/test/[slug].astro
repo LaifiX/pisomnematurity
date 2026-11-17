@@ -198,21 +198,6 @@ const jsonLd = {
           <p>Vyber si režim. Odpovede sa ti priebežne ukladajú v&nbsp;tomto prehliadači, takže sa môžeš kedykoľvek vrátiť.</p>
         </div>
 
-        <ul class="tp-facts">
-          <li>
-            <span class="tp-facts-ico"><Fragment set:html={icon(I.file)} /></span>
-            <span><strong>{testItem.questionsCount} úloh</strong><small>{testItem.choiceCount} s výberom A – D, {testItem.openCount} s krátkou odpoveďou</small></span>
-          </li>
-          <li>
-            <span class="tp-facts-ico"><Fragment set:html={icon(I.clock)} /></span>
-            <span><strong>{testItem.durationMinutes} minút</strong><small>ako na skutočnom teste</small></span>
-          </li>
-          <li>
-            <span class="tp-facts-ico"><Fragment set:html={icon(I.lock)} /></span>
-            <span><strong>Bez pomôcok</strong><small>slovníky ani pravidlá nie sú povolené</small></span>
-          </li>
-        </ul>
-
         <div class="tp-intro-resume hidden" id="introResumeBox">
           <p id="introResumeText"></p>
           <div class="tp-intro-resume-acts">
@@ -252,6 +237,21 @@ const jsonLd = {
             </button>
           </article>
         </div>
+
+        <ul class="tp-facts">
+          <li>
+            <span class="tp-facts-ico"><Fragment set:html={icon(I.file)} /></span>
+            <span><strong>{testItem.questionsCount} úloh</strong><small>{testItem.choiceCount} s výberom A – D, {testItem.openCount} s krátkou odpoveďou</small></span>
+          </li>
+          <li>
+            <span class="tp-facts-ico"><Fragment set:html={icon(I.clock)} /></span>
+            <span><strong>{testItem.durationMinutes} minút</strong><small>ako na skutočnom teste</small></span>
+          </li>
+          <li>
+            <span class="tp-facts-ico"><Fragment set:html={icon(I.lock)} /></span>
+            <span><strong>Bez pomôcok</strong><small>slovníky ani pravidlá nie sú povolené</small></span>
+          </li>
+        </ul>
 
         <p class="tp-intro-note">
           Pri otvorených úlohách píš odpoveď so správnou diakritikou a&nbsp;veľkými písmenami presne podľa zadania. Na počítači môžeš odpovedať aj klávesmi A&nbsp;–&nbsp;D a&nbsp;prepínať úlohy šípkami.
@@ -418,7 +418,7 @@ const jsonLd = {
               </button>
               <button class="tp-report-btn" type="button" id="reportQuestionBtn" title="Nahlásiť chybu v zadaní">
                 <Fragment set:html={icon(I.alert)} />
-                <span>Chyba</span>
+                <span>Nahlásiť chybu</span>
               </button>
             </div>
           </div>
@@ -469,6 +469,10 @@ const jsonLd = {
                 <Fragment set:html={icon(I.book)} />
               </button>
             </div>
+            <button class="tp-nav-tool t-ctx hidden" type="button" id="navPassageBtn" title="Ukážka k úlohe" aria-label="Zobraziť ukážku k úlohe" aria-pressed="false">
+              <Fragment set:html={icon(I.file)} />
+              <span>Ukážka</span>
+            </button>
             <button class="hp-btn hp-btn-primary hp-btn-sm" type="button" id="nextQuestionBtn">
               <span id="nextBtnText">Ďalšia úloha</span>
               <span id="nextBtnArrow"><Fragment set:html={icon(I.arrow)} /></span>
@@ -1136,39 +1140,64 @@ const jsonLd = {
         }
       }
 
+      // Čas sa meria podľa hodín, nie počtom tikov: prehliadač tiky na pozadí spomaľuje
+      // a pri zhasnutej obrazovke ich zastaví, takže ostrý test by inak trval dlhšie než 100 minút.
+      let lastTickAt = 0;
+      let lastSaveAt = 0;
+
+      function timerTick() {
+        if (!timerRunning || !mode || isEvaluated) return;
+        const now = Date.now();
+        const passed = Math.floor((now - lastTickAt) / 1000);
+        if (passed < 1) return;
+        lastTickAt += passed * 1000;
+        if (mode === 'exam') {
+          remainingSeconds = Math.max(0, remainingSeconds - passed);
+          updateTimerUI();
+          if (remainingSeconds <= 0) {
+            stopTimer();
+            evaluateTest(true);
+            return;
+          }
+        } else {
+          // Precvičovanie je bez časového tlaku – čas, keď bola stránka uspatá, sa nezapočíta
+          elapsedSeconds += passed > 5 ? 1 : passed;
+          updateTimerUI();
+        }
+        if (now - lastSaveAt >= 5000) {
+          lastSaveAt = now;
+          saveStateToStorage();
+        }
+      }
+
       function startTimer() {
         stopTimer();
         timerRunning = true;
+        lastTickAt = Date.now();
+        lastSaveAt = lastTickAt;
         updateTimerUI();
-        timerInterval = setInterval(() => {
-          if (!timerRunning || !mode || isEvaluated) return;
-          if (mode === 'exam') {
-            remainingSeconds = Math.max(0, remainingSeconds - 1);
-            updateTimerUI();
-            if (remainingSeconds <= 0) {
-              stopTimer();
-              evaluateTest(true);
-            }
-          } else {
-            elapsedSeconds += 1;
-            updateTimerUI();
-          }
-          if ((mode === 'exam' ? remainingSeconds : elapsedSeconds) % 5 === 0) {
-            saveStateToStorage();
-          }
-        }, 1000);
+        timerInterval = setInterval(timerTick, 500);
       }
+
+      // Po návrate na kartu alebo odomknutí telefónu sa čas dorovná hneď, nie až pri ďalšom tiku
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && timerInterval) timerTick();
+      });
 
       timerToggleBtn.addEventListener('click', () => {
         playSound('click');
+        timerTick();
         timerRunning = !timerRunning;
+        if (timerRunning) lastTickAt = Date.now();
         updateTimerUI();
+        saveStateToStorage();
       });
 
       timerResetBtn.addEventListener('click', () => {
         playSound('click');
         if (mode === 'exam') remainingSeconds = INITIAL_SECONDS;
         else elapsedSeconds = 0;
+        lastTickAt = Date.now();
         updateTimerUI();
         saveStateToStorage();
       });
@@ -1190,7 +1219,9 @@ const jsonLd = {
         openSolutionBtn.title = locked ? lockedTitle : 'Postup riešenia';
         document.body.classList.toggle('tp-help-unlocked', !locked);
 
-        checkSingleBtn.classList.toggle('hidden', isExam || isEvaluated);
+        const curQ = questions[currentIndex];
+        const alreadyChecked = Boolean(curQ && singleCheckedState[curQ.id]);
+        checkSingleBtn.classList.toggle('hidden', isExam || isEvaluated || alreadyChecked);
         timerResetBtn.classList.toggle('hidden', isExam);
         evaluateBtnLabel.textContent = isEvaluated ? 'Výsledkový panel' : 'Vyhodnotiť test';
         document.getElementById('evaluateBtnShort').textContent = isEvaluated ? 'Výsledok' : 'Vyhodnotiť';
@@ -1332,8 +1363,25 @@ const jsonLd = {
 
       document.getElementById('discardSavedBtn').addEventListener('click', () => {
         playSound('click');
-        clearSavedState();
-        refreshIntroResumeBox();
+        const discard = () => {
+          clearSavedState();
+          refreshIntroResumeBox();
+        };
+        const saved = loadStateFromStorage();
+        const savedFilled =
+          saved && saved.userAnswers ? Object.values(saved.userAnswers).filter((v) => String(v).trim() !== '').length : 0;
+        // Uložený postup sa nesmie stratiť jedným ťuknutím (rovnako ako pri spustení nového testu)
+        if (savedFilled > 0) {
+          openConfirm({
+            eyebrow: 'Uložený postup',
+            title: 'Zahodiť uložený test?',
+            html: `<p class="tp-confirm-lead">Uložený test má vyplnených <strong>${savedFilled} z ${questions.length}</strong> úloh. Po zahodení sa už nedá obnoviť.</p>`,
+            proceedLabel: 'Áno, zahodiť',
+            onProceed: discard
+          });
+          return;
+        }
+        discard();
       });
 
       // Stepper
@@ -1391,6 +1439,7 @@ const jsonLd = {
 
       function goToQuestion(idx) {
         if (idx < 0 || idx > LAST_INDEX) return;
+        setPassageSheet(false);
         currentIndex = idx;
         renderQuestion();
         saveStateToStorage();
@@ -1469,8 +1518,13 @@ const jsonLd = {
         });
       }
 
-      // Skladanie spoločnej ukážky
+      // Skladanie spoločnej ukážky (v otvorenom mobilnom paneli ťuknutie na hlavičku panel zavrie)
       ctxToggleBtn.addEventListener('click', () => {
+        if (sharedContextContainer.classList.contains('is-sheet')) {
+          playSound('click');
+          setPassageSheet(false);
+          return;
+        }
         const q = questions[currentIndex];
         if (!q || !q.sharedContextId) return;
         const nextCollapsed = !sharedContextCard.classList.contains('is-collapsed');
@@ -1479,8 +1533,30 @@ const jsonLd = {
         ctxToggleBtn.setAttribute('aria-expanded', nextCollapsed ? 'false' : 'true');
       });
 
+      // Mobil: ukážka ako panel nad úlohou (tlačidlo „Ukážka“ v spodnej lište) – netreba rolovať hore a späť
+      const navPassageBtn = document.getElementById('navPassageBtn');
+      const phoneLayout = window.matchMedia('(max-width: 640px)');
+
+      function setPassageSheet(open) {
+        const show = Boolean(open) && phoneLayout.matches && !sharedContextContainer.classList.contains('hidden');
+        sharedContextContainer.classList.toggle('is-sheet', show);
+        document.body.classList.toggle('tp-sheet-open', show);
+        navPassageBtn.setAttribute('aria-pressed', show ? 'true' : 'false');
+        navPassageBtn.setAttribute('aria-label', show ? 'Zavrieť ukážku a vrátiť sa k úlohe' : 'Zobraziť ukážku k úlohe');
+        navPassageBtn.querySelector('span').textContent = show ? 'Úloha' : 'Ukážka';
+        if (show) sharedContextContainer.scrollTop = 0;
+      }
+
+      navPassageBtn.addEventListener('click', () => {
+        playSound('click');
+        setPassageSheet(!sharedContextContainer.classList.contains('is-sheet'));
+      });
+      phoneLayout.addEventListener('change', () => setPassageSheet(false));
+
       function renderSharedContext(q) {
+        navPassageBtn.classList.toggle('hidden', !q.sharedContextId || !passages[q.sharedContextId]);
         if (!q.sharedContextId || !passages[q.sharedContextId]) {
+          setPassageSheet(false);
           sharedContextContainer.classList.add('hidden');
           workspace.classList.remove('has-ctx');
           sharedContextBody.innerHTML = '';
@@ -1632,9 +1708,10 @@ const jsonLd = {
                 inp.classList.remove('is-correct', 'is-wrong');
                 evalFeedbackBanner.classList.add('hidden');
                 questionInteract.classList.remove('has-inline-help');
-                syncInteractVisibility();
+                updateModeUI();
               }
               updateProgressAndStepper();
+              updateNextBtnLabel();
               saveStateToStorage();
             });
             inp.addEventListener('keydown', (e) => {
@@ -1692,19 +1769,35 @@ const jsonLd = {
         } else {
           prevQuestionBtn.disabled = currentIndex === 0;
           nextQuestionBtn.disabled = isEvaluated && currentIndex === LAST_INDEX;
-          if (!isEvaluated && currentIndex === LAST_INDEX) {
-            nextBtnText.textContent = 'Vyhodnotiť test';
-            nextBtnArrow.innerHTML = UI.checkCircle;
-          } else {
-            nextBtnText.textContent = 'Ďalšia úloha';
-            nextBtnArrow.innerHTML = UI.arrow;
-          }
+          updateNextBtnLabel();
         }
 
         updateModeUI();
         updateProgressAndStepper();
         bindSlovakTypography(questionCard);
       }
+
+      // Mobil, precvičovanie: kým úloha nie je overená, hlavné tlačidlo spodnej lišty je „Overiť“
+      // (samostatné „Overiť odpoveď“ v karte je na mobile skryté); až po overení vedie na „Ďalšia úloha“
+      function barChecksAnswer() {
+        const q = questions[currentIndex];
+        return Boolean(q) && phoneLayout.matches && mode === 'practice' && !isEvaluated && !singleCheckedState[q.id];
+      }
+
+      function updateNextBtnLabel() {
+        if (isEvaluated && filterWrongOnly) return;
+        if (barChecksAnswer()) {
+          nextBtnText.textContent = 'Overiť';
+          nextBtnArrow.innerHTML = UI.checkCircle;
+        } else if (!isEvaluated && currentIndex === LAST_INDEX) {
+          nextBtnText.textContent = 'Vyhodnotiť test';
+          nextBtnArrow.innerHTML = UI.checkCircle;
+        } else {
+          nextBtnText.textContent = 'Ďalšia úloha';
+          nextBtnArrow.innerHTML = UI.arrow;
+        }
+      }
+      phoneLayout.addEventListener('change', updateNextBtnLabel);
 
       // Okamžité overenie v režime Precvičovanie
       function checkCurrentQuestionImmediately() {
@@ -1758,6 +1851,11 @@ const jsonLd = {
           const wrongs = getWrongQuestionIndices();
           const nextW = wrongs.find((i) => i > currentIndex);
           if (nextW !== undefined) goToQuestion(nextW);
+          return;
+        }
+        if (barChecksAnswer()) {
+          setPassageSheet(false);
+          checkCurrentQuestionImmediately();
           return;
         }
         if (currentIndex < LAST_INDEX) {
@@ -2328,7 +2426,7 @@ const jsonLd = {
       // Mobilná spodná lišta (Predošlá · Nápoveda · Postup · Ďalšia): skryje sa na úvodnej obrazovke,
       // pri otvorenej klávesnici a keď je po vyhodnotení na obrazovke výsledkový panel
       function syncInteractVisibility() {
-        const hasCheck = !checkSingleBtn.classList.contains('hidden');
+        const hasCheck = !phoneLayout.matches && !checkSingleBtn.classList.contains('hidden');
         const hasFb = !evalFeedbackBanner.classList.contains('hidden');
         questionInteract.classList.toggle('is-mobile-empty', !hasCheck && !hasFb);
       }
@@ -2407,6 +2505,11 @@ const jsonLd = {
         const topDialog =
           [confirmModal, solutionModal, hintModal, installAppModal].find((m) => m && !m.classList.contains('hidden')) ||
           (!zoomModal.classList.contains('hidden') ? zoomModal : null);
+
+        if (e.key === 'Escape' && !topDialog && sharedContextContainer.classList.contains('is-sheet')) {
+          setPassageSheet(false);
+          return;
+        }
 
         if (e.key === 'Escape' && topDialog) {
           if (topDialog === installAppModal) return;

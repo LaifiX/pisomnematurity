@@ -2679,3 +2679,330 @@ html:has(body.ms) {
     font-size: 1.22rem;
   }
 }
+
+/* ---------- Hlavička: na mobile prilepený len prvý riadok, navigácia sa odroluje ---------- */
+.ms-nav-top {
+  display: contents;
+}
+
+.ms-brand {
+  order: 1;
+}
+
+.ms-nav-links {
+  order: 2;
+}
+
+.ms-nav-cta {
+  order: 3;
+}
+
+@media (max-width: 860px) {
+  html:has(body.ms) {
+    scroll-padding-top: 72px;
+  }
+
+  .ms-nav,
+  .ms-nav .ms-nav-in {
+    display: contents;
+  }
+
+  .ms-nav .ms-nav-top {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 0.75rem;
+    padding: calc(0.65rem + env(safe-area-inset-top, 0px)) 1.5rem 0.65rem;
+    background: color-mix(in srgb, var(--ms-bg) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(12px);
+    -webkit-backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom: 1px solid var(--ms-line);
+  }
+
+  .ms-nav .ms-nav-links {
+    margin: 0 !important;
+    padding: 0 calc(1.5rem - 0.55rem);
+    background: var(--ms-bg);
+    border-top: 0;
+    border-bottom: 1px solid var(--ms-line);
+  }
+}
+
+@media (max-width: 640px) {
+  .ms-nav .ms-nav-top {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  .ms-nav .ms-nav-links {
+    padding-left: calc(1.1rem - 0.55rem);
+    padding-right: calc(1.1rem - 0.55rem);
+  }
+}
+
+@media (max-width: 400px) {
+  .ms-nav .ms-nav-links {
+    padding-left: calc(1.1rem - 0.4rem);
+    padding-right: calc(1.1rem - 0.4rem);
+  }
+}
+
+/* ---------- Utility (Pridať na plochu / Zdieľať / Podporiť) pod hero ---------- */
+.ms-hero .ms-utility {
+  margin: 1.25rem 0 -0.75rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--ms-line);
+  justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+  .ms-hero {
+    padding: 2rem 0 2rem;
+  }
+
+  .ms-hero .ms-utility {
+    margin: 1.1rem 0 -0.5rem;
+    padding-top: 0.75rem;
+    justify-content: flex-start;
+  }
+}
+
+/* ---------- Karty ročníkov na mobile: jeden stĺpec s riadkami ---------- */
+@media (max-width: 640px) {
+  .ms-tests {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.65rem;
+  }
+
+  .ms-test {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 1rem;
+    row-gap: 0.1rem;
+    align-items: baseline;
+    padding: 1rem 1.15rem;
+  }
+
+  .ms-test-year {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin: 0;
+    font-size: 2.15rem;
+  }
+
+  .ms-test-term {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .ms-test-specs {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.45rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .ms-test-specs li + li::before {
+    content: '· ';
+  }
+
+  .ms-test-authors {
+    grid-column: 1 / -1;
+    margin: 0.5rem 0 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .ms-saved {
+    grid-column: 1 / -1;
+    margin: 0.55rem 0 0;
+  }
+
+  .ms-test-foot {
+    grid-column: 1 / -1;
+    margin-top: 0.65rem;
+    padding-top: 0.6rem;
+  }
+}
+
+/* ---------- Sekcia O projekte: zjednotený hárok (autor + tichá podpora + T9 a partner) ---------- */
+.ms-legal-link {
+  text-align: left;
+}
+
+.ms-about-sheet {
+  border-radius: var(--ms-radius);
+  background: var(--ms-paper);
+  border: 1px solid var(--ms-line);
+  overflow: hidden;
+}
+
+.ms-about-sheet .ms-guarantor {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 2.2rem 2.4rem;
+}
+
+.ms-about-sheet .ms-volunteer {
+  margin: 0;
+  padding: 1.75rem 2.4rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.25rem 2rem;
+  border: 0;
+  border-top: 1px solid var(--ms-line);
+  border-radius: 0;
+  background: color-mix(in srgb, var(--ms-bg) 55%, var(--ms-paper));
+  box-shadow: none;
+}
+
+.ms-about-sheet .ms-volunteer-ico {
+  display: none;
+}
+
+.ms-about-sheet .ms-volunteer-kicker {
+  font-size: 0.92rem;
+  margin-bottom: 0.2rem;
+}
+
+.ms-about-sheet .ms-volunteer-txt h3 {
+  font-size: 1.22rem;
+  margin-bottom: 0.3rem;
+}
+
+.ms-about-sheet .ms-volunteer-txt p {
+  font-size: 0.95rem;
+  line-height: 1.62;
+  color: var(--ms-ink-2);
+}
+
+.ms-about-sheet .ms-volunteer-txt p strong {
+  color: var(--ms-ink);
+}
+
+.ms-about-sheet .ms-pay-bar {
+  background: var(--ms-paper);
+  border-color: var(--ms-line-2);
+  box-shadow: none;
+}
+
+.ms-about-sheet .ms-qr-card {
+  border-color: var(--ms-line-2);
+  box-shadow: none;
+}
+
+.ms-about-foot {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+  gap: 1.5rem 2rem;
+  padding: 1.6rem 2.4rem 1.8rem;
+  border-top: 1px solid var(--ms-line);
+  background: var(--ms-paper);
+}
+
+.ms-about-foot .ms-siblings {
+  margin: 0;
+}
+
+.ms-about-foot .ms-siblings h3,
+.ms-about-foot .ms-partner h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--ms-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ms-ink-3);
+}
+
+.ms-about-foot .ms-sisters {
+  margin-top: 0;
+}
+
+.ms-about-foot .ms-sister,
+.ms-partner-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--ms-radius-sm);
+  background: var(--ms-bg);
+  border: 1px solid var(--ms-line);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.ms-about-foot .ms-sister:hover,
+.ms-partner-card:hover {
+  border-color: var(--ms-ink-3);
+  background: var(--ms-paper);
+}
+
+.ms-about-foot .ms-partner {
+  margin: 0;
+  display: block;
+}
+
+.ms-partner-card img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--ms-line-2);
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.ms-partner-card small {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--ms-ink-3);
+  font-weight: 500;
+}
+
+.ms-partner-card strong {
+  font-size: 1rem;
+  color: var(--ms-ink);
+}
+
+.ms-partner-card .hp-ico {
+  margin-left: auto;
+  color: var(--ms-ink-3);
+}
+
+@media (max-width: 920px) {
+  .ms-about-sheet .ms-volunteer {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ms-about-sheet .ms-qr-card {
+    justify-self: start;
+    flex-direction: row;
+    text-align: left;
+    gap: 0.85rem;
+    padding: 0.65rem 0.9rem;
+  }
+
+  .ms-about-sheet .ms-qr-card img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .ms-about-foot {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .ms-about-sheet .ms-guarantor,
+  .ms-about-sheet .ms-volunteer,
+  .ms-about-foot {
+    padding: 1.35rem 1.15rem;
+  }
+}

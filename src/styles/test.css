@@ -38,10 +38,23 @@
   color: var(--tp-ink);
 }
 
-/* Čitateľnejšie písmo je v teste predvolené pre všetkých (trieda je natrvalo na <body>) */
-.tp-page.tp-dyslexic,
-.tp-page.tp-dyslexic * {
-  font-family: 'Atkinson Hyperlegible Next', 'Plus Jakarta Sans', system-ui, sans-serif;
+/* Rozhranie a čísla sú v Inter Tight (bez preškrtnutej nuly); Atkinson Hyperlegible Next je len na čítaný text */
+.tp-page,
+.tp-page.tp-dyslexic {
+  font-family: 'Inter Tight Variable', system-ui, sans-serif;
+}
+
+.tp-page.tp-dyslexic .passage-box,
+.tp-page.tp-dyslexic .tp-qtext,
+.tp-page.tp-dyslexic .tp-choice > span:not(.tp-choice-key),
+.tp-page.tp-dyslexic .tp-fill-sentence,
+.tp-page.tp-dyslexic .tp-input,
+.tp-page.tp-dyslexic .tp-footnote,
+.tp-page.tp-dyslexic .tp-feedback-text,
+.tp-page.tp-dyslexic .tp-hint-box,
+.tp-page.tp-dyslexic .tp-step-body,
+.tp-page.tp-dyslexic .tp-conclusion {
+  font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
 }
 
 /* ---------- Horná lišta ---------- */
@@ -3611,6 +3624,32 @@ body.tp-intro-active .tp-mode-chip {
 .tp-nav-tool.t-hint { background: var(--tp-amber-50); border-color: #fde3a0; color: #a45e05; }
 .tp-nav-tool.t-sol { background: var(--tp-teal-50); border-color: #a1e7e2; color: #085955; }
 
+/* „Ukážka“: len na mobile (v lište), na širších displejoch je ukážka stále viditeľná */
+.tp-nav-tool.t-ctx {
+  display: none;
+  align-items: center;
+  gap: 0.35rem;
+  width: auto;
+  padding: 0 0.7rem;
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  background: var(--tp-brand-50);
+  border-color: var(--brand-200);
+  color: var(--tp-brand-dark);
+}
+
+.tp-nav-tool.t-ctx .hp-ico {
+  width: 19px;
+  height: 19px;
+}
+
+.tp-nav-tool.t-ctx[aria-pressed='true'] {
+  background: var(--tp-brand-dark);
+  border-color: var(--tp-brand-dark);
+  color: #ffffff;
+}
+
 /* ===== Mobil: prilepená spodná lišta s prechodom medzi úlohami a pomôckami ===== */
 @media (max-width: 640px) {
   .tp-interact {
@@ -3631,11 +3670,7 @@ body.tp-intro-active .tp-mode-chip {
   }
 
   #checkSingleBtn {
-    order: 1;
-    width: 100%;
-    min-height: 52px;
-    font-size: 1rem;
-    justify-content: center;
+    display: none !important;
   }
 
   .tp-feedback {
@@ -3650,14 +3685,9 @@ body.tp-intro-active .tp-mode-chip {
   }
 
   /* pomôcky sú v lište aj v hlásení – samostatné tlačidlá a „Pozrieť postup“ netreba */
-  .tp-help-btns {
-    display: none;
-  }
-
+  .tp-help-btns,
   #evalOpenSolutionBtn {
-    flex: 1 1 100%;
-    justify-content: center;
-    margin-top: 0.25rem;
+    display: none !important;
   }
 
   .tp-qfoot {
@@ -3721,6 +3751,47 @@ body.tp-intro-active .tp-mode-chip {
 
   body.tp-help-unlocked #footerPositionText {
     display: none;
+  }
+
+  /* Tlačidlo „Ukážka“ v lište a ukážka ako panel nad úlohou (medzi hlavičkou a lištou) */
+  .tp-nav-tool.t-ctx {
+    display: flex;
+  }
+
+  .tp-ctx-col.is-sheet {
+    position: fixed;
+    top: var(--tp-header-h, 64px);
+    left: 0;
+    right: 0;
+    bottom: calc(46px + 1.2rem + env(safe-area-inset-bottom));
+    z-index: 47;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.75rem 0.75rem 1.25rem;
+    background: var(--tp-bg);
+  }
+
+  .tp-ctx-col.is-sheet .tp-ctx-toggle {
+    cursor: pointer;
+  }
+
+  .tp-ctx-col.is-sheet .tp-ctx-chv {
+    transform: rotate(180deg);
+  }
+
+  .tp-ctx-col.is-sheet .tp-ctx.is-collapsed .tp-ctx-body {
+    display: block;
+  }
+
+  body.tp-sheet-open {
+    overflow: hidden;
+  }
+
+  body.tp-sheet-open .tp-qfoot {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   /* miesto pod obsahom, aby lišta nezakrývala pätičku ani posledné tlačidlá */
@@ -3929,9 +4000,6 @@ body.tp-page.tp-dyslexic .passage-title,
 body.tp-page.tp-dyslexic #scoreTitle,
 body.tp-page.tp-dyslexic .tp-res-block-head h3,
 body.tp-page.tp-dyslexic .tp-res-block-head h2,
-body.tp-page.tp-dyslexic .tp-qnum,
-body.tp-page.tp-dyslexic .tp-ring-center strong,
-body.tp-page.tp-dyslexic .tp-tile-txt strong,
 body.tp-page.tp-dyslexic .tp-topic-name {
   font-family: 'Fraunces Variable', Georgia, serif;
   font-weight: 600;
@@ -4107,4 +4175,130 @@ body.tp-page.tp-dyslexic .ms-brand-text strong {
   font-family: 'Fraunces Variable', Georgia, serif;
   font-weight: 600;
   letter-spacing: -0.015em;
+}
+
+/* ---------- Čísla a prvky rozhrania v Inter Tight (bez preškrtnutej nuly z Atkinsonu / JetBrains Mono) ---------- */
+body.tp-page.tp-dyslexic .tp-timer-val,
+body.tp-page.tp-dyslexic #progressText,
+body.tp-page.tp-dyslexic .tp-pill,
+body.tp-page.tp-dyslexic .tp-qnum,
+body.tp-page.tp-dyslexic .tp-choice-key,
+body.tp-page.tp-dyslexic .tp-pos,
+body.tp-page.tp-dyslexic .tp-ring-center strong,
+body.tp-page.tp-dyslexic .tp-ring-center span,
+body.tp-page.tp-dyslexic .tp-tile-txt strong,
+body.tp-page.tp-dyslexic .tp-topic-score,
+body.tp-page.tp-dyslexic .tp-mini,
+body.tp-page.tp-dyslexic .tp-map-cell,
+body.tp-page.tp-dyslexic .tp-review-chip,
+body.tp-page.tp-dyslexic .tp-step-num,
+body.tp-page.tp-dyslexic .ms-table,
+body.tp-page.tp-dyslexic .tp-feedback-links {
+  font-family: 'Inter Tight Variable', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+body.tp-page.tp-dyslexic .tp-qnum {
+  font-size: 1.15rem;
+  font-weight: 750;
+  letter-spacing: -0.015em;
+}
+
+/* ---------- Úloha: Nápoveda a Postup sa po nesprávnej odpovedi ani po vyhodnotení nezdvojujú ---------- */
+.tp-interact.has-inline-help .tp-help-btns,
+.tp-interact.has-inline-help .tp-action-strip,
+#evalOpenSolutionBtn {
+  display: none !important;
+}
+
+/* „Nahlásiť chybu“ ako tichý textový odkaz, nie sivý stavový odznak */
+body.tp-page .tp-report-btn {
+  background: transparent;
+  border-color: transparent;
+  color: var(--tp-ink-3);
+  padding: 0.3rem 0.5rem;
+}
+
+body.tp-page .tp-report-btn:hover {
+  border-color: #f2a7a1;
+  background: var(--tp-red-50);
+  color: var(--tp-red);
+}
+
+/* ---------- Mapa odpovedí: 2 stĺpce na desktope, 8 políčok v rade aj na mobile ---------- */
+body.tp-page .tp-map {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem 1.75rem;
+}
+
+body.tp-page .tp-map-group {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.35rem;
+}
+
+body.tp-page .tp-map-cells {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+body.tp-page .tp-map-cell {
+  width: 100%;
+  height: 38px;
+}
+
+@media (max-width: 760px) {
+  body.tp-page .tp-map {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body.tp-page .tp-map-cells {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 0.28rem;
+  }
+
+  body.tp-page .tp-map-cell {
+    width: 100%;
+    height: 35px;
+    font-size: 0.76rem;
+  }
+}
+
+/* ---------- Úvod testu: fakty sú pod výberom režimu, na mobile kompaktnejšie karty režimov ---------- */
+body.tp-page .tp-facts {
+  margin: 1.1rem 0 0;
+}
+
+@media (max-width: 720px) {
+  body.tp-page .tp-intro {
+    margin-top: 0.6rem;
+  }
+
+  body.tp-page .tp-intro-head {
+    margin-bottom: 1.15rem;
+  }
+
+  body.tp-page .tp-mode-card {
+    padding: 1.15rem 1.2rem;
+  }
+
+  body.tp-page .tp-mode-ico {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.65rem;
+  }
+
+  body.tp-page .tp-mode-ico .hp-ico {
+    width: 20px;
+    height: 20px;
+  }
+
+  body.tp-page .tp-mode-list {
+    margin-bottom: 1rem;
+  }
 }
