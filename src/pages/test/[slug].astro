@@ -1250,12 +1250,14 @@ const jsonLd = {
           startTimer();
         }
         saveStateToStorage();
-        // Po otvorení testu (nový aj pokračovanie) začína stránka na začiatku ukážky
-        // (úloha bez ukážky – na úlohe); vyhodnotený test na výsledku
+        // Po otvorení testu: nový test začína úplne navrchu, pokračovanie na začiatku ukážky/úlohy,
+        // vyhodnotený test na výsledku
         requestAnimationFrame(() => {
           syncHeaderHeight();
           if (isEvaluated) resultsDashboard.scrollIntoView({ block: 'start' });
+          else if (!fromRestore) window.scrollTo({ top: 0, behavior: 'auto' });
           else workspace.scrollIntoView({ block: 'start' });
+          syncFootNavVisibility();
         });
       }
 
@@ -1433,25 +1435,48 @@ const jsonLd = {
         wrongModeBanner.classList.toggle('hidden', !(isEvaluated && filterWrongOnly));
       }
 
-      function goToQuestion(idx) {
-        if (idx < 0 || idx > LAST_INDEX) return;
-        currentIndex = idx;
-        renderQuestion();
-        saveStateToStorage();
-        // Na mobile a tablete: ak je začiatok novej úlohy mimo obrazovky, posuň naň
-        if (stackedLayout.matches) {
-          const top = document.getElementById('questionCard').getBoundingClientRect().top;
-          const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--tp-header-h')) || 64;
-          if (top < headerH || top > window.innerHeight * 0.6) scrollToQuestion('smooth');
-        }
+      function getPassageId(q) {
+        return q && q.sharedContextId && passages[q.sharedContextId] ? q.sharedContextId : null;
       }
 
-      // Posun stránky tak, aby začiatok úlohy bol hneď pod hlavičkou
-      function scrollToQuestion(behavior = 'auto') {
-        const card = document.getElementById('questionCard');
+      // Posun stránky tak, aby daný prvok začínal hneď pod prilepenou hlavičkou
+      function scrollToElement(el, behavior = 'auto') {
+        if (!el) return;
         const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--tp-header-h')) || 64;
-        const top = card.getBoundingClientRect().top + window.scrollY - headerH - 12;
+        const top = el.getBoundingClientRect().top + window.scrollY - headerH - 12;
         window.scrollTo({ top: Math.max(0, top), behavior });
+      }
+
+      function goToQuestion(idx, opts = {}) {
+        if (idx < 0 || idx > LAST_INDEX) return;
+        const prevCtxId = getPassageId(questions[currentIndex]);
+        currentIndex = idx;
+        const nextCtxId = getPassageId(questions[currentIndex]);
+        const isNewPassage = Boolean(nextCtxId && nextCtxId !== prevCtxId);
+
+        renderQuestion();
+        if (isNewPassage) {
+          sharedContextContainer.scrollTop = 0;
+        }
+        saveStateToStorage();
+
+        if (opts.skipScroll) return;
+
+        // Na mobile a tablete (ukážka nad úlohou):
+        // - pri prechode na novú ukážku naskroluj hore na začiatok textu ukážky
+        // - pri ďalších úlohách k tej istej ukážke (alebo bez ukážky) naskroluj rovno na otázku
+        if (stackedLayout.matches) {
+          const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--tp-header-h')) || 64;
+          if (isNewPassage) {
+            scrollToElement(sharedContextContainer, 'smooth');
+          } else {
+            const top = questionCard.getBoundingClientRect().top;
+            const maxComfortTop = nextCtxId ? headerH + 48 : window.innerHeight * 0.45;
+            if (top < headerH || top > maxComfortTop) {
+              scrollToElement(questionCard, 'smooth');
+            }
+          }
+        }
       }
 
       // Zoom obrázkov
@@ -1561,6 +1586,7 @@ const jsonLd = {
         if (!q) return;
 
         if (lastRenderedIndex !== currentIndex) {
+          document.body.classList.remove('is-typing');
           questionCard.classList.remove('is-entering');
           void questionCard.offsetWidth;
           questionCard.classList.add('is-entering');
@@ -1971,8 +1997,8 @@ const jsonLd = {
             filterWrongOnly = false;
             renderResultsBreakdownAndPrintReport();
           }
-          goToQuestion(jumpIdx);
-          workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          goToQuestion(jumpIdx, { skipScroll: true });
+          scrollToElement(stackedLayout.matches ? questionCard : workspace, 'smooth');
         };
 
         document.querySelectorAll('#answerMap [data-jump-idx]').forEach((btn) => {

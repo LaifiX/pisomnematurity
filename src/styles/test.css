@@ -913,6 +913,12 @@ body.tp-intro-active .tp-mode-chip {
 }
 
 /* ---------- Pracovný priestor (čítanka vľavo + úloha vpravo na širokom displeji) ---------- */
+.tp-workspace,
+.tp-results,
+.tp-wrong-banner {
+  scroll-margin-top: calc(var(--tp-header-h, 64px) + 12px);
+}
+
 .tp-workspace {
   max-width: 840px;
   margin: 0 auto;
