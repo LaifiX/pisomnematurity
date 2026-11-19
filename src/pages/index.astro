@@ -22,7 +22,6 @@ const TEST_AUTHORS: Record<string, string[]> = {
 const passageNames = (slug: string) => TEST_AUTHORS[slug] ?? [];
 const plainMarks = (t: string) => t.replace(/\/\/(.+?)\/\//g, '<em>$1</em>');
 const slohCount = (slug: string) => temy.filter((t) => t.slug === slug).length;
-const slohMax = Math.max(...slohoveUtvary.map((u) => slohCount(u.slug)));
 import { MATH_SITE_URL, CONTACT_EMAIL, SITE_URL, SITE_NAME } from '../lib/site';
 import { I, icon } from '../lib/icons';
 
@@ -49,7 +48,7 @@ const faqs = [
   },
   {
     q: 'Ako prebieha písomná forma internej časti (sloh)?',
-    a: 'Zo štyroch zadaných tém si vyberieš jednu. Každá téma určuje slohový útvar – napríklad úvahu, rozprávanie alebo diskusný príspevok. Máš 150 minút a rozsah práce je 1,5 až 3 strany. V časti Slohové útvary nájdeš ku každému útvaru, čo musí obsahovať a ako ho postaviť.'
+    a: 'Z ôsmich slohových útvarov sa na maturite vyžrebujú štyri – každý s vlastnou témou – a z nich si vyberieš jednu. Máš 150 minút a rozsah práce je 1,5 až 3 strany. V časti Slohové útvary nájdeš ku každému útvaru, čo musí obsahovať a ako ho postaviť.'
   },
   {
     q: 'Ako sa líši ostrý test od precvičovania?',
@@ -229,7 +228,7 @@ const homeJsonLd = {
             <div>
               <span class="ms-kicker">Písomná forma internej časti</span>
               <h2>Slohové útvary na maturite</h2>
-              <p>Zo štyroch tém si vyberieš jednu a&nbsp;každá určuje slohový útvar. Ku každému nájdeš znaky, kompozíciu, jazykové prostriedky, časté chyby a&nbsp;kontrolný zoznam pred odovzdaním.</p>
+              <p>Z&nbsp;ôsmich slohových útvarov sa na maturite vyžrebujú štyri – každý má vlastnú tému a&nbsp;z&nbsp;nich si vyberieš jednu. V&nbsp;tabuľke si pozri, koľkokrát boli jednotlivé útvary vyžrebované od roku 2007. Po rozkliknutí sa dozvieš viac.</p>
               <div class="ms-sloh-rules">
                 <span>150 minút</span>
                 <span>1 zo 4 tém</span>
@@ -239,16 +238,16 @@ const homeJsonLd = {
             </div>
           </div>
           <ol class="ms-sloh-list">
-            {slohoveUtvary.map((u) => (
+            {slohoveUtvary.map((u, idx) => (
               <li>
                 <a href={`/sloh/${u.slug}/`}>
                   <span class="ms-sl-line">
+                    <span class="ms-sl-num" aria-hidden="true">{String(idx + 1).padStart(2, '0')}</span>
                     <span class="ms-sl-name">{u.name}</span>
                     <span class="ms-sl-lead" aria-hidden="true"></span>
                     <span class="ms-sl-count">{slohCount(u.slug)}×<span class="ms-sr"> na maturite</span></span>
                   </span>
                   <span class="ms-sl-desc" set:html={u.short} />
-                  <span class="ms-sl-bar" aria-hidden="true"><span style={`width:${Math.round((slohCount(u.slug) / slohMax) * 100)}%`}></span></span>
                 </a>
               </li>
             ))}

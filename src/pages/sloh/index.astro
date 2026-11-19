@@ -22,7 +22,6 @@ const short = {
   'slavnostny-prejav': 'Slávnostný prejav'
 } as Record<string, string>;
 const themeAt = (year: number, slug: string) => temy.find((t) => t.year === year && t.slug === slug);
-const maxCount = Math.max(...slohoveUtvary.map((u) => count(u.slug)));
 const slohJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -79,7 +78,7 @@ const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
               <span class="sl-num">Písomná forma internej časti</span>
               <h1>Slohové útvary na maturite</h1>
               <p class="sl-lead">
-                Na písomnej maturite si vyberáš jednu zo štyroch tém – každá má určený iný slohový útvar. Pri každom z&nbsp;nich tu nájdeš hlavné znaky, stavbu textu, jazykové prostriedky, praktické rady, maturitné témy z&nbsp;rokov 2007 – 2026 aj presné kritériá hodnotenia.
+                Na písomnej maturite sa z&nbsp;ôsmich slohových útvarov vyžrebujú štyri – každý má vlastnú tému a&nbsp;z&nbsp;nich si vyberieš jednu. Pri každom útvare tu nájdeš hlavné znaky, stavbu textu, jazykové prostriedky, praktické rady, ukážku, témy z&nbsp;rokov 2007&nbsp;–&nbsp;2026 aj presné kritériá hodnotenia.
               </p>
             </div>
             <figure class="sl-title-page">
@@ -118,20 +117,20 @@ const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
             <div>
               <span class="ms-kicker">Obsah</span>
               <h2>Vyber si útvar</h2>
-              <p>Osem útvarov, ktoré môže NIVaM zadať. Číslo vpravo ukazuje, koľkokrát bol útvar medzi témami v&nbsp;rokoch 2007 – 2026.</p>
+              <p>Spomedzi týchto ôsmich útvarov sa každý rok vyžrebujú štyri maturitné zadania – ku každému vyžrebovanému útvaru jedna téma. V&nbsp;tabuľke si pozri, koľkokrát boli jednotlivé útvary vyžrebované od roku 2007. Po rozkliknutí sa dozvieš viac.</p>
             </div>
           </div>
           <ol class="sl-contents">
-            {slohoveUtvary.map((u) => (
+            {slohoveUtvary.map((u, idx) => (
               <li>
                 <a href={`/sloh/${u.slug}/`}>
                   <span class="sl-c-line">
+                    <span class="sl-c-num" aria-hidden="true">{String(idx + 1).padStart(2, '0')}</span>
                     <span class="sl-c-name">{u.name}</span>
                     <span class="sl-c-lead" aria-hidden="true"></span>
                     <span class="sl-c-count">{count(u.slug)}×<span class="sl-sr"> na maturite</span></span>
                   </span>
                   <span class="sl-c-desc" set:html={u.short} />
-                  <span class="sl-c-bar" aria-hidden="true"><span style={`width:${Math.round((count(u.slug) / maxCount) * 100)}%`}></span></span>
                 </a>
               </li>
             ))}
@@ -146,7 +145,7 @@ const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
             <div>
               <span class="ms-kicker">Tabuľka 1</span>
               <h2>Ktoré útvary boli na maturite</h2>
-              <p>Bodka znamená, že útvar bol v&nbsp;danom roku medzi štyrmi vyžrebovanými témami. Po prejdení myšou na bodku uvidíš tému.</p>
+              <p>Bodka znamená, že útvar bol v&nbsp;danom roku medzi štyrmi vyžrebovanými témami. Prejdi myšou alebo ťukni na bodku a&nbsp;uvidíš presné znenie témy.</p>
             </div>
           </div>
           <div class="sl-matrix-wrap">
@@ -171,7 +170,24 @@ const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
                       <th scope="row">{y}</th>
                       {slohoveUtvary.map((u) => {
                         const th = themeAt(y, u.slug);
-                        return <td>{th ? <span class="sl-dot" title={th.title} role="img" aria-label={`${u.name} ${y}: ${th.title}`} /> : ''}</td>;
+                        return (
+                          <td>
+                            {th ? (
+                              <button
+                                type="button"
+                                class="sl-dot sl-dot-btn"
+                                data-year={y}
+                                data-utvar={u.name}
+                                data-title={th.title}
+                                data-author={th.author ?? ''}
+                                data-spec={th.spec ?? ''}
+                                aria-label={`${u.name} (${y}): ${th.title}${th.author ? ` – ${th.author}` : ''}${th.spec ? ` (${th.spec})` : ''}`}
+                              />
+                            ) : (
+                              ''
+                            )}
+                          </td>
+                        );
                       })}
                     </tr>
                   )
@@ -233,6 +249,125 @@ const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
       </section>
     </main>
 
+    <div id="slMatrixTip" class="sl-mtip" role="tooltip" aria-hidden="true">
+      <div class="sl-mtip-meta" id="slMatrixTipMeta"></div>
+      <div class="sl-mtip-title" id="slMatrixTipTitle"></div>
+      <div class="sl-mtip-sub hidden" id="slMatrixTipSub"></div>
+      <span class="sl-mtip-arrow" aria-hidden="true"></span>
+    </div>
+
     <MsFooter />
+
+    <script is:inline>
+      (function () {
+        var tip = document.getElementById('slMatrixTip');
+        var metaEl = document.getElementById('slMatrixTipMeta');
+        var titleEl = document.getElementById('slMatrixTipTitle');
+        var subEl = document.getElementById('slMatrixTipSub');
+        var wrap = document.querySelector('.sl-matrix-wrap');
+        if (!tip || !metaEl || !titleEl || !subEl) return;
+
+        var activeBtn = null;
+        var pinnedByClick = false;
+
+        function placeTip(btn) {
+          var r = btn.getBoundingClientRect();
+          var cx = r.left + r.width / 2;
+          tip.style.left = '0px';
+          tip.style.top = '0px';
+          var tw = tip.offsetWidth;
+          var th = tip.offsetHeight;
+          var pad = 12;
+          var left = Math.max(pad, Math.min(window.innerWidth - tw - pad, cx - tw / 2));
+          var below = r.top < th + 20;
+          var top = below ? r.bottom + 12 : r.top - th - 12;
+          var arrowX = Math.max(16, Math.min(tw - 16, cx - left));
+          tip.classList.toggle('is-below', below);
+          tip.style.left = Math.round(left) + 'px';
+          tip.style.top = Math.round(top) + 'px';
+          tip.style.setProperty('--arrow-x', Math.round(arrowX) + 'px');
+        }
+
+        function showFor(btn, pin) {
+          if (activeBtn && activeBtn !== btn) activeBtn.classList.remove('is-active');
+          activeBtn = btn;
+          pinnedByClick = Boolean(pin);
+          btn.classList.add('is-active');
+
+          var year = btn.getAttribute('data-year') || '';
+          var utvar = btn.getAttribute('data-utvar') || '';
+          var title = btn.getAttribute('data-title') || '';
+          var author = btn.getAttribute('data-author') || '';
+          var spec = btn.getAttribute('data-spec') || '';
+
+          metaEl.textContent = year + ' · ' + utvar;
+          titleEl.textContent = title;
+          titleEl.classList.toggle('is-quote', title.indexOf('„') === 0);
+
+          if (author || spec) {
+            subEl.innerHTML = '';
+            if (author) {
+              var em = document.createElement('em');
+              em.textContent = author;
+              subEl.appendChild(em);
+            }
+            if (author && spec) subEl.appendChild(document.createTextNode(' · '));
+            if (spec) {
+              var sp = document.createElement('span');
+              sp.textContent = '(' + spec + ')';
+              subEl.appendChild(sp);
+            }
+            subEl.classList.remove('hidden');
+          } else {
+            subEl.textContent = '';
+            subEl.classList.add('hidden');
+          }
+
+          tip.classList.add('is-open');
+          tip.setAttribute('aria-hidden', 'false');
+          placeTip(btn);
+        }
+
+        function hideTip() {
+          if (activeBtn) activeBtn.classList.remove('is-active');
+          activeBtn = null;
+          pinnedByClick = false;
+          tip.classList.remove('is-open');
+          tip.setAttribute('aria-hidden', 'true');
+        }
+
+        document.querySelectorAll('.sl-dot-btn').forEach(function (btn) {
+          btn.addEventListener('pointerenter', function (e) {
+            if (e.pointerType === 'touch') return;
+            showFor(btn, false);
+          });
+          btn.addEventListener('pointerleave', function (e) {
+            if (e.pointerType === 'touch' || pinnedByClick) return;
+            if (activeBtn === btn) hideTip();
+          });
+          btn.addEventListener('focus', function () {
+            showFor(btn, false);
+          });
+          btn.addEventListener('blur', function () {
+            if (!pinnedByClick && activeBtn === btn) hideTip();
+          });
+          btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (activeBtn === btn && pinnedByClick) hideTip();
+            else showFor(btn, true);
+          });
+        });
+
+        document.addEventListener('click', function (e) {
+          if (activeBtn && !tip.contains(e.target)) hideTip();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && activeBtn) hideTip();
+        });
+        window.addEventListener('scroll', function () { if (activeBtn) hideTip(); }, { passive: true });
+        window.addEventListener('resize', function () { if (activeBtn) hideTip(); }, { passive: true });
+        if (wrap) wrap.addEventListener('scroll', function () { if (activeBtn) hideTip(); }, { passive: true });
+      })();
+    </script>
   </body>
 </html>
