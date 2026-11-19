@@ -23,6 +23,7 @@ const heldYears = YEARS.filter((y) => !NO_EXAM_YEARS.includes(y));
 const lastYear = themes.length ? Math.max(...themes.map((t) => t.year)) : null;
 const timesWord = (n: number) => (n === 0 ? 'ani raz' : n === 1 ? 'raz' : `${n}-krát`);
 const zdroj = ZDROJE[u.slug];
+const samples = u.samples ?? (u.sample ? [u.sample] : []);
 const utvarJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -56,7 +57,7 @@ const utvarJsonLd = {
 const toc = [
   ...u.sections.map((s) => ({ id: s.id, title: s.title })),
   { id: 'rady', title: 'Dobré rady' },
-  ...(u.sample ? [{ id: 'ukazka', title: 'Ukážka' }] : []),
+  ...(samples.length ? [{ id: 'ukazka', title: samples.length > 1 ? 'Ukážky' : 'Ukážka' }] : []),
   { id: 'temy', title: 'Témy z minulých rokov' },
   { id: 'hodnotenie', title: 'Ako sa hodnotí' },
   { id: 'kontrola', title: 'Kontrola pred odovzdaním' },
@@ -200,15 +201,19 @@ const checklist = [
             </aside>
           )}
 
-          {u.sample && (
+          {samples.length > 0 && (
             <section class="sl-sec" id="ukazka">
               <span class="sl-sec-num">{num('ukazka')}</span>
-              <h2>Ukážka</h2>
-              <article class="sl-sample">
-                <h3>{u.sample.title}</h3>
-                {u.sample.paras.map((p) => <p set:html={p} />)}
-              </article>
-              <p class="sl-sample-note">{u.sample.note}</p>
+              <h2>{samples.length > 1 ? 'Ukážky' : 'Ukážka'}</h2>
+              {samples.map((sm) => (
+                <div class="sl-sample-block">
+                  <article class="sl-sample">
+                    <h3>{sm.title}</h3>
+                    {sm.paras.map((p) => <p set:html={p} />)}
+                  </article>
+                  <p class="sl-sample-note" set:html={sm.note} />
+                </div>
+              ))}
             </section>
           )}
 
@@ -349,11 +354,12 @@ const checklist = [
                 {u.name} v&nbsp;sérii prezentácií <cite>{PROJEKT.series}</cite> ({PROJEKT.year}) nebol. Text je pripravený nanovo podľa kritérií NIVaM a&nbsp;rovnakej štruktúry ako ostatné útvary.
               </p>
             )}
-            {zdroj.literatura.length > 0 && (
+            {(zdroj.literatura.length > 0 || (zdroj.ukazky && zdroj.ukazky.length > 0)) && (
               <>
                 <h3 class="sl-src-h">Použitá literatúra</h3>
                 <ol class="sl-biblio">
                   {zdroj.literatura.map((k) => <li set:html={LITERATURA[k]} />)}
+                  {zdroj.ukazky && zdroj.ukazky.map((uSrc) => <li set:html={uSrc} />)}
                 </ol>
               </>
             )}
