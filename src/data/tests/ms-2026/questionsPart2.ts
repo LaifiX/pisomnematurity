@@ -52,7 +52,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Nepriame (obrazné) pomenovania sú trópy – napr. metafora, personifikácia, prirovnanie, epiteton či frazeologizmus (keď sa niečo nepomenúva priamo doslovne, ale obrazom). Skontroluj postupne repliky všetkých štyroch postáv.',
+    hint: 'Nepriame (obrazné) pomenovania sú najmä trópy (napr. metafora, personifikácia, prirovnanie, epiteton) a obrazné frazeologizmy – keď sa niečo nepomenúva priamo doslovne, ale obrazom. Skontroluj postupne repliky všetkých štyroch postáv.',
     solutionSteps: [
       {
         title: 'Hľadanie obrazných pomenovaní u každej postavy',
@@ -84,11 +84,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Spojenie ukážky s dejom diela Antigona',
-        text: 'Ismena v poslednom verši volá: //„Ach, sestra, veď mi nebráň zomrieť s tebou! Bude to môj posledný hold **mŕtvemu**!“// Tvar mužského rodu *mŕtvemu* aj spomínaný pohreb odkazujú na ich padlého **brata Polyneika**, ktorého kráľ Kreon zakázal pochovať pod hrozbou trestu smrti.'
+        text: 'Ismena vo svojej poslednej replike volá: //„Ach, sestra, veď mi nebráň zomrieť s tebou! Bude to môj posledný hold **mŕtvemu**!“// Tvar mužského rodu //mŕtvemu// aj spomínaný pohreb odkazujú na ich padlého **brata Polyneika**, ktorého kráľ Kreon zakázal pochovať pod hrozbou trestu smrti.'
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – ich otec Oidipus zomrel už skôr mimo tohto sporu o pohreb.\nB – slepý veštec Teiresias je nažive a až neskôr varuje Kreonta pred hnevom bohov.\nD – Antigona je ešte nažive (navyše slovo *mŕtvemu* je v mužskom rode, nemôže teda označovať sestru).'
+        text: 'A – ich otec Oidipus zomrel už skôr mimo tohto sporu o pohreb.\nB – slepý veštec Teiresias je nažive a až neskôr varuje Kreonta pred hnevom bohov.\nD – Antigona je ešte nažive (navyše slovo //mŕtvemu// je v mužskom rode, nemôže teda označovať sestru).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -165,7 +165,15 @@ export const questionsPart2: QuestionData[] = [
       'grécka tragédia',
       'starogrécka tragédia',
       'smutnohra',
-      'trúchlohra'
+      'antická smutnohra',
+      'klasická smutnohra',
+      'grécka smutnohra',
+      'starogrécka smutnohra',
+      'trúchlohra',
+      'antická trúchlohra',
+      'klasická trúchlohra',
+      'grécka trúchlohra',
+      'starogrécka trúchlohra'
     ],
     lenient: true,
     commonMistakes: [
@@ -178,11 +186,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Rozlíšenie druhu a žánru',
-        text: 'Dielo //Antigona// patrí k literárnemu druhu *dráma*, no z hľadiska **literárneho žánru** ide o **tragédiu** (presnejšie **antickú / grécku tragédiu**; staršie slovenské názvy *smutnohra* alebo *trúchlohra*).'
+        text: 'Dielo //Antigona// patrí k literárnemu druhu //dráma//, no z hľadiska **literárneho žánru** ide o **tragédiu** (presnejšie **antickú / grécku tragédiu**; staršie slovenské názvy //smutnohra// alebo //trúchlohra//).'
       },
       {
         title: 'Znaky tragédie v diele',
-        text: 'Hlavná hrdinka vedie nezmieriteľný zápas za vznešený morálny princíp proti presile svetskej moci, je písaná viazanou rečou, vystupuje v nej zbor a vyústi do tragickej katastrofy – smrti Antigony, Haimona i kráľovnej Eurydiky.'
+        text: 'Hlavná hrdinka vedie nezmieriteľný zápas za vznešený morálny princíp proti presile svetskej moci. Hra je písaná viazanou rečou, vystupuje v nej zbor a dej vyústi do tragickej katastrofy – smrti Antigony, Haimona i kráľovnej Eurydiky.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: tragédia (antická tragédia).'
@@ -201,10 +209,18 @@ export const questionsPart2: QuestionData[] = [
       'Sofoklés',
       'Sofóklés',
       'Sofókles',
+      'Sófokles',
+      'Sófoklés',
+      'Sófókles',
+      'Sófóklés',
       'SOFOKLES',
       'SOFOKLÉS',
       'SOFÓKLÉS',
-      'SOFÓKLES'
+      'SOFÓKLES',
+      'SÓFOKLES',
+      'SÓFOKLÉS',
+      'SÓFÓKLES',
+      'SÓFÓKLÉS'
     ],
     caseSensitive: true,
     caseHint: 'Vlastné meno autora (Sofokles) sa musí začínať veľkým písmenom S.',
@@ -216,7 +232,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Pravopis a hodnotenie kľúča',
-        text: 'Keďže ide o vlastné meno osoby, musí sa začínať **veľkým písmenom S** (**Sofokles**; kľúč uznáva aj podoby s dĺžňom *Sofoklés / Sofóklés* alebo zápis celého mena veľkými tlačenými písmenami).'
+        text: 'Keďže ide o vlastné meno osoby, musí sa začínať **veľkým písmenom S** (**Sofokles**; kľúč uznáva aj podoby s dĺžňom //Sofoklés / Sófokles / Sofóklés// alebo zápis celého mena veľkými tlačenými písmenami).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: Sofokles.'
@@ -243,7 +259,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Vnútorná a vonkajšia stavba drámy',
-        text: 'Usporiadanie častí literárneho alebo dramatického diela do jedného celku sa odborne nazýva **kompozícia**. Pri dráme rozlišujeme:\n• **vonkajšiu kompozíciu** (členenie na dejstvá a výstupy; v antickej dráme prológ, parodos, epizódy, stasimony, exodos),\n• **vnútornú kompozíciu** – päťstupňové členenie dramatického deja: 1. úvod (*expozícia*), 2. zápletka (*kolízia*), 3. vyvrcholenie (*kríza*), 4. obrat (*peripetia*), 5. rozuzlenie (*katastrofa*).'
+        text: 'Usporiadanie častí literárneho alebo dramatického diela do jedného celku sa odborne nazýva **kompozícia**. Pri dráme rozlišujeme:\n• **vonkajšiu kompozíciu** (členenie na dejstvá a výstupy; v antickej dráme prológ, parodos, epizódy, stasimony, exodos),\n• **vnútornú kompozíciu** – päťstupňové členenie dramatického deja: 1. úvod (//expozícia//), 2. zápletka (//kolízia//), 3. vyvrcholenie (//kríza//), 4. obrat (//peripetia//), 5. rozuzlenie (//katastrofa//).'
       },
       {
         title: 'Doplnenie termínu do vety',
@@ -305,7 +321,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Vylúčenie ostatných mesiacov',
-        text: '• V **januári** (D) je uprostred zimy ferrata zatvorená.\n• V **auguste** (B) a v **októbri** (C) je ferrata už celé mesiace otvorená (letná a jesenná sezóna), takže by neplatilo, že príroda mala *až doteraz* po zimnej uzávere pokoj.\nZakrytým mesiacom v dátume *17. júna 2024* je teda **jún** (**A**).'
+        text: '• V **januári** (D) je uprostred zimy ferrata zatvorená.\n• V **auguste** (B) a v **októbri** (C) je ferrata už celé mesiace otvorená (letná a jesenná sezóna), takže by neplatilo, že príroda mala //až doteraz// po zimnej uzávere pokoj.\nZakrytým mesiacom v dátume //17. júna 2024// je teda **jún** (**A**).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -329,7 +345,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Znaky spravodajského žánru v ukážke',
-        text: 'Text vecne, stručne, aktuálne a objektívne informuje verejnosť o udalosti, ktorá sa už uskutočnila (otvorenie ferraty Kyseľ, stav vody v roklinách a pondelková uzávera mostíkov). Začína sa miestom pôvodu informácie, odpovedá na otázky *kto, čo, kedy, kde, ako, prečo* a dopĺňa citácie Správy NP – ide o rozšírenú **správu**.'
+        text: 'Text vecne, stručne, aktuálne a objektívne informuje verejnosť o udalosti, ktorá sa už uskutočnila (otvorenie ferraty Kyseľ, stav vody v roklinách a pondelková uzávera mostíkov). Začína sa miestom pôvodu informácie, odpovedá na otázky //kto, čo, kedy, kde, ako, prečo// a dopĺňa citácie Správy NP – ide o rozšírenú **správu**.'
       },
       {
         title: 'Prečo nie ostatné žánre',
@@ -357,11 +373,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: '1. Názov inštitúcie a národného parku (podľa PSP)',
-        text: '• Oficiálny názov chráneného územia znie **Národný park Slovenský raj**: veľké **N** na začiatku názvu, malé **p** vo všeobecnom slove *park*, veľké **S** na začiatku vlastného mena územia a malé **r** v slove *raj* (nejde o mesto ani obec).\n• Keď sa tento názov stane súčasťou názvu inštitúcie **Správa Národného parku Slovenský raj**, píše sa veľké **S** v prvom slove *Správa* a zároveň sa zachováva veľké **N** aj veľké **S** z vloženého vlastného názvu národného parku.'
+        text: '• Oficiálny názov chráneného územia znie **Národný park Slovenský raj**: veľké **N** na začiatku názvu, malé **p** vo všeobecnom slove //park//, veľké **S** na začiatku vlastného mena územia a malé **r** v slove //raj// (nejde o mesto ani obec).\n• Keď sa tento názov stane súčasťou názvu inštitúcie **Správa Národného parku Slovenský raj**, píše sa veľké **S** v prvom slove //Správa// a zároveň sa zachováva veľké **N** aj veľké **S** z vloženého vlastného názvu národného parku.'
       },
       {
         title: '2. Nesídelné zemepisné názvy (potok, skalný útvar, tiesňava)',
-        text: 'Spojenia **Biely potok** (vodný tok v Slovenskom raji) a **Tomášovský výhľad** (skalný útvar) sú nesídelné zemepisné názvy (nepomenúvajú obec ani mesto). Podľa PSP sa v nich píše s veľkým začiatočným písmenom **iba prvé slovo** a druhové podstatné mená (*potok*, *výhľad*, v možnosti D aj prvé slovo v názve tiesňavy *Prielom Hornádu*) majú správne:\n• **Biely potok**, **Tomášovský výhľad**, **Prielom Hornádu**.\nBez chyby je preto iba možnosť **C**.'
+        text: 'Spojenia **Biely potok** (vodný tok v Slovenskom raji) a **Tomášovský výhľad** (skalný útvar) sú nesídelné zemepisné názvy (nepomenúvajú obec ani mesto). Podľa PSP sa v nich píše s veľkým začiatočným písmenom **prvé slovo** a ďalšie slovo len vtedy, ak je samo vlastným menom:\n• **Biely potok** (malé //p//), **Tomášovský výhľad** (malé //v//), **Prielom Hornádu** (veľké //P// na začiatku názvu a veľké //H// vo vlastnom mene rieky //Hornád// – v možnosti D je chybne malé //p//).\nBez chyby je preto iba možnosť **C**.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -385,11 +401,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Slovotvorný rozbor slova vodopád',
-        text: 'Slovo **vodopád** pomenúva *miesto, kde padá voda*. Vzniklo spojením dvoch slovotvorných základov pomocou spájacej samohlásky (interfíxu) **-o-**:\n**vod**-(a) + **o** + **pád**-(ať) → **vodopád**.'
+        text: 'Slovo **vodopád** pomenúva //miesto, kde padá voda//. Vzniklo spojením dvoch slovotvorných základov pomocou spájacej samohlásky (interfixu) **-o-**:\n**vod**-(a) + **o** + **pád** (od //padať//) → **vodopád**.'
       },
       {
         title: 'Určenie slovotvorného postupu',
-        text: 'Tvorenie nového jednoslovného pomenovania spojením dvoch (alebo viacerých) slovotvorných základov nazývame **skladanie** (kompozícia). Nepribudla tu žiadna skratka ani ďalšie slovné spojenie, správna je teda možnosť **B** (*iba skladaním*).'
+        text: 'Tvorenie nového jednoslovného pomenovania spojením dvoch (alebo viacerých) slovotvorných základov nazývame **skladanie** (kompozícia). Nepribudla tu žiadna skratka ani ďalšie slovné spojenie, správna je teda možnosť **B** (//iba skladaním//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -414,7 +430,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Pozor na dva typické chytáky',
-        text: '• Tvar **vziať si** je neurčitok (neurčitý slovesný tvar), ktorý tu plní funkciu podmetu 2. vety (*Čo je vhodné? → vziať si…*), netvorí samostatnú vetu.\n• Čiarka pred *prípadne aj oblečenie* neoddeľuje tretiu vetu, ale iba voľne pripojenú časť viacnásobného predmetu.\nSúvetie teda obsahuje **2 vety**.'
+        text: '• Tvar **vziať si** je neurčitok (neurčitý slovesný tvar), ktorý tu plní funkciu podmetu 2. vety (//Čo je vhodné? → vziať si…//), netvorí samostatnú vetu.\n• Čiarka pred //prípadne aj oblečenie// neoddeľuje tretiu vetu, ale iba voľne pripojenú časť viacnásobného predmetu.\nSúvetie teda obsahuje **2 vety**.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: 2 (dve vety).'
@@ -443,11 +459,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Rozdiel medzi určitou a neurčitou základnou číslovkou',
-        text: '**Základné číslovky** pomenúvajú počet alebo množstvo (otázka *koľko?*). Ak vyjadrujú presný počet (v texte napr. *dvoch* mostíkov), sú **určité**; ak vyjadrujú množstvo len približne a nepresne (*málo, mnoho, viac, niekoľko*), sú **neurčité**.'
+        text: '**Základné číslovky** pomenúvajú počet alebo množstvo (otázka //koľko?//). Ak vyjadrujú presný počet (v texte napr. //dvoch// mostíkov), sú **určité**; ak vyjadrujú množstvo len približne a nepresne (//málo, mnoho, viac, niekoľko//), sú **neurčité**.'
       },
       {
         title: 'Nájdenie v ukážke 6',
-        text: 'V nadpise (//„v roklinách Slovenského raja je **veľa** vody“//) aj v 1. odseku (//„že v rokline je **veľa** vody“//) sa nachádza neurčitá základná číslovka **veľa**. (Pozor: slovo *posledný* je radová číslovka a *množstvo* je podstatné meno.)'
+        text: 'V nadpise (//„v roklinách Slovenského raja je **veľa** vody“//) aj v 1. odseku (//„že v rokline je **veľa** vody“//) sa nachádza neurčitá základná číslovka **veľa**. (Pozor: slovo //posledný// je radová číslovka a //množstvo// je podstatné meno.)'
       }
     ],
     solutionConclusion: 'Správna odpoveď: veľa.'
@@ -476,11 +492,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Kontrola prísloviek v oboch citátoch',
-        text: 'Citovaný text tvoria dve priame reči v úvodzovkách:\n• V 1. citáte (2. odsek): //najintenzívnejšie// je v **3. stupni** (*intenzívne – intenzívnejšie – najintenzívnejšie*) a príslovka času //doteraz// sa **nestupňuje**.\n• V 2. citáte (4. odsek): //„Vody je v roklinách v súčasnosti ozaj veľké množstvo a turisti sa **často** nevyhnú tomu, že do nej musia stúpiť…“//'
+        text: 'Citovaný text tvoria dve priame reči v úvodzovkách:\n• V 1. citáte (2. odsek): //najintenzívnejšie// je v **3. stupni** (//intenzívne – intenzívnejšie – najintenzívnejšie//) a príslovka času //doteraz// sa **nestupňuje**.\n• V 2. citáte (4. odsek): //„Vody je v roklinách v súčasnosti ozaj veľké množstvo a turisti sa **často** nevyhnú tomu, že do nej musia stúpiť…“//'
       },
       {
         title: 'Overenie stupňovania príslovky často',
-        text: 'Príslovka **často** (kedy? ako často?) je stupňovateľná: **1. stupeň: často** – 2. stupeň: *častejšie* – 3. stupeň: *najčastejšie*. V citovanom texte stojí v základnom tvare, teda v **prvom stupni stupňovania**.'
+        text: 'Príslovka **často** (kedy? ako často?) je stupňovateľná: **1. stupeň: často** – 2. stupeň: //častejšie// – 3. stupeň: //najčastejšie//. V citovanom texte stojí v základnom tvare, teda v **prvom stupni stupňovania**.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: často.'
@@ -510,7 +526,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – v tanci a rozhovore je uvoľnený a veselý (//„Bolo naozaj veselo“//), nepôsobí strojene ani upäto.\nB – slečny v ňom nevidia vypočítavosť, prijímajú ho láskavo a bezprostredne.\nD – *grobian* je hrubý, nezdvorilý človek, čo je presný opak hrdinovho vystupovania.'
+        text: 'A – v tanci a rozhovore je uvoľnený a veselý (//„Bolo naozaj veselo“//), nepôsobí strojene ani upäto.\nB – slečny v ňom nevidia vypočítavosť, prijímajú ho láskavo a bezprostredne.\nD – //grobian// je hrubý, nezdvorilý človek, čo je presný opak hrdinovho vystupovania.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -562,11 +578,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Porovnávacia spojka „ani“ = „ako“',
-        text: 'V poslednom prehovore hrdina hovorí slečne Žofii: //„Tak ľahučko, krásne tancujete. **Ani páper**, keď v povetrí lieta.“// Spojka **ani** má v slovenčine popri zlučovacom význame aj porovnávací význam **ako** (*tancujete tak ľahučko ako páper*). Porovnanie dvoch javov na základe spoločnej vlastnosti (ľahkosti) pomocou spojky *ako, sťa, jak, ani, než* je **prirovnanie**.'
+        text: 'V poslednom prehovore hrdina hovorí slečne Žofii: //„Tak ľahučko, krásne tancujete. **Ani páper**, keď v povetrí lieta.“// Spojka **ani** má v slovenčine popri zlučovacom význame aj porovnávací význam **ako** (//tancujete tak ľahučko ako páper//). Porovnanie dvoch javov na základe spoločnej vlastnosti (ľahkosti) pomocou spojky //ako, sťa, jak, ani, než// je **prirovnanie**.'
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – *nonsens* je zámerný nezmysel (slovná hračka bez logiky).\nB – *personifikácia* prenáša ľudské vlastnosti na neživé veci (tu sa naopak ľahkosť tanečnice prirovnáva k páperu).\nC – *gradácia* je stupňovanie významu; tu hrdina len rovnocenne vymenúva smery fúknutia (*zdola – zhora – zboku*).'
+        text: 'A – //nonsens// je zámerný nezmysel (slovná hračka bez logiky).\nB – //personifikácia// prenáša ľudské vlastnosti na neživé veci (tu sa naopak ľahkosť tanečnice prirovnáva k páperu).\nC – //gradácia// je stupňovanie významu; tu hrdina len rovnocenne vymenúva smery fúknutia (//zdola – zhora – zboku//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -586,7 +602,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Viacvýznamové slovo má okrem základného významu aj prenesené významy (napr. rameno človeka aj rameno rieky). Vyskúšaj si pri každom slove utvoriť odlišné vety – ktoré z nich pomenúva vždy iba jedno povolanie?',
+    hint: 'Viacvýznamové slovo má okrem základného významu aj prenesené významy (napr. koruna stromu aj kráľovská koruna). Vyskúšaj si pri každom zo štyroch slov utvoriť rôzne vety – ktoré z nich má v slovenčine vždy iba jeden vecný význam?',
     solutionSteps: [
       {
         title: 'Jednovýznamové slovo',
@@ -594,7 +610,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo sú ostatné slová viacvýznamové',
-        text: '• **cítiť** (A) – vnímať zmyslami (*cítiť vôňu, chlad*), prežívať cit (*cítiť radosť*), aj tušiť (*cítiť nebezpečenstvo*).\n• **vyskočiť** (B) – urobiť skok nahor, prudko vstať zo stoličky, prudko vystúpiť (*vyskočila mu teplota, vyrážka*), aj oboriť sa na niekoho (*hneď naňho vyskočil*).\n• **rameno** (C) – časť hornej končatiny človeka, ale aj *rameno rieky*, *rameno žeriava*, *rameno váh* či *rameno svietnika*.'
+        text: '• **cítiť** (A) – vnímať zmyslami (//cítiť vôňu, chlad//), prežívať cit (//cítiť radosť//), aj tušiť (//cítiť nebezpečenstvo//).\n• **vyskočiť** (B) – urobiť skok nahor, prudko vstať zo stoličky, prudko vystúpiť (//vyskočila mu teplota, vyrážka//), aj oboriť sa na niekoho (//hneď naňho vyskočil//).\n• **rameno** (C) – časť hornej končatiny človeka, ale aj //rameno rieky//, //rameno žeriava//, //rameno váh// či //rameno svietnika//.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -618,11 +634,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: '1. Jednoduchý verzus zložený tvar',
-        text: 'Slovesný tvar **bola by šla** (podmienkový spôsob minulého času v 3. osobe jednotného čísla) sa skladá z **troch slov** (*bola + by + šla*), preto ide o **zložený slovesný tvar** (jednoduchý tvar je vždy jednoslovný, napr. *šla, ide, choď, ísť*).'
+        text: 'Slovesný tvar **bola by šla** (podmieňovací spôsob minulého času v 3. osobe jednotného čísla) sa skladá z **troch slov** (//bola + by + šla//) s pomocným slovesom //byť//, preto ide o **zložený slovesný tvar** (jednoduchý tvar sa tvorí bez pomocného slovesa, napr. //ide, pôjde, choď, ísť//).'
       },
       {
         title: '2. Určitý verzus neurčitý tvar',
-        text: 'Z tvaru *bola by šla* vieme presne určiť gramatické kategórie **osoby** (3. osoba – *ona*), **čísla** (jednotné číslo) a **spôsobu/času** (podmienkový spôsob minulého času). Ide teda o **určitý slovesný tvar**. (Neurčité slovesné tvary osobu ani čas nevyjadrujú – patrí sem napr. neurčitok *ísť*, prechodník *idúc*, príčastia *idúci, išlý* a slovesné podstatné meno *chodenie*.)'
+        text: 'Z tvaru //bola by šla// vieme presne určiť gramatické kategórie **osoby** (3. osoba – //ona//), **čísla** (jednotné číslo) a **spôsobu/času** (podmieňovací spôsob minulého času). Ide teda o **určitý slovesný tvar**. (Neurčité slovesné tvary osobu ani čas nevyjadrujú – patrí sem napr. neurčitok //písať//, prechodník //píšuc//, príčastia //píšuci, napísaný// a slovesné podstatné meno //písanie//.)'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -654,11 +670,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Otázka z hlavnej vety na vedľajšiu',
-        text: 'Hlavná veta znie //Myslel som si// (má zamlčaný podmet *ja*). Pýtame sa slovesom hlavnej vety na vedľajšiu vetu:\n//Myslel som si – **(koho?) čo** som si myslel? → že som naozaj príjemným človekom.//'
+        text: 'Hlavná veta znie //Myslel som si// (má zamlčaný podmet //ja//). Pýtame sa slovesom hlavnej vety na vedľajšiu vetu:\n//Myslel som si – **(koho?) čo** som si myslel? → že som naozaj príjemným človekom.//'
       },
       {
         title: 'Určenie typu vedľajšej vety',
-        text: 'Vedľajšia veta dopĺňa sloveso hlavnej vety a odpovedá na pádovú otázku akuzatívu **koho? čo?** (zastupuje teda nevyjadrený predmet hlavnej vety – *myslel som si tú vec*). Ide o **vedľajšiu vetu predmetovú**.'
+        text: 'Vedľajšia veta dopĺňa sloveso hlavnej vety a odpovedá na pádovú otázku akuzatívu **koho? čo?** (zastupuje teda nevyjadrený predmet hlavnej vety – //myslel som si tú vec//). Ide o **vedľajšiu vetu predmetovú**.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: predmetová (vedľajšia veta).'
@@ -687,11 +703,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Pomôcka cez prísudok a zhodu',
-        text: 'Prísudkom vety je zložený slovesný tvar **muselo pôsobiť**. Pomocné sloveso *muselo* má príponu **-o**, čo znamená, že sa zhoduje s podmetom v **3. osobe jednotného čísla stredného rodu**.'
+        text: 'Prísudkom vety je slovesný prísudok tvorený modálnym slovesom a neurčitkom **muselo pôsobiť**. Modálne sloveso //muselo// má koncovku **-o**, čo znamená, že sa zhoduje s podmetom v **3. osobe jednotného čísla stredného rodu**.'
       },
       {
         title: 'Určenie podmetu a rozlíšenie od predmetov',
-        text: 'Opýtajme sa nominatívnou otázkou **kto? čo?**:\n• *Čo jej muselo pôsobiť radosť?* → **to** (ukazovacie zámeno v nominatíve stredného rodu = **podmet**).\n• Pozor na chyták so slovom *radosť*: *radosť* je ženského rodu (keby bola podmetom, prísudok by znel *radosť musela…*) a vo vete odpovedá na otázku akuzatívu *pôsobiť čo? → radosť*, je teda priamym **predmetom** (a *jej* je nepriamym predmetom v datíve *komu?*).'
+        text: 'Opýtajme sa nominatívnou otázkou **kto? čo?**:\n• //Čo jej muselo pôsobiť radosť?// → **to** (ukazovacie zámeno v nominatíve stredného rodu = **podmet**).\n• Pozor na chyták so slovom //radosť//: //radosť// je ženského rodu (keby bola podmetom, prísudok by znel //radosť musela…//) a vo vete odpovedá na otázku akuzatívu //pôsobiť čo? → radosť//, je teda priamym **predmetom** (a //jej// je nepriamym predmetom v datíve //komu?//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: to.'
@@ -725,7 +741,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Gramatické zapojenie do vety',
-        text: 'Po spojení *k významným predstaviteľom slovenskej literárnej…* nasleduje genitív jednotného čísla **moderny** (kľúč uznáva aj základný tvar *moderna* a odpovede s pravopisnou či gramatickou odchýlkou).'
+        text: 'Po spojení //k významným predstaviteľom slovenskej literárnej…// nasleduje genitív jednotného čísla **moderny** (kľúč uznáva aj základný tvar //moderna// a odpovede s pravopisnou či gramatickou odchýlkou).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: moderny (moderna).'
@@ -840,7 +856,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – *alegória* (inotaj) je utajený zmysel celého príbehu, typický napr. pre bájky.\nB – *zvukomaľba* (onomatopoja) je zámerné napodobňovanie prírodných zvukov hláskami v slovách.\nD – v texte sa rozprávač nijako neprihovára čitateľovi (zvolacia veta je len vnútornou rečou postavy).'
+        text: 'A – //alegória// (inotaj) je utajený zmysel celého príbehu, typický napr. pre bájky.\nB – //zvukomaľba// (onomatopoja) je zámerné napodobňovanie prírodných zvukov hláskami v slovách.\nD – v texte sa rozprávač nijako neprihovára čitateľovi (zvolacia veta je len vnútornou rečou postavy).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -860,15 +876,15 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Vokalizovaná predložka vznikne tak, že k pôvodnej predložke pridáme samohlásku -o alebo -u, aby sa nám pred náročnou spoluhláskou ľahšie vyslovovala (napr. v → vo, k → ku, s → so). Pozor: predložky na, do, po, o majú samohlásku odjakživa už v základnom tvare!',
+    hint: 'Vokalizovaná predložka vznikne tak, že k pôvodnej predložke končiacej sa spoluhláskou pridáme samohlásku -o alebo -u, aby sa ľahšie vyslovovala (napr. v → vo, k → ku, s → so). Skontroluj pri každej predložke v možnostiach, či má aj kratší základný tvar so spoluhláskou, alebo sa už v základnom tvare končí samohláskou!',
     solutionSteps: [
       {
         title: 'Čo je vokalizácia predložky',
-        text: '**Vokalizácia** je pridanie vkladnej samohlásky (**-o** alebo **-u**) k predložke, ktorá sa v základnom tvare končí spoluhláskou (najmä k neslabičným predložkám *v, z, s, k*, ale aj *nad, pod, pred, od, bez, cez*), aby sa predišlo ťažko vysloviteľnej skupine spoluhlások.'
+        text: '**Vokalizácia** je pridanie vkladnej samohlásky (**-o** alebo **-u**) k predložke, ktorá sa v základnom tvare končí spoluhláskou (najmä k neslabičným predložkám //v, z, s, k//, ale aj //nad, pod, pred, od, bez, cez//), aby sa predišlo ťažko vysloviteľnej skupine spoluhlások.'
       },
       {
         title: 'Porovnanie možností',
-        text: '• **zo spánku** (**C**) – základný tvar predložky je **z** (*z domu, z lesa*). Pred slovom *spánku* (začínajúcim sa sykavkou *s* a zhlukom *sp-*) pribrala samohlásku **-o**: **z → zo** → **vokalizovaná predložka**.\n• Predložky **o** (A), **na** (B) a **do** (D) majú samohlásku už vo svojom základnom slovníkovom tvare – nič sa k nim nepridalo, preto **nie sú vokalizované**.'
+        text: '• **zo spánku** (**C**) – základný tvar predložky je **z** (//z domu, z lesa//). Pred slovom //spánku// (začínajúcim sa sykavkou //s// a zhlukom //sp-//) pribrala samohlásku **-o**: **z → zo** → **vokalizovaná predložka**.\n• Predložky **o** (A), **na** (B) a **do** (D) majú samohlásku už vo svojom základnom slovníkovom tvare – nič sa k nim nepridalo, preto **nie sú vokalizované**.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -898,11 +914,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: '1. Určenie slovného druhu a stupňa slova lepšie',
-        text: 'Vo vete //„No **lepšie** by sme urobili…“// slovo *lepšie* rozvíja sloveso *by sme urobili* a odpovedá na otázku **ako?** Ide teda o **príslovku spôsobu v 2. stupni** (nepravidelné stupňovanie príslovky *dobre*: *1. dobre – 2. **lepšie** – 3. najlepšie*).'
+        text: 'Vo vete //„No **lepšie** by sme urobili…“// slovo //lepšie// rozvíja sloveso //by sme urobili// a odpovedá na otázku **ako?** Ide teda o **príslovku spôsobu v 2. stupni** (nepravidelné stupňovanie príslovky //dobre//: //1. dobre – 2. **lepšie** – 3. najlepšie//).'
       },
       {
         title: '2. Utvorenie presného antonyma',
-        text: '**Antonymum** (slovo s opačným významom) musí zachovať ten istý slovný druh (príslovku) aj ten istý stupeň (2. stupeň). Opakom príslovky *dobre* je príslovka *zle*, ktorá sa stupňuje: *1. zle – 2. **horšie** – 3. najhoršie*.\nSkúška dosadením do vety: //No **horšie** by sme urobili, keby sme šli spať.// (Pozor: tvar *horší* by bol prídavným menom, nie príslovkou!)'
+        text: '**Antonymum** (slovo s opačným významom) musí zachovať ten istý slovný druh (príslovku) aj ten istý stupeň (2. stupeň). Opakom príslovky //dobre// je príslovka //zle//, ktorá sa stupňuje: //1. zle – 2. **horšie** – 3. najhoršie//.\nSkúška dosadením do vety: //No **horšie** by sme urobili, keby sme šli spať.// (Pozor: tvar //horší// by bol prídavným menom, nie príslovkou!)'
       }
     ],
     solutionConclusion: 'Správna odpoveď: horšie.'
@@ -965,15 +981,15 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Spočítal si všetky opytovacie vety s otáznikom (6), no pozor: stúpavú melódiu majú v slovenčine iba zisťovacie otázky (na ktoré sa odpovedá áno/nie)! Dopĺňacie otázky s opytovacím zámenom (Čo…, O čom…, Pred čím…) majú klesavú melódiu.'
       }
     ],
-    hint: 'Pozor, nie každá veta s otáznikom má stúpavú melódiu! V slovenčine majú stúpavú melódiu iba **zisťovacie** opytovacie vety (odpovedáme na ne áno/nie a nezačínajú sa opytovacím slovom kto, čo, o čom, pred čím…). Nájdi všetkých 6 otázok v ukážke a oddeľ zisťovacie od dopĺňacích!',
+    hint: 'Pozor, nie každá veta s otáznikom má stúpavú melódiu! V slovenčine majú stúpavú melódiu iba zisťovacie opytovacie vety (odpovedáme na ne áno/nie a nezačínajú sa opytovacím zámenom ani príslovkou ako kto, kde, kedy, prečo…). Nájdi všetky otázky v ukážke a oddeľ zisťovacie od dopĺňacích!',
     solutionSteps: [
       {
         title: 'Pravidlo o vetnej melódii v slovenčine',
-        text: '• **Klesavú melódiu** majú oznamovacie, rozkazovacie, želacie vety a aj **dopĺňacie opytovacie vety** – teda otázky, ktoré sa začínajú opytovacím zámenom alebo príslovkou (*kto, čo, o čom, pred čím, kde, kedy, prečo…*).\n• **Stúpavú vetnú melódiu** (antikadenciu) majú ukončené **zisťovacie opytovacie vety** – zisťujeme nimi platnosť deja, odpovedá sa na ne *áno / nie* a **neobsahujú opytovacie zámeno ani príslovku**.'
+        text: '• **Klesavú melódiu** majú oznamovacie, rozkazovacie, želacie vety a aj **dopĺňacie opytovacie vety** – teda otázky, ktoré sa začínajú opytovacím zámenom alebo príslovkou (//kto, čo, o čom, pred čím, kde, kedy, prečo…//).\n• **Stúpavú vetnú melódiu** (antikadenciu) majú ukončené **zisťovacie opytovacie vety** – zisťujeme nimi platnosť deja, odpovedá sa na ne //áno / nie// a **neobsahujú opytovacie zámeno ani príslovku**.'
       },
       {
         title: 'Roztriedenie všetkých 6 opytovacích viet v ukážke 8',
-        text: 'V ukážke 8 sa nachádza spolu 6 opytovacích viet:\n**Zisťovacie otázky → stúpavá melódia (3 vety):**\n1. //Ty ešte nespíš?// (odpoveď áno/nie, bez opytovacieho slova → **stúpavá**)\n2. //So mnou?// (zisťovacia otázka → **stúpavá**)\n3. //Varovať?// (zisťovacia otázka → **stúpavá**)\n\n**Dopĺňacie otázky → klesavá melódia (nepočítajú sa):**\n• //Čo sa stalo?// (opytovacie zámeno *čo* → klesavá)\n• //O čom sa chceš zhovárať?// (opytovacie zámeno *o čom* → klesavá)\n• //Pred čím?// (opytovacie zámeno *pred čím* → klesavá)\n\nUkážka 8 teda obsahuje presne **3 vety** so stúpavou vetnou melódiou.'
+        text: 'V ukážke 8 sa nachádza spolu 6 opytovacích viet:\n**Zisťovacie otázky → stúpavá melódia (3 vety):**\n1. //Ty ešte nespíš?// (odpoveď áno/nie, bez opytovacieho slova → **stúpavá**)\n2. //So mnou?// (zisťovacia otázka → **stúpavá**)\n3. //Varovať?// (zisťovacia otázka → **stúpavá**)\n\n**Dopĺňacie otázky → klesavá melódia (nepočítajú sa):**\n• //Čo sa stalo?// (opytovacie zámeno //čo// → klesavá)\n• //O čom sa chceš zhovárať?// (opytovacie zámeno //o čom// → klesavá)\n• //Pred čím?// (opytovacie zámeno //pred čím// → klesavá)\n\nUkážka 8 teda obsahuje presne **3 vety** so stúpavou vetnou melódiou.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: 3 (tri vety).'

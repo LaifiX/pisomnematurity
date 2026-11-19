@@ -25,7 +25,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Pozorne čítaj detaily v prvom a štvrtom odseku: v čom dome bol hrdina, čo presne ležalo na sedadle spolujazdca a čo vytvorili dve zrkadlá oproti sebe v kúpeľni?',
+    hint: 'Pozorne čítaj detaily v prvom, druhom a predposlednom odseku: v čom dome bol hrdina, čo presne ležalo na sedadle spolujazdca a čo vytvorili dve zrkadlá oproti sebe v kúpeľni?',
     solutionSteps: [
       {
         title: 'Sústava dvoch zrkadiel v kúpeľni',
@@ -85,7 +85,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Časová následnosť deja',
-        text: 'V druhej časti ukážky (po `[…]`) sledujeme plynulý sled udalostí presne v takom poradí, ako za sebou prebiehali: hrdina vošiel do kúpeľne → zahľadel sa do zrkadla → nabral vodu a sklonil sa → zodvihol zrak a zbadal v zrkadle Kizeka → obzrel sa. Takéto usporiadanie deja podľa časovej osi sa nazýva **chronologický** kompozičný postup.'
+        text: 'V druhej časti ukážky (po […]) sledujeme plynulý sled udalostí presne v takom poradí, ako za sebou prebiehali: hrdina vošiel do kúpeľne → zahľadel sa do zrkadla → nabral vodu a sklonil sa → zodvihol zrak a zbadal v zrkadle Kizeka → obzrel sa. Takéto usporiadanie deja podľa časovej osi sa nazýva **chronologický** kompozičný postup.'
       },
       {
         title: 'Prečo nie ostatné možnosti',
@@ -137,11 +137,11 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Daj si každé podstatné meno do základného tvaru a urči jeho rod! Pri pomnožnom podstatnom mene si pomôž ukazovacím zámenom (tie …) a pádovými príponami.',
+    hint: 'Daj si každé podstatné meno do základného tvaru a urči jeho rod a vzor! Ak slovo nemá jednotné číslo, pomôž si jeho pádovými príponami v genitíve, datíve a lokáli množného čísla.',
     solutionSteps: [
       {
         title: 'Určenie rodu a vzoru pri jednotlivých slovách',
-        text: '• A: //črepy// → ten **črep** (mužský rod, neživotné, zakončené na obojakú spoluhlásku //p//) → vzor **dub**.\n• C: //vlasov// → ten **vlas** (mužský rod, neživotné, tvrdá spoluhláska //s//) → vzor **dub**.\n• D: //panelákmi// → ten **panelák** (mužský rod, neživotné, tvrdá spoluhláska //k//) → vzor **dub**.'
+        text: '• A: //črepy// → ten **črep** (mužský rod, neživotné, zakončené na obojakú spoluhlásku //p//) → vzor **dub**.\n• C: //vlasov// → ten **vlas** (mužský rod, neživotné, obojaká spoluhláska //s//) → vzor **dub**.\n• D: //panelákmi// → ten **panelák** (mužský rod, neživotné, tvrdá spoluhláska //k//) → vzor **dub**.'
       },
       {
         title: 'Odlišný vzor pri slove zimomriavky',
@@ -174,7 +174,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Čo je slabikotvorná spoluhláska a hľadanie v texte',
-        text: 'Ak v slabike nie je samohláska ani dvojhláska, úlohu nositeľa slabiky preberajú spoluhlásky **r, ŕ, l, ĺ** stojace medzi spoluhláskami. V predposlednom (štvrtom) odseku sú prídavné mená //pomalý, kradmý, malé, rozloženého, premenený// a **nemilosrdným** („Hľadel mu priamo do očí, **nemilosrdným** pohľadom…“).'
+        text: 'Ak v slabike nie je samohláska ani dvojhláska, úlohu nositeľa slabiky preberajú spoluhlásky **r, ŕ, l, ĺ** stojace medzi spoluhláskami. V predposlednom (treťom) odseku sú prídavné mená //pomalý, kradmý, malé, rozloženého, premenený// a **nemilosrdným** („Hľadel mu priamo do očí, **nemilosrdným** pohľadom…“).'
       },
       {
         title: 'Rozdelenie na slabiky a hodnotenie kľúča',
@@ -296,7 +296,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Propagačný text a jeho cieľ',
-        text: 'Ukážka pochádza z oficiálneho turistického portálu //slovakia.travel//. Ide o propagačný (reklamný) text v oblasti cestovného ruchu – pomocou príťažlivých prívlastkov (//výnimočná krajina, neopakovateľná atmosféra, skvost//) a priamych výziev v rozkazovacom spôsobe (//užite si, navštívte, zastavte sa//) sa snaží čitateľa nalákať a **presvedčiť**, aby spomínané miesta navštívil.'
+        text: 'Ukážka pochádza z oficiálneho turistického portálu //slovakia.travel//. Ide o propagačný (reklamný) text v oblasti cestovného ruchu – pomocou príťažlivých prívlastkov a hodnotiacich pomenovaní (//výnimočná krajina, neopakovateľná atmosféra, skvost//) a priamych výziev v rozkazovacom spôsobe (//užite si, navštívte, zastavte sa//) sa snaží čitateľa nalákať a **presvedčiť**, aby spomínané miesta navštívil.'
       },
       {
         title: 'Prečo nie ostatné možnosti',
@@ -328,7 +328,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: '2. Rytmické krátenie prípony (-ský → -sky)',
-        text: 'Koreň slova //Sl**ia**č// obsahuje dvojhlásku **ia**, ktorá platí ako **dlhá slabika**. Podľa **zákona o rytmickom krátení** v *Pravidlách slovenského pravopisu* nemôžu za sebou nasledovať dve dlhé slabiky, preto sa prípona //-ský// kráti na **-sky**: **sliačsky** (možnosť B //sliačský// porušuje rytmický zákon).'
+        text: 'Koreň slova //Sl**ia**č// obsahuje dvojhlásku **ia**, ktorá platí ako **dlhá slabika**. Podľa **zákona o rytmickom krátení** v //Pravidlách slovenského pravopisu// nemôžu za sebou nasledovať dve dlhé slabiky, preto sa prípona //-ský// kráti na **-sky**: **sliačsky** (možnosť B //sliačský// porušuje rytmický zákon).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -692,7 +692,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Slovo „scéna“ je ženského rodu (bola by „piata scéna“), no v ukážke stojí číslovka v strednom rode: „piate …“.'
       }
     ],
-    hint: 'Vonkajšiu kompozíciu divadelnej hry tvoria dejstvá, scény a výstupy. Pozri sa na slovo pred zakrytým obdĺžnikom úplne hore v ukážke 7 („piate …“) – v ktorom rode musí byť hľadané podstatné meno?',
+    hint: 'Spomeň si na časti vonkajšej kompozície divadelnej hry (napr. celky oddelené oponou či zmenou prostredia). Pozri sa na slovo pred zakrytým obdĺžnikom úplne hore v ukážke 7 („piate …“) – v ktorom rode musí byť hľadané podstatné meno?',
     solutionSteps: [
       {
         title: 'Vonkajšia kompozícia drámy a gramatická zhoda',
@@ -896,8 +896,12 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: ['ti', 'ťa', 'ty'],
     commonMistakes: [
       {
-        pattern: '^(môj|moja|ja|mi|sme)$',
+        pattern: '^(môj|moja|ja|mi)$',
         hint: 'Zámená 1. osoby (ja, mi, môj, moja) odkazujú na pisateľku Zoé, preto sa v liste píšu s malým písmenom. Hľadaj osobné zámeno 2. osoby, ktorým sa Zoé prihovára adresátovi listu!'
+      },
+      {
+        pattern: '^sme$',
+        hint: 'Slovo „sme“ nie je zámeno, ale tvar pomocného slovesa byť. Hľadaj osobné zámeno 2. osoby, ktorým sa Zoé prihovára adresátovi listu!'
       },
       {
         pattern: '^(to|ten|každý|ktorý|ktorá)$',
@@ -908,7 +912,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Písanie zámen 2. osoby v listoch podľa PSP',
-        text: 'Podľa *Pravidiel slovenského pravopisu* sa v osobnej korešpondencii (v súkromných a ľúbostných listoch, blahoželaniach a pod.) osobné a privlastňovacie zámená 2. osoby vzťahujúce sa na adresáta (**Ty, Teba, Ti, Ťa, Tvoj**) píšu na znak úcty a náklonnosti s **veľkým začiatočným písmenom**.'
+        text: 'Podľa //Pravidiel slovenského pravopisu// sa v osobnej korešpondencii (v súkromných a ľúbostných listoch, blahoželaniach a pod.) osobné a privlastňovacie zámená 2. osoby vzťahujúce sa na adresáta (**Ty, Teba, Ti, Ťa, Tvoj**) píšu na znak úcty a náklonnosti s **veľkým začiatočným písmenom**.'
       },
       {
         title: 'Tvary v Zoéinom liste a hodnotenie kľúča',

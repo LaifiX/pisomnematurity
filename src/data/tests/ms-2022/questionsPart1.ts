@@ -28,7 +28,7 @@ export const questionsPart1: QuestionData[] = [
     hint: 'Prečítaj si posledné štyri verše. Čo lyrický subjekt so svojím srdcom urobí – poddá sa mu, alebo ho skrotí?',
     solutionSteps: [
       { title: 'Záver básne', text: '„Hľadím a trpím neprestajne, / no prísny zákon ctiť si viem, / zavraciam srdce: skrotni, driem – / mlčím… a vzdychám, blčím tajne.“ Lyrický subjekt túži, ale city potláča a mlčí.' },
-      { title: 'Prečo nie ostatné', text: 'A – práve preto, že túžbu cíti ako hriech, prosí o odpustenie („odpusť mi, že mu závidím“).\nB – o bozku iba uvažuje v podmienke („krádež bozku dovolí mi hlas svedomia“), nič neurobil.\nD – o správaní k všetkým ženám báseň nehovorí.' }
+      { title: 'Prečo nie ostatné', text: 'A – práve preto, že túžbu cíti ako hriech, prosí o odpustenie („odpusť mi, že mu závidím“).\nB – o bozku iba uvažuje v podmienke („krádež bozku dovolí mi hlas svedomia“), nič neurobil.\nD – báseň práveže rozlišuje jeho postoj podľa postavenia ženy: pri „nevoľnej peknoočke“ by si bozk dovolil, kým pri priateľovej „milej družke“ city potláča a mlčí.' }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
   },
@@ -129,7 +129,7 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Do ktorého literárneho smeru sa zaraďuje prevažná časť tvorby A. S. Puškina?',
     placeholder: 'Napíš literárny smer',
     correctAnswerDisplay: 'romantizmus',
-    acceptedAnswers: ['romantizmus', 'do romantizmu', 'romantizmu', 'preromantizmus', 'do preromantizmu', 'romantický', 'romantizmus a realizmus'],
+    acceptedAnswers: ['romantizmus', 'do romantizmu', 'romantizmu', 'preromantizmus', 'do preromantizmu', 'romantický'],
     lenient: true,
     hint: 'Puškin žil v rokoch 1799 – 1837 a napísal román vo veršoch Eugen Onegin. Ktorý smer vtedy v Európe vrcholil?',
     solutionSteps: [
@@ -165,7 +165,7 @@ export const questionsPart1: QuestionData[] = [
     placeholder: 'Vypíš predložku',
     correctAnswerDisplay: 'odo',
     acceptedAnswers: ['odo'],
-    hint: 'Vokalizovaná predložka má pridanú samohlásku, aby sa ľahšie vyslovovala (k – ku, z – zo, od – odo).',
+    hint: 'Vokalizovaná predložka má pridanú samohlásku, aby sa ľahšie vyslovovala (napr. k – ku, z – zo, s – so, v – vo).',
     solutionSteps: [
       { title: 'Nájdenie predložky', text: 'Verš „odo mňa nedočká sa krivdy“ – predložka od dostala pred zámenom mňa samohlásku o: odo mňa.' },
       { title: 'Prečo', text: 'Vokalizácia uľahčuje výslovnosť skupiny spoluhlások (od mňa → odo mňa).' }
@@ -255,7 +255,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Skratka je skrátený zápis slova, ktorý sa číta celým slovom (tzv. = takzvaný). Čo je „-izmus“?',
+    hint: 'Skratka je skrátený zápis slova, za ktorým sa zvyčajne píše bodka a číta sa celým slovom. V ktorej možnosti nejde o skrátené slovo, ale iba o časť slova (príponu)?',
     solutionSteps: [
       { title: 'Skratky', text: 'tzv. (takzvaný), napr. (napríklad), t. j. (to jest) sú skratky – píšu sa s bodkou a čítajú sa celým slovom.' },
       { title: '-izmus', text: '-izmus je prípona (slovotvorný formant), ktorou sa tvoria názvy smerov (romantizmus, realizmus). Spojovník naznačuje, že ide o časť slova, nie o skratku.' }
@@ -279,7 +279,7 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: ['A'],
     hint: 'Pomlčka (–) je dlhšia a píše sa s medzerami, spojovník (-) je krátky a bez medzier. Prejdi prvý odsek po znamienkach.',
     solutionSteps: [
-      { title: 'Znamienka v 1. odseku', text: 'Spojovník: „nový -izmus“. Úvodzovky: „postmodernizmus“. Výkričník: „…je mätúce!“. Okrem nich zátvorky, čiarky a bodky.' },
+      { title: 'Znamienka v 1. odseku', text: 'Spojovník: „nový -izmus“. Úvodzovky: „postmodernizmus“. Výkričník: „…„postmodernizmus“ mätúce!“. Okrem nich zátvorky, čiarky a bodky.' },
       { title: 'Chýbajúce znamienko', text: 'Pomlčka sa v prvom odseku nenachádza.' }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -313,7 +313,7 @@ export const questionsPart1: QuestionData[] = [
     correctAnswerDisplay: 'náučný',
     acceptedAnswers: ['náučný', 'odborný', 'populárno-náučný', 'náučný štýl', 'odborný štýl', 'populárnonáučný', 'vedecký'],
     lenient: true,
-    hint: 'Ukážka pochádza z knihy o slovenskej literatúre a používa odborné termíny (avantgarda, konkretizmus, determinizmus).',
+    hint: 'Ukážka pochádza z knihy o slovenskej literatúre a využíva literárnovedné termíny (avantgarda, konkretizmus, determinizmus).',
     solutionSteps: [
       { title: 'Znaky štýlu', text: 'Odborné termíny, presnosť, vecnosť, skratky (tzv., t. j.), odkazy na kritikov a obdobia – to sú znaky náučného (odborného) štýlu.' },
       { title: 'Ako hodnotí kľúč', text: 'Uznáva sa náučný, odborný aj populárno-náučný.' }
@@ -331,7 +331,7 @@ export const questionsPart1: QuestionData[] = [
     correctAnswerDisplay: 'prívlastková',
     acceptedAnswers: ['prívlastková', 'prívlastková vedľajšia veta', 'vedľajšia veta prívlastková', 'vv prívlastková', 'prívlastková veta'],
     lenient: true,
-    hint: 'Na ktoré slovo v hlavnej vete sa vedľajšia veta pýta? Aká otázka k nemu patrí?',
+    hint: 'Ktoré slovo v hlavnej vete táto vedľajšia veta rozvíja? Akou otázkou sa na vedľajšiu vetu opýtaš?',
     solutionSteps: [
       { title: 'Otázka', text: 'Hlavná veta: „Postmoderna je teda taká literatúra“. Vedľajšia veta „ktorá vystupuje proti…“ rozvíja podstatné meno literatúra a odpovedá na otázku aká (literatúra)?' },
       { title: 'Určenie', text: 'Vedľajšia veta, ktorá rozvíja podstatné meno a nahrádza prívlastok, je prívlastková. Typicky ju uvádza vzťažné zámeno ktorý, ktorá, ktoré.' }
@@ -446,7 +446,7 @@ export const questionsPart1: QuestionData[] = [
     hint: 'Počet viet v súvetí zistíš podľa počtu prísudkov (určitých slovesných tvarov).',
     solutionSteps: [
       { title: 'Prísudky', text: '„Ale keď všetci prítomní podpíšu dlžobné úpisy, podíde k pultu, zosadí z neho Billyho Bibbita, napľuje si do mohutných mozoľnatých dlaní, tleskne do nich a napne svaly na pleciach.“\nPrísudky: podpíšu – podíde – zosadí – napľuje – tleskne – napne.' },
-      { title: 'Výsledok', text: 'Šesť prísudkov = šesť viet (jedna vedľajšia časová „keď… podpíšu“ a päť priraďovacích hlavných).' }
+      { title: 'Výsledok', text: 'Šesť prísudkov = šesť viet (jedna vedľajšia časová „keď… podpíšu“ a päť hlavných viet v priraďovacom vzťahu).' }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
   },
@@ -463,6 +463,10 @@ export const questionsPart1: QuestionData[] = [
       'klesavá',
       'klesavá kadencia',
       'klesavá melódia',
+      'uspokojivá končiaca',
+      'uspokojivo končiaca',
+      'uspokojivá končiaca melódia',
+      'uspokojivo končiaca melódia',
       'uspokojivá končiaca kadencia',
       'uspokojivo končiaca kadencia',
       'konkluzívna kadencia',
@@ -598,7 +602,7 @@ export const questionsPart1: QuestionData[] = [
     hint: 'V každej nesprávnej možnosti je aspoň jeden básnik alebo dramatik. Nájdi ho.',
     solutionSteps: [
       { title: 'Prozaici', text: 'Dušan Dušek (Kufor na sny), Alfonz Bednár (Hodiny a minúty, Kolíska), Ladislav Mňačko (Smrť sa volá Engelchen) – všetci sú prozaici.' },
-      { title: 'Vylúčenie', text: 'B – Ivan Bukovčan je dramatik, Ján Urban básnik. C – Ivan Krasko je básnik. D – Milan Rúfus a Miroslav Válek sú básnici.' }
+      { title: 'Vylúčenie', text: 'B – Ivan Bukovčan je dramatik, Jozef Urban básnik. C – Ivan Krasko je básnik. D – Milan Rúfus a Miroslav Válek sú básnici.' }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
   },

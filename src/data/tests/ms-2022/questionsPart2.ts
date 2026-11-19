@@ -68,7 +68,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Úlohu nevyriešiš len z ukážky – vyžaduje znalosť diela. V ukážke je náznak: Majerského hlas je pre Zitu „známy“.',
+    hint: 'Úlohu nevyriešiš len z ukážky – vyžaduje znalosť Bednárovej novely Kolíska. Spomeň si na Zitinu minulosť pred manželstvom s Černekom: aký vzťah kedysi mala so ženatým gazdom Majerským?',
     solutionSteps: [
       { title: 'Znalosť diela', text: 'V Bednárovej novele Kolíska je Majerský Zitin bývalý milenec, ktorý však už bol ženatý. Zita je vydatá za Černeka.' },
       { title: 'Prečo práve Kolíska', text: 'Zita počúva súd s mužom, ktorého kedysi milovala, a na povrch vychádzajú spomienky aj vina iných postáv.' }
@@ -90,10 +90,10 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Ukážka hovorí, že Černek „nebol doma“ v čase, keď sa prenášal súd. Kde mohol byť?',
+    hint: 'Úloha vyžaduje znalosť novely Kolíska – zamysli sa, kto z uvedených postáv vystupoval ako svedok obžaloby proti Majerskému a podľa záveru prvého odseku ukážky nebol v ten večer doma.',
     solutionSteps: [
       { title: 'Znalosť diela', text: 'V procese s Majerským vystupuje ako svedok Zitin manžel Mišo Černek. Ukážka to nenápadne naznačuje – v ten večer „nebol doma“ a Zita sleduje súd z rádia.' },
-      { title: 'Ostatné mená', text: 'Ostatné postavy do Kolísky nepatria.' }
+      { title: 'Ostatné mená', text: 'Všetky ostatné postavy v novele Kolíska síce tiež vystupujú (Paul Hals – nemecký dôstojník, Jano Ragala – Zitin prvý manžel, Michal Martinec – študent skrývajúci sa v bunkri), ale ako svedok v procese s Majerským vypovedal Mišo Černek.' }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
   },
@@ -115,7 +115,7 @@ export const questionsPart2: QuestionData[] = [
     hint: 'Nepriamy predmet je predmet v inom páde než v akuzatíve – často v datíve (komu? čomu?).',
     solutionSteps: [
       { title: 'Otázky', text: 'Zavieval komu? – jej (datív). Je to predmet v inom ako 4. páde, teda nepriamy predmet.' },
-      { title: 'Ostatné vetné členy', text: 'chlad – podmet (čo zavieval?), dverami – príslovkové určenie (kade?), do kuchyne – príslovkové určenie miesta (kam?).' }
+      { title: 'Ostatné vetné členy', text: 'chlad – podmet (kto? čo? – chlad), dverami – príslovkové určenie (kade?), do kuchyne – príslovkové určenie miesta (kam?).' }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
   },
@@ -149,7 +149,7 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     hint: 'Spomienky sa vracajú do minulosti. Ako sa volá kompozícia, ktorá sa obzerá späť?',
     solutionSteps: [
-      { title: 'Návrat do minulosti', text: 'Zita počas súdu spomína na to, čo s Majerským prežila kedysi. Dej sa vracia z prítomnosti do minulosti – ide o retrospektívny (spätný) kompozičný postup.' },
+      { title: 'Návrat do minulosti', text: 'Zita pri počúvaní rozhlasového prenosu zo súdu spomína na to, čo s Majerským prežila kedysi. Dej sa vracia z prítomnosti do minulosti – ide o retrospektívny (spätný) kompozičný postup.' },
       { title: 'Ako hodnotí kľúč', text: 'Uznáva sa retrospektívny, spätný, retrospektíva aj retrospektívu.' }
     ],
     solutionConclusion: 'Správna odpoveď: retrospektívny.'
@@ -188,7 +188,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Čo Alcest odsudzuje? Ak kritizuje faloš a podlízanie, akú vlastnosť si cení?',
+    hint: 'Čo Alcest odsudzuje? Ak kritizuje faloš a podlízavosť (pochlebovanie), akú vlastnosť si cení?',
     solutionSteps: [
       { title: 'Alcestov postoj', text: 'Alcest nenávidí „faloš podliakov“, ktorí každému rozdávajú „vľúdne vyznania“ a „líškavo“ chvália. Cení si opak – úprimnosť a pravdivosť.' },
       { title: 'Pasca', text: 'Vľúdnosť, zdvorilosť a prívetivosť obhajuje Filint („musí sa k nim milo a prívetivo správať“), Alcest ich v tejto podobe odmieta.' }
@@ -310,7 +310,7 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Vypíšte zo slova //takýto// slabiku, na ktorej je hlavný slovný prízvuk.',
     placeholder: 'Vypíš slabiku',
     correctAnswerDisplay: 'ta-',
-    acceptedAnswers: ['ta-', 'ta', '„ta“', 'ta.'],
+    acceptedAnswers: ['ta-', 'ta', '„ta“', '"ta"'],
     hint: 'Kde je v slovenčine hlavný (slovný) prízvuk?',
     solutionSteps: [
       { title: 'Pravidlo', text: 'V spisovnej slovenčine je hlavný slovný prízvuk vždy na prvej slabike slova.' },
@@ -328,7 +328,7 @@ export const questionsPart2: QuestionData[] = [
     placeholder: 'Vypíš zámeno',
     correctAnswerDisplay: 'to isté',
     acceptedAnswers: ['to isté'],
-    hint: 'Vymedzovacie zámená sú napr. sám, samý, istý, ten istý, to isté.',
+    hint: 'Vymedzovacie zámená vyjadrujú totožnosť, odlišnosť, výlučnosť alebo súhrnnosť (napr. sám, samý, iný, každý, všetok, žiaden). Hľadaj vo zvýraznenej časti dvojslovné spojenie vyjadrujúce totožnosť.',
     solutionSteps: [
       { title: 'Nájdenie', text: '„…keď zajtra bľaboce to isté lumpovi.“ – to isté je vymedzovacie zámeno (zdôrazňuje totožnosť).' },
       { title: 'Pozor', text: 'Takáto (v spojení takáto podlá pocta) je ukazovacie zámeno, nie vymedzovacie.' }
@@ -396,7 +396,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'V spojení sú dve prídavné mená – zápasiaci a diviačí. Ktoré je druhové privlastňovacie (od zvieraťa)?',
+    hint: 'Pozor na rozdiel medzi slovesným príčastím a prídavným menom! Hľadané prídavné meno je utvorené od názvu zvieraťa (druhové privlastňovacie prídavné meno) – podľa ktorého vzoru sa takéto prídavné mená skloňujú?',
     solutionSteps: [
       { title: 'Prídavné meno diviačí', text: 'Diviačí (hlava – diviačia, s diviačou hlavou) je druhové privlastňovacie prídavné meno utvorené od podstatného mena diviak. Takéto prídavné mená (páví, vtáčí, líščí) sa skloňujú podľa vzoru páví.' },
       { title: 'Pozor', text: 'Zápasiaci je príčastie a skloňuje sa podľa vzoru cudzí – úloha sa však pýta na prídavné meno v spojení „s diviačou hlavou“ (kľúč: C).' }
@@ -420,7 +420,7 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: ['A'],
     hint: 'Prečítaj si niekoľko viet za sebou: „Sadne si na svoje miesto. Má ho rezervované. Čašníci sa idú pretrhnúť.“ Aké sú dlhé?',
     solutionSteps: [
-      { title: 'Krátke vety', text: 'Text tvoria krátke jednoduché vety, ktoré rýchlo striedajú deje: „Sadne si na svoje miesto. Má ho rezervované. Čašníci sa idú pretrhnúť. Rácz chlípe a divo trhá mäso.“ Takéto hromadenie krátkych viet zrýchľuje tempo – dynamizuje.' },
+      { title: 'Krátke vety', text: 'Text tvoria prevažne krátke jednoduché vety (a krátke súvetia), ktoré rýchlo striedajú deje: „Sadne si na svoje miesto. Má ho rezervované. Čašníci sa idú pretrhnúť. Hostia si na to zvykli. Radi počkajú.“ Takéto hromadenie krátkych viet zrýchľuje tempo – dynamizuje.' },
       { title: 'Prečo nie ostatné', text: 'Oznamovacie vety samy osebe text nedynamizujú, stavové slovesá ho naopak spomaľujú a dlhé súvetia tiež.' }
     ],
     solutionConclusion: 'Správna odpoveď je A.'

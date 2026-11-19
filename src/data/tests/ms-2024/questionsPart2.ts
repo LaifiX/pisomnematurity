@@ -117,7 +117,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo sú ostatné možnosti nesprávne',
-        text: '**A** – //básnické pásmo// je rozsiahla polytematická báseň avantgardnej poézie založená na voľnom prúde predstáv (napr. Apollinaire: //Pásmo//), nie krátka intímna báseň s jednou témou.\n**B** – //rytmicko-syntaktický paralelizmus// nastáva, keď sa každý verš zhoduje s jednou vetou; tu však jedna veta presahuje cez viacero veršov (posledná veta tvorí až sedem veršov – ide o veršové presahy).\n**D** – v básni sa nenachádza //anafora// (opakovanie rovnakých slov na začiatku susedných veršov) ani //inotaj/alegória//.'
+        text: '**A** – //básnické pásmo// je rozsiahla polytematická báseň avantgardnej poézie založená na voľnom prúde predstáv (napr. Apollinaire: //Pásmo//), nie krátka intímna báseň s jednou témou.\n**B** – //rytmicko-syntaktický paralelizmus// nastáva, keď sa hranice veršov dôsledne zhodujú s hranicami viet alebo ucelených vetných celkov; v ukážke 5 sa však vyskytujú veršové presahy (napr. //Dostala som chuť / na malý spoločenský večer;// či //a s knižkou, / položenou len tak ledabolo pri ruke, / začnem rozhovor s pozvanými//).\n**D** – v básni sa nenachádza //anafora// (opakovanie rovnakých slov na začiatku susedných veršov) ani //inotaj/alegória//.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **C**.'
@@ -270,14 +270,14 @@ export const questionsPart2: QuestionData[] = [
     commonMistakes: [
       {
         pattern: 'sylabick|sylabotónick|sylabotonic|časomern|casomern|viazan',
-        hint: 'Spočítaj si slabiky v jednotlivých veršoch ukážky 5 (5, 8, 7, 8, 3…) a všimni si, že verše sa vôbec nerýmujú – nejde o viazaný verš so stálym počtom slabík ani stôp!'
+        hint: 'Spočítaj si slabiky v jednotlivých veršoch ukážky 5 (5, 9, 8, 8, 3…) a všimni si, že verše sa vôbec nerýmujú – nejde o viazaný verš so stálym počtom slabík ani stôp!'
       },
       {
         pattern: 'nerýmovan|bezrýmov',
         hint: 'Chýbajúci rým je len jeden z prejavov; ako sa v modernej poézii odborne volá verš s rôznou dĺžkou riadkov bez pevnej rytmickej schémy (opak viazaného verša)?'
       }
     ],
-    hint: 'Porovnaj dĺžku jednotlivých veršov v ukážke 5 (niektorý má 3 slabiky, iný 11 slabík) a pozri sa, či majú na konci rým. Ako nazývame moderný neviazaný verš bez pravidelného počtu slabík, stôp a rýmu?',
+    hint: 'Porovnaj dĺžku jednotlivých veršov v ukážke 5 (niektorý má 3 slabiky, iný až 12 či 13 slabík) a pozri sa, či majú na konci rým. Ako nazývame moderný neviazaný verš bez pravidelného počtu slabík, stôp a rýmu?',
     solutionSteps: [
       {
         title: 'Znaky verša v ukážke 5',
@@ -419,7 +419,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Ide o dve dôležité pravidlá z Pravidiel slovenského pravopisu: 1. Aké začiatočné písmeno majú prídavné mená na -ský utvorené od vlastných mien (ako štúrovský, shakespearovský)? 2. Čo sa pri pripájaní prípony -ský stane s koncovou spoluhláskou -g v základe Habsburg (podobne ako Hamburg → hamburský)?',
+    hint: 'Ide o dve dôležité pravidlá z Pravidiel slovenského pravopisu: 1. Aké začiatočné písmeno majú vzťahové prídavné mená na -ský utvorené od vlastných osobných a rodových mien? 2. Čo sa pri pripájaní prípony -ský stane so skupinou spoluhlások v základoch zakončených na -burg?',
     solutionSteps: [
       {
         title: '1. Malé začiatočné písmeno pri príponách -ský/-ovský',
@@ -427,7 +427,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: '2. Vypustenie spoluhlásky -g pred príponou -ský',
-        text: 'Pri tvorení prídavných mien príponou **-ský** od vlastných mien zakončených na **-g** (//Habsburg, Hamburg, Štrasburg//) sa koncové **g** pred //-ský// vypúšťa, aby sa zjednodušila ťažko vysloviteľná skupina hlások: //Habsburg + -ský// → **habsburský** (rovnako //Hamburg → hamburský//). Preto je správny tvar **portréty habsburských panovníkov** (**A**).'
+        text: 'Pri tvorení prídavných mien príponou **-ský** od vlastných mien zakončených na spoluhlásku + **-g**, najmä **-burg / -berg** (//Habsburg, Hamburg, Štrasburg, Norimberg//), sa koncové **g** pred //-ský// vypúšťa, aby sa zjednodušila ťažko vysloviteľná skupina spoluhlások: //Habsburg + -ský// → **habsburský** (rovnako //Hamburg → hamburský//). Preto je správny tvar **portréty habsburských panovníkov** (**A**).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **A**.'
@@ -458,7 +458,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Zadanie žiada pomenovanie jedného mužského obyvateľa Prahy (nominatív jednotného čísla mužského rodu).'
       }
     ],
-    hint: 'Spisovné slovenské obyvateľské mená sa tvoria príponou -an (nie českou príponou -ák!). Pri odvodení od mesta Praha sa spoluhláska h pred príponou -an zmení na ž. Nezabudni, aké začiatočné písmeno sa píše v obyvateľských menách miest a štátov!',
+    hint: 'Spisovné slovenské obyvateľské mená sa tvoria príponou -an (nie českou príponou -ák!). Daj si pozor na spoluhláskovú zmenu (alternáciu) pred príponou -an a na pravidlo o písaní začiatočného písmena v obyvateľských menách.',
     solutionSteps: [
       {
         title: 'Tvorenie spisovného obyvateľského mena',
@@ -498,17 +498,17 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         pattern: '^0$|^žiadne$|^ziadne$|^ani jedno$',
-        hint: 'Pozri sa hneď na prvé dve slová podčiarknutého odseku („Vďaka …“): nájdeš tam podstatné meno stredného rodu utvorené od slovesa príponou -nie (vzor vysvedčenie)!'
+        hint: 'Pozri sa hneď na prvé dve slová podčiarknutej časti („Vďaka …“): nájdeš tam podstatné meno stredného rodu utvorené od slovesa príponou -nie (vzor vysvedčenie)!'
       }
     ],
-    hint: 'Slovesné podstatné meno pomenúva dej, tvorí sa od slovesa príponou -nie alebo -tie a skloňuje sa podľa vzoru vysvedčenie (napr. písanie, čítanie). Prejdi si podčiarknutý odsek slovo po slove a daj si pozor na tvar „boli vyznamenaní“ – je to podstatné meno, alebo slovesné príčastie?',
+    hint: 'Slovesné podstatné meno pomenúva dej, tvorí sa od slovesa príponou -nie alebo -tie a skloňuje sa podľa vzoru vysvedčenie (napr. písanie, čítanie). Prejdi si podčiarknutú časť slovo po slove a daj si pozor na tvar „boli vyznamenaní“ – je to podstatné meno, alebo slovesné príčastie?',
     solutionSteps: [
       {
         title: 'Vyhľadanie slovesného podstatného mena',
-        text: 'Slovesné podstatné mená sú podstatné mená stredného rodu utvorené od slovies príponami **-nie / -tie** (vzor //vysvedčenie//). Hneď na začiatku podčiarknutého odseku stojí spojenie //„Vďaka **zásobovaniu** dvora…“// – tvar //zásobovaniu// (nominatív sg. **zásobovanie**, od slovesa //zásobovať//) je **slovesné podstatné meno**.'
+        text: 'Slovesné podstatné mená sú podstatné mená stredného rodu utvorené od slovies príponami **-nie / -tie** (vzor //vysvedčenie//). Hneď na začiatku podčiarknutej časti stojí spojenie //„Vďaka **zásobovaniu** dvora…“// – tvar //zásobovaniu// (nominatív sg. **zásobovanie**, od slovesa //zásobovať//) je **slovesné podstatné meno**.'
       },
       {
-        title: 'Pozor na chytáky vo zvyšku odseku',
+        title: 'Pozor na chytáky vo zvyšku podčiarknutej časti',
         text: '• Tvar //boli **vyznamenaní**// sa končí na dlhé **-í** – je to **trpné príčastie** v N pl. mužského rodu životného (súčasť prísudku k podmetu //majitelia//), nie slovesné podstatné meno //vyznamenanie//!\n• Slovo //dodávateľ// je činiteľské podstatné meno mužského rodu (vzor //chlap//).\nV podčiarknutej časti sa teda nachádza iba **1 (jedno)** slovesné podstatné meno. Kľúč NIVaM uznáva počet (**1 / jedno**) aj priame vypísanie slova (**zásobovaniu / zásobovanie**).'
       }
     ],
@@ -681,7 +681,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Zaradenie slohového útvaru textu B',
-        text: 'Text B je **žiadosť o prijatie do zamestnania (úradný list)** – patrí medzi dokumentárne/oznamovacie útvary **administratívneho štýlu**. Do tej istej skupiny úradných listov patrí aj **reklamácia** (**D**), objednávka, sťažnosť, urgencia či splnomocnenie.'
+        text: 'Text B je **žiadosť o prijatie do zamestnania (úradný list)** – patrí medzi oznamovacie útvary **administratívneho štýlu**. Do tej istej skupiny úradných listov patrí aj **reklamácia** (**D**), objednávka, sťažnosť, urgencia či upomienka.'
       },
       {
         title: 'Zaradenie ostatných slohových útvarov',
@@ -802,7 +802,7 @@ export const questionsPart2: QuestionData[] = [
     commonMistakes: [
       {
         pattern: 'hovorov|publicistick|náučn|naucn|rečníck|recnick|umeleck',
-        hint: 'Všimni si pevnú úradnú úpravu listu (záhlavie odosielateľa, adresa inštitúcie, miesto a dátum, „Vec: Žiadosť…“, zdvorilostná formulka a vlastnoručný podpis). Ktorý zo šiestich jazykových štýlov slúži na úradnú komunikáciu občana s inštitúciou?'
+        hint: 'Všimni si pevnú oficiálnu úpravu listu (záhlavie odosielateľa, adresa inštitúcie, miesto a dátum, „Vec: Žiadosť…“, zdvorilostná formulka a vlastnoručný podpis). Ktorý zo šiestich jazykových štýlov slúži na oficiálnu komunikáciu občana s inštitúciou?'
       },
       {
         pattern: 'informačn|informacn',
@@ -1032,14 +1032,14 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         pattern: '^obloku$|^oblok$',
-        hint: 'Slovo „oblok“ nie je básnické slovo (poetizmus), ale tradičné/hovorové pomenovanie okna. Prečítaj si tú istú vetu až do posledného slova!'
+        hint: 'Slovo „oblok“ nie je básnické slovo (poetizmus), ale štylisticky neutrálne spisovné synonymum slova „okno“. Prečítaj si tú istú vetu až do posledného slova!'
       },
       {
         pattern: '^zaprisahal$|^podchvíľou$|^bytosti$',
         hint: 'Toto slovo patrí do bežnej spisovnej (príp. knižnej) slovnej zásoby. Hľadaj na samom konci ukážky básnickú podobu slova „slnko“!'
       }
     ],
-    hint: 'Básnické slová (poetizmy) sú slová so slávnostným, umeleckým nádychom, ktoré majú v bežnej reči neutrálny náprotivok (napr. luna – mesiac, vesna – jar, kvet – kvietok/kvetina). Prečítaj si poslednú vetu zvýrazneného odseku až do úplného konca!',
+    hint: 'Básnické slová (poetizmy) sú slová so slávnostným, umeleckým nádychom, ktoré majú v bežnej reči neutrálny náprotivok (napr. luna – mesiac, vesna – jar, zora – úsvit). Prečítaj si poslednú vetu zvýrazneného odseku až do úplného konca!',
     solutionSteps: [
       {
         title: 'Vyhľadanie básnického slova (poetizmu)',

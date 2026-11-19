@@ -120,7 +120,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Pravdepodobnosť (domnienku) vyjadrujú slová ako možno, asi, zrejme; istotu zasa slová ako určite, nepochybne, je vylúčené. Hľadaj úryvok, v ktorom nájdeš obidva významy naraz.',
+    hint: 'Pravdepodobnosť (domnienku) vyjadrujú slová ako možno, zrejme, pravdepodobne; istotu zasa výrazy ako určite, bezpochyby, celkom isto. Hľadaj úryvok, v ktorom nájdeš obidva významy naraz.',
     solutionSteps: [
       {
         title: 'Pravdepodobnosť aj istota v jednej výpovedi',
@@ -156,7 +156,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Určenie syntaktických skladov',
-        text: 'Medzi vetnými členmi vznikli tri sklady:\n1. **prisudzovací sklad**: //Francúz ← vie// (podmet + prísudok),\n2. **prvý určovací sklad**: //akýsi ← Francúz// (prívlastok určuje podmet),\n3. **druhý určovací sklad**: //vie → o vražde// (predmet bližšie určuje prísudok).\nVo vete nie je žiadny viacnásobný vetný člen, takže priraďovací sklad sa v nej nenachádza. Veta teda obsahuje **dva určovacie sklady**.'
+        text: 'Medzi vetnými členmi vznikli tri sklady:\n1. **prisudzovací sklad**: //Francúz ↔ vie// (podmet + prísudok),\n2. **prvý určovací sklad**: //akýsi ← Francúz// (prívlastok určuje podmet),\n3. **druhý určovací sklad**: //vie → o vražde// (predmet bližšie určuje prísudok).\nVo vete nie je žiadny viacnásobný vetný člen, takže priraďovací sklad sa v nej nenachádza. Veta teda obsahuje **dva určovacie sklady**.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -202,11 +202,11 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Metafora prenáša význam na základe vonkajšej podobnosti. Tu je však meno autora (Cuvier) použité namiesto jeho knihy – ide o prenesenie významu na základe vecnej súvislosti.'
       }
     ],
-    hint: 'V podčiarknutej vete Dupin hovorí: „Prečítajte teraz túto pasáž z Cuviera.“ Číta rozprávač naozaj človeka Cuviera, alebo knihu, ktorú Cuvier napísal? Spomeň si, ako sa volá tróp založený na vnútornej vecnej súvislosti (autor namiesto diela).',
+    hint: 'V podčiarknutej časti „pasáž z Cuviera“ – číta rozprávač naozaj človeka Cuviera, alebo knihu, ktorú Cuvier napísal? Spomeň si, ako sa volá tróp založený na vnútornej vecnej súvislosti (autor namiesto diela).',
     solutionSteps: [
       {
         title: 'Vysvetlenie obrazného spojenia',
-        text: 'Spojenie //„pasáž z Cuviera“// v skutočnosti znamená *pasáž z knihy (spisu), ktorú napísal prírodovedec Cuvier*. Rovnako bežne hovoríme //čítať Hviezdoslava// alebo //počúvať Mozarta//.'
+        text: 'Spojenie //„pasáž z Cuviera“// v skutočnosti znamená //pasáž z knihy (spisu), ktorú napísal prírodovedec Cuvier//. Rovnako bežne hovoríme //čítať Hviezdoslava// alebo //počúvať Mozarta//.'
       },
       {
         title: 'Pomenovanie trópu',
@@ -316,7 +316,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Rytmus a tvary slov v 3. strofe',
-        text: 'Všetky štyri verše 3. strofy sú osemslabičné:\n//Ke-by bol vtá-čik ma-luč-ký// (8)\n//die-ťa-ťu sa-dol na rúč-ky,// (8)\n//ke-by to die-ťa ve-de-lo,// (8)\n//čo **ku** ob-la-kom le-te-lo.// (8)\nV bežnej spisovnej slovenčine je pred slovom //oblakom// neslabičná predložka //k// (*k oblakom*), lenže verš by mal potom iba 7 slabík. Básnik preto z rytmických dôvodov použil vokalizovaný tvar **ku oblakom** (a v 1. verši aj menej zvyčajný tvar zdrobneniny **malučký**, aby sa rýmoval so slovom //rúčky//).'
+        text: 'Všetky štyri verše 3. strofy sú osemslabičné:\n//Ke-by bol vtá-čik ma-luč-ký// (8)\n//die-ťa-ťu sa-dol na rúč-ky,// (8)\n//ke-by to die-ťa ve-de-lo,// (8)\n//čo **ku** ob-la-kom le-te-lo.// (8)\nV bežnej spisovnej slovenčine je pred slovom //oblakom// neslabičná predložka //k// (//k oblakom//), lenže verš by mal potom iba 7 slabík. Básnik preto z rytmických dôvodov použil vokalizovaný tvar **ku oblakom** (a v 1. verši aj menej zvyčajný tvar zdrobneniny **malučký**, aby sa rýmoval so slovom //rúčky//).'
       },
       {
         title: 'Prečo nie ostatné možnosti',
@@ -405,7 +405,7 @@ export const questionsPart1: QuestionData[] = [
       'v III. strofe'
     ],
     lenient: true,
-    hint: 'Zdrobnenina (deminutívum) je slovo odvodené príponou, ktoré pomenúva niečo malé a zároveň vyjadruje nežný, láskavý vzťah (napr. dom → domček, ruka → rúčka). Prejdi strofu po strofe a hľadaj takéto zjemnené slová.',
+    hint: 'Zdrobnenina (deminutívum) je slovo odvodené príponou, ktoré pomenúva niečo malé a zároveň vyjadruje nežný, láskavý vzťah (napr. dom → domček, strom → stromček). Prejdi strofu po strofe a hľadaj takéto zjemnené slová.',
     solutionSteps: [
       {
         title: 'Čo sú zdrobneniny',
@@ -413,7 +413,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Nájdenie v básni',
-        text: 'Pozrime sa na **tretiu strofu**:\n//Keby bol **vtáčik** **malučký** / dieťaťu sadol na **rúčky**…//\nNachádzajú sa tu hneď tri zdrobnené výrazy: podstatné mená **vtáčik** (od *vták*) a **rúčky** (od *ruky*) aj zjemnené prídavné meno **malučký** (od *malý*). V ostatných strofách zdrobneniny nie sú.'
+        text: 'Pozrime sa na **tretiu strofu**:\n//Keby bol **vtáčik** **malučký** / dieťaťu sadol na **rúčky**…//\nNachádzajú sa tu hneď tri zdrobnené výrazy: podstatné mená **vtáčik** (od //vták//) a **rúčky** (od //ruky//) aj zjemnené prídavné meno **malučký** (od //malý//). V ostatných strofách zdrobneniny nie sú.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: v 3. strofe (tretia / 3.).'
@@ -432,18 +432,18 @@ export const questionsPart1: QuestionData[] = [
     commonMistakes: [
       {
         pattern: '^metafora$',
-        hint: 'Metafora je prenesenie významu na základe podobnosti; tu ide o básnický prívlastok (prídavné meno s obrazným citovým významom).'
+        hint: 'Metafora je prenesenie významu na základe podobnosti; tu ide o obrazné, citovo zafarbené prídavné meno rozvíjajúce podstatné meno – spomeň si na literárnovedný termín pre takýto prívlastok.'
       }
     ],
-    hint: 'Slovo „sladkej“ je prídavné meno, ktoré rozvíja podstatné meno „nedeli“. Nedeľa však nemá skutočnú sladkú chuť – prídavné meno jej dodáva obrazný, citovo zafarbený význam. Ako sa v literatúre volá takýto básnický prívlastok?',
+    hint: 'Slovo „sladkej“ je prídavné meno, ktoré rozvíja podstatné meno „nedeli“. Nedeľa však nemá skutočnú sladkú chuť – prídavné meno jej dodáva obrazný, citovo zafarbený význam. Ako sa v literárnej teórii nazýva takýto obrazný umelecký prívlastok?',
     solutionSteps: [
       {
         title: 'Rozbor slovného spojenia',
-        text: 'V spojení //po **sladkej** nedeli// stojí pred podstatným menom *nedeľa* prídavné meno **sladká** (vo funkcii zhodného prívlastku). Neurčuje bežnú vecnú vlastnosť (ako napr. *minulá nedeľa*), ale obrazne vyjadruje príjemný, blažený, citovo zafarbený dojem.'
+        text: 'V spojení //po **sladkej** nedeli// stojí pred podstatným menom //nedeľa// prídavné meno **sladká** (vo funkcii zhodného prívlastku). Neurčuje bežnú vecnú vlastnosť (ako napr. //minulá nedeľa//), ale obrazne vyjadruje príjemný, blažený, citovo zafarbený dojem.'
       },
       {
         title: 'Literárnovedné pomenovanie',
-        text: 'Obrazný, umelecký prívlastok s citovým významom sa nazýva **epiteton** (alebo slovensky **básnický prívlastok**; kľúč uznáva aj presnejšie označenia *epiteton ornans* a *epiteton constans*, neuznáva však odpoveď *metafora*).'
+        text: 'Obrazný, umelecký prívlastok s citovým významom sa nazýva **epiteton** (alebo slovensky **básnický prívlastok**; kľúč uznáva aj latinské pomenovania //epiteton ornans// a //epiteton constans//, neuznáva však odpoveď //metafora//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: epiteton (básnický prívlastok).'
@@ -478,11 +478,11 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Určenie rýmovej schémy',
-        text: 'Porovnajme si zakončenia veršov v strofách:\n• 2. strofa: //spanilý// (**a**) – //chránili// (**a**) – //chodníky// (**b**) – //spodníky// (**b**),\n• 3. strofa: //malučký// (**a**) – //rúčky// (**a**) – //vedelo// (**b**) – //letelo// (**b**),\n• 4. strofa: //vtelený// – //zelení//, //zelene// (**b**) – //Helene// (**b**),\n• 5. strofa: //ľaliu// (**a**) – //ju// (**a**) – //nedeli// (**b**) – //leteli// (**b**).\nRýmujú sa vždy dva susedné verše za sebou podľa schémy **AABB**.'
+        text: 'Porovnajme si zakončenia veršov v strofách:\n• 2. strofa: //spanilý// (**a**) – //chránili// (**a**) – //chodníky// (**b**) – //spodníky// (**b**),\n• 3. strofa: //malučký// (**a**) – //rúčky// (**a**) – //vedelo// (**b**) – //letelo// (**b**),\n• 4. strofa: //vtelený// (**a**) – //zelení// (**a**) – //zelene// (**b**) – //Helene// (**b**),\n• 5. strofa: //ľaliu// (**a**) – //ju// (**a**) – //nedeli// (**b**) – //leteli// (**b**).\nRýmujú sa vždy dva susedné verše za sebou podľa schémy **AABB**.'
       },
       {
         title: 'Pomenovanie druhu rýmu',
-        text: 'Rým so schémou AABB (prvý verš s druhým, tretí so štvrtým) sa volá **združený rým**. (Pre porovnanie: striedavý = ABAB, obkročný = ABBA, prerývaný = ABCB. Kľúč neuznáva samotnú schému *AABB* bez slovného pomenovania.)'
+        text: 'Rým so schémou AABB (prvý verš s druhým, tretí so štvrtým) sa volá **združený rým**. (Pre porovnanie: striedavý = ABAB, obkročný = ABBA, prerývaný = ABCB. Kľúč neuznáva samotnú schému //AABB// bez slovného pomenovania.)'
       }
     ],
     solutionConclusion: 'Správna odpoveď: združený (rým).'
@@ -536,11 +536,11 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Povinné verzus voliteľné suroviny',
-        text: 'Základnými a nevyhnutnými surovinami v recepte sú **zemiaky, polohrubá múka, 100-percentná ovčia bryndza a soľ** – z nich sa pripraví cesto, osolí voda a ochutia halušky. Možnosť **B** (*soľ, múka, ovčia bryndza*) obsahuje výlučne takéto nevyhnutné zložky.'
+        text: 'Základnými a nevyhnutnými surovinami v recepte sú **zemiaky, polohrubá múka, 100-percentná ovčia bryndza a soľ** – z nich sa pripraví cesto, osolí voda a ochutia halušky. Možnosť **B** (//soľ, múka, ovčia bryndza//) obsahuje výlučne takéto nevyhnutné zložky.'
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A, D – *opečená slaninka, výpek a nasekaná pažítka* sú iba voliteľné doplnky pri servírovaní: v surovinách majú poznámku //(podľa chuti)// a 3. bod sa začína slovami //„Ak chcete…“//.\nC – **smotana** do tohto receptu vôbec nepatrí (podľa Slavomíra Reľovského 100-percentná ovčia bryndza smotanu nepotrebuje).'
+        text: 'A, D – //opečená slaninka, výpek a nasekaná pažítka// sú iba voliteľné doplnky pri servírovaní: v surovinách majú poznámku //(podľa chuti)// a 3. bod sa začína slovami //„Ak chcete…“//.\nC – **smotana** do tohto receptu vôbec nepatrí (podľa Slavomíra Reľovského 100-percentná ovčia bryndza smotanu nepotrebuje).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -568,7 +568,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'B – vo vete nie sú postavené do kontrastu nijaké protikladné pojmy.\nC – všetky slová vo vete sú spisovné, nenachádza sa v nej žiadne nárečové slovo.\nD – nejde o ustálené ľudové príslovie, porekadlo ani pranostiku (frazeologizmus), ale o autorské obrazné prirovnanie situácie.'
+        text: 'B – vo vete nie sú postavené do kontrastu nijaké protikladné pojmy.\nC – všetky slová vo vete sú spisovné, nenachádza sa v nej žiadne nárečové slovo.\nD – nejde o ustálené slovné spojenie (frazeologizmus), ale o autorské obrazné (metaforické) vyjadrenie.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -592,11 +592,11 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Veta podľa obsahu (zámeru hovoriaceho)',
-        text: 'Sloveso **nevidíte** je v **oznamovacom spôsobe** (rozkazovací spôsob by znel *neviďte!*). Hovoriaci nám nič neprikazuje, iba nám s prekvapením a dôrazom **oznamuje** skutočnosť, že kvalitná bryndza splynie s haluškami. Výkričník na konci vyjadruje len zvolaciu intonáciu (citové zafarbenie). Z hľadiska obsahu je to teda **oznamovacia veta**.'
+        text: 'Sloveso **nevidíte** je v **oznamovacom spôsobe** (rozkazovací spôsob by znel //neviďte!//). Hovoriaci nám nič neprikazuje, iba nám s prekvapením a dôrazom **oznamuje** skutočnosť, že kvalitná bryndza splynie s haluškami. Výkričník na konci vyjadruje len zvolaciu intonáciu (citové zafarbenie). Z hľadiska obsahu je to teda **oznamovacia veta**.'
       },
       {
         title: 'Prečo nie možnosti A, B a C',
-        text: 'A – k prísudku //nevidíte// patrí zamlčaný (nevyjadrený) podmet *(vy)*. Dvojčlenná veta, v ktorej podmet nie je priamo slovne vyjadrený, je **dvojčlenná neúplná**, nie úplná (úplná by bola *Vy na nich bryndzu nevidíte!*).\nB – keďže si podmet *vy* vieme zo slovesného tvaru jednoznačne doplniť, nejde o jednočlennú vetu (jednočlenná je v texte napr. veta //Preto ju takmer nevidno//).\nC – výkričník ešte nerobí z vety rozkazovaciu; chýba v nej rozkazovací spôsob aj zámer niekomu niečo prikázať.'
+        text: 'A – k prísudku //nevidíte// patrí zamlčaný (nevyjadrený) podmet //(vy)//. Dvojčlenná veta, v ktorej podmet nie je priamo slovne vyjadrený, je **dvojčlenná neúplná**, nie úplná (úplná by bola //Vy na nich bryndzu nevidíte!//).\nB – keďže si podmet //vy// vieme zo slovesného tvaru jednoznačne doplniť, nejde o jednočlennú vetu (jednočlenná je v texte napr. veta //Preto ju takmer nevidno//).\nC – výkričník ešte nerobí z vety rozkazovaciu; chýba v nej rozkazovací spôsob aj zámer niekomu niečo prikázať.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -616,15 +616,15 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Skontroluj tri veci podľa Pravidiel slovenského pravopisu: 1. i/y v číslovke štyri, 2. aké znamienko sa píše namiesto slova „až“ medzi číslami (pomlčka s medzerami, spojovník alebo lomka?), 3. ako sa píše bežná skratka slova minúta na rozdiel od značky metra.',
+    hint: 'Skontroluj tri veci podľa Pravidiel slovenského pravopisu: 1. i/y v číslovke 4 napísanej slovom, 2. aké znamienko sa píše namiesto slova „až“ medzi číslami (pomlčka s medzerami, spojovník alebo lomka?), 3. ako sa píše bežná skratka slova minúta na rozdiel od značky metra.',
     solutionSteps: [
       {
         title: 'Tri pravopisné pravidlá (podľa PSP)',
-        text: '1. **Číslovka štyri**: po tvrdej spoluhláske *t* píšeme v koreni slova **y**, no v koncovke (rovnako ako v číslovke *tri*) je mäkké **i** → **štyri**.\n2. **Číselné rozpätie (5 až 8)**: vo význame *„od – do / až“* sa medzi číslami píše **pomlčka oddelená medzerami** → **5 – 8**.\n3. **Skratka slova minúta**: administratívna a bežná textová skratka slova *minúta* sa píše s bodkou na konci → **min.**'
+        text: '1. **Číslovka štyri**: po tvrdej spoluhláske //t// píšeme v koreni slova **y**, no v koncovke (rovnako ako v číslovke //tri//) je mäkké **i** → **štyri**.\n2. **Číselné rozpätie (5 až 8)**: vo význame //„od – do / až“// sa medzi číslami píše **pomlčka oddelená medzerami** → **5 – 8**.\n3. **Skratka slova minúta**: administratívna a bežná textová skratka slova //minúta// sa píše s bodkou na konci → **min.**'
       },
       {
         title: 'Prečo sú ostatné možnosti chybné',
-        text: 'B – chybný pravopis *štiry*, lomka *5/8* namiesto pomlčky a chýbajúca bodka za skratkou (//min// bez bodky je fyzikálna značka, v bežnom texte píšeme //min.//).\nC – kratší spojovník *- * namiesto pomlčky a **m** bez bodky je značka **metra**, nie minúty.\nD – chybný pravopis *štyry*, lomka namiesto pomlčky a nesprávna skratka *m.*'
+        text: 'B – chybný pravopis //štiry//, lomka //5/8// namiesto pomlčky a chýbajúca bodka za skratkou (//min// bez bodky je fyzikálna značka, v bežnom texte píšeme //min.//).\nC – kratší spojovník //-// namiesto pomlčky a **m** bez bodky je značka **metra**, nie minúty.\nD – chybný pravopis //štyry//, lomka namiesto pomlčky a nesprávna skratka //m.//'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -647,7 +647,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Opis je slohový útvar – zadanie sa pýta na slohový postup (prídavné meno zakončené na -ný).'
       }
     ],
-    hint: 'Spomeň si na štyri základné slohové postupy: informačný, rozprávací, opisný a výkladový. Časť „Ako na to“ v kuchynskom recepte zachytáva pracovný postup krok za krokom – ku ktorému slohovému postupu patrí opis pracovného postupu?',
+    hint: 'Spomeň si na štyri základné slohové postupy: informačný, rozprávací, opisný a výkladový. Časť „Ako na to“ v kuchynskom recepte zachytáva pracovný postup krok za krokom – ktorý slohový postup sa v takomto pracovnom návode uplatňuje?',
     solutionSteps: [
       {
         title: 'Recept ako opis pracovného postupu',
@@ -655,7 +655,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Slohový postup verzus slohový útvar',
-        text: 'Základom opisu pracovného postupu je **opisný slohový postup** (pozor: tvar *opis* neuznávame, pretože *opis* je slohový útvar, kým slohový postup vyjadrujeme prídavným menom **opisný**).'
+        text: 'Základom opisu pracovného postupu je **opisný slohový postup** (pozor: tvar //opis// neuznávame, pretože //opis// je slohový útvar, kým slohový postup vyjadrujeme prídavným menom **opisný**).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: opisný (slohový postup).'
@@ -674,11 +674,11 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Čo je nesklonné prídavné meno',
-        text: 'Väčšina slovenských prídavných mien sa skloňuje (//dobrý recept – bez dobrého receptu – o dobrom recepte//). **Nesklonné prídavné mená** sú spravidla prevzaté z cudzích jazykov a v žiadnom páde, rode ani čísle nepriberajú pádové prípony (napr. *super, fajn, extra, khaki, blond*).'
+        text: 'Väčšina slovenských prídavných mien sa skloňuje (//dobrý recept – bez dobrého receptu – o dobrom recepte//). **Nesklonné prídavné mená** sú spravidla prevzaté z cudzích jazykov a v žiadnom páde, rode ani čísle nepriberajú pádové prípony (napr. //super, fajn, extra, khaki, blond//).'
       },
       {
         title: 'Nájdenie v úvodnej časti ukážky 3',
-        text: 'V 1. a 2. odseku čítame: //„A tu je jeho **top** recept!“// a //„jeden z **top** na celom svete“//. Slovo **top** (vo význame *špičkový, najlepší*) tu určuje vlastnosť podstatného mena a pri skloňovaní sa vôbec nemení (*top recept, z top receptu, o top recepte*).'
+        text: 'V 1. a 2. odseku čítame: //„A tu je jeho **top** recept!“// a //„jeden z **top** na celom svete“//. Slovo **top** (vo význame //špičkový, najlepší//) tu určuje vlastnosť podstatného mena a pri skloňovaní sa vôbec nemení (//top recept, z top receptu, o top recepte//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: top.'
@@ -704,7 +704,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Rozbor jazykových prostriedkov v citátoch',
-        text: 'Hoci celý článok vyšiel na spravodajsko-publicistickom portáli, samotné priame vyjadrenia Slavomíra Reľovského v úvodzovkách sú uvoľnené, spontánne a citovo zafarbené: používa expresívne a hovorové výrazy ako //frflete//, //zacítite až-až//, //vlastne//, //jeden z top// či vtipné prirovnanie o bryndzi, ktorá //nepotrebuje spoločnosť//.'
+        text: 'Hoci celý článok vyšiel na spravodajsko-publicistickom portáli, samotné priame vyjadrenia Slavomíra Reľovského v úvodzovkách sú uvoľnené, spontánne a citovo zafarbené: používa expresívne a hovorové výrazy ako //frflete//, //zacítite až-až//, //vlastne//, //jeden z top// či vtipné obrazné vyjadrenie o bryndzi, ktorá //nepotrebuje spoločnosť//.'
       },
       {
         title: 'Určenie jazykového štýlu',
@@ -738,7 +738,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – seriálom boli *Štúrovci* (1991), *True Štúr* nie je dokumentárny seriál o dobovom vyšetrovaní.\nB – nejde o hraný životopisný film o celom živote Štúra a Róbert Roth v ňom nehral Ľudovíta Štúra, ale **vyšetrovateľa**.\nD – v texte je dielo výslovne označené ako *dokument*, nie historický hraný film.'
+        text: 'A – seriálom boli //Štúrovci// (1991), //True Štúr// nie je dokumentárny seriál o dobovom vyšetrovaní.\nB – nejde o hraný životopisný film o celom živote Štúra a Róbert Roth v ňom nehral Ľudovíta Štúra, ale **vyšetrovateľa**.\nD – v texte je dielo výslovne označené ako //dokument//, nie historický hraný film.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -814,15 +814,15 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Pozor, hľadáš __nepravdivé__ tvrdenie! Štúrova slovenčina (1843) mala fonetický pravopis „píš, ako počuješ“. Spomeň si, v ktorom cudzom jazyku (nie v slovenčine!) sa všetky podstatné mená píšu s veľkým začiatočným písmenom.',
+    hint: 'Pozor, hľadáš nepravdivé tvrdenie! Štúrova slovenčina (1843) uplatňovala fonetický pravopis „píš, ako počuješ“ (bez ypsilonu, bez mäkkého ľ, s mäkčeňmi a osobitným zápisom dvojhlások). Ktoré zo štyroch tvrdení do štúrovskej slovenčiny nepatrí, lebo je typické pre cudzí jazyk?',
     solutionSteps: [
       {
         title: 'Odhalenie nepravdivého tvrdenia',
-        text: 'Písanie všetkých podstatných mien s veľkým začiatočným písmenom je typickým pravidlom **nemčiny** (napr. *das Haus, die Schule*), v štúrovskej slovenčine nikdy neplatilo. Tvrdenie **A** je teda **nepravdivé**.'
+        text: 'Písanie všetkých podstatných mien s veľkým začiatočným písmenom je typickým pravidlom **nemčiny** (napr. //das Haus, die Schule//), v štúrovskej slovenčine nikdy neplatilo. Tvrdenie **A** je teda **nepravdivé**.'
       },
       {
         title: 'Zopakujme si hlavné pravidlá štúrovskej slovenčiny (B, C, D sú pravdivé)',
-        text: 'Štúrova kodifikácia (1843, spis //Nauka reči slovenskej//, 1846) vychádzala zo stredoslovenského nárečia a uplatňovala **fonetický princíp** (*píš, ako počuješ*):\n• písalo sa iba mäkké **i / í**, ypsilon (**y / ý**) sa vôbec nepoužíval,\n• dvojhlásky sa zapisovali ako **ja, je, ju, uo** (napr. *vjac, bjelí, muoj*),\n• mäkké spoluhlásky **ď, ť, ň** sa dôsledne písali s mäkčeňom aj pred *e, i* (napr. *ďeťi, ňebo*),\n• mäkké **ľ** neexistovalo, všade sa písalo len **l** (napr. *lud, král*).'
+        text: 'Štúrova kodifikácia (1843, spis //Nauka reči slovenskej//, 1846) vychádzala zo stredoslovenského nárečia a uplatňovala **fonetický princíp** (//píš, ako počuješ//):\n• písalo sa iba mäkké **i / í**, ypsilon (**y / ý**) sa vôbec nepoužíval,\n• dvojhlásky sa zapisovali ako **ja, je, ju, uo** (napr. //vjac, bjeli, muoj//),\n• mäkké spoluhlásky **ď, ť, ň** sa dôsledne písali s mäkčeňom aj pred //e, i// (napr. //ďeťi, ňebo//),\n• mäkké **ľ** neexistovalo, všade sa písalo len **l** (napr. //lud, král//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -842,7 +842,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Združené pomenovanie je viacslovný ustálený názov, ktorý ako celok pomenúva jednu konkrétnu vec alebo pojem (napr. stredná škola, osobný vlak, krstné meno). Vyskúšaj, v ktorom spojení tvoria dve slová nerozlučný názov jedného predmetu v kaviarni či reštaurácii.',
+    hint: 'Združené pomenovanie je viacslovný ustálený názov, ktorý ako celok pomenúva jednu konkrétnu vec alebo pojem (napr. stredná škola, osobný vlak, krstné meno). Vyskúšaj, v ktorom spojení tvoria dve slová nerozlučný ustálený názov jedného predmetu.',
     solutionSteps: [
       {
         title: 'Čo je združené pomenovanie',
@@ -850,7 +850,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Porovnanie možností',
-        text: '• **jedálny lístok** (C) – ustálený názov konkrétnej tlačoviny s ponukou jedál v reštaurácii (rovnako *nápojový lístok, cestovný lístok*) → **združené pomenovanie**.\n• *slovenské divadlo* (A), *terminológia súčasníkov* (B) a *životný osud* (D) sú len bežné **voľné slovné spojenia**, v ktorých prívlastok voľne spresňuje podstatné meno (divadlo môže byť aj *ochotnícke, moderné*; osud *ťažký, ľudský*).'
+        text: '• **jedálny lístok** (C) – ustálený názov konkrétnej tlačoviny s ponukou jedál v reštaurácii (rovnako //nápojový lístok, cestovný lístok//) → **združené pomenovanie**.\n• //slovenské divadlo// (A), //terminológia súčasníkov// (B) a //životný osud// (D) sú len bežné **voľné slovné spojenia**, v ktorých prívlastok voľne spresňuje podstatné meno (divadlo môže byť aj //ochotnícke, moderné//; osud //ťažký, ľudský//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -865,7 +865,7 @@ export const questionsPart1: QuestionData[] = [
     placeholder: 'Vypíš slovo z podčiarknutej časti',
     correctAnswerDisplay: 'dokonca',
     acceptedAnswers: ['dokonca'],
-    hint: 'Prečítaj si záver podčiarknutého súvetia, kde autorka stupňuje prekvapivé fakty o Štúrovej popularite až po registráciu obchodnej značky. Ktoré neohybné slovo (vytyčovacia častica) tam stojí tesne pred slovom „zaregistrovaný“ a zdôrazňuje ho?',
+    hint: 'Prečítaj si záver podčiarknutého súvetia, kde autorka stupňuje prekvapivé fakty o Štúrovej popularite až k nečakanému vrcholu. Hľadaj tam neohybné slovo (vytyčovaciu časticu), ktoré zdôrazňuje poslednú uvedenú informáciu.',
     solutionSteps: [
       {
         title: 'Vyhľadanie v podčiarknutej vete',
@@ -873,7 +873,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Slovnodruhová platnosť',
-        text: 'Slovo **dokonca** je **vytyčovacia (zdôrazňovacia) častica** – upozorňuje na prekvapivý vrchol výpočtu a zdôrazňuje informáciu, ktorá bezprostredne nasleduje za ňou (*dokonca zaregistrovaný ako obchodná značka*). Slovo musí byť vypísané pravopisne správne.'
+        text: 'Slovo **dokonca** je **vytyčovacia (zdôrazňovacia) častica** – upozorňuje na prekvapivý vrchol výpočtu a zdôrazňuje informáciu, ktorá bezprostredne nasleduje za ňou (//dokonca zaregistrovaný ako obchodná značka//). Slovo musí byť vypísané pravopisne správne.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: dokonca.'
@@ -891,7 +891,7 @@ export const questionsPart1: QuestionData[] = [
     commonMistakes: [
       {
         pattern: '^zportr[eé]tova[tť]',
-        hint: 'Pred neznelou spoluhláskou p sa v dokonavom slovese píše predpona s- (sportrétovať, podobne ako spracovať, spísať), nie z-.'
+        hint: 'Pred neznelou spoluhláskou p sa v dokonavom slovese píše predpona s- (podobne ako spracovať, spísať), nie z-.'
       }
     ],
     hint: 'Neurčitok slovesa sa v slovenčine končí príponou -ť (robiť, maľovať). Od podstatného mena portrét utvor sloveso s významom „zobrazovať niekoho na portréte“ – nezabudni zachovať dĺžeň v základe slova (a ak pridáš predponu, daj pozor na znelosť pred spoluhláskou p).',
@@ -902,7 +902,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Pozor na pravopis',
-        text: '1. Dĺžeň na **é** v základe slova ostáva zachovaný (**portrétovať**), pretože pred ním nestojí dlhá slabika.\n2. Ak použijeme predponu, pred neznelou spoluhláskou **p** sa podľa Pravidiel slovenského pravopisu píše predpona **s-** (*sportrétovať*, rovnako ako *spracovať, spísať*), nikdy nie *z-*.'
+        text: '1. Dĺžeň na **é** v základe slova ostáva zachovaný (**portrétovať**), pretože pred ním nestojí dlhá slabika.\n2. Ak použijeme predponu, pred neznelou spoluhláskou **p** sa podľa Pravidiel slovenského pravopisu píše predpona **s-** (//sportrétovať//, rovnako ako //spracovať, spísať//), nikdy nie //z-//.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: portrétovať / sportrétovať (aj so sa).'
@@ -932,7 +932,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Ako hodnotí kľúč',
-        text: 'Hľadaný jednoslovný názov smeru je **romantizmus** (kľúč uznáva aj spojenie *slovenský romantizmus* či odpoveď v predložkovom páde *do romantizmu*).'
+        text: 'Hľadaný jednoslovný názov smeru je **romantizmus** (kľúč uznáva aj spojenie //slovenský romantizmus// či odpoveď v predložkovom páde //do romantizmu//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: romantizmus.'

@@ -61,7 +61,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Vylúčenie ostatných možností',
-        text: 'B – vyjadruje sa aj k trojslovným a štvorslovným spojeniam (//tréningový bežiaci pás//, //bežecký a chodecký pás//).\nC – ustálené výrazy naopak podporuje a opiera sa o ne.\nD – pripomienkam používateľov sa nevyhýba, priamo na ne reaguje (//„stretli sme sa s námietkami, že bežecký pás sa nepoužíva iba na behanie…“//).'
+        text: 'B – vyjadruje sa aj k trojslovným a štvorslovným spojeniam (//tréningový bežiaci pás//, //bežecký a chodecký pás//).\nC – ustálené výrazy naopak podporuje a opiera sa o ne.\nD – pripomienkam používateľov sa nevyhýba, priamo na ne reaguje (//„Pri tomto pomenovaní sme sa stretli s námietkami, že bežecký pás sa nepoužíva iba na behanie…“//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **A**.'
@@ -178,7 +178,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Kontrola slov vo vete',
-        text: 'Väčšina slov vo vete sa končí samohláskou. Spoluhláskou sa končia len dve slová uprostred vety:\n1. //Výraz bežecký// – koncové **z** je znelé a nasledujúce **b** je tiež znelé → vyslovujeme `[výraz bežecký]`, žiadna zmena nenastáva!\n2. //**pás** dostatočne// – koncové **s** v slove //pás// je **neznelé**, ale nasledujúce slovo //dostatočne// sa začína **znelou** spoluhláskou **d**. Neznelé //s// sa preto spodobí na svoj znelý pár **z** a v prúde reči vyslovíme `[páz dostatočne]`.'
+        text: 'Väčšina slov vo vete sa končí samohláskou. Spoluhláskou sa končia len dve slová vo vete:\n1. //Výraz bežecký// – koncové **z** je znelé a nasledujúce **b** je tiež znelé → vyslovujeme [víraz bežeckí], žiadna zmena znelosti nenastáva!\n2. //**pás** dostatočne// – koncové **s** v slove //pás// je **neznelé**, ale nasledujúce slovo //dostatočne// sa začína **znelou** spoluhláskou **d**. Neznelé //s// sa preto spodobí na svoj znelý pár **z** a v prúde reči vyslovíme **[páz dostatočňe]**.'
       },
       {
         title: 'Ako hodnotí kľúč',
@@ -203,12 +203,18 @@ export const questionsPart1: QuestionData[] = [
       'do chôdze',
       'od chôdze',
       'okolo chôdze',
-      'počas chôdze'
+      'počas chôdze',
+      'podľa chôdze',
+      'okrem chôdze',
+      'namiesto chôdze',
+      'miesto chôdze',
+      'mimo chôdze',
+      'uprostred chôdze'
     ],
     commonMistakes: [
       {
         pattern: '^(bez\\s+|z\\s+|do\\s+|od\\s+)?chôdzi$',
-        hint: 'Tvar „chôdzi“ patrí do datívu a lokálu (ku chôdzi, o chôdzi). Slovo „chôdza“ má v základnom tvare príponu -a po mäkkej spoluhláske dz – skloňuje sa podľa vzoru ulica (bez ulice → bez …).'
+        hint: 'Tvar „chôdzi“ patrí do datívu a lokálu (k chôdzi, o chôdzi). Slovo „chôdza“ má v základnom tvare príponu -a po mäkkej spoluhláske dz – skloňuje sa podľa vzoru ulica (bez ulice → bez …).'
       },
       {
         pattern: '^(bez\\s+|z\\s+|do\\s+|od\\s+)?chodze$',
@@ -313,7 +319,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo neplatia ostatné možnosti',
-        text: 'A – básnická otázka sa nachádza iba v texte D (//Po nás potopa?//), v texte A otázka vôbec nie je.\nC – sylabický verš vyžaduje pravidelný (rovnaký) počet slabík vo veršoch a rým, čo v týchto nerýmovaných trojveršiach neplatí.\nD – ide o voľný verš bez pravidelnej stopovej organizácie (trochejov či daktylov).'
+        text: 'A – básnická otázka sa nachádza iba v texte D (//Po nás potopa?//), v texte A otázka vôbec nie je.\nC – sylabický verš vyžaduje pravidelný (rovnaký) počet slabík vo veršoch a rým, čo v týchto nerýmovaných trojveršiach neplatí.\nD – texty nemajú rovnakú ani pravidelnú stopovú organizáciu (trochejov či daktylov): text A je písaný voľným veršom (6 – 4 – 7 slabík) a text D dodržiava slabičnú schému haiku (5 – 7 – 5).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **B**.'
@@ -459,7 +465,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Pozor! Spojenie „ľudová tvorba“ kľúč neuznáva, lebo nie je presným literárnovedným termínom (zahŕňa aj výšivky, tanec či rezbárstvo). Pomenuj konkrétny žáner, ktorý si pri slovách „Hájku, háječku, hájku zelený…“ spievame, alebo celé ústne slovesné umenie ľudu!'
       }
     ],
-    hint: 'Prečítaj si nahlas verše textu C: „Haiku, haiečku, / haiku zelený…“. Pripomínajú ti známu slovenskú melódiu „Hájku, háječku, hájku zelený…“? Ako sa v literatúre volá tento spievaný žáner (ľudová …) alebo súhrnne celá ústna tvorba ľudu (ľudová …)?',
+    hint: 'Prečítaj si nahlas verše textu C: „Haiku, haiečku, / haiku zelený…“. Pripomínajú ti známu slovenskú melódiu „Hájku, háječku, hájku zelený…“? Ako sa v literatúre volá tento spievaný žáner (ľudová …) alebo súhrnne celé ústne slovesné umenie ľudu (ľudová …)?',
     solutionSteps: [
       {
         title: 'Odhalenie narážky (alúzie) v texte C',
@@ -500,7 +506,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Overenie všetkých kategórií slovesa zízaš',
-        text: 'Sloveso **zízaš**: **2. osoba** (//ty//), **singulár** (jednotné číslo), **prítomný čas** (práve teraz zízaš), **oznamovací spôsob** (opýtať sa v oznamovacom spôsobe – nejde o rozkaz //zízaj!// ani podmienku //zízal by si//) a **nedokonavý vid** (pýtame sa //čo robíš?// – dej prebieha a nie je ukončený).\nSlovo treba vypísať pravopisne správne s mäkkým dlhým **í**: **zízaš**.'
+        text: 'Sloveso **zízaš**: **2. osoba** (//ty//), **singulár** (jednotné číslo), **prítomný čas** (práve teraz zízaš), **oznamovací spôsob** (aj v opytovacej vete stojí sloveso v oznamovacom spôsobe – nejde o rozkaz //zízaj!// ani o podmienku //zízal by si//) a **nedokonavý vid** (pýtame sa //čo robíš?// – dej prebieha a nie je ukončený).\nSlovo treba vypísať pravopisne správne s mäkkým dlhým **í**: **zízaš**.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: **zízaš**.'
@@ -534,7 +540,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Cudzie podstatné mená zakončené na -u',
-        text: 'Prevzaté podstatné mená stredného rodu zakončené na samohlásku //-u// (napr. //haiku, menu, tabu, tofu, interview//) nemajú v slovenčine pádové prípony – vo všetkých pádoch zostávajú v nezmenenom tvare (//z haiku, v haiku, o haiku//).'
+        text: 'Prevzaté podstatné mená stredného rodu zakončené na samohlásku //-u// (napr. //haiku, menu, tabu, tofu, tiramisu//) nemajú v slovenčine pádové prípony – vo všetkých pádoch zostávajú v nezmenenom tvare (//z haiku, v haiku, o haiku//).'
       },
       {
         title: 'Gramatický termín',
@@ -680,7 +686,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Vysvetlenie ostatných pojmov',
-        text: 'B – **slangové slová**: nespisovné slová záujmovej alebo profesijnej skupiny (napr. //zasadačka, matika//; v titulku ukážky má blízko k hovorovosti len úvodzovkové //„CT-čko“//).\nC – **eufemizmy**: zjemňujúce pomenovania nepríjemných javov (napr. //usnúť naveky// namiesto //zomrieť//).\nD – **archaizmy**: zastarané slová, ktoré už nahradil modernejší výraz (napr. //lučba// namiesto //chémia//).'
+        text: 'B – **slangové slová**: nespisovné slová záujmovej alebo profesijnej skupiny (napr. //matika, slovina, komp//; v titulku ukážky má blízko k hovorovosti len úvodzovkové //„CT-čko“//).\nC – **eufemizmy**: zjemňujúce pomenovania nepríjemných javov (napr. //usnúť naveky// namiesto //zomrieť//).\nD – **archaizmy**: zastarané slová, ktoré už nahradil modernejší výraz (napr. //lučba// namiesto //chémia//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **A**.'
@@ -748,8 +754,14 @@ export const questionsPart1: QuestionData[] = [
       'výkričník',
       'vykricnik',
       'výkričnik',
+      'vykričnik',
       'vykričník',
       'vykricník',
+      'výkricnik',
+      'výkricník',
+      'víkričník',
+      'vikričník',
+      'vikricnik',
       'výkryčník',
       'vykryčník',
       'vykrycnik',
@@ -759,15 +771,19 @@ export const questionsPart1: QuestionData[] = [
       'vykricniky',
       'znamienko výkričník',
       'znamienko vykricnik',
+      'znamienko vykričnik',
       'znamienko vykričník',
       'znamienko výkričnik',
       'interpunkčné znamienko výkričník',
+      'interpunkčné znamienko vykričnik',
       'interpunkcne znamienko vykricnik',
       '!',
       'znamienko !',
       'interpunkčné znamienko !',
       'výkričník (!)',
-      'výkričník !'
+      'výkričník !',
+      'vykricnik (!)',
+      'vykricnik !'
     ],
     commonMistakes: [
       {
@@ -779,7 +795,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Úvodzovky pri slove „CT-čko“ len naznačujú prenesený/hovorový výraz a v 3. odseku oddeľujú citát. Senzáciu a zvolanie na konci titulku aj prvej vety vytvára iné znamienko!'
       }
     ],
-    hint: 'Pozri sa na titulok článku („Neuveríte, akých pacientov skenuje toto ‚CT-čko‘!“) a hneď na prvú vetu prvého odseku („Veľký stroj, ešte väčšia pomoc!“). Ktoré interpunkčné znamienko na ich konci zvyšuje napätie a dojem senzácie?',
+    hint: 'Pozri sa na záver titulku článku a na záver prvej vety prvého odseku ukážky 3. Ktoré interpunkčné znamienko tam autor použil na zvýšenie napätia a vytvorenie dojmu senzácie?',
     solutionSteps: [
       {
         title: 'Znamienko v titulku a v úvode článku',
@@ -817,7 +833,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: '2. Určenie vetného člena',
-        text: 'Pýtame sa otázkou 1. pádu: **Kto? Čo** sa tu používa? → //(najkvalitnejšie) **drevo**//.\nPodstatné meno //drevo// v nominatíve tvorí so slovesom //sa používa// prisudzovací sklad (//drevo ← sa používa//), je to teda **podmet** (odborne **subjekt**).'
+        text: 'Pýtame sa otázkou 1. pádu: **Kto? Čo** sa tu používa? → //(najkvalitnejšie) **drevo**//.\nPodstatné meno //drevo// v nominatíve tvorí so slovesom //sa používa// prisudzovací sklad (//drevo ↔ sa používa//), je to teda **podmet** (odborne **subjekt**).'
       },
       {
         title: 'Ako hodnotí kľúč',
@@ -931,7 +947,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Vecný a neformálny charakter inzerátu',
-        text: '1. Texty rozdeľujeme na umelecké a **vecné**. Realitný inzerát nesprostredkúva umelecký zážitok, ale praktické informácie s cieľom predať byt – je to teda **vecný text**.\n2. Autor v ňom používa hovorové a uvoľnené prvky: citovo zafarbené prídavné meno //parádny//, skrátené hovorové slová //Foto//, //info//, slangovo-hovorový obrat //Som 24/7//, výkričníky a emotikon `☺`. Text je preto **neformálny**.'
+        text: '1. Texty rozdeľujeme na umelecké a **vecné**. Realitný inzerát nesprostredkúva umelecký zážitok, ale praktické informácie s cieľom predať byt – je to teda **vecný text**.\n2. Autor v ňom používa hovorové a uvoľnené prvky: citovo zafarbené prídavné meno //parádny//, skrátené hovorové slová //Foto//, //info//, slangovo-hovorový obrat //Som 24/7//, výkričníky a emotikon ☺. Text je preto **neformálny**.'
       },
       {
         title: 'Prečo neplatia ostatné možnosti',

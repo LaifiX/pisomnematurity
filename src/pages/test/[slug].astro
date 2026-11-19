@@ -904,6 +904,16 @@ const jsonLd = {
           if (ciMatch) return q.caseHint || 'Pozor na malé a veľké začiatočné písmeno.';
         }
 
+        // Typické chyby konkrétnej úlohy (pole commonMistakes v dátach testu)
+        const mistake = (q.commonMistakes || []).find((m) => {
+          try {
+            return new RegExp(m.pattern, 'i').test(candidate);
+          } catch (e) {
+            return false;
+          }
+        });
+        if (mistake) return mistake.hint;
+
         const strippedUser = stripDiacritics(candidate).toLocaleLowerCase('sk');
         const noDiacMatch = accepted.some((acc) => strippedUser === stripDiacritics(cleanSjlSpacing(acc)).toLocaleLowerCase('sk'));
         if (noDiacMatch) {
@@ -913,15 +923,7 @@ const jsonLd = {
           return 'Odpoveď máš takmer správne, ale chýba alebo nesedí diakritika (dĺžne či mäkčene).';
         }
 
-        // Typické chyby konkrétnej úlohy (pole commonMistakes v dátach testu)
-        const mistake = (q.commonMistakes || []).find((m) => {
-          try {
-            return new RegExp(m.pattern, 'i').test(candidate);
-          } catch (e) {
-            return false;
-          }
-        });
-        return mistake ? mistake.hint : '';
+        return '';
       }
 
       // Zvuky: spoločný modul /sounds.js (T9Sound) – jemné tóny, stav zdieľaný s úvodnou stránkou

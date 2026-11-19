@@ -12,7 +12,7 @@ export const passages: Record<string, SharedPassage> = {
         <p class="passage-author">Edgar Allan Poe</p>
         <h3 class="passage-title">Vražda v ulici Morgue</h3>
         <p class="passage-note">(úryvok, upravené)</p>
-        <p><u>„Prečítajte teraz,“ odvetil Dupin, „túto pasáž z Cuviera.“</u></p>
+        <p>„Prečítajte teraz,“ odvetil Dupin, „túto <u>pasáž z Cuviera</u>.“</p>
         <p>Bol to podrobný anatomický i všeobecný opis veľkého žltohnedého orangutana z Východoindických ostrovov. Ozrutnú postavu, úžasnú silu a obratnosť, neskrotnú divosť a napodobňovacie schopnosti tohto cicavca každý dobre pozná. V tej chvíli som pochopil všetku hrôzu vraždy.</p>
         <p>„Opis prstov,“ povedal som, keď som dočítal, „sa presne zhoduje s vaším náčrtkom. […] Aj chumáč žltohnedej srsti zodpovedá zvieraťu, o ktorom píše Cuvier. Lenže jednotlivosti tejto hrôzyplnej záhady ešte vždy neviem pochopiť. Okrem toho občania počuli dva hlasy a jeden z nich patril nepochybne Francúzovi.“</p>
         <p>„Pravdaže, a iste sa pamätáte, že svedecké výpovede temer jednomyseľne pripisovali tomuto hlasu slová Mon Dieu! V daných okolnostiach ich veľmi dobre charakterizuje istý svedok (cukrár Montani) ako prejav hrešenia či výčitky. Nádej, že záhadu celkom rozlúštim, som preto staval najmä na týchto svojich slovách. Akýsi Francúz vie o vražde. Je možné – ba viac ako pravdepodobné – že za krvavé činy, ku ktorým došlo, nenesie nijakú zodpovednosť. Orangutan mu asi ušiel; vystopoval ho až do izby, je však vylúčené, aby sa mu ho podarilo dolapiť v rozruchu, ktorý nastal.“</p>

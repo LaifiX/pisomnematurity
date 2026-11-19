@@ -145,7 +145,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo neplatia možnosti A, B a C',
-        text: '**A** – vnútri slova pred zvučnou spoluhláskou //m// sa znelé spoluhlásky nespodobujú: //organizmu// [organizmu], //obmedzenej// [obmedzenej].\n**B** – v slove //vlastný// stojí //v// pred zvučnou spoluhláskou //l//, takže znelosť sa nemení ([vlastní]).\n**C** – pred spoluhláskou //v// sa predchádzajúca spoluhláska nikdy nespodobuje (//podvedome// [podvedome]) a v slove //pravda// stojí //v// pred znelým //d//, takže ostáva znelé ([pravda]).'
+        text: '**A** – vnútri slova pred zvučnou spoluhláskou //m// sa znelé spoluhlásky nespodobujú: //organizmu// [organizmu], //obmedzenej// [obmedzenej].\n**B** – v slove //vlastný// stojí //v// pred zvučnou spoluhláskou //l//, takže znelosť sa nemení ([vlastní]).\n**C** – v slove //podvedome// stoja vedľa seba dve znelé spoluhlásky //d// a //v// (pred samohláskou //e//), takže znelosť sa nemení ([podvedome]), a v slove //pravda// stojí //v// na konci slabiky pred znelým //d// a vyslovuje sa ako obojperné [u̯] ([prau̯da]), nie ako neznelé [f].'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **D**.'
@@ -335,7 +335,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nejde o obrat ani vyvrcholenie',
-        text: 'Ukážka pochádza zo začiatku novely, kde sa čitateľ spomienkovo (retrospektívne) dozvedá o Drakovom príchode do dediny a u hrnčiara Lepiša – z hľadiska vnútornej kompozície ide o **úvodnú časť (expozíciu)**, nie o obrat (**D**) ani vyvrcholenie (**B**).'
+        text: 'Ukážka pochádza zo začiatku novely, kde sa čitateľ spomienkovo (retrospektívne) dozvedá o Drakovom príchode do dediny a o jeho vyrastaní u hrnčiara Lepiša – z hľadiska vnútornej kompozície ide o **úvodnú časť (expozíciu)**, nie o obrat (**D**) ani vyvrcholenie (**B**).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **A**.'
@@ -547,7 +547,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Všimni si v prvých piatich vetách 1. odseku, aký vzťah mal hovoriaci k Malachiášovi („Povedal som mu, aby… bol verným vykonávateľom mojich príkazov“) a či chcel jeho smrť.',
+    hint: 'Všimni si v prvých šiestich vetách 1. odseku, aký vzťah mal hovoriaci k Malachiášovi („Povedal som mu, aby… bol verným vykonávateľom mojich príkazov“) a či chcel jeho smrť.',
     solutionSteps: [
       {
         title: 'Vzťah hovoriaceho k Malachiášovi',
@@ -603,7 +603,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Hyperbola znamená po slovensky zveličenie (nadsázku). V ktorej možnosti sa účinok knihy zámerne a obrovsky preháňa pomocou vysokého čísla?',
+    hint: 'Hyperbola znamená po slovensky zveličenie (preháňanie). V ktorej možnosti sa nebezpečný účinok knihy zámerne a výrazne preháňa?',
     solutionSteps: [
       {
         title: 'Určenie hyperboly (zveličenia)',
@@ -668,7 +668,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Číslovka „jeden“ je sklonná (jedného, jednému…) a navyše sa nachádza až v druhej priamej reči.'
       }
     ],
-    hint: 'Nesklonná číslovka je taká, ktorá nemení svoj tvar v žiadnom páde – patria sem napríklad násobné číslovky na otázku „koľkokrát?“ utvorené príponou -krát. Pozri sa do 4. vety 1. odseku hneď za zvýraznené slovo „blázon“!',
+    hint: 'Nesklonná číslovka je taká, ktorá nemení svoj tvar v žiadnom páde – patria sem napríklad násobné číslovky na otázku „koľkokrát?“. Prečítaj si pozorne prvú priamu reč (1. odsek) a odlíš ju od sklonnej číslovky „tisícich“.',
     solutionSteps: [
       {
         title: 'Vyhľadanie nesklonnej číslovky',
@@ -793,7 +793,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'V Bukovčanovej dráme je desať náhodne zaistených ľudí zatvorených v pivnici a do rána sa musia rozhodnúť, kto z nich zomrie. Ktorý filozoficko-literárny smer 20. storočia skúma človeka v takejto hraničnej situácii tvárou v tvár smrti, úzkosti a voľbe?',
+    hint: 'V Bukovčanovej dráme je skupina náhodne zaistených ľudí zatvorená v pivnici a do rána sa musia rozhodnúť, kto z nich zomrie. Ktorý filozoficko-literárny smer 20. storočia skúma človeka v takejto hraničnej situácii tvárou v tvár smrti, úzkosti a voľbe?',
     solutionSteps: [
       {
         title: 'Hraničná situácia a existencializmus',
@@ -877,7 +877,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Divadelné súbory delíme napríklad na operu, balet, činohru, bábkové divadlo či kabaret. Ktorý súbor hrá vážne hovorené divadelné hry bez spevu a tanca? Zároveň si over žáner hry: končí sa smiechom (tragikomédia), alebo tragicky, a má reálny dej?',
+    hint: 'Divadelné súbory delíme napríklad na operu, balet, činohru, bábkové divadlo či kabaret. Ktorý súbor hrá vážne hovorené divadelné hry bez spevu a tanca? Zároveň si over žáner hry: spája v sebe tragické a komické prvky (tragikomédia), alebo ide o vážnu psychologickú drámu s reálnym dejom?',
     solutionSteps: [
       {
         title: 'Druh divadelného súboru',
@@ -885,7 +885,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo sú ostatné možnosti nesprávne',
-        text: '**B** – nejde o tragikomédiu (spojenie tragických a komických prvkov), ale o vážnu drámu s tragickým koncom (vražda holiča Uhríka a smrť rukojemníkov).\n**C** – nejde o absurdnú drámu (tá nemá súvislý dej, čas ani zmysluplné dialógy – napr. //Čakanie na Godota//); Bukovčanova hra má presný historický rámec jesene 1944 po potlačení povstania aj logickú dramatickú zápletku.\n**D** – kabaretný súbor uvádza krátke zábavné, satirické a hudobné scénky.'
+        text: '**B** – nejde o tragikomédiu (spojenie tragických a komických prvkov), ale o vážnu drámu s tragickým koncom (vražda Tuláka holičom Uhríkom a následná Uhríkova smrť pri úteku z pivnice).\n**C** – nejde o absurdnú drámu (tá nemá súvislý dej, čas ani zmysluplné dialógy – napr. //Čakanie na Godota//); Bukovčanova hra má presný historický rámec jesene 1944 po potlačení povstania aj logickú dramatickú zápletku.\n**D** – kabaretný súbor uvádza krátke zábavné, satirické a hudobné scénky.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **A**.'

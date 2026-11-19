@@ -68,7 +68,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Prečítaj si pozorne predposlednú vetu dlhšieho Alchymistovho prehovoru – začína sa slovami „My v našej…“.',
+    hint: 'Prečítaj si pozorne tretiu vetu od konca v dlhšom Alchymistovom prehovore – začína sa slovami „My v našej…“.',
     solutionSteps: [
       {
         title: 'Doklad v texte',
@@ -185,7 +185,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Pozor na zadanie! Slová „noc“ a „svitanie“ sú až v poslednom odseku v reči rozprávača, nie v poslednej priamej reči Alchymistu.'
       },
       {
-        pattern: '\\ba\\b',
+        pattern: '(?:^|\\s)a(?:\\s|$)',
         hint: 'Vypíš iba samotnú dvojicu slov oddelenú pomlčkou alebo čiarkou (bez spojky „a“).'
       }
     ],
@@ -223,11 +223,11 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Na hranici skupiny spoluhlások -kc- vedie rozdelenie medzi nimi: prvá slabika sa končí spoluhláskou k (lek-).'
       }
     ],
-    hint: 'Vyslov si nahlas a pomaly cudzie slovo „lekcia“ – počuješ na konci [lek-ci-ja]? V prevzatých slovách zakončených na -cia, -zia, -gia nejde o slovenskú dvojhlásku ia, ale o dve samostatné samohlásky! Koľko slabík má teda toto slovo?',
+    hint: 'Vyslov si nahlas a pomaly cudzie slovo „lekcia“ – v prevzatých slovách zakončených na -cia, -zia, -gia (napr. po-lí-ci-a) nejde o slovenskú dvojhlásku ia, ale o dve samostatné samohlásky so vsunutým [j] vo výslovnosti! Koľko slabík má teda toto slovo?',
     solutionSteps: [
       {
         title: 'Prečo v slove lekcia nie je dvojhláska ia',
-        text: 'V domácich slovenských slovách (napr. //č**ia**-ra, v**ia**-no-ce//) tvorí dvojhláska //ia// jednu slabiku. Slovo //lekcia// je však **cudzie (prevzaté) slovo** zakončené na //-cia// (podobne ako //polícia, demokracia, biológia//).\nV takýchto prevzatých slovách sa spojenie //i + a// vyslovuje ako `[i-ja]` (`[lek-ci-ja]`) – nejde o dvojhlásku, ale o **dve samostatné samohlásky v dvoch rôznych slabikách**!'
+        text: 'V domácich a zdomácnených slovenských slovách (napr. //č**ia**-ra, V**ia**-no-ce//) tvorí dvojhláska //ia// jednu slabiku. Slovo //lekcia// je však **cudzie (prevzaté) slovo** zakončené na //-cia// (podobne ako //polícia, demokracia, biológia//).\nV takýchto prevzatých slovách sa spojenie //i + a// vyslovuje ako [i-ja] ([lek-ci-ja]) – nejde o dvojhlásku, ale o **dve samostatné samohlásky v dvoch rôznych slabikách**!'
       },
       {
         title: 'Rozdelenie na slabiky',
@@ -273,7 +273,7 @@ export const questionsPart2: QuestionData[] = [
         hint: '„Opytovacia“ je druh vety podľa zámeru hovoriaceho, ale úloha sa pýta na vetnú melódiu – teda či hlas na konci vety stúpa, alebo klesá.'
       }
     ],
-    hint: 'Pozor na otáznik! Nie každá opytovacia veta má stúpavú melódiu. Rozlišujeme zisťovacie otázky (odpoveď áno/nie: „Mám niečo robiť?“) a dopĺňacie otázky, ktoré sa začínajú opytovacím zámenom (kto, čo, kde, kedy, prečo). Prečítaj si prirodzene nahlas vetu „Čo mám robiť teraz?“ – stúpa ti hlas na slove „teraz“, alebo klesá?',
+    hint: 'Pozor na otáznik! Nie každá opytovacia veta má stúpavú melódiu. Rozlišujeme zisťovacie otázky (odpoveď áno/nie: „Mám niečo robiť?“) a dopĺňacie otázky, ktoré sa začínajú opytovacím zámenom alebo príslovkou (kto, čo, kde, kedy, prečo). Prečítaj si prirodzene nahlas vetu „Čo mám robiť teraz?“ – stúpa ti hlas na slove „teraz“, alebo klesá?',
     solutionSteps: [
       {
         title: 'Dva druhy otázok a ich melódia',
@@ -311,7 +311,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo neplatia ostatné možnosti',
-        text: 'A – na skutočnom vynáleze výťahu sa nepodieľal, len o svojom bizarnom prístroji vyhlásil, že je //spola výťah, spola lietadlo a spola kladivo//.\nB – po svete chodil S (//„Vy ste chodili po svete a ja som sedel doma…“//), L nechcel cestovať ako turista, ale zostrojiť vlastný stroj.\nD – voľný pád nechcel zažiť na vlastnej koži, skúmal ho tak, že v škole podkladal nohy spolužiakom!'
+        text: 'A – na skutočnom vynáleze výťahu sa nepodieľal, len o svojom bizarnom prístroji vyhlásil, že je //spola výťah, spola lietadlo a ešte sa to dá použiť aj ako kladivo//.\nB – po svete chodil S (//„Vy ste chodili po svete a ja som sedel doma…“//), L nechcel cestovať ako turista, ale zostrojiť vlastný stroj.\nD – voľný pád nechcel zažiť na vlastnej koži, skúmal ho tak, že v škole podkladal nohy spolužiakom!'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **C**.'
@@ -359,11 +359,11 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Ako sa krátkym anglickým slovom (čítame [geg]) označuje v divadle a vo filme nečakaný komický prvok alebo vtipný skrat, ktorý náhle poruší logiku situácie?',
+    hint: 'Odlíš od seba štyri ponúkané pojmy: umelecké zveličenie, úplne posledné uvedenie divadelnej hry, záverečné myšlienkové vyvrcholenie a krátky anglický termín pre nečakaný komický prvok, ktorý náhle poruší logiku situácie.',
     solutionSteps: [
       {
         title: 'Literárny a divadelný pojem gag',
-        text: '**Gag** (vyslovujeme `[geg]`) je prekvapujúci komický nápad (slovný alebo pohybový), ktorý nečakane naruší bežnú logiku situácie a vyvolá smiech – v ukážke 6 napr. náhly prechod z rozhovoru priamo do letu //„(Obaja letia nad Himalájami.)“// alebo vysvetlenie, že výťah v 5-poschodovom dome vyvezie človeka na 32. poschodie vďaka 32 gombíkom.'
+        text: '**Gag** (vyslovujeme [geg]) je prekvapujúci komický nápad (slovný alebo pohybový), ktorý nečakane naruší bežnú logiku situácie a vyvolá smiech – v ukážke 6 napr. náhly prechod z rozhovoru priamo do letu //„(Obaja letia nad Himalájami.)“// alebo vysvetlenie, že výťah v 5-poschodovom dome vyvezie človeka na 32. poschodie vďaka 32 gombíkom.'
       },
       {
         title: 'Význam ostatných pojmov',
@@ -444,13 +444,20 @@ export const questionsPart2: QuestionData[] = [
       'vidiečanom',
       'dedinčanom',
       'z vidieka',
+      'z vidieku',
       'z dediny',
+      's vidieka',
+      's dediny',
+      'zo vidieka',
+      'zo dediny',
       'L obhajoval svoju nevedomosť tým, že bol vidiečan',
       'L obhajoval svoju nevedomosť tým, že bol dedinčan',
       'L obhajoval svoju nevedomosť tým, že bol vidiečanom',
       'L obhajoval svoju nevedomosť tým, že bol dedinčanom',
       'L obhajoval svoju nevedomosť tým, že bol z vidieka',
-      'L obhajoval svoju nevedomosť tým, že bol z dediny'
+      'L obhajoval svoju nevedomosť tým, že bol z dediny',
+      'L obhajoval svoju nevedomosť tým, že bol s vidieka',
+      'L obhajoval svoju nevedomosť tým, že bol s dediny'
     ],
     lenient: true,
     commonMistakes: [
@@ -460,10 +467,10 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         pattern: 'vidieck|dedinsk',
-        hint: 'Napísal(a) si prídavné meno, ale zadanie žiada doplniť podstatné meno (pomenovanie obyvateľa vidieka/dediny alebo predložkové spojenie podstatného mena)!'
+        hint: 'Napísal(a) si prídavné meno, ale zadanie žiada doplniť podstatné meno (pomenovanie obyvateľa tohto prostredia alebo predložkové spojenie podstatného mena)!'
       }
     ],
-    hint: 'Keď S zvolá „Lietadlo už dávno objavili!“, L sa vyhovára: „To som práve nevedel. K nám na … sa to nedostalo.“ Utvor z tohto miesta jedno vhodné podstatné meno (ako voláme človeka z vidieka/dediny), aby veta dávala zmysel!',
+    hint: 'Keď S zvolá „Lietadlo už dávno objavili!“, L sa vyhovára: „To som práve nevedel. K nám na … sa to nedostalo.“ Utvor z tohto miesta jedno vhodné podstatné meno (pomenovanie obyvateľa tohto prostredia), aby veta dávala zmysel!',
     solutionSteps: [
       {
         title: 'Miesto v ukážke 6',
@@ -493,10 +500,19 @@ export const questionsPart2: QuestionData[] = [
       'Himaláje, ulica',
       'Himaláje (ulica)',
       'Himaláje: ulica',
+      'Himaláje - vzor ulica',
+      'Himaláje, vzor ulica',
       'ulica (Himaláje)',
       'ulica - Himaláje',
+      'ulica, Himaláje',
       'Himalájami - ulica',
-      'Himalájach - ulica'
+      'Himalájami, ulica',
+      'Himalájach - ulica',
+      'Himalájach, ulica',
+      'nad Himalájami - ulica',
+      'nad Himalájami, ulica',
+      'na Himalájach - ulica',
+      'na Himalájach, ulica'
     ],
     lenient: true,
     commonMistakes: [
@@ -521,7 +537,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: '2. Určenie rodu a skloňovacieho vzoru',
-        text: '• V texte vidíme tvar lokálu //„na Himaláj**ach**“// (a v datíve //Himaláj**am**//) – prípony //-am, -ach// jednoznačne dokazujú **ženský rod** (mužský vzor //stroj// by mal //strojom, na strojoch//).\n• Kmeň slova //Himaláj-e// je zakončený na **mäkkú spoluhlásku j** a v nominatíve má príponu **-e** (v datíve a lokáli je //-am, -ach// namiesto //-iam, -iach// pre pravidlo o rytmickom krátení po dlhej slabike //-lá-//).\n• Ženské pomnožné podstatné mená s mäkkým zakončením (ako //ulice, Košice, galície, Himaláje//) sa skloňujú podľa vzoru **ulica**.'
+        text: '• V texte vidíme tvar lokálu //„na Himaláj**ach**“// (a v datíve //Himaláj**am**//) – prípony //-am, -ach// jednoznačne dokazujú **ženský rod** (mužský vzor //stroj// by mal //strojom, na strojoch//).\n• Kmeň slova //Himaláj-e// je zakončený na **mäkkú spoluhlásku j** a v nominatíve má príponu **-e** (v datíve a lokáli je //-am, -ach// namiesto //-iam, -iach// pre pravidlo o rytmickom krátení po dlhej slabike //-lá-//).\n• Ženské pomnožné podstatné mená s mäkkým zakončením (ako //Košice, Kysuce, nožnice, nohavice, Himaláje//) sa skloňujú podľa vzoru **ulica**.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: **ulica**.'
@@ -672,11 +688,11 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Dielo vyšlo v roku 1755 – teda ešte pred prvým uzákonením (kodifikáciou) spisovnej slovenčiny Antonom Bernolákom v roku 1787! Všimni si typické západoslovenské tvary v ukážke („s večerú“, „žalúdek“, „múže“, „pálčivosťú“). Ako v dejinách jazyka voláme takúto kultivovanú podobu jazyka spred kodifikácie?',
+    hint: 'Dielo vzniklo v roku 1755 – teda ešte pred prvým uzákonením (kodifikáciou) spisovnej slovenčiny Antonom Bernolákom v roku 1787! Všimni si typické západoslovenské tvary v ukážke („s večerú“, „žalúdek“, „múže“, „pálčivosťú“). Ako v dejinách jazyka voláme takúto kultivovanú podobu jazyka spred kodifikácie?',
     solutionSteps: [
       {
         title: 'Kultúrna západoslovenčina (predspisovné obdobie)',
-        text: 'Dielo //Valaská škola mravúv stodola// vzniklo v polovici 18. storočia (1755), teda ešte v **predspisovnom období** (pred Bernolákovou kodifikáciou z roku 1787). Je napísané v tzv. **kultúrnej západoslovenčine** (s prvkami češtiny a západoslovenských nárečí, napr. //mravúv, s večerú, žalúdek, múže// namiesto dvojhlások), čo je **jedna z troch podôb kultúrnej predspisovnej slovenčiny**.'
+        text: 'Dielo //Valaská škola mravúv stodola// vzniklo v polovici 18. storočia (1755), teda ešte v **predspisovnom období** (pred Bernolákovou kodifikáciou z roku 1787). Je napísané v tzv. **kultúrnej západoslovenčine** (s prvkami češtiny a západoslovenských nárečí, napr. //s večerú, múže, pálčivosťú, prísloví// namiesto dvojhlások a tvary ako //mravúv, žalúdek//), čo je **jedna z troch podôb kultúrnej predspisovnej slovenčiny**.'
       },
       {
         title: 'Prečo neplatia ostatné možnosti',
@@ -746,7 +762,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Títo autori pôsobili neskôr v období osvietenstva a klasicizmu. Autor Valaskej školy (1755) bol františkánsky mních z Pruského pri Ilave, ktorého rehoľné meno sa začína na H.'
       }
     ],
-    hint: 'Spomeň si na najvýznamnejšieho predstaviteľa slovenskej didakticko-reflexívnej poézie 18. storočia – bol to františkánsky mních pôsobiaci v Pruskom pri Ilave, ktorého rehoľné meno sa začína na písmeno H (občianskym menom bol Martin) a priezvisko na G. Nezabudni napísať celé meno aj priezvisko s veľkými začiatočnými písmenami!',
+    hint: 'Spomeň si na najvýznamnejšieho predstaviteľa slovenskej didakticko-reflexívnej poézie 18. storočia – bol to františkánsky mních pôsobiaci v Pruskom pri Ilave, ktorého rehoľné meno sa začína na písmeno H a priezvisko na G. Nezabudni napísať celé meno aj priezvisko s veľkými začiatočnými písmenami!',
     solutionSteps: [
       {
         title: 'Autor diela Valaská škola mravúv stodola',
@@ -828,7 +844,7 @@ export const questionsPart2: QuestionData[] = [
     caseHint: 'Privlastňovacie prídavné meno utvorené od osobného mena (Salernovo/Salernusovo) sa píše s veľkým začiatočným písmenom S a slovo príslovie s malým p (zápis samými veľkými písmenami sa neuznáva).',
     commonMistakes: [
       {
-        pattern: '^saler(n|m)(us)?ov[eé]\\s+pr[ií]slov',
+        pattern: '^sale(rn|m)(us)?ov[eé]\\s+pr[ií]slov',
         hint: 'Pozor na príponu privlastňovacieho prídavného mena podľa vzoru otcov! Slovo „príslovie“ je v jednotnom čísle stredného rodu (to príslovie → otcovo príslovie), preto musí mať krátku príponu -ovo (nikdy nie -ove ani dlhé -ové)!'
       },
       {
@@ -840,7 +856,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'V ukážke nasleduje len jedno konkrétne príslovie („že krátká večera nočnej lehkosti osoží“) – ide o akuzatív jednotného čísla (to príslovie), nie množného čísla!'
       }
     ],
-    hint: 'Skontroluj si obe slová krok za krokom: 1. Druhé slovo „prísloví“ označuje v texte jedno príslovie (akuzatív jednotného čísla stredného rodu – vzor vysvedčenie: to …). 2. Prvé slovo je individuálne privlastňovacie prídavné meno od osobného mena Salernus (skloňuje sa podľa vzoru otcov: v strednom rode jednotného čísla hovoríme „otcovo mesto“, nikdy nie s -é!). Píše sa s veľkým S a pri menách na -us môže prípona -us aj vypadnúť.',
+    hint: 'Skontroluj si obe slová krok za krokom: 1. Druhé slovo „prísloví“ označuje v texte jednu ľudovú múdrosť (akuzatív jednotného čísla stredného rodu – vzor vysvedčenie). 2. Prvé slovo je individuálne privlastňovacie prídavné meno od osobného mena Salernus (skloňuje sa podľa vzoru otcov: v strednom rode jednotného čísla hovoríme „otcovo mesto“, nikdy nie s -é!). Píše sa s veľkým S a pri menách na -us môže prípona -us aj vypadnúť.',
     solutionSteps: [
       {
         title: '1. Podstatné meno v jednotnom čísle stredného rodu',
@@ -848,7 +864,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: '2. Privlastňovacie prídavné meno podľa vzoru otcov (-ovo!)',
-        text: 'Od mužského osobného mena //Salernus// tvoríme privlastňovacie prídavné meno s **veľkým S** podľa vzoru **otcov** (latinská koncovka //-us// sa pri tvorení zvyčajne odčleňuje: //Salernus → Salernov//, kľúč však uznáva aj tvar so zachovaným //-us-//: //Salernusov//).\nPodľa *Pravidiel slovenského pravopisu* má vzor **otcov** v nominatíve a akuzatíve jednotného čísla stredného rodu vždy **krátku príponu -ovo**: //otc**ovo** príslovie// → **Salernovo príslovie** / **Salernusovo príslovie**. (Prípona //-ove// patrí len množnému číslu a dlhé //-ové// v vzoroch //otcov/matkin// v spisovnej slovenčine neexistuje!)'
+        text: 'Od mužského osobného mena //Salernus// tvoríme privlastňovacie prídavné meno s **veľkým S** podľa vzoru **otcov** (latinská koncovka //-us// sa pri tvorení zvyčajne odčleňuje: //Salernus → Salernov//, kľúč však uznáva aj tvar so zachovaným //-us-//: //Salernusov//).\nPodľa //Pravidiel slovenského pravopisu// má vzor **otcov** v nominatíve a akuzatíve jednotného čísla stredného rodu vždy **krátku príponu -ovo**: //otc**ovo** príslovie// → **Salernovo príslovie** / **Salernusovo príslovie**. (Prípona //-ove// patrí len množnému číslu a dlhé //-ové// vo vzoroch //otcov/matkin// v spisovnej slovenčine neexistuje!)'
       },
       {
         title: 'Ako hodnotí kľúč',
@@ -1027,7 +1043,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Zvýraznené je len prídavné meno „Velebné“ pred podstatným menom „tóny“ – je to citovo a esteticky zafarbený prívlastok!'
       }
     ],
-    hint: 'V prvom odseku je zvýraznené prídavné meno „Velebné“ (v spojení „Velebné tóny organa“). Neurčuje vlastnosť len vecne, ale vnáša do textu vznešenosť, cit a krásu. Ako sa v literárnej teórii volá takýto básnický prívlastok?',
+    hint: 'V prvom odseku je zvýraznené prídavné meno „Velebné“ (v spojení „Velebné tóny organa“). Neurčuje vlastnosť len vecne, ale vnáša do textu vznešenosť, cit a krásu. Ako sa v literárnej teórii volá takýto obrazný, citovo zafarbený prívlastok?',
     solutionSteps: [
       {
         title: 'Rozbor zvýrazneného slova Velebné',

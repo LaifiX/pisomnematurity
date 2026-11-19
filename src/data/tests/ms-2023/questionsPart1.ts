@@ -113,11 +113,11 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Pravidlo spodobovania na hranici slov',
-        text: 'Ak sa slovo končí **neznelou** spoluhláskou (**p, t, ť, k, c, č, s, š, ch, f**) a bez pauzy za ním nasleduje slovo začínajúce sa znelou spoluhláskou, zvučnou spoluhláskou (**m, n, ň, l, ľ, r, j, v**) alebo samohláskou, neznelá spoluhláska sa vo výslovnosti zmení na svoj znelý pár.'
+        text: 'Ak sa slovo končí **neznelou** spoluhláskou (**p, t, ť, k, c, č, s, š, ch, f**) a bez pauzy za ním nasleduje slovo začínajúce sa znelou párovou spoluhláskou (vrátane **v** pred samohláskou), nepárovou zvučnou spoluhláskou (**m, n, ň, l, ĺ, ľ, r, ŕ, j**) alebo samohláskou, neznelá spoluhláska sa vo výslovnosti zmení na svoj znelý pár.'
       },
       {
         title: 'Kontrola možností',
-        text: 'D – v spojení //pohnú**ť r**ukou// sa neznelé **ť** stretáva so zvučným **r**, preto sa spodobuje na znelé **ď**: vyslovujeme **[pohnúď rukou]**.\nA – v spojení //kupova**ť f**arby// sú **ť** aj **f** neznelé, nič sa nemení.\nB – v spojení //spôsobi**ť s**i// sú **ť** aj **s** neznelé; slovo //lakeť// sa končí neznelým **ť**, ktoré ostáva neznelé aj pred pauzou.\nC – v slove //hu**db**e// sú **d** aj **b** znelé, v slove //intenzí**vn**e// sa **v** pred **n** na začiatku prípony nespodobuje.'
+        text: 'D – v spojení //pohnú**ť r**ukou// sa neznelé **ť** stretáva so zvučným **r**, preto sa spodobuje na znelé **ď**: vyslovujeme **[pohnúď rukou]**.\nA – v spojení //kupova**ť f**arby// sú **ť** aj **f** neznelé, nič sa nemení.\nB – v spojení //spôsobi**ť s**i// sú **ť** aj **s** neznelé; slovo //lakeť// sa končí neznelým **ť**, ktoré ostáva neznelé aj pred pauzou.\nC – v slove //hu**db**e// sú **d** aj **b** znelé a v slove //intenzí**vn**e// stojí po znelom **v** (vyslovovanom ako obojperné [u̯]) zvučné **n**, preto k znelostnej asimilácii nedochádza.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -137,7 +137,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Rozlíš dvojhlásku (dve písmená v jednej slabike: ia, ie, iu, ô) od samohláskovej skupiny (dve susedné samohlásky v cudzom slove, ktoré patria do dvoch rôznych slabík).',
+    hint: 'Rozlíš dvojhlásku (spojenie dvoch samohláskových prvkov v jednej slabike: ia, ie, iu, ô) od samohláskovej skupiny (dve susedné samohlásky v cudzom slove, ktoré patria do dvoch rôznych slabík).',
     solutionSteps: [
       {
         title: 'Samohlásková skupina v cudzích slovách',
@@ -170,7 +170,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Sloveso „maľovať“ je plnovýznamové. Vypíš iba samotné neplnovýznamové fázové sloveso, ktoré pri ňom vyjadruje začiatok deja.'
       }
     ],
-    hint: 'Fázové slovesá vyjadrujú začiatok, priebeh alebo koniec deja (začať, zostať, prestať) a spájajú sa s neurčitkom iného slovesa. Hľadaj ho výlučne v tučných otázkach redaktora.',
+    hint: 'Fázové slovesá vyjadrujú začiatok, priebeh alebo ukončenie deja a v prísudku sa spájajú s neurčitkom iného slovesa. Hľadaj ho výlučne v tučných otázkach redaktora.',
     solutionSteps: [
       {
         title: 'Čo je fázové sloveso',
@@ -203,7 +203,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Slovo „knižka“ nie je odborný termín pre všetky druhy písaných a tlačených textov. Pozri sa do prvej odpovede k vete o autorových živnostiach.'
       }
     ],
-    hint: 'Spomeň si z prvej hodiny literatúry na najširšiu definíciu odboru (z lat. littera = písmeno). Slovo nájdeš v prvej Hevierovej odpovedi.',
+    hint: 'Spomeň si na najširšie vymedzenie ústredného pojmu z úvodných hodín predmetu (pôvodom z latinského slova pre písmeno), ktoré zahŕňa všetky písané a tlačené texty, nielen umelecké. Termín nájdeš v prvej Hevierovej odpovedi.',
     solutionSteps: [
       {
         title: 'Širší význam pojmu literatúra',
@@ -537,7 +537,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Čo pre ukážku platí (A, B, D)',
-        text: 'A – webová jazyková poradňa a časopis //Kultúra slova// sú určené bežným používateľom jazyka, teda širokej verejnosti (populárno-náučný výklad).\nB – text využíva domáce odborné termíny: //prídavné meno, zložené prídavné mená, prípona, kodifikačné príručky//.\nD – autor argumentuje konkrétnymi faktmi (citácie slovníkov z rokov 1959, 1987, 1989, 1997 a doklady z odborných textov).'
+        text: 'A – webová jazyková poradňa a časopis //Kultúra slova// sú určené bežným používateľom jazyka, teda širokej verejnosti (populárno-náučný výklad).\nB – text využíva aj domáce odborné termíny: //prídavné meno, zložené prídavné mená, prípona//.\nD – autor argumentuje konkrétnymi faktmi (citácie slovníkov z rokov 1959, 1987, 1989, 1997 a doklady z odborných textov).'
       },
       {
         title: 'Čo pre ukážku neplatí (C)',
@@ -803,7 +803,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Kde nasledujú ostatné fázy deja',
-        text: 'Zápletkou je až zmluva o predaji jaseňov s Adušom v krčme, obratom scéna pri rodinných hroboch pod jaseňmi v Domaniciach a rozuzlením Adušova náprava a splatenie dlhu.'
+        text: 'Zápletkou je až dohoda o kúpe jačmeňa s Adušom na jarmoku (závdavok desať zlatých v krčme), obratom scéna pri rodinných hroboch pod jaseňmi v Domaniciach (ktoré Ondrej žiadal ako náhradu za dlh) a rozuzlením Adušova náprava a splatenie dlhu.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -960,11 +960,11 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Vzor chlap a zmena spoluhlásky ch → s',
-        text: 'Podstatné meno **valach** (pastier oviec) je životné podstatné meno mužského rodu, ktoré sa skloňuje podľa vzoru **chlap** – v nominatíve plurálu má základnú príponu **-i** (//chlapi//). Podľa *Pravidiel slovenského pravopisu* sa pri životných podstatných menách mužského rodu pred príponou //-i// menia koncové spoluhlásky **k → c** (//vojak → vojaci//) a **ch → s** (//mních → mnísi//, //Čech → Česi//, //valach → **valasi**//).'
+        text: 'Podstatné meno **valach** (pastier oviec) je životné podstatné meno mužského rodu, ktoré sa skloňuje podľa vzoru **chlap** – v nominatíve plurálu má základnú príponu **-i** (//chlapi//). Podľa //Pravidiel slovenského pravopisu// sa pri životných podstatných menách mužského rodu pred príponou //-i// menia koncové spoluhlásky **k → c** (//vojak → vojaci//) a **ch → s** (//mních → mnísi//, //Čech → Česi//, //valach → **valasi**//).'
       },
       {
         title: 'Pravopis a hodnotenie podľa kľúča',
-        text: 'Jediný gramaticky a pravopisne spisovný tvar nominatívu plurálu je **valasi** (so spoluhláskou //s// a mäkkým //-i//; tvar //valachy// je až akuzatív plurálu: //vidím valachov / zastarano valachy//).'
+        text: 'Jediný gramaticky a pravopisne spisovný tvar nominatívu plurálu je **valasi** (so spoluhláskou //s// a mäkkým //-i//; v akuzatíve plurálu má vzor chlap tvar //valachov//, kým tvar //valachy// je plurálom zvieracieho podstatného mena valach vo význame kôň podľa vzoru dub).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: valasi.'
