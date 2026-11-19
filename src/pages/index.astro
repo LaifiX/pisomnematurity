@@ -128,6 +128,16 @@ const homeJsonLd = {
                   Slohové útvary
                 </a>
               </div>
+              <div class="ms-hero-tools">
+                <button class="ms-tool-btn" type="button" data-install="any" title="Pridať stránku na plochu ako aplikáciu">
+                  <Fragment set:html={icon(I.appAdd)} />
+                  <span>Pridať na plochu</span>
+                </button>
+                <button class="ms-tool-btn" type="button" data-share title="Zdieľať odkaz na stránku">
+                  <Fragment set:html={icon(I.share)} />
+                  <span data-share-label>Zdieľať</span>
+                </button>
+              </div>
               <ul class="ms-meta">
                 <li><Fragment set:html={icon(I.user)} />Bez registrácie</li>
                 <li><Fragment set:html={icon(I.phone)} />Na počítači aj v&nbsp;mobile</li>
@@ -163,23 +173,6 @@ const homeJsonLd = {
             <div><dt>8 ukážok</dt><dd>umelecké, publicistické aj náučné texty</dd></div>
             <div><dt>{tests.length} ročníkov</dt><dd>riadne termíny {yearsRangeText}</dd></div>
           </dl>
-
-          <div class="ms-utility">
-            <div class="ms-utility-acts">
-              <button class="ms-chip" type="button" data-install="any" title="Pridať stránku na plochu ako aplikáciu">
-                <Fragment set:html={icon(I.appAdd)} />
-                <span>Pridať na plochu</span>
-              </button>
-              <button class="ms-chip" type="button" data-share title="Zdieľať odkaz na stránku">
-                <Fragment set:html={icon(I.share)} />
-                <span data-share-label>Zdieľať</span>
-              </button>
-              <a class="ms-chip is-support" href="#podpora">
-                <Fragment set:html={icon(I.heart)} />
-                <span>Podporiť</span>
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -349,21 +342,54 @@ const homeJsonLd = {
       <section class="ms-sec" id="autor" aria-labelledby="ms-autor-name">
         <div class="ms-wrap">
           <div class="ms-about-sheet">
-            <article class="ms-guarantor">
-              <span class="ms-guarantor-photo">
-                <img src="/images/peter2.webp" alt="Peter Beňo" width="900" height="900" loading="lazy" decoding="async" />
-              </span>
-              <div class="ms-guarantor-body">
-                <h3 id="ms-autor-name">Peter Beňo</h3>
-                <div class="ms-roles">
-                  <span class="ms-role">Bývalý učiteľ strednej školy</span>
-                  <span class="ms-role is-guarantor"><Fragment set:html={icon(I.checkCircle)} />Garant riešení</span>
+            <div class="ms-about-top">
+              <article class="ms-guarantor">
+                <span class="ms-guarantor-photo">
+                  <img src="/images/peter2.webp" alt="Peter Beňo" width="900" height="900" loading="lazy" decoding="async" />
+                </span>
+                <div class="ms-guarantor-body">
+                  <h3 id="ms-autor-name">Peter Beňo</h3>
+                  <div class="ms-roles">
+                    <span class="ms-role">Bývalý učiteľ strednej školy</span>
+                    <span class="ms-role is-guarantor"><Fragment set:html={icon(I.checkCircle)} />Garant riešení</span>
+                  </div>
+                  <p>
+                    Ako bývalý stredoškolský učiteľ ručí za&nbsp;správnosť výsledkov, nápovied aj&nbsp;postupov. Dbá na&nbsp;to, aby boli vysvetlenia zrozumiteľné a&nbsp;pomohli žiakovi učivo naozaj pochopiť. V&nbsp;praxi bol známy tým, že dokázal vydolovať maximum aj&nbsp;z&nbsp;tých najlenivejších žiakov.
+                  </p>
                 </div>
-                <p>
-                  Ako bývalý stredoškolský učiteľ ručí za&nbsp;správnosť výsledkov, nápovied aj&nbsp;postupov. Dbá na&nbsp;to, aby boli vysvetlenia zrozumiteľné a&nbsp;pomohli žiakovi učivo naozaj pochopiť. V&nbsp;praxi bol známy tým, že dokázal vydolovať maximum aj&nbsp;z&nbsp;tých najlenivejších žiakov.
-                </p>
-              </div>
-            </article>
+              </article>
+
+              <aside class="ms-heart" id="feedbackHeartCard" aria-live="polite">
+                <div class="ms-heart-txt">
+                  <h3 id="feedbackHeartTitle">Pomáha ti táto stránka?</h3>
+                  <p id="feedbackHeartDesc">
+                    Prináša ti táto stránka hodnotu? Daj nám vedieť srdiečkom alebo ju pošli spolužiakom.
+                  </p>
+                </div>
+                <div class="ms-heart-actions">
+                  <button
+                    type="button"
+                    class="ms-heart-btn"
+                    id="heartLikeBtn"
+                    aria-pressed="false"
+                    title="Podporiť stránku kliknutím na srdiečko"
+                  >
+                    <span class="ms-heart-icon"><Fragment set:html={icon(I.heart)} /></span>
+                    <span id="heartBtnLabel">Páči sa&nbsp;mi&nbsp;to</span>
+                    <span class="ms-heart-count" id="heartCountValue">0</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="ms-btn ms-btn-ghost ms-heart-share"
+                    data-share
+                    title="Poslať odkaz na stránku spolužiakom"
+                  >
+                    <Fragment set:html={icon(I.share)} />
+                    <span data-share-label>Zdieľať</span>
+                  </button>
+                </div>
+              </aside>
+            </div>
 
             <aside class="ms-volunteer" id="podpora" aria-labelledby="ms-volunteer-title">
               <span class="ms-volunteer-ico" aria-hidden="true"><Fragment set:html={icon(I.heart)} /></span>
@@ -499,14 +525,81 @@ const homeJsonLd = {
 
     <script is:inline src="/pwa.js"></script>
     <script is:inline>
-      // Návštevnosť (Netlify funkcia /api/stats): návšteva sa zapíše raz za reláciu prehliadača.
-      // Lokálne alebo pri výpadku sa počítadlo jednoducho nezobrazí.
+      // Návštevnosť a srdiečka (Netlify funkcia /api/stats): návšteva sa zapíše raz za reláciu prehliadača,
+      // srdiečko najviac raz z daného prehliadača. Každá odpoveď vracia { visits, likes }.
       (function () {
+        var SESSION_KEY = 'maturitasjl_visited_session';
+        var LIKED_KEY = 'maturitasjl_site_liked';
+        var CACHED_LIKES_KEY = 'maturitasjl_cached_likes';
+
         var box = document.getElementById('visitsBox');
-        if (!box || typeof fetch !== 'function') return;
-        var KEY = 'maturitasjl_visited_session';
+        var heartCard = document.getElementById('feedbackHeartCard');
+        var heartBtn = document.getElementById('heartLikeBtn');
+        var heartLabel = document.getElementById('heartBtnLabel');
+        var heartCount = document.getElementById('heartCountValue');
+        var heartTitle = document.getElementById('feedbackHeartTitle');
+        var heartDesc = document.getElementById('feedbackHeartDesc');
+
+        function safeGet(k) {
+          try { return localStorage.getItem(k); } catch (e) { return null; }
+        }
+        function safeSet(k, v) {
+          try { localStorage.setItem(k, v); } catch (e) {}
+        }
+        function fmt(n) {
+          return Number(n || 0).toLocaleString('sk-SK');
+        }
+        function showLikes(n) {
+          if (heartCount) heartCount.textContent = fmt(n);
+        }
+        function applyLikedUI(countVal) {
+          if (heartCard) heartCard.classList.add('is-liked');
+          if (heartBtn) {
+            heartBtn.classList.add('is-liked');
+            heartBtn.setAttribute('aria-pressed', 'true');
+            heartBtn.disabled = true;
+          }
+          if (heartLabel) heartLabel.textContent = 'Ďakujeme!';
+          if (heartTitle) heartTitle.textContent = 'Ďakujeme za podporu!';
+          if (heartDesc) heartDesc.textContent = 'Tvoj hlas sme započítali.';
+          if (countVal !== undefined) showLikes(countVal);
+        }
+
+        var alreadyLiked = safeGet(LIKED_KEY) === '1';
+        var cachedLikes = safeGet(CACHED_LIKES_KEY);
+        if (cachedLikes !== null) showLikes(cachedLikes);
+        else showLikes(alreadyLiked ? 1 : 0);
+        if (alreadyLiked) applyLikedUI(cachedLikes !== null ? Number(cachedLikes) : undefined);
+
+        if (heartBtn) {
+          heartBtn.addEventListener('click', function () {
+            if (safeGet(LIKED_KEY) === '1') return;
+            safeSet(LIKED_KEY, '1');
+            var cur = parseInt((heartCount && heartCount.textContent || '0').replace(/\s+/g, ''), 10) || 0;
+            var next = cur + 1;
+            safeSet(CACHED_LIKES_KEY, String(next));
+            heartBtn.classList.add('just-clicked');
+            applyLikedUI(next);
+            if (typeof fetch !== 'function') return;
+            fetch('/api/stats', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ like: true })
+            })
+              .then(function (r) { return r.ok ? r.json() : null; })
+              .then(function (d) {
+                if (d && typeof d.likes === 'number') {
+                  safeSet(CACHED_LIKES_KEY, String(d.likes));
+                  showLikes(d.likes);
+                }
+              })
+              .catch(function () {});
+          });
+        }
+
+        if (typeof fetch !== 'function') return;
         var first = true;
-        try { first = !sessionStorage.getItem(KEY); } catch (e) {}
+        try { first = !sessionStorage.getItem(SESSION_KEY); } catch (e) {}
         fetch('/api/stats', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -514,13 +607,19 @@ const homeJsonLd = {
         })
           .then(function (r) { return r.ok ? r.json() : null; })
           .then(function (d) {
-            if (!d || typeof d.visits !== 'number') return;
-            box.classList.remove('is-preview');
-            try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
-            var n = d.visits;
-            document.getElementById('visitsCount').textContent = n.toLocaleString('sk-SK');
-            document.getElementById('visitsLabel').textContent = n === 1 ? 'návšteva' : n >= 2 && n <= 4 ? 'návštevy' : 'návštev';
-            box.classList.remove('hidden');
+            if (!d) return;
+            if (typeof d.likes === 'number') {
+              safeSet(CACHED_LIKES_KEY, String(d.likes));
+              showLikes(d.likes);
+            }
+            if (box && typeof d.visits === 'number') {
+              box.classList.remove('is-preview');
+              try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+              var n = d.visits;
+              document.getElementById('visitsCount').textContent = fmt(n);
+              document.getElementById('visitsLabel').textContent = n === 1 ? 'návšteva' : n >= 2 && n <= 4 ? 'návštevy' : 'návštev';
+              box.classList.remove('hidden');
+            }
           })
           .catch(function () {});
       })();

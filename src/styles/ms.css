@@ -373,12 +373,64 @@
   gap: 0.75rem;
 }
 
+.ms-hero-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.65rem;
+}
+
+.ms-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 40px;
+  padding: 0 1.05rem;
+  border-radius: var(--ms-radius-sm);
+  border: 1px solid var(--ms-line-2);
+  background: var(--ms-paper);
+  color: var(--ms-ink-2) !important;
+  font-family: var(--ms-ui);
+  font-size: 0.88rem;
+  font-weight: 620;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(21, 26, 45, 0.04);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ms-tool-btn .hp-ico {
+  width: 16px;
+  height: 16px;
+  color: var(--ms-brand);
+  transition: color 0.15s ease;
+}
+
+.ms-tool-btn:hover {
+  border-color: var(--ms-brand);
+  background: #ffffff;
+  color: var(--ms-brand) !important;
+  box-shadow: 0 3px 8px rgba(21, 26, 45, 0.07);
+}
+
+.ms-tool-btn.is-copied {
+  background: #eef8f1 !important;
+  border-color: #86efac !important;
+  color: #166534 !important;
+}
+
+.ms-tool-btn.is-copied .hp-ico {
+  color: #166534;
+}
+
 .ms-meta {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
-  margin: 1.75rem 0 0;
+  margin: 1.45rem 0 0;
   padding: 0;
   font-size: 0.9rem;
   font-weight: 600;
@@ -2792,23 +2844,50 @@ html:has(body.ms) {
   }
 }
 
-/* ---------- Utility (Pridať na plochu / Zdieľať / Podporiť) pod hero ---------- */
-.ms-hero .ms-utility {
-  margin: 1.25rem 0 -0.75rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--ms-line);
-  justify-content: flex-end;
-}
-
+/* ---------- Nástroje v Hero (Pridať na plochu / Zdieľať) – mobil ---------- */
 @media (max-width: 640px) {
   .ms-hero {
     padding: 2rem 0 2rem;
   }
 
-  .ms-hero .ms-utility {
-    margin: 1.1rem 0 -0.5rem;
-    padding-top: 0.75rem;
-    justify-content: flex-start;
+  .ms-hero-tools {
+    gap: 0.55rem;
+    margin-top: 0.55rem;
+  }
+
+  .ms-hero-tools > .ms-tool-btn {
+    flex: 1 1 auto;
+    padding: 0 0.85rem;
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .ms-hero-tools {
+    gap: 0.45rem;
+  }
+
+  .ms-hero-tools > .ms-tool-btn {
+    min-height: 38px;
+    padding: 0 0.6rem;
+    gap: 0.35rem;
+    font-size: 0.81rem;
+  }
+
+  .ms-hero-tools > .ms-tool-btn .hp-ico {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.ms .modal-title-group .brand-svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+@media print {
+  .ms .no-print {
+    display: none !important;
   }
 }
 
@@ -2886,11 +2965,169 @@ html:has(body.ms) {
   overflow: hidden;
 }
 
+.ms-about-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.42fr) minmax(310px, 0.88fr);
+  align-items: stretch;
+}
+
 .ms-about-sheet .ms-guarantor {
   border: 0;
   border-radius: 0;
   background: transparent;
-  padding: 2.2rem 2.4rem;
+  padding: 2.1rem 2.25rem;
+}
+
+@media (min-width: 981px) {
+  .ms-about-top .ms-guarantor {
+    gap: 1.65rem;
+  }
+
+  .ms-about-top .ms-guarantor-photo {
+    width: 118px;
+    height: 118px;
+  }
+}
+
+.ms-heart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 2.1rem 2.15rem;
+  border-left: 1px solid var(--ms-line);
+  background: transparent;
+}
+
+.ms-heart-txt h3 {
+  font-size: 1.32rem;
+  line-height: 1.2;
+  color: var(--ms-ink);
+  margin: 0 0 0.4rem;
+}
+
+.ms-heart-txt p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ms-ink-2);
+}
+
+.ms-heart-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ms-heart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0.35rem 0.45rem 0.35rem 0.95rem;
+  border-radius: var(--ms-radius-sm);
+  border: 1.5px solid #ddc694;
+  background: var(--ms-paper);
+  color: var(--ms-brand);
+  font-family: var(--ms-ui);
+  font-size: 0.91rem;
+  font-weight: 680;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(21, 26, 45, 0.04);
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ms-heart-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #fcf6e8;
+  border-color: var(--ms-accent);
+  box-shadow: 0 6px 16px -10px rgba(30, 42, 94, 0.24);
+}
+
+.ms-heart-icon {
+  display: inline-flex;
+  color: var(--ms-accent);
+}
+
+.ms-heart-icon .hp-ico {
+  width: 18px;
+  height: 18px;
+}
+
+.ms-heart-count {
+  min-width: 1.95rem;
+  height: 1.75rem;
+  padding: 0 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: var(--ms-accent-soft);
+  border: 1px solid #e6d1a0;
+  color: var(--ms-accent-ink);
+  font-size: 0.8rem;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.ms-heart-btn.is-liked {
+  background: var(--ms-brand);
+  border-color: var(--ms-brand);
+  color: #ffffff;
+  cursor: default;
+}
+
+.ms-heart-btn.is-liked .ms-heart-icon {
+  color: #e0b354;
+}
+
+.ms-heart-btn.is-liked .ms-heart-icon .hp-ico {
+  fill: currentColor;
+}
+
+.ms-heart-btn.is-liked .ms-heart-count {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(209, 162, 74, 0.42);
+  color: #f6dc9b;
+}
+
+.ms-heart-btn.just-clicked .ms-heart-icon {
+  animation: msHeartPop 0.48s ease;
+}
+
+@keyframes msHeartPop {
+  0% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.38);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.ms-heart-share {
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border-radius: var(--ms-radius-sm);
+  font-size: 0.91rem;
+  box-shadow: 0 1px 2px rgba(21, 26, 45, 0.04);
+}
+
+.ms-heart-share .hp-ico {
+  width: 17px;
+  height: 17px;
+  color: var(--ms-brand);
+}
+
+.ms-heart-share:hover {
+  border-color: var(--ms-brand);
+  color: var(--ms-brand) !important;
+  background: #ffffff;
 }
 
 .ms-about-sheet .ms-volunteer {
@@ -3035,6 +3272,30 @@ html:has(body.ms) {
   color: var(--ms-brand);
 }
 
+@media (max-width: 980px) {
+  .ms-about-top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ms-heart {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem 2rem;
+    padding: 1.65rem 2.4rem;
+    border-left: 0;
+    border-top: 1px solid var(--ms-line);
+  }
+
+  .ms-heart-txt {
+    max-width: 29rem;
+  }
+
+  .ms-heart-actions {
+    flex-shrink: 0;
+  }
+}
+
 @media (max-width: 920px) {
   .ms-about-sheet .ms-volunteer {
     grid-template-columns: minmax(0, 1fr);
@@ -3054,9 +3315,42 @@ html:has(body.ms) {
   }
 }
 
+@media (max-width: 740px) {
+  .ms-heart {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 640px) {
   .ms-about-sheet .ms-guarantor,
+  .ms-about-sheet .ms-heart,
   .ms-about-sheet .ms-volunteer {
     padding: 1.35rem 1.15rem;
+  }
+
+  .ms-heart-actions {
+    width: 100%;
+    gap: 0.55rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .ms-heart-btn,
+  .ms-heart-share {
+    min-height: 44px;
+    font-size: 0.88rem;
+  }
+
+  .ms-heart-actions > button {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-heart-btn.just-clicked .ms-heart-icon {
+    animation: none;
   }
 }
