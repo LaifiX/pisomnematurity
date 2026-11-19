@@ -1194,8 +1194,7 @@ export const ZDROJE: Record<SlohSlug, SlohZdroj> = {
   charakteristika: {
     prezentacia: 'Rukoväť na písanie slohovej práce – charakteristika',
     literatura: ['weidler', 'hincova', 'caltikova3'],
-    ukazky: ['Ukážka <em>Sme naozaj brat a sestra?</em> – študentská práca, zones.sk (cit. 4. 3. 2014).'],
-    video: 'C1qRQk0qglI'
+    ukazky: ['Ukážka <em>Sme naozaj brat a sestra?</em> – študentská práca, zones.sk (cit. 4. 3. 2014).']
   },
   'umelecky-opis': {
     prezentacia: 'Rukoväť na písanie slohovej práce – umelecký opis',
