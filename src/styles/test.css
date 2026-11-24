@@ -2218,8 +2218,14 @@ body.tp-intro-active .tp-mode-chip {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 980px) {
   .tp-h1-subj {
+    display: none;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 980px) {
+  .tp-prog-track {
     display: none;
   }
 }
@@ -3769,9 +3775,9 @@ body.tp-intro-active .tp-mode-chip {
   }
 }
 
-/* Najužšie telefóny (do 360 px): „Vyhodnotiť“ len ako ikona (názov ostáva pre čítačky),
-   aby sa zmestil štítok režimu; spodná lišta s menšími medzerami, aby „Ďalšia úloha“ nesiahala po okraj */
-@media (max-width: 360px) {
+/* Telefóny do 388 px (vrátane 375 px iPhone SE): „Vyhodnotiť“ len ako ikona (názov ostáva pre čítačky),
+   aby sa „EČ MS 2026“ aj štítok „Precvičovanie“ zmestili bez orezania */
+@media (max-width: 388px) {
   .tp-eval-btn .tp-eval-short {
     display: none;
   }
@@ -3779,7 +3785,10 @@ body.tp-intro-active .tp-mode-chip {
   .tp-eval-btn {
     padding: 0.45rem 0.55rem;
   }
+}
 
+/* Najužšie telefóny (do 360 px): spodná lišta s menšími medzerami, aby „Ďalšia úloha“ nesiahala po okraj */
+@media (max-width: 360px) {
   .tp-qfoot {
     gap: 0.35rem;
     padding-inline: 0.6rem;

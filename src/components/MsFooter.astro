@@ -1,8 +1,20 @@
 ---
-import { SITE_NAME, SITE_DOMAIN, MATH_SITE_URL, CONTACT_EMAIL } from '../lib/site';
+import { SITE_NAME, SITE_DOMAIN, MATH_SITE_URL, CONTACT_EMAIL, NIVAM_SOURCE_URL } from '../lib/site';
+import { testsCatalog, type TestCatalogItem } from '../data/testsCatalog';
 import BrandMark from './BrandMark.astro';
+
+interface Props {
+  test?: TestCatalogItem;
+}
+
+const { test } = Astro.props;
 const SJL9_SITE_URL = 'https://monitorsolina.sk';
-const NIVAM_MS_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita';
+const readyTests = testsCatalog.filter((t) => t.status === 'ready');
+const schoolYearsList = readyTests.map((t) => t.schoolYear);
+const schoolYearsText =
+  schoolYearsList.length > 1
+    ? `${schoolYearsList.slice(0, -1).join(', ')} a\u00A0${schoolYearsList[schoolYearsList.length - 1]}`
+    : schoolYearsList[0] || '';
 ---
 
     <footer class="ms-footer">
@@ -23,12 +35,23 @@ const NIVAM_MS_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita'
             <a href={`mailto:${CONTACT_EMAIL}`}>Kontakt</a>
           </nav>
         </div>
-        <div class="ms-footer-legal">
+        <div class="ms-footer-legal" aria-label="Autorské práva a podmienky sprístupnenia testov NIVaM">
           <p>
-            <strong>Nositeľ autorských práv k&nbsp;testom a&nbsp;kľúčom odpovedí:</strong> Nositeľom autorských práv k&nbsp;zverejneným testom externej časti maturitnej skúšky zo slovenského jazyka a&nbsp;literatúry a&nbsp;ku kľúčom správnych odpovedí k&nbsp;nim je <strong>Národný inštitút vzdelávania a&nbsp;mládeže (NIVaM)</strong>. Zdrojové dokumenty sú verejne prístupné na portáli <a href={NIVAM_MS_URL} target="_blank" rel="noopener noreferrer">www2.nucem.sk (Maturita – dokumenty na stiahnutie)</a>. Testy sú sprístupnené so súhlasom NIVaM a&nbsp;prístup k&nbsp;nim je voľný a&nbsp;bezplatný.
+            {test ? (
+              <Fragment>
+                <strong>
+                  Nositeľ autorských práv k&nbsp;úlohám a&nbsp;kľúču správnych odpovedí (Externá časť maturitnej skúšky&nbsp;{test.year}, šk.&nbsp;rok {test.schoolYear}, {test.variant.toLowerCase()}, kód&nbsp;{test.code}): Národný inštitút vzdelávania a&nbsp;mládeže (NIVaM).
+                </strong>{' '}
+              </Fragment>
+            ) : (
+              <Fragment>
+                <strong>Nositeľ autorských práv k&nbsp;testom a&nbsp;kľúčom odpovedí:</strong> Nositeľom autorských práv k&nbsp;zverejneným testom a&nbsp;úlohám riadneho termínu <strong>externej časti maturitnej skúšky (EČ&nbsp;MS)</strong> zo slovenského jazyka a&nbsp;literatúry (školské roky {schoolYearsText}) a&nbsp;ku kľúčom správnych odpovedí k&nbsp;nim je <strong>Národný inštitút vzdelávania a&nbsp;mládeže (NIVaM)</strong>.{' '}
+              </Fragment>
+            )}
+            Zdrojové dokumenty sú verejne prístupné na portáli <a href={NIVAM_SOURCE_URL} target="_blank" rel="noopener noreferrer">www2.nucem.sk (Maturita – Dokumenty na stiahnutie)</a>. Tieto testy EČ&nbsp;MS sú sprístupnené so súhlasom NIVaM a&nbsp;prístup k&nbsp;nim je voľný a&nbsp;bezplatný.
           </p>
           <p>
-            <strong>Prepis úloh a&nbsp;autorské vzorové riešenia:</strong> Texty ukážok, úloh a&nbsp;grafické objekty boli pre potreby interaktívneho online zobrazenia prepisované a&nbsp;graficky upravované – NIVaM nezodpovedá za prípadné chyby vzniknuté z&nbsp;tohto dôvodu. Postupy riešenia, nápovedy a&nbsp;texty o&nbsp;slohových útvaroch nie sú autorským dielom NIVaM a&nbsp;NIVaM nezodpovedá za ich obsah.
+            <strong>Prepis úloh a&nbsp;autorské vzorové riešenia:</strong> Texty ukážok, úloh a&nbsp;grafické objekty (tabuľky, schémy, obrázky) boli pre potreby interaktívneho online zobrazenia prepisované a&nbsp;graficky upravované – <strong>NIVaM nezodpovedá za prípadné chyby vzniknuté z&nbsp;tohto dôvodu</strong>. Vytvárané a&nbsp;zverejnené <strong>vzorové riešenia (postupy riešenia a&nbsp;nápovedy) a&nbsp;študijné materiály k&nbsp;slohovým útvarom nie sú autorským dielom NIVaM a&nbsp;NIVaM nezodpovedá za ich obsah</strong>.
           </p>
         </div>
         <p class="ms-footer-copy">© {new Date().getFullYear()} {SITE_DOMAIN} · Peter Beňo</p>

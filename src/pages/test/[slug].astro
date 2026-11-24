@@ -134,10 +134,10 @@ const jsonLd = {
           <BrandMark size={38} class="tp-hmark" />
           <div class="tp-htitle">
             <div class="tp-htitle-row">
-              <h1 aria-label={`${testItem.title} · Slovenčina`}><span class="tp-h1-long">{testItem.title}</span><span class="tp-h1-short">MS&nbsp;{testItem.year}</span><span class="tp-h1-subj"> · Slovenčina</span></h1>
+              <h1 aria-label={`${testItem.title} · Externá časť (EČ MS) · Slovenčina`}><span class="tp-h1-long">{testItem.title} · EČ&nbsp;MS</span><span class="tp-h1-short">EČ&nbsp;MS&nbsp;{testItem.year}</span><span class="tp-h1-subj"> · Slovenčina</span></h1>
               <span class="tp-mode-chip" id="modeChip">Režim</span>
             </div>
-            <span class="tp-hmeta">Šk.&nbsp;rok {testItem.schoolYear} · {testItem.variant} (kód&nbsp;{testItem.code}) · ©&nbsp;NIVaM</span>
+            <span class="tp-hmeta">Externá časť MS · šk.&nbsp;rok {testItem.schoolYear} · {testItem.variant} (kód&nbsp;{testItem.code}) · ©&nbsp;NIVaM</span>
           </div>
         </div>
 
@@ -194,6 +194,7 @@ const jsonLd = {
       <!-- Úvodná voľba režimu -->
       <section class="tp-intro" id="introScreen">
         <div class="tp-intro-head">
+          <span class="tp-intro-eyebrow">Externá časť maturitnej skúšky (EČ&nbsp;MS&nbsp;{testItem.year}) · šk.&nbsp;rok {testItem.schoolYear} · {variantLower} · ©&nbsp;NIVaM</span>
           <h2>Ako chceš dnes trénovať?</h2>
           <p>Vyber si režim. Odpovede sa ti priebežne ukladajú v&nbsp;tomto prehliadači, takže sa môžeš kedykoľvek vrátiť.</p>
         </div>
@@ -481,7 +482,7 @@ const jsonLd = {
       <section class="printable-report" id="printableReport" aria-hidden="true"></section>
     </main>
 
-    <MsFooter />
+    <MsFooter test={testItem} />
 
     <!-- Modal Nápoveda -->
     <div class="modal-backdrop hidden" id="hintModal" role="dialog" aria-modal="true" aria-labelledby="hintModalTitle">
@@ -533,7 +534,7 @@ const jsonLd = {
         <div class="modal-body">
           <ol class="tp-steps" id="solutionStepsList"></ol>
           <div class="tp-conclusion" id="solutionConclusionBox"></div>
-          <p class="tp-modal-note">Postup riešenia nie je autorským dielom NIVaM a&nbsp;NIVaM nezodpovedá za&nbsp;jeho obsah.</p>
+          <p class="tp-modal-note">Vzorové riešenie (postup riešenia) nie je autorským dielom NIVaM a&nbsp;NIVaM nezodpovedá za&nbsp;jeho obsah.</p>
         </div>
         <div class="modal-footer">
           <button class="hp-btn hp-btn-ghost hp-btn-sm" type="button" data-report="solution">Nahlásiť chybu v postupe</button>
@@ -2170,9 +2171,9 @@ const jsonLd = {
           </div>
 
           <p style="margin:0.55rem 0 0;font-size:8pt;color:#475569;">
-            Nositeľom autorských práv k úlohám testu externej časti maturitnej skúšky (${testYear}) a kľúču správnych odpovedí je Národný inštitút vzdelávania a mládeže (NIVaM).
+            Nositeľom autorských práv k úlohám riadneho termínu externej časti maturitnej skúšky (EČ MS ${testYear}, šk. rok ${testSchoolYear}) a kľúču správnych odpovedí je Národný inštitút vzdelávania a mládeže (NIVaM).
             Texty a grafické objekty boli prepisované a graficky upravované – NIVaM nezodpovedá za chyby vzniknuté z tohto dôvodu.
-            Postupy riešenia a nápovedy nie sú autorským dielom NIVaM a NIVaM nezodpovedá za ich obsah.
+            Vzorové riešenia (postupy riešenia a nápovedy) nie sú autorským dielom NIVaM a NIVaM nezodpovedá za ich obsah.
           </p>
         `;
 

@@ -16,6 +16,6 @@ export const OG_IMAGE = {
 export const MATH_SITE_URL = 'https://monitormatika.sk';
 // Contact address for questions and error reports (shown as a mail icon, never as plain text on the page)
 export const CONTACT_EMAIL = 'peter.beno85@gmail.com';
-// Official source of the tests (required attribution, same link as on monitormatika.sk)
-export const NIVAM_SOURCE_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/testovanie-9';
+// Official source of the EČ MS tests (required NIVaM attribution)
+export const NIVAM_SOURCE_URL = 'https://www2.nucem.sk/sk/merania/narodne-merania/maturita';
 export const NIVAM_URL = 'https://www.nivam.sk';
