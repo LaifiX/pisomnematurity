@@ -3670,11 +3670,26 @@ body.tp-intro-active .tp-mode-chip {
     display: none !important;
   }
 
+  /* transform na .tp-qcard by odpojil position: fixed spodnú lištu od okna prehliadača */
+  .tp-qcard.is-entering {
+    animation: none;
+  }
+
+  .tp-qcard.is-entering > :not(.tp-qfoot) {
+    animation: qSlideIn 0.16s ease-out;
+  }
+
+  .tp-input,
+  .tp-fill-sentence,
+  .tp-answer-row {
+    scroll-margin-bottom: 5.5rem;
+  }
+
   .tp-qfoot {
     position: fixed;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: var(--tp-kb-offset, 0px);
     z-index: 48;
     margin: 0;
     padding: 0.6rem 0.75rem calc(0.6rem + env(safe-area-inset-bottom));
@@ -3687,8 +3702,13 @@ body.tp-intro-active .tp-mode-chip {
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
+  body.tp-kb-open .tp-qfoot {
+    padding-bottom: 0.55rem;
+    transition: opacity 0.16s ease;
+  }
+
   .tp-qfoot.is-offscreen,
-  body.is-typing .tp-qfoot {
+  .tp-qfoot.is-kb-cramped {
     transform: translateY(115%);
     opacity: 0;
     pointer-events: none;

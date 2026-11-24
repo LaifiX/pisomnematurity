@@ -1451,6 +1451,9 @@ const jsonLd = {
 
       function goToQuestion(idx, opts = {}) {
         if (idx < 0 || idx > LAST_INDEX) return;
+        if (document.activeElement && document.activeElement.matches && document.activeElement.matches('input, textarea')) {
+          document.activeElement.blur();
+        }
         const prevCtxId = getPassageId(questions[currentIndex]);
         currentIndex = idx;
         const nextCtxId = getPassageId(questions[currentIndex]);
@@ -1588,7 +1591,6 @@ const jsonLd = {
         if (!q) return;
 
         if (lastRenderedIndex !== currentIndex) {
-          document.body.classList.remove('is-typing');
           questionCard.classList.remove('is-entering');
           void questionCard.offsetWidth;
           questionCard.classList.add('is-entering');
@@ -1682,6 +1684,7 @@ const jsonLd = {
               autocapitalize="off"
               autocorrect="off"
               spellcheck="false"
+              enterkeyhint="${isExamLocked() ? 'next' : 'done'}"
               ${isEvaluated ? 'disabled' : ''}
             />
           `;
@@ -1811,8 +1814,15 @@ const jsonLd = {
           evalOpenSolutionBtn.classList.add('hidden');
           questionInteract.classList.remove('has-inline-help');
           syncInteractVisibility();
+          if (q.type === 'text') {
+            const inp = document.getElementById('textAnswerInput');
+            if (inp && document.activeElement !== inp) inp.focus();
+          }
           announce('Najprv vyber alebo zapíš odpoveď.');
           return;
+        }
+        if (document.activeElement && document.activeElement.matches && document.activeElement.matches('input, textarea')) {
+          document.activeElement.blur();
         }
         const ok = isQuestionCorrect(q, raw);
         singleCheckedState[q.id] = ok ? 'correct' : 'wrong';
@@ -2351,6 +2361,9 @@ const jsonLd = {
       let lastFocused = null;
       function openModal(modal) {
         lastFocused = document.activeElement;
+        if (lastFocused && lastFocused.matches && lastFocused.matches('input, textarea')) {
+          lastFocused.blur();
+        }
         modal.classList.remove('hidden');
         const closeBtn = modal.querySelector('.modal-close-btn');
         if (closeBtn) closeBtn.focus();
@@ -2358,7 +2371,10 @@ const jsonLd = {
 
       function closeModal(modal) {
         modal.classList.add('hidden');
-        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+        if (lastFocused && typeof lastFocused.focus === 'function' && document.contains(lastFocused)) {
+          const isMobileTextInput = phoneLayout.matches && lastFocused.matches && lastFocused.matches('input, textarea');
+          if (!isMobileTextInput) lastFocused.focus();
+        }
       }
 
       document.querySelectorAll('[data-close-modal]').forEach((btn) => {
@@ -2420,8 +2436,11 @@ const jsonLd = {
         else showSolutionForCurrentQuestion();
       });
 
-      // Mobilná spodná lišta (Predošlá · Nápoveda · Postup · Ďalšia): skryje sa na úvodnej obrazovke,
-      // pri otvorenej klávesnici a keď je po vyhodnotení na obrazovke výsledkový panel
+      // Mobilná spodná lišta (Predošlá · Nápoveda · Postup · Overiť / Ďalšia):
+      // skryje sa len na úvodnej obrazovke, pri písaní mena do tlačovej zostavy a nad výsledkovým panelom.
+      // Pri vypĺňaní doplňovacích úloh ostáva viditeľná nad klávesnicou a po schovaní klávesnice sa vráti naspäť nadol.
+      const vv = window.visualViewport || null;
+
       function syncInteractVisibility() {
         const hasCheck = !phoneLayout.matches && !checkSingleBtn.classList.contains('hidden');
         const hasFb = !evalFeedbackBanner.classList.contains('hidden');
@@ -2429,32 +2448,81 @@ const jsonLd = {
       }
 
       function syncFootNavVisibility() {
-        if (!mode || document.body.classList.contains('tp-intro-active')) {
+        if (!mode || document.body.classList.contains('tp-intro-active') || document.activeElement === studentNameInput) {
           questionFootNav.classList.add('is-offscreen');
           return;
         }
         if (isEvaluated && !resultsDashboard.classList.contains('hidden')) {
+          const viewH = vv ? vv.height : window.innerHeight;
+          const viewTop = vv ? vv.offsetTop : 0;
           const rect = stepperCard.getBoundingClientRect();
-          questionFootNav.classList.toggle('is-offscreen', rect.top > window.innerHeight * 0.82);
+          questionFootNav.classList.toggle('is-offscreen', rect.top - viewTop > viewH * 0.82);
           return;
         }
         questionFootNav.classList.remove('is-offscreen');
       }
 
+      function keepFocusedInputAboveBar() {
+        if (!phoneLayout.matches) return;
+        const active = document.activeElement;
+        if (!active || active.id !== 'textAnswerInput') return;
+        if (questionFootNav.classList.contains('is-offscreen') || questionFootNav.classList.contains('is-kb-cramped')) return;
+        const inpRect = active.getBoundingClientRect();
+        const barRect = questionFootNav.getBoundingClientRect();
+        const hdrH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--tp-header-h')) || 56;
+        if (barRect.height > 0 && inpRect.bottom > barRect.top - 12 && inpRect.top > hdrH + 24) {
+          const delta = Math.min(inpRect.bottom - (barRect.top - 12), inpRect.top - (hdrH + 16));
+          if (delta > 2) window.scrollBy({ top: delta, behavior: 'auto' });
+        }
+      }
+
+      function syncKeyboardViewport() {
+        if (!vv || !phoneLayout.matches) {
+          document.documentElement.style.removeProperty('--tp-kb-offset');
+          document.body.classList.remove('tp-kb-open');
+          questionFootNav.classList.remove('is-kb-cramped');
+          syncFootNavVisibility();
+          return;
+        }
+        // iOS Safari a prehliadače bez resizes-content zmenšia visualViewport, kým window.innerHeight ostane plné.
+        // Pri priblížení prstami (vv.scale > 1.05) lištu neposúvame.
+        const layoutH = window.innerHeight;
+        const rawGap = layoutH - vv.height;
+        const isKbOverlay = vv.scale <= 1.05 && rawGap > 110;
+        const offset = isKbOverlay ? Math.max(0, Math.round(layoutH - (vv.height + vv.offsetTop))) : 0;
+        document.documentElement.style.setProperty('--tp-kb-offset', offset + 'px');
+        document.body.classList.toggle('tp-kb-open', offset > 0);
+        // Len v extrémne nízkom režime na šírku s vysunutou klávesnicou uvoľníme miesto pre riadok odpovede
+        const isTypingText = Boolean(document.activeElement && document.activeElement.id === 'textAnswerInput');
+        questionFootNav.classList.toggle('is-kb-cramped', isTypingText && vv.scale <= 1.05 && vv.height < 220);
+        syncFootNavVisibility();
+        keepFocusedInputAboveBar();
+      }
+
       window.addEventListener('scroll', syncFootNavVisibility, { passive: true });
-      window.addEventListener('resize', syncFootNavVisibility, { passive: true });
+      window.addEventListener('resize', syncKeyboardViewport, { passive: true });
+      if (vv) {
+        vv.addEventListener('resize', syncKeyboardViewport, { passive: true });
+        vv.addEventListener('scroll', syncKeyboardViewport, { passive: true });
+      }
+
+      // Klepnutie na tlačidlá v spodnej lište pri vysunutej klávesnici nesmie najprv len zavrieť klávesnicu bez vykonania akcie
+      questionFootNav.addEventListener('pointerdown', (e) => {
+        if (e.target && e.target.closest && e.target.closest('button') && document.activeElement && document.activeElement.matches && document.activeElement.matches('input, textarea')) {
+          e.preventDefault();
+        }
+      });
 
       document.addEventListener('focusin', (e) => {
-        if (e.target && e.target.matches && e.target.matches('input[type="text"], textarea')) {
-          document.body.classList.add('is-typing');
+        if (e.target && e.target.id === 'studentNameInput') {
+          syncFootNavVisibility();
+        } else if (e.target && e.target.id === 'textAnswerInput') {
+          setTimeout(syncKeyboardViewport, 60);
+          setTimeout(syncKeyboardViewport, 280);
         }
       });
       document.addEventListener('focusout', () => {
-        requestAnimationFrame(() => {
-          const active = document.activeElement;
-          const stillTyping = Boolean(active && active.matches && active.matches('input[type="text"], textarea'));
-          document.body.classList.toggle('is-typing', stillTyping);
-        });
+        requestAnimationFrame(syncKeyboardViewport);
       });
       switchHintToSolutionBtn.addEventListener('click', () => {
         closeModal(hintModal);
