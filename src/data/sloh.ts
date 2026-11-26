@@ -1,6 +1,6 @@
 // Slohové útvary písomnej formy internej časti maturitnej skúšky (PFIČ MS) zo SJL.
 // Obsah: prezentácie Mgr. Petra Beňa „Rukoväť na písanie slohovej práce“ (SOŠ podnikania Trenčín, 2014),
-// upravené a doplnené; výklad je nový návrh (garant ho skontroluje).
+// upravené a doplnené o vzorový výklad.
 // Kritériá hodnotenia: NIVaM, Kritériá na hodnotenie PFIČ MS – SJL, MJL, UJL, február 2026.
 // Témy 2014 – 2026: oficiálne PDF NIVaM (zdroje-nivam/temy-pfic), 2007 – 2013: prezentácie.
 // Texty sú dôveryhodné HTML reťazce (môžu obsahovať <strong>, <em>).
@@ -288,14 +288,14 @@ export const slohoveUtvary: SlohovyUtvar[] = [
       'Vyhýbaj sa frázam. Jeden vlastný, konkrétny príklad presvedčí viac ako tri všeobecné.'
     ],
     sample: {
-      title: 'Sociálna internetová sieť, náš sluha či pán?',
-      note: 'Ukážka žiackej práce z prezentácie (3. ročník, SOŠ podnikania Trenčín, šk. rok 2013/2014). Téma maturity 2013.',
+      title: 'Sociálna internetová sieť – náš sluha či pán?',
+      note: 'Ukážka žiackej práce z prezentácie (3. ročník, SOŠ podnikania Trenčín, šk. rok 2013/2014; jazykovo a štylisticky upravené). Téma maturity 2013.',
       paras: [
-        'Považujete internetovú sieť za potrebnú v dnešnej dobe? Dokáže človek žijúci v tejto dobe bez nej prežiť?',
-        'V dnešnej dobe je internetová sieť používaná skoro vo všetkých krajinách sveta a je určite každému známa. Ľudia používajú internet v robote, doma, v škole, vo voľnom čase, prosto stále a všade. Niektorí ani nevedia bez nej existovať. A pritom ľudia o takejto veci pred niekoľkými rokmi ani len nerozmýšľali.',
-        'Internetová sieť má niekoľko výhod. Používame ju na vyhľadávanie informácií potrebných do školy, práce, ale aj ku každodennému životu. Používame ju na konverzáciu medzi priateľmi a známymi, na zoznamovanie sa cez Facebook, Twitter a iné internetové služby. Ale ako skoro pri všetkom, aj internetová sieť má svoje nevýhody.',
-        'Dnešní ľudia, a najmä mládež, trávia až príliš veľa voľného času surfovaním po internete. Namiesto chodenia von s priateľmi, poznávania nových ľudí a získavania zážitkov si ľudia pridávajú svojich akože priateľov na Facebooku a nič o nich nevedia. Častým trávením času za počítačmi sa ľudia menej pohybujú, priberajú, a preto rastú aj ich zdravotné problémy. Rodičia nechávajú svoje deti sedieť za počítačmi, tabletmi a mobilnými telefónmi, ktoré im sami kupujú, a nepošlú ich radšej von zabaviť sa s ďalšími deťmi.',
-        'Dnešný svet sa točí väčšinou okolo internetu. Ľudia by ho mali obmedziť a radšej ísť von s priateľmi alebo si prečítať nejakú dobrú knihu, o ktorej ani nevedia, že ju majú vo svojej domácej knižnici. Mali by si chodiť požičiavať knihy aj do knižníc a vzdelávať sa, pretože ak budú doma len sedieť za počítačom alebo televízorom, tieto budovy o niekoľko rokov ani nebudú potrebné. Potom sa budeme zamýšľať nad tým, kde a kedy sme spravili chybu, nemyslíte?'
+        'Dokážeme si ešte predstaviť bežný deň bez jediného pohľadu na obrazovku a bez kontroly nových správ na sociálnej sieti? Kde leží neviditeľná hranica medzi chvíľou, keď nám virtuálny svet poslušne slúži, a okamihom, keď nad naším časom potichu preberá moc?',
+        'Sociálne siete sa v priebehu jedinej generácie stali neodmysliteľnou súčasťou nášho súkromného, školského i pracovného života. Sprevádzajú nás od ranného prebudenia až po večerné zaspávanie – doma, v autobuse aj cez školské prestávky. To, čo kedysi vzniklo ako nevinný nástroj na udržiavanie kontaktu so spolužiakmi, dnes výrazne formuje naše názory, náladu aj predstavu o svete.',
+        'Niet pochýb o tom, že v rozumných rukách dokáže byť sociálna sieť výborným sluhom. V priebehu niekoľkých sekúnd nás spojí s blízkymi na opačnom konci sveta, pripomenie dôležitú udalosť v triede alebo pomôže zdieľať študijné materiály. Pre hanblivejších rovesníkov býva dokonca prvým mostom k zoznámeniu, ktorý by zoči-voči len ťažko prekonali.',
+        'Odvrátenej tvári tohto pomocníka však čelíme vtedy, keď sa z nástroja stane nenápadný pán nášho voľného času. Namiesto živých rozhovorov vonku s kamarátmi zbierame na profiloch stovky virtuálnych priateľov, o ktorých skutočných radostiach či trápeniach takmer nič netušíme. Hodiny strávené bezcieľnym posúvaním príspevkov oberajú mladých ľudí o prirodzený pohyb, spánok aj sústredenie. Neraz aj rodičia v snahe dopriať si chvíľu ticha radšej vložia deťom do rúk tablet či telefón, než aby ich vypravili na ihrisko medzi rovesníkov.',
+        'Keď sa náš pohľad čoraz častejšie upiera len do rozsvieteného displeja, v domácej knižnici zapadajú prachom neprečítané knihy a spolu s nimi sa vytráca aj pokojné sústredenie a blízkosť skutočných stretnutí. Sociálna sieť sama osebe nie je ani dobrá, ani zlá – len verne odráža mieru, akú jej vo svojom živote dovolíme. Ostane naším užitočným sluhom, alebo sa raz obzrieme späť a spýtame sa sami seba, kedy sme jej dobrovoľne odovzdali kľúče od vlastného času?'
       ]
     },
     checklist: [
@@ -346,7 +346,9 @@ export const slohoveUtvary: SlohovyUtvar[] = [
           { term: 'Subjektívna a objektívna', text: 'autor využíva vlastnosti aj na osobné hodnotenie / nezainteresovane ich vymenúva' },
           { term: 'Statická a vývojová', text: 'povaha je hotová, ucelená a nemenná / sleduje sa vývin postavy v priebehu deja' },
           { term: 'Individuálna a skupinová', text: 'charakteristika jednej osoby / celej skupiny (napr. hudobnej kapely, triedy)' },
-          { term: 'Porovnávacia', text: 'charakterizuje a porovnáva najmenej dve postavy alebo skupiny (zhody a protiklady)' }
+          { term: 'Porovnávacia', text: 'charakterizuje a porovnáva najmenej dve postavy alebo skupiny (zhody a protiklady)' },
+          { term: 'Autocharakteristika', text: 'charakteristika seba samého – autor s odstupom aj sebakriticky hodnotí vlastný výzor, povahu, silné a slabé stránky' },
+          { term: 'Karikatúra', text: 'zámerné zveličenie niektorej výraznej vonkajšej črty alebo povahovej vlastnosti s humorným či satirickým zámerom' }
         ]
       },
       {
@@ -397,6 +399,16 @@ export const slohoveUtvary: SlohovyUtvar[] = [
           { term: 'Jadro', text: 'Vychádzaj z opisu, ktorý zvoľna prechádza do charakteristiky. Spájaj povahu človeka so záujmami, rodinným zázemím, prostredím, v ktorom žije, a vzťahmi k ľuďom.' },
           { term: 'Záver', text: 'Všetky poznatky postupne ulož do jednotiaceho celkového pohľadu. Môžeš ho zavŕšiť hodnotením alebo zamyslením (úvahou).' }
         ]
+      },
+      {
+        id: 'zadania',
+        title: 'Špecifické maturitné zadania',
+        cards: [
+          { term: 'Blízka osoba z okolia', text: 'vychádzaj z osobnej skúsenosti, no vyhni sa jednostrannému idealizovaniu; povahu ukáž na drobných každodenných situáciách (napr. 2026: Človek, ktorý ma urobil lepším/lepšou)' },
+          { term: 'Literárna alebo filmová postava', text: 'drž sa reálií diela a autorovho zámeru, prípadne typové črty hrdinu prenes do súčasnosti (napr. 2008: Don Quijote 21. storočia, 2010: Môj obľúbený hrdina)' },
+          { term: 'Personifikovaná vlastnosť', text: 'abstraktnú vlastnosť (lenivosť, tréma, zábudlivosť) premeň na živú bytosť či „spolubývajúcu“ s vlastným výzorom, zvykmi a prejavmi (napr. 2012: Nemám ju rád/rada, ale musím s ňou žiť)' },
+          { term: 'Porovnávacia dvojica', text: 'striedavo alebo zrkadlovo porovnávaj zhodné a protikladné črty dvoch postáv či človeka a jeho domáceho miláčika (napr. 2024: Aký pán, taký pes)' }
+        ]
       }
     ],
     tips: [
@@ -407,13 +419,13 @@ export const slohoveUtvary: SlohovyUtvar[] = [
     ],
     sample: {
       title: 'Sme naozaj brat a sestra?',
-      note: 'Ukážka porovnávacej charakteristiky z prezentácie – študentská práca (zdroj: zones.sk, cit. 4. 3. 2014; jazykovo upravené).',
+      note: 'Ukážka porovnávacej charakteristiky z prezentácie – študentská práca (zdroj: zones.sk, cit. 4. 3. 2014; jazykovo a štylisticky upravené).',
       paras: [
-        'Túto otázku som si položila už veľakrát. Síce to máme na papieri, často však pochybujem o tom, že sme súrodenci.',
-        'Navonok sme dva veľké protiklady. Ja – čierna – som od útleho detstva tmavovláska s olivovozelenými očami a pre mňa typickou gestikuláciou. On – biela – je modrooký blondín s bledou pokožkou, nepoužívajúci žiadnu mimiku a gestikuláciu. Keď však začneme rozprávať, máte pocit, akoby hovorila jedna osoba. Sme rovnako nezodpovední, no jeho nezodpovednosť už dávno predstihla tú moju. Zatiaľ čo ja v dôležitej veci beriem zodpovednosť na seba a splním svoje záväzky, on ich ignoruje.',
-        'Po vstupe do jeho izby máte pocit, že ste sa ocitli v chlieve. Môj brat sa totiž riadi heslom: „Poriadok je len pre hlupákov. Inteligentný človek sa vyzná v chaose.“ Hneď vedľa jeho izby nájdete izbu takmer vždy upratanú a farebne dokonale zladenú. Tá patrí mne. Často mám pocit, že Ivova úloha je robenie neporiadku a tá moja behanie za ním a upratovanie. Ja míňam vreckové na kozmetiku, on si potrpí na tom, aby mal vždy najnovší mobil a tenisky všetkých možných farieb a štýlov, ktoré aj tak po mesiaci prestane nosiť.',
-        'Líšia sa aj naše záľuby. On bol vždy skôr technický typ, zaujímajúci sa o počítače a autá, a ja typ športový so zmyslom pre umenie. Rozdielne sú aj naše ambície. Možno je to skoro, ale ja už teraz myslím na svoju budúcnosť a snažím sa ju postupne budovať.',
-        'On stále žije len prítomnosťou, v ktorej nič nie je problémom a v ktorej budúcnosť zatiaľ miesto nemá. V niečom sme úplne odlišní, v niečom rovnakí. To však nič nemení na našej súrodeneckej láske.'
+        'Túto otázku som si položila už veľakrát. Hoci to máme čierne na bielom, neraz s úsmevom pochybujem o tom, že sme naozaj súrodenci.',
+        'Navonok sme dva veľké protiklady. Ja – čierna – som od útleho detstva živá tmavovláska s olivovozelenými očami a výraznou gestikuláciou. On – biela – je pokojný modrooký blondín s bledou pokožkou a takmer nehybnou tvárou. Len čo však začneme rozprávať, prebudí sa v nás rovnaký zmysel pre humor – dopĺňame si vety, smejeme sa na tých istých maličkostiach a medzi priateľmi ani jeden z nás nepokazí zábavu. V prístupe k povinnostiam sa však naše cesty znova rozchádzajú. Obaja síce občas odkladáme úlohy na poslednú chvíľu, no kým vo vážnej chvíli beriem zodpovednosť na seba a svoje sľuby dodržím, Ivo nad nimi len bezstarostne mávne rukou.',
+        'Po vstupe do jeho kráľovstva nadobudnete dojem, že sa cezeň prehnala víchrica. Môj brat sa totiž riadi heslom: „Poriadok je len pre hlupákov. Inteligentný človek sa vyzná v chaose.“ Hneď za stenou sa však otvára presný opak – moja izba, takmer vždy starostlivo uprataná a farebne zladená. Občas sa mi zdá, že Ivo sa narodil na to, aby neporiadok vyrábal, a ja zas na to, aby som ho po ňom trpezlivo odpratávala. Líši sa aj náš vzťah k peniazom: kým ja míňam vreckové na knihy a kozmetiku, on si potrpí na to, aby mal vždy najnovší mobil a tenisky všetkých možných farieb, ktoré aj tak po mesiaci odloží do kúta.',
+        'Rovnako odlišné sú aj naše záľuby. Ivo je odjakživa technický typ – hodiny dokáže sedieť nad počítačmi či motormi áut, no treba mu uznať, že kedykoľvek sa mne alebo kamarátom pokazí notebook či bicykel, bez slova pomôže a všetko opraví. Mňa to, naopak, ťahá k športu a umeniu. Rozchádzajú sa aj naše predstavy o budúcnosti: hoci je na veľké plány možno priskoro, ja už dnes premýšľam, kam pôjdem študovať, a cieľavedome si idem za svojím.',
+        'Môj brat zatiaľ žije výlučne prítomnosťou, v ktorej nič nie je neprekonateľným problémom a starosti zajtrajška v nej nemajú miesto. V mnohom sme ako deň a noc, v niečom zas z jedného cesta – a práve táto pestrá zmes protikladov drží našu súrodeneckú lásku pohromade.'
       ]
     },
     checklist: [
@@ -425,7 +437,7 @@ export const slohoveUtvary: SlohovyUtvar[] = [
       'Hodnotím, ale nesúdim.'
     ],
     criteria: {
-      obsah: ['dodržanie témy', 'enumerácia vlastností osoby vo vzťahu k sebe, k obdobiu, k práci', 'komplexná charakteristika z viacerých uhlov pohľadu'],
+      obsah: ['dodržanie témy', 'enumerácia vlastností osoby vo vzťahu k sebe, k okoliu, k práci', 'komplexná charakteristika z viacerých uhlov pohľadu'],
       kompozicia: ['opisný slohový postup (dodržanie žánrovej formy)', 'dodržanie zvoleného kompozičného plánu'],
       jazyk: [...JAZYK_ZAKLAD, 'vety s viacnásobným vetným členom', 'prídavné mená, príslovky, synonymá'],
       styl: ['tvorivé využitie lexiky všetkých štýlov (vyšší, stredný, nižší)', 'štylistické prostriedky priamej a nepriamej charakteristiky']
@@ -556,13 +568,13 @@ export const slohoveUtvary: SlohovyUtvar[] = [
     ],
     sample: {
       title: 'Čaro Vianoc',
-      note: 'Ukážka umeleckého opisu z prezentácie – študentská práca (zdroj: zones.sk, cit. 14. 3. 2014; jazykovo upravené).',
+      note: 'Ukážka umeleckého opisu z prezentácie – študentská práca (zdroj: zones.sk, cit. 14. 3. 2014; jazykovo a kompozične upravené).',
       paras: [
-        'S prvým vdýchnutím mrazivého vzduchu a nesmelou vločkou skrytou v dlani spoznáte, že prichádzajú Vianoce. Tlmený jas žiari nielen z preplnených výkladov, ale odráža sa i v očiach ľudí. Teplo, neha, láska… Nastal čas, keď tie najvzácnejšie city ožívajú, aby aj v dušiach ľahostajných prebudili zvyšky dobra, ktoré často skrývame…',
-        'Severák si už hvízda svoju veternú koledu, roztopašne kradne deťom čiapky. Vyštípané líca. Horúca červeň prebudená chladom. Nedozerné hĺbky vôd, teraz v škrupine krehkej a tajomnej zároveň. Čo sa skrýva pod hladinou?',
-        'Mocná príroda si zachováva vlastné čarokrásno, čakajúce na objavenie tými, čo sú vnímaví k nepolapiteľnému pôvabu zimného podvečera. Komu telo neobjíme mrazivá obruč, studená, tvrdá, naliehavá, keď sa všade navôkol prestrel hmlistý závoj mliečnobielej chumelice? Ešte vždy je tu záchrana. Svetielko v diaľke. Mámi, pozýva bližšie…',
-        'Získať ho nie je samozrejmé. Iskierka ľahko nepreskočí. Hrejivý pocit radosti zo stretnutí s rodinou, ten treba hľadať v sebe. Hravý plamienok má najradšej srdcia detí. Potešenie, čisté a neskalené, vpečatí drobným tváram onen výraz, za ktorý by dospelí zaplatili pokladmi sveta. Načo siahať do vreciek, načo mince, trblietavé odlesky drahokamu? Tajomstvo Vianoc prebýva vo voňavom ihličí, šíri sa s arómou škorice, vanilky…',
-        'Dar? Z hĺbky srdca. Komu? Tým, pre ktorých stojí za to žiť. Čo? Úsmev a objatie. Bozk pod imelom, dychtivým svedkom zblíženia. Kto dá viac? Ten, čo cíti na jazyku opojnú chuť medu. Kúzlo bez prútika čarodeja, bez omamných odvarov, krištáľových gulí. Všetko máme skryté v dlaniach, zbrázdených cestičkami dotykov. Bytosti potrebujú vnímať ľudské teplo po svojom boku… Nielen v čas vianočný.'
+        'S prvým vdýchnutím mrazivého vzduchu a nesmelou vločkou, ktorá sa tíško roztopí v dlani, prichádza do tichých ulíc čaro Vianoc. Na spiace mestečko sadá modrastý zimný súmrak a premieňa všedné chodníky na mäkký striebristý koberec. Tlmený jas pouličných lámp a sviatočne vyzdobených výkladov sa zrkadlí v čerstvom snehu i v očiach okoloidúcich. Všade navôkol vládne tichá, sviatočná nálada plná pokoja a očakávania.',
+        'Nad strechami si už Severák hvízda svoju veternú koledu a roztopašne strháva deťom pletené čiapky. Na vyštípaných lícach im kvitne horúca červeň prebudená chladom a pod topánkami veselo vŕzga zamrznutý sneh. O kus ďalej, pod starým kamenným mostom, odpočívajú tmavé hĺbky potoka uzavreté v krehkej sklenenej škrupine ľadu, na ktorej sa ligocú posledné odlesky podvečera.',
+        'Keď sa nad krajinou rozprestrie hmlistý závoj mliečnobielej chumelice, mrazivá obruč zimy zovrie celú ulicu do bieleho ticha. Uprostred hustého tanca vločiek však zrazu zažiari teplé jantárové svetielko v zarosenom okne rodinného domu. Mäkko presvitá cez čipku ľadových kvetov na skle, mámi uzimeného chodca a pozýva ho dnu, do bezpečia vyhriateho domova.',
+        'Hneď za prahom vystrieda štípajúci mráz príjemné sálajúce teplo a vôňa domova. V kúte obývačky sa týči štíhla jedlička odetá do trblietavých ozdôb a drobných svetielok. Celou izbou sa nesie živicová vôňa čerstvého ihličia, ktorá splýva so sladkastou arómou škorice, klinčekov a čerstvo upečeného vanilkového pečiva. Na sviatočne prestretom stole sa mihá hravý plamienok sviečky a do rozžiarených detských tvárí vtláča výraz čistej, neskalenej radosti.',
+        'Pod zelenou vetvičkou imela nad dverami sa na bielom obruse lesknú tenké vianočné oblátky so zlatistou kvapkou medu, ktorého opojná, sladká chuť sa pomaly rozplýva na jazyku. V tichu izby počuť len jemné praskanie vosku a pokojný dych blízkych zoskupených okolo stola. Zimný mráz ostal stáť za oknami – dnu kraľuje len mäkké svetlo, vôňa ihličia a hrejivé čaro vianočného večera.'
       ]
     },
     checklist: [
@@ -652,8 +664,9 @@ export const slohoveUtvary: SlohovyUtvar[] = [
             example: 'Bača ho uistil, že všetko povie Jergušovi. (Ľ. Ondrejov)'
           },
           {
-            term: 'Reč postáv',
-            text: 'výpovede osôb, ktoré hodnotia a komentujú príbeh, vnášajú doň úvahy a subjektívne pocity. Realizuje sa priamo (graficky: dvojbodka, úvodzovky, pomlčky, osobitný odsek) alebo nepriamo (nepriama a polopriama reč)'
+            term: 'Priama, nepriama a polopriama reč',
+            text: '<strong>priama reč</strong> doslovne cituje výpoveď postavy v úvodzovkách; <strong>nepriama reč</strong> ju reprodukuje autorskou rečou vo vedľajšej vete so spojkou <em>že/aby</em>; <strong>polopriama reč</strong> zachytáva vnútorný monológ a pocity postavy v 3. osobe bez úvodzoviek',
+            example: 'Nepriama: Povedala, že príde. · Polopriama: Zastal pri dverách. Vari naňho zabudli?'
           },
           {
             term: 'On-rozprávanie (er-forma)',
@@ -672,8 +685,30 @@ export const slohoveUtvary: SlohovyUtvar[] = [
           },
           {
             term: 'Poloha uvádzacej vety',
-            text: 'pred priamou rečou naznačuje pokojný, intelektuálny priebeh; za priamou rečou pôsobí expresívne a dynamicky v citovo napätej komunikácii',
-            example: 'Mišo skríkol: „A polieval si ju?“ · „Vivat a vivat, kde budeme bývať,“ ozvalo sa z druhého boku záhrady. (J. Kalinčiak)'
+            text: 'pred priamou rečou pôsobí pokojne a pripravuje čitateľa na výpoveď; za priamou rečou alebo uprostred nej pôsobí dynamicky a expresívne v citovo napätej komunikácii',
+            example: 'Otec sa pokojne spýtal: „A polieval si ju?“ · „Vivat a vivat, kde budeme bývať,“ ozvalo sa z druhého boku záhrady. (J. Kalinčiak)'
+          }
+        ]
+      },
+      {
+        id: 'zapis',
+        title: 'Zápis a interpunkcia priamej reči',
+        lead: 'Priamu reč zvyčajne vyčleňujeme do nového odseku a uzatvárame do dolných a horných úvodzoviek („…“). Daj si pozor na tri základné polohy:',
+        steps: [
+          {
+            term: 'Uvádzacia veta pred priamou rečou',
+            text: 'Za uvádzacou vetou píšeme dvojbodku, priama reč sa začína veľkým písmenom a koncové znamienko (bodka, otáznik, výkričník) stojí pred hornými úvodzovkami.',
+            example: 'Mama mi kládla na srdce: „V lavici sa nevrť!“'
+          },
+          {
+            term: 'Uvádzacia veta za priamou rečou',
+            text: 'Ak je priama reč oznamovacia, namiesto bodky píšeme pred hornými úvodzovkami čiarku (otáznik a výkričník ostávajú) a uvádzacia veta pokračuje malým písmenom.',
+            example: '„Ono sa tam schovalo,“ pípol som previnilo. · „Čie je to auto?“ spýtala sa učiteľka.'
+          },
+          {
+            term: 'Uvádzacia veta vložená do priamej reči',
+            text: 'Vloženú uvádzaciu vetu oddeľujeme z oboch strán čiarkami; ak priama reč pokračuje tou istou vetou, začína sa po dolných úvodzovkách malým písmenom.',
+            example: '„Tak a je po mne,“ prebleslo mi hlavou, „hneď prvý deň ma vylúčia!“'
           }
         ]
       },
@@ -698,15 +733,17 @@ export const slohoveUtvary: SlohovyUtvar[] = [
     ],
     sample: {
       title: 'Prvý deň v škole',
-      note: 'Ukážka rozprávania z prezentácie – študentská práca (zdroj: zones.sk, cit. 18. 2. 2014; jazykovo upravené).',
+      note: 'Ukážka rozprávania z prezentácie – študentská práca (zdroj: zones.sk, cit. 18. 2. 2014; jazykovo a kompozične upravené).',
       paras: [
-        'Kto by si nepamätal na tú zmes pocitov a vôní, ktorá sa spája s prvým dňom v škole? Doteraz vidím všetky tie tváre a pohľady, ktoré na mňa boli upreté… a viem si živo predstaviť aj neutíchajúci tlkot môjho srdca. Strach z niečoho nového a hneď za tým aj zvedavosť. Otázky sa mi rodili v hlave a hneď si hľadali aj odpovede. Nič som nevnímal. Prípravy na tento veľkolepý deň sa konali už niekoľko mesiacov predtým. Otravné nákupy, z ktorých mala mamina väčšiu radosť ako ja. Nekonečné otázky, akej farby má byť moja prvá školská taška, ma privádzali k zúfalstvu už v takom mladom veku. Potom nasledovali dlhé prednášky o tom, ako sa smiem a ako nesmiem správať. Poviem vám, bolo to naozaj únavné. Už od svojich skorých liet som bol dosť živé dieťa a predstava tichého sedenia v školskej lavici sa mi nezdala veľmi lákavou.',
-        'Vedel som presne, čoho sa budem musieť vzdať. Poobedňajšieho spánku. Dopoludňajšieho prehrabovania v pieskovisku. A, pravdaže, aj sladkého hrania. Mala vraj nastať zmena. Radikálna. Aspoň tak ma určitý čas strašili.',
-        'Prišiel deň D. Bolo skoré ráno. Mama ma obliekla a dávala mi aj posledné rady: „Nie, aby si vykrikoval neslušné slová… v lavici sa nevrť… hovor, len keď sa ťa pani učiteľka niečo spýta…“ Dôležito som prikyvoval svojou malou hlávkou, až kým mi mama nezapla košeľu tesne pod krk. Bol som pripravený. Tašku som si však na plecia nemohol vziať, pretože by ma s najväčšou pravdepodobnosťou stiahla k zemi.',
-        'Malými krôčikmi som kráčal celou cestou do školy za mamou. Nikam som sa neponáhľal a ani mama nie. Boli sme tam aj tak prví. A tak som mal možnosť všetko podrobne sledovať. Príchody detí, slzy v očiach tých ustráchanejších, úsmev na perách tých živších, roztržité pohľady ich rodičov, ktoré sa pýtali: „Kde to nechávam svoje dieťa?“ Aj v očiach mojej mamy sa zračil ten pohľad… ale rýchlo zmizol, len čo sa ku mne otočila, aby sa rozlúčila. Až teraz po rokoch som pochopil, že mi tým len nechcela nahnať ešte väčší strach, než aký som pociťoval. Dala mi pusu na čelo, čo je asi typickým rozlúčkovým gestom všetkých mám.',
-        'Zostal som stáť na školskom dvore sám. Pomaly som sa obzeral vôkol, až som neďaleko zbadal skupinu svojich kamarátov. Človeku je hneď veselšie, keď vie, že nemusí nové situácie prežívať sám. Spolu sme sa dokonca dostali aj do jednej triedy a ja som vedel, že to už vôbec nebude také zlé, ako som si sprvu myslel.',
-        'Pani učiteľka mala na tvári úsmev, ktorý si aj po rokoch pamätám – úsmev, ktorý hovoril: „Ste v bezpečí, nemáte sa čoho báť. Som tu na to, aby ste prišli ku mne, keď sa budete báť alebo keď budete potrebovať pomoc.“ Dve hodiny ubehli ako voda. Spoznal som svojich spolužiakov, našiel nových priateľov a zistil som, že možno aj pre mňa bude platiť heslo: „Škola hrou.“',
-        'Z triedy som vyšiel s úsmevom na perách. Vložil som svoju dlaň do maminej a vedel som, že aj keď už zo mňa rastie chlap, tú teplú dlaň budem ešte v niektorých okamihoch svojho života potrebovať. Doma bol malý vypočúvací štáb: „Tak ako bolo? Aj si plakal? Dúfam, že si sa nebil hneď prvý deň!“ Oco a mama mali na mňa „more“ otázok, ale ja som bol aj tak mysľou inde. Cítil som, že sa práve v tento deň začína nová etapa môjho života, v ktorej budem čoraz viac zodpovedný sám za seba a za svoje činy. A pravdupovediac, začal som sa na to aj tešiť.'
+        'Kto by si nepamätal tú zmes zvedavosti, vône nových zošitov a neutíchajúceho tlkotu srdca, ktorá sa spája s prvým dňom v škole? Týždne predtým sa u nás doma niesli v znamení nekonečných nákupov a prednášok o tom, že poobedňajšiemu spánku a bezstarostným hrám v pieskovisku definitívne odzvonilo. Odmalička som bol neposedné šidlo, a tak sa mi predstava tichého sedenia v lavici vôbec nezdala lákavá.',
+        'Napokon nadišiel deň D. Mama mi zapínala bielu košeľu až tesne pod krk a kládla mi na srdce posledné rady: „Nie aby si v triede vykrikoval! V lavici sa nevrť, hračky nechaj doma a hovor, len keď sa ťa pani učiteľka niečo opýta!“ Dôležito som prikyvoval, hoci ma vo vrecku nohavíc potajomky hrialo malé červené autíčko – môj talizman pre prípad núdze. Obrovskú aktovku musela niesť mama, inak by ma určite prevážila k zemi.',
+        'Pred školou sa to už hmýrilo vyobliekanými prváčikmi a dojatými rodičmi. Mama mi pri dverách vtisla bozk na čelo, v očiach sa jej mihla slza a ja som odrazu zostal stáť uprostred cudzej triedy. Našťastie sa na mňa z prednej lavice usmial kamarát zo škôlky a pred tabuľu predstúpila mladá pani učiteľka s takým láskavým pohľadom, že zo mňa prvý strach okamžite opadol.',
+        'Všetko šlo hladko až do chvíle, keď nás vyzvala, aby sme si z tašky vyložili peračník. Horlivo som trhol zipsom, no nešikovne som pritom zavadil o vrecko nohavíc. Červené autíčko vyletelo von, cinklo o kovovú nohu lavice a so zradným hrkotom sa rozbehlo po podlahe. Hrŕŕ! Zastavilo sa presne pri špičke topánky pani učiteľky. V triede nastalo hrobové ticho. Krv mi udrela do líc a v hrdle mi navrela hrča. <em>Tak a je po mne,</em> prebleslo mi hlavou, <em>hneď prvý deň ma vylúčia zo školy!</em>',
+        'Pani učiteľka sa pomaly zohla, vzala autíčko do dlane a skúmavo zdvihla obočie.',
+        '„Čie je toto pretekárske auto, ktoré tu jazdí bez vodičského preukazu?“ opýtala sa vážnym hlasom, no v kútikoch úst jej pohrával úsmev.',
+        '„M-moje, prosím,“ pípol som previnilo a očami som vŕtal do dlážky. „Ono sa tam… samo schovalo.“',
+        'Triedou prebehol tichý chichot, no pani učiteľka namiesto pokarhania položila autíčko na katedru a povedala: „Výborne! Aspoň nám dnešné zoznamovanie pôjde veselšie – ku komu autíčko pošlem, ten nám povie svoje meno.“',
+        'Napätie razom vyprchalo, z hanby sa stala spoločná hra a dve vyučovacie hodiny ubehli ako voda. Z triedy som vychádzal s novými kamarátmi a s pocitom, že škola vôbec nebude takým väzením, akým ma doma ľakali. Keď ma popoludní vo dverách privítal zvedavý otec otázkou: „Tak ako, prváčik, dúfam, že si hneď prvý deň nevyrobil nejaký malér?“, len som si vo vrecku potajomky stisol červené autíčko, spiklenecky som sa usmial a vyhlásil: „Kdeže, oco! Pani učiteľka vravela, že bez môjho auta by to dnes vôbec nešlo.“'
       ]
     },
     checklist: [
@@ -777,6 +814,33 @@ export const slohoveUtvary: SlohovyUtvar[] = [
         ]
       },
       {
+        id: 'obraty',
+        title: 'Ako kultivovane súhlasiť, polemizovať a argumentovať',
+        lead: 'V diskusii hodnotíme myšlienky a argumenty, nikdy nie osobu predrečníka. Pomôžu ti ustálené rečnícke obraty:',
+        cards: [
+          {
+            term: 'Súhlas a doplnenie',
+            text: 'nadviazanie na myšlienku predrečníka a jej obohatenie o ďalší uhol pohľadu',
+            example: 'Plne sa stotožňujem so slovami predrečníka a rád by som doplnil… · Nadväzujúc na úvodný referát, chcem poukázať aj na…'
+          },
+          {
+            term: 'Vecný nesúhlas (polemika)',
+            text: 'zdvorilé spochybnenie tvrdenia pomocou protiargumentu bez osobných útokov',
+            example: 'Dovoľte mi polemizovať s názorom, že… · Rozumiem tomuto pohľadu, no fakty ukazujú, že…'
+          },
+          {
+            term: 'Uvedenie argumentu a citátu',
+            text: 'opretie vlastnej mienky o overiteľný údaj, literatúru alebo výrok autority',
+            example: 'Svoje tvrdenie môžem doložiť príkladom… · Ako výstižne pripomenul už…'
+          },
+          {
+            term: 'Kontakt a výzva v závere',
+            text: 'vtiahnutie publika do uvažovania cez rečnícku otázku, oslovenie a záverečný apel',
+            example: 'Položme si, milí spolužiaci, úprimnú otázku: … · Preto vás chcem vyzvať, aby sme…'
+          }
+        ]
+      },
+      {
         id: 'jazyk',
         title: 'Jazyk a štýl',
         list: [
@@ -795,13 +859,13 @@ export const slohoveUtvary: SlohovyUtvar[] = [
     ],
     sample: {
       title: 'Od septembra v školách po novom',
-      note: 'Ukážka diskusného príspevku z prezentácie – študentská práca (zdroj: zones.sk, cit. 19. 2. 2014; jazykovo upravené).',
+      note: 'Ukážka diskusného príspevku z prezentácie – študentská práca (zdroj: zones.sk, cit. 19. 2. 2014; jazykovo a kompozične upravené).',
       paras: [
         'Vážení prítomní!',
-        'Dovoľte mi, aby som aj ja vyjadrila svoj názor na nový školský zákon, ktorý prednedávnom schválili v parlamente.',
-        'Podľa mňa zákon obsahuje množstvo dobrých zmien, ale sú v ňom, bohužiaľ, aj zmeny, ktoré nie sú podľa môjho názoru veľmi prospešné. Zníženie počtu žiakov v triedach je veľmi dobré, čo môžem potvrdiť na základe vlastnej skúsenosti. Na základnej škole nás bolo v triede sedemnásť. Učitelia sa nám mohli viac venovať, mali sme viac príležitostí poopravovať si zlé známky. A teraz? Chodím na gymnázium, v triede nás je tridsaťšesť, a to je podľa mňa už veľa. Je pravda, že keď je nás tak hojne, je to väčšia zábava a menšia šanca, že nás profesor vyvolá odpovedať, keď náhodou nie sme pripravení. Ale aj tak sa mi to veľmi nepozdáva. Teraz by som síce nechcela, aby nás rozdelili, pretože na spolužiakov som si zvykla a obľúbila som si ich, ale v budúcnosti by bolo skutočne dobré, keby bol počet žiakov v triedach nižší.',
-        'Časť zákona o redukcii učebných osnov považujem za pozitívnu, pretože občas mám pocit, že sa učíme veci, ktoré väčšina z nás nebude nikdy v živote potrebovať a ktoré aj tak zabudneme. Myslím si, že profesori by túto zmenu tiež privítali. Som si vedomá toho, že na úpravu osnov a vydanie nových učebníc treba veľa času, odborníkov, ktorí sa toho ujmú, a taktiež veľa peňazí, ale keď sa to už začalo, nech je to poriadne.',
-        'Dúfam, že sa reforma školstva všetkým zainteresovaným napriek nedostatku času podarí zrealizovať a všetci budú v škole spokojnejší.',
+        'Dovoľte mi, aby som nadviazala na úvodný referát aj na slová môjho predrečníka a vyjadrila svoj názor na pripravované zmeny v školskom zákone. Hoci novela prináša viacero krokov správnym smerom, domnievam sa, že niektoré opatrenia sa zavádzajú príliš narýchlo a bez dostatočnej prípravy.',
+        'Za jednoznačné pozitívum považujem zníženie maximálneho počtu žiakov v triedach, čo môžem potvrdiť z vlastnej skúsenosti. Na základnej škole nás bolo v triede sedemnásť, vďaka čomu sa nám učitelia mohli venovať individuálne a mali sme priestor pýtať sa priamo na hodine. Porovnávajúc vtedajšie vyučovanie s dnešnou realitou na gymnáziu, kde nás v laviciach sedí tridsaťjeden, jasne vidím ten rozdiel – pri jazykových či odborných predmetoch je takýto počet priveľký. Je síce pravda, že vo veľkom kolektíve býva cez prestávky veselšie a klesá aj šanca, že vyučujúci vyvolá odpovedať práve toho, kto sa nestihol pripraviť. Svojich terajších spolužiakov som si obľúbila a nechcela by som, aby nás teraz rozdeľovali, no pre budúcich prvákov by menšie triedy znamenali citeľne kvalitnejšiu výučbu.',
+        'Rovnako vítam zámer zredukovať preplnené učebné osnovy. Už rímsky filozof Seneca výstižne pripomenul: „Neučíme sa pre školu, ale pre život.“ Načo sú nám, milí spolužiaci a vážení učitelia, desiatky encyklopedických poučiek, ktoré po písomke okamžite pustíme z hlavy, ak nám potom chýba čas na praktické úlohy a kritické myslenie? Práve pri osnovách však vidím najväčšie negatívum celej reformy. Zmeny majú v školách platiť už od septembra, hoci nové učebnice ani metodické príručky ešte neexistujú. Ako majú pedagógovia učiť po novom, keď dostanú do rúk len rámcové ciele a materiály si musia pripravovať po večeroch na úkor vlastného voľna? Zmysluplná premena vzdelávania si vyžaduje dostatok času, odborníkov z praxe i premyslené financovanie, nie unáhlený štart, pri ktorom sa pravidlá menia za pochodu.',
+        'Podľa mojej mienky teda nestačí hodnotiť školský zákon len podľa sľubných cieľov na papieri. Zaujímajme sa spoločne o to, v akých podmienkach reforma do škôl prichádza, diskutujme na pôde školského parlamentu a podporme kroky, ktoré dajú učiteľom aj študentom reálny priestor na prípravu. Až keď pôjde dobrý úmysel ruka v ruke s kvalitnými učebnicami, budeme od septembra v triedach naozaj spokojnejší.',
         'Ďakujem za pozornosť.'
       ]
     },
@@ -833,6 +897,30 @@ export const slohoveUtvary: SlohovyUtvar[] = [
     ],
     sections: [
       {
+        id: 'zadania',
+        title: 'Úradný verzus beletrizovaný a typy zadaní',
+        lead: 'Kým úradný (štruktúrovaný) životopis patrí do administratívneho štýlu a stroho vypočítava fakty v heslách, beletrizovaný životopis premieňa životopisné údaje na umelecký príbeh. Na maturite sa stretneš s tromi typmi zadaní:',
+        cards: [
+          {
+            term: 'Vlastný beletrizovaný životopis',
+            text: 'vychádzaš zo skutočných míľnikov svojho života (narodenie, rodina, škola, záľuby, plány), ktoré podávaš s nadhľadom, humorom alebo obraznosťou'
+          },
+          {
+            term: 'Životopis literárnej postavy',
+            text: 'píšeš v 1. osobe z pohľadu hrdinu knihy či drámy; musíš dodržať dejové fakty, charakter postavy aj dobové prostredie diela (napr. 2008: Volám sa Jozef Mak, 2022: Som Ofélia)'
+          },
+          {
+            term: 'Fiktívny beletrizovaný životopis',
+            text: 'vytváraš vymyslený životný príbeh s dávkou fantázie či nadsázky, no stále v ňom musí byť čitateľných aspoň 5 životopisných oporných bodov (napr. 2012: Som jednoducho smoliar, 2025: Od detstva žijem na inej planéte)'
+          },
+          {
+            term: 'Ako „zahmliť“ suchý fakt',
+            text: 'namiesto presného dátumu a adresy použi obraz, metaforu alebo príhodu, z ktorej čitateľ údaj vyčíta medzi riadkami',
+            example: 'Úradne: Narodil som sa 15. 12. 2007 v Nitre. → Umelecky: Do mrazivého decembrového rána pod Zoborom som sa ohlásil prvým plačom krátko pred Vianocami.'
+          }
+        ]
+      },
+      {
         id: 'postupy',
         title: 'Ako kombinuje slohové postupy',
         lead: 'Vychádza z objektívnych údajov o vlastnom živote alebo o živote inej (aj fiktívnej či literárnej) osoby, ktoré však umelecky „zahmlieva“ a vyjadruje sa o nich obrazne.',
@@ -859,9 +947,18 @@ export const slohoveUtvary: SlohovyUtvar[] = [
         ]
       },
       {
+        id: 'kompozicia',
+        title: 'Kompozícia',
+        steps: [
+          { term: 'Úvod (zrod a korene)', text: 'Originálne, bez ošúchaných fráz predstav príchod na svet, miesto narodenia a rodinné zázemie, do ktorého si vstúpil/a.' },
+          { term: 'Jadro (životná cesta v čase)', text: 'V premyslenej časovej postupnosti (chronologicky alebo retrospektívne) rozviň kľúčové etapy – detstvo, školské roky, objavenie záľub, úspechy, omyly aj križovatky, ktoré ťa sformovali.' },
+          { term: 'Záver (prítomnosť a obzor budúcnosti)', text: 'Prepoj doterajšiu cestu s dneškom, vyslov svoje životné krédo a obrazne naznač sny, ciele alebo ambície do ďalších kapitol života.' }
+        ]
+      },
+      {
         id: 'osnova',
         title: 'Osnova na precvičenie',
-        lead: 'Napíš vlastný beletrizovaný životopis podľa osnovy a inšpiruj sa formuláciami v zátvorkách.',
+        lead: 'Napíš vlastný beletrizovaný životopis podľa osnovy a inšpiruj sa úvodnými vetami pri jednotlivých bodoch.',
         steps: [
           { term: 'Narodenie', text: '„Bolo načase, že som sa narodil – ja, jeden…“' },
           { term: 'Detstvo', text: '„Päť rokov to ani nevyzeralo, že čakali len na mňa…“' },
@@ -879,14 +976,14 @@ export const slohoveUtvary: SlohovyUtvar[] = [
     ],
     sample: {
       title: 'Moja cesta životom',
-      note: 'Ukážka beletrizovaného životopisu z prezentácie – študentská práca (zdroj: zones.sk, cit. 7. 3. 2014; jazykovo upravené).',
+      note: 'Ukážka beletrizovaného životopisu z prezentácie – študentská práca (zdroj: zones.sk, cit. 7. 3. 2014; jazykovo a štylisticky upravené).',
       paras: [
-        'Bolo nádherné decembrové ráno, keď moje oči po prvýkrát zazreli svetlo života. Vonku husto snežilo a pomaly prichádzala vianočná atmosféra. Rodičia a aj celá moja rodina sa na mňa veľmi tešili. Vlastne som bola pre nich jeden veľký vianočný darček! A tu sa začala moja cesta životom. Spočiatku som bola malé tiché bábätko, ktoré len tak nenápadne vnímalo okolie. Ale mesiace pribúdali a ja som urobila svoj prvý krôčik. Moji rodičia boli veľmi šťastní, ale ešte nevedeli, čo ich čaká.',
-        'Malé tiché bábätko sa zmenilo na chodiaci kazisvet. Všetko som len rozbíjala a ničila. O niečo neskôr som začala navštevovať škôlku. Priam som milovala to miesto, pretože som tam spoznala svojich prvých kamarátov. Aj keď v škôlke bolo veľmi dobre, v kútiku srdca som už túžila stať sa žiačkou. Ani to dlho nepotrvalo a zrazu nadišiel aj ten dlho očakávaný deň. Moja mamička ma chytila za ručičku a išli sme do školy. Pred jej bránami sa mi roztriasli nožičky a zmocnil sa ma strach. Len čo nás však privítala naša prvá pani učiteľka, strach zo mňa úplne opadol a mohol sa začať život žiaka. Učenie bolo hračkou, kým sme dostávali do žiackych knižiek včeličky a samé pochvaly.',
-        'Asi v treťom ročníku som sa po prvýkrát zúčastnila atletickej súťaže. Pretekala som aj ja a súťaž som s veľkým náskokom vyhrala. Od tej chvíle sa mi začal venovať náš učiteľ telesnej výchovy. V atletike sa veľmi dobre vyznal, keďže sa jej sám venoval. Avšak atletika nebola mojím jediným koníčkom. Neskôr som sa začala venovať aj športovej streľbe a dievčenskému futbalu. Bolo toho na mňa veľa a pomaly som trávila viac času na súťažiach ako v škole. Aj keď som nechcela, musela som sa vzdať futbalu. Súťaže som mala neskutočne rada. Chodili sme tam vždy s nadšením a s túžbou vyhrať. Všetci sme sa navzájom podporovali, a preto vznikli medzi nami kamarátstva, ktoré trvajú až dodnes a verím, že budú trvať navždy! Hoci na našej škole bola aj menšina, ktorá nám závidela a neustále sa pýtala, načo je v živote dobrý šport, my sme sa nimi nezaoberali. Za nás hovorili naše výsledky.',
-        'Čas však plynul neuveriteľnou rýchlosťou a my sme si mali vybrať stredné školy. Priznám sa, vôbec som netušila, kam chcem ísť ďalej. Tak som do prihlášky uviedla školy, ktoré navštevovali moje staršie kamarátky. Keď sa to dozvedeli učitelia, boli zhrození. Hneď na druhý deň prišli za mnou, dali mi na výber športové gymnáziá a povedali mi: „Nezahadzuj svoj talent!“ Spočiatku som o tom nechcela ani počuť. Neskôr som nad tým pouvažovala a zistila som, že majú pravdu a mala by som to skúsiť. Podporovali ma nielen v škole, ale aj doma a medzi priateľmi. Rozhodla som sa pre športové gymnázium v Nitre. Poctivo som sa pripravovala na talentové skúšky, ktoré som bez problémov zvládla.',
-        'Bola som šťastná, že sa mi to podarilo, a hneď v ten deň sme to s kamarátkami poriadne oslávili. Posledný rok na základnej škole sme si užívali a robili samé šialené veci. Riaditeľňu sme navštevovali pravidelne každý týždeň a od učiteľov sme neustále počúvali, akí sme zlí a uletení. Nás to však vôbec nerušilo. Čas však stále len plynul a plynul.',
-        'A potom to prišlo! Práve to, čoho sme sa tak neuveriteľne báli – rozlúčka so školou. Už len pomyslenie na to, že sa naše cesty rozdelia a že budem tráviť s mojimi najlepšími kamarátkami menej času, bolo hrozné. Keď sme už stáli na chodbe a naša pani riaditeľka prednášala svoj príhovor, len so slzami v očiach sme pozerali na našich kamarátov, rodičov a učiteľov, ktorí nám pomáhali celých deväť rokov. Teraz som už na škole, na ktorú ma dostali ľudia, ktorým na mne záleží, a za to im veľmi ďakujem. Ako a kde budem pokračovať, to ešte vôbec netuším. Viem len toľko, že chcem ukončiť vysokú školu a založiť si šťastnú rodinu. Už mi len držte palce, aby sa mi moje sny splnili!'
+        'Písalo sa mrazivé decembrové ráno a za oknami pôrodnice tancovali husté snehové vločky, akoby zima chystala mestu slávnostnú kulisu. Do vône ihličia a blížiacich sa sviatkov som sa v náručí mamičky a otecka ohlásila prvým plačom – trocha predčasný vianočný balíček bez mašle, no o to vrúcnejšie vítaný. Spočiatku som svet pozorovala len spoza perinky ako tichý, zvedavý uzlíček. Len čo sa však kalendár prehupol cez prvý rok a moje neisté nôžky objavili čaro rovnováhy, pokojná idylka v našej obývačke sa skončila. Rodičia s dojatím tlieskali môjmu prvému krôčiku, netušiac, že práve odštartovali môj celoživotný šprint.',
+        'Z pokojného bábätka vyrástlo neposedné šidlo, pred ktorým žiadna váza na spodnej poličke nebola v bezpečí. Energiu som skrotila až v škôlke – v kráľovstve farebných kociek, popoludňajších ležadiel a prvých detských priateľstiev. Hoci mi tam bolo dobre, v kútiku duše som už poškuľovala po školskej aktovke. Keď však napokon nadišlo vytúžené septembrové ráno a kráčala som ruka v ruke s mamou k vysokej bráne základnej školy, odvaha sa mi odrazu skotúľala až do topánok. Stačil však vľúdny úsmev našej prvej pani učiteľky, napätie zo mňa opadlo sťa ranná hmla a začala sa moja školská kapitola – spočiatku sladká ako usilovné včeličky v žiackej knižke.',
+        'Skutočný zlom priniesol tretí ročník, keď som sa prvý raz postavila na štartovú čiaru školských atletických pretekov a cieľovú pásku preťala s výrazným náskokom. Môj prirodzený ťah na bránku neunikol pozornému oku telocvikára, bývalého atléta, ktorý podchytil môj talent a zasvätil ma do tajov tréningovej driny. Červený tartan mi však nestačil – čoskoro mi učarovala aj presná muška pri športovej streľbe a dievčenský futbal. Keďže som na štadiónoch a strelniciach trávila pomaly viac hodín než nad zošitmi, musela som napokon kopačky s ťažkým srdcom zavesiť na klinec a zostať verná kráľovnej športov. Súťažná atmosféra sa stala mojím živlom. V spoločnom potení aj radosti z medailí sa zrodili priateľstvá pevné ako štafetová odovzdávka, ktoré pretrvali dodnes. A kým hŕstka večných pochybovačov na školskej chodbe ohŕňala nosom a pýtala sa, načo je komu v živote behanie dookola, my sme odpovedali bez slov – výsledkami na stupňoch víťazov.',
+        'Roky základnej školy sa rozbehli tempom stovkárskeho šprintu a deviaty ročník ma postavil pred prvú vážnu križovatku. Keďže som netušila, ktorým smerom sa vybrať, do cvičných prihlášok som bezhlavo vpísala školy svojich starších kamarátok. V zborovni to vyvolalo malé zemetrasenie. Hneď na druhý deň si ma učitelia zavolali a položili predo mňa ponuku športových gymnázií s jedinou vetou: „Nezahadzuj svoj dar!“ Spočiatku som sa zdráhala vykročiť do neznáma, no po dlhých večerných rozhovoroch doma i s priateľmi dozrelo vo mne rozhodnutie zamieriť na športové gymnázium pod Zoborom. Nasledovali týždne poctivého potu na dráhe a napokon deň talentových skúšok, ktorými som preletela s ľahkosťou vetra v chrbte.',
+        'S prijatím vo vrecku prišla bezstarostná deviatacka jar. S kamarátkami sme si vychutnávali každú spoločnú prestávku a naša prekypujúca energia občas pridelila triednej učiteľke nejednu vrásku na čele, hoci nám naše drobné huncútstva napokon vždy s povzdychom odpustila. O to ťažšie potom padol júnový zvonček poslednej rozlúčky. Keď sme nastúpení na školskej chodbe počúvali slávnostný príhovor pani riaditeľky, pri predstave, že sa naše cesty rozídu a so svojimi najlepšími priateľkami budem tráviť menej chvíľ, sa mi v hrdle usadila hrča. So slzami v očiach sme hľadeli na svojich rodičov a učiteľov, ktorí nás deväť rokov trpezlivo formovali.',
+        'Dnes už deriem lavice i bežecký ovál školy, ku ktorej ma nasmerovali ľudia veriaci vo mňa viac, než som si vtedy verila sama – a za tento impulz im v duchu neprestávam ďakovať. Kam ma vietor zaveje po maturite, zatiaľ presne neviem; v cieľovej rovinke svojich predstáv však vidím vysokoškolský diplom, zmysluplnú prácu a raz aj vlastnú harmonickú rodinu. Moja trať zďaleka nekončí – držte mi palce, nech si až do cieľa ustrážim správne tempo!'
       ]
     },
     checklist: [
@@ -911,40 +1008,68 @@ export const slohoveUtvary: SlohovyUtvar[] = [
     short: 'Vysvetlenie javu, jeho príčin a súvislostí.',
     lead: 'Útvar náučného štýlu, ktorý jav nielen opisuje, ale <strong>vysvetľuje</strong> – jeho podstatu, príčiny, dôsledky a súvislosti. Je vecný, logický a objektívny. Nehodnotíš pocitmi, ale argumentmi a faktmi.',
     facts: [
-      { label: 'Slohový postup', value: 'výkladový' },
+      { label: 'Slohový postup', value: 'výkladový (aj odborný opis)' },
       { label: 'Štýl', value: 'náučný (odborný)' },
-      { label: 'Osoba', value: '1. os. pl. alebo 3. os. sg.' }
+      { label: 'Osoba', value: '1. os. pl. alebo 3. os.' }
     ],
     sections: [
       {
         id: 'znaky',
-        title: 'Čo je výklad',
+        title: 'Čo je výklad a aké má druhy',
+        lead: 'Výklad nesie najviac znakov <strong>výkladového slohového postupu</strong>; sprievodne sa v ňom uplatňuje aj <strong>opisný postup</strong> (odborný opis štruktúry či vlastností javu) a <strong>informačný postup</strong> (fakty, čísla, dátumy). Jeho hlavnou funkciou je zachytiť vnútornú logiku skutočnosti – odpovedá na otázky <strong>prečo, ako, aké sú príčiny a dôsledky</strong>.',
         list: [
-          'Odpovedá na otázky <strong>prečo, ako, aké sú príčiny a dôsledky</strong>.',
-          'Je <strong>objektívny</strong> – nejde o tvoj pocit, ale o overiteľné poznatky. Tým sa líši od úvahy.',
-          'Pracuje s pojmami: najprv ich vymedzí, potom ich rozoberá, porovnáva a zovšeobecňuje.',
-          'Opiera sa o argumenty, príklady, citáty a odkazy na zdroje.'
+          'Vyznačuje sa <strong>objektívnosťou</strong> (overiteľné poznatky namiesto osobných pocitov) a vysokým stupňom <strong>kohéznosti</strong> – myšlienkovou zovretosťou a presnou logickou nadväznosťou viet.',
+          'Je určený <strong>všeobecnému adresátovi</strong>: autor sa neprihovára jednotlivcovi a čitateľa v písanom texte neoslovuje.',
+          'Podľa cieľa a okruhu prijímateľov rozlišujeme <strong>vedecký (vedecko-náučný) výklad</strong> pre odborníkov (prináša nové vedecké poznatky – štúdia, monografia), <strong>školský (didaktický, učebnicový) výklad</strong> (najčastejší v učebniciach aj na maturite – systematicky a zrozumiteľne vysvetľuje známe poznatky) a <strong>populárno-vedecký (populárno-náučný) výklad</strong> pre širšiu verejnosť.',
+          'Hovorenou podobou výkladu je <strong>prednáška</strong> (prípadne <strong>referát</strong>), v ktorej už rečník nadväzuje kontakt s publikom.'
+        ]
+      },
+      {
+        id: 'postupy',
+        title: 'Logické postupy vo výklade',
+        lead: 'V jadre výkladu vysvetľujeme jav na základe postupov logického myslenia:',
+        cards: [
+          { term: 'Induktívny postup (indukcia)', text: 'postup od jednotlivostí k celku: najprv uvedieme konkrétne pozorovania, fakty a znaky javu a až v závere z nich vyvodíme všeobecnú poučku alebo definíciu' },
+          { term: 'Deduktívny postup (dedukcia)', text: 'postup od celku k jednotlivostiam: na začiatku uvedieme všeobecnú definíciu alebo tézu a následne vysvetľujeme jednotlivé znaky, príklady a dôsledky' },
+          { term: 'Analýza a syntéza', text: 'myšlienkové rozčlenenie javu na jednotlivé zložky, skúmanie vzťahov medzi nimi (analýza) a následné zjednotenie čiastkových zistení do uceleného záveru (syntéza)' },
+          { term: 'Komparácia a klasifikácia', text: 'porovnávanie spoločných a odlišných znakov dvoch či viacerých javov (komparácia) a triedenie javov do skupín a podskupín podľa jednotného kritéria (klasifikácia)' },
+          { term: 'Exemplifikácia a enumerácia', text: 'doloženie vysvetľovanej poučky na výstižných konkrétnych príkladoch (exemplifikácia) a prehľadné, systematické vymenúvanie faktov alebo vlastností (enumerácia)' },
+          { term: 'Analógia', text: 'usudzovanie na základe podobnosti dvoch javov, ktorým si autor pomáha priblížiť menej známy jav alebo vytvoriť hypotézu; sama osebe však nie je úplným dôkazom, lebo nezohľadňuje všetky odchýlky' }
+        ]
+      },
+      {
+        id: 'argumentacia',
+        title: 'Argumentácia vo výklade',
+        lead: 'Výklad je typickým <strong>argumentačným textom</strong> – jeho cieľom je čitateľa nielen poučiť, ale aj presvedčiť dokázaním pravdivosti predkladaných tvrdení.',
+        steps: [
+          { term: 'Téza', text: 'Jasne sformulovaná východisková myšlienka alebo tvrdenie, ktorého pravdivosť ideme dokázať.' },
+          { term: 'Argumentovanie (dokazovanie)', text: 'Uvádzanie vecných dôkazov a príkladov, ktorými preukazujeme platnosť tézy a objasňujeme príčinno-následkové súvislosti.' },
+          { term: 'Zhrňujúce tvrdenie', text: 'Logické vyústenie argumentácie – potvrdenie platnosti tézy vyplývajúce z predložených dôkazov.' }
+        ],
+        paras: [
+          'Vo výklade využívame objektívne – <strong>priame aj nepriame – argumenty</strong>: overené fakty, štatistické a historické údaje, ukážky z diel či citácie odborných autorít a literatúry (priame dôkazy), ako aj vedecké poučky, definície, prírodné a spoločenské zákonitosti, právne normy či logický úsudok (nepriame dôkazy). Na rozdiel od úvahy a diskusného príspevku sa v písanom výklade <strong>neodvolávame na vlastnú osobnú skúsenosť ani na neoverenú verejnú mienku</strong>.'
         ]
       },
       {
         id: 'kompozicia',
         title: 'Kompozícia',
         steps: [
-          { term: 'Úvod', text: 'Vymedz tému a pojem – čo budeš vysvetľovať a prečo je to dôležité.' },
-          { term: 'Jadro', text: 'Postupne vysvetľuj: znaky, príčiny, dôsledky, súvislosti. Každej myšlienke venuj odsek, podopri ju argumentom alebo príkladom.' },
+          { term: 'Úvod', text: 'Uveď čitateľa do problematiky a vymedz základný pojem alebo tému – čo budeš vysvetľovať a prečo je daný jav dôležitý.' },
+          { term: 'Jadro', text: 'Postupne vysvetľuj nový alebo menej známy jav: jeho znaky, príčiny, dôsledky a súvislosti (deduktívne alebo induktívne). Každej myšlienke venuj samostatný odsek, podopri ju argumentom alebo príkladom.' },
           { term: 'Záver', text: 'Zhrň hlavné poznatky a vyvoď z nich všeobecný záver.' }
         ]
       },
       {
         id: 'jazyk',
-        title: 'Jazyk výkladu',
+        title: 'Jazyk, syntax a grafické členenie',
+        lead: 'Náučný štýl je <strong>nominálny (menný)</strong> – používa viac podstatných a prídavných mien než plnovýznamových slovies a vyžaduje premyslenú, jednoznačnú stavbu každej vety.',
         cards: [
-          { term: 'Odborné termíny', text: 'presné pomenovania z daného odboru; pri prvom použití ich vysvetli' },
-          { term: 'Neutrálne slová', text: 'bez citového zafarbenia a bez hovorových výrazov' },
-          { term: 'Autorský plurál', text: '1. os. pl. (<em>uvedieme, vidíme</em>) alebo neosobné vyjadrenie v 3. os.' },
-          { term: 'Zložené súvetia', text: 'príčinné, dôsledkové, podmienkové; polovetné konštrukcie' },
-          { term: 'Spájacie výrazy', text: 'zabezpečia logickú nadväznosť', example: 'preto, teda, v dôsledku toho, na rozdiel od, napríklad' },
-          { term: 'Citáty a zdroje', text: 'odkaz na autora či dielo zvyšuje dôveryhodnosť' }
+          { term: 'Pojmové slová a termíny', text: 'bezpríznaková (neutrálna) slovná zásoba bez citového zafarbenia, domáce aj internacionálne odborné termíny; pri prvom použití menej známy pojem vysvetli' },
+          { term: 'Menné vyjadrovanie a predložky', text: 'abstraktné podstatné mená, viacslovné pomenovania a časté druhotné predložky (pozor: predložka <em>kvôli</em> v spisovnej slovenčine nevyjadruje príčinu, ale len účel)', example: 'vzhľadom na, v dôsledku, na základe, v súvislosti s, na rozdiel od' },
+          { term: 'Autorský plurál a trpný rod', text: 'neosobnosť zabezpečuje 1. os. pl. (autorský plurál) alebo 3. os. spolu s frekventovanými konštrukciami v opisnom a zvratnom trpnom rode', example: 'rozumieme, rozlišujeme · údaje sú spracúvané, jav sa člení' },
+          { term: 'Zložené súvetia a polovetné konštrukcie', text: 'dlhšie súvetia vyjadrujúce kauzálne (príčinné a dôsledkové), podmienkové či prípustkové vzťahy a príčastníkové alebo prechodníkové polovetné konštrukcie', example: 'pretože, lebo, keďže, preto, v dôsledku čoho, ak, hoci' },
+          { term: 'Oznamovacia modalita', text: 'výklad stojí na oznamovacích vetách (v školskom výklade sa môže výnimočne objaviť vecná prieskumná otázka uvádzajúca problém); nepoužívajú sa zvolacie vety ani nedopovedané tri bodky (…)' },
+          { term: 'Grafické prostriedky a zdroje', text: 'prehľadnosť podporujú odseky, zátvorky, pomlčky, dvojbodky a číselné členenie (v odborných textoch aj tabuľky, schémy, grafy či výpočty); dôveryhodnosť zvyšujú citáty a odkazy na zdroje' }
         ]
       }
     ],
@@ -954,12 +1079,23 @@ export const slohoveUtvary: SlohovyUtvar[] = [
       'Ku každému tvrdeniu pridaj príklad, fakt alebo citát.',
       'Pri literárnej téme (napr. 2015: znaky tvorby spisovateľov obdobia) uvádzaj konkrétnych autorov a diela.'
     ],
+    sample: {
+      title: 'Bezpečne na sociálnych sieťach',
+      note: 'Vzorová ukážka výkladu spracovaná k maturitnej téme PFIČ MS 2023.',
+      paras: [
+        'Sociálnymi sieťami rozumieme digitálne platformy, ktoré umožňujú registrovaným používateľom vytvárať verejné alebo poloverejné profily, nadväzovať kontakty a uverejňovať či šíriť multimediálny obsah. Hoci tieto služby slúžia predovšetkým na komunikáciu a výmenu informácií, ich fungovanie je založené na zhromažďovaní a algoritmickom spracúvaní osobných údajov. Práve preto sa bezpečnosť na sociálnych sieťach stáva jednou zo základných súčastí kybernetickej hygieny v 21. storočí.',
+        'Základnou príčinou zraniteľnosti používateľov v online priestore je takzvaná digitálna stopa, teda súhrn všetkých záznamov, ktoré človek na internete vedome či nevedome zanecháva. Na rozdiel od bežného ústneho rozhovoru zostávajú fotografie, komentáre aj údaje o polohe uložené na vzdialených serveroch a môžu byť kedykoľvek vyhľadané alebo skopírované tretími stranami. V dôsledku neuváženého zverejňovania citlivých informácií – napríklad adresy bydliska, osobných dokladov či aktuálneho pohybu – tak vzniká priestor na zásah do súkromia i majetkovú ujmu.',
+        'V odbornej praxi rozlišujeme technické a manipulatívne hrozby, pričom obe skupiny sa na sociálnych sieťach často prelínajú. Medzi najrozšírenejšie formy útokov patrí phishing, pri ktorom sa páchateľ snaží vylákať prihlasovacie údaje prostredníctvom falošného odkazu napodobňujúceho prihlasovaciu stránku služby. Využívajúc metódy sociálneho inžinierstva, útočníci zneužívajú aj cudzie odcudzené účty, z ktorých oslovujú priateľov obete so žiadosťou o zaslanie peňazí alebo overovacieho kódu. Ako vo svojich metodických odporúčaniach upozorňuje Národné centrum kybernetickej bezpečnosti SK-CERT, „najzraniteľnejším článkom informačnej bezpečnosti nie je technológia, ale nepozorný používateľ“.',
+        'Účinná prevencia spočíva v kombinácii technického zabezpečenia účtu a zodpovedného správania. Technický základ predstavuje silné, jedinečné heslo doplnené o dvojfaktorovú autentifikáciu, pri ktorej systém okrem hesla vyžaduje aj druhý nezávislý prvok, napríklad jednorazový kód v mobilnej aplikácii alebo biometrické overenie. Ak by útočník heslo aj získal, bez prístupu k druhému faktoru sa do účtu neprihlási. Rovnako dôležité je obmedzenie viditeľnosti profilu len pre okruh známych osôb a dôsledné overovanie zdrojov pred kliknutím na externé odkazy.',
+        'Z uvedených poznatkov vyplýva, že bezpečný pohyb na sociálnych sieťach nie je jednorazovým nastavením, ale súborom návykov spájajúcich technickú ochranu s kritickým myslením. Keďže digitálne hrozby sa neustále vyvíjajú, znalosť princípov ochrany osobných údajov predstavuje v súčasnej informačnej spoločnosti nevyhnutnú podmienku bezpečnej online komunikácie.'
+      ]
+    },
     checklist: [
       'Úvod vymedzuje pojem alebo problém.',
-      'Vysvetľujem príčiny, dôsledky a súvislosti.',
-      'Každé tvrdenie podopiera argument alebo príklad.',
-      'Používam odborné termíny a neutrálny jazyk.',
-      'Píšem v 1. os. pl. alebo neosobne, nie „podľa mňa“.',
+      'Vysvetľujem príčiny, dôsledky a súvislosti (deduktívne alebo induktívne).',
+      'Každú tézu podopiera objektívny argument, fakt, citát alebo príklad.',
+      'Používam odborné termíny, neutrálny jazyk a zložené súvetia.',
+      'Píšem v 1. os. pl. alebo v 3. os. (bez „podľa mňa“, zvolacích viet a troch bodiek).',
       'Záver zhŕňa hlavné poznatky.'
     ],
     criteria: {
@@ -974,7 +1110,7 @@ export const slohoveUtvary: SlohovyUtvar[] = [
     slug: 'slavnostny-prejav',
     name: 'Slávnostný prejav',
     short: 'Rečnícky prejav k príležitosti, oslovenie a pátos.',
-    lead: 'Jeden z najpôsobivejších jazykových prejavov (spolu so smútočným prejavom). Je to hovorená hodnotiaca úvaha, ktorá dáva rečníkovi priestor ukázať talent a rečnícke schopnosti. Aj keď môže mať spoločné znaky s výkladom, úvahové prvky v ňom prevládajú.',
+    lead: 'Jeden z najpôsobivejších jazykových prejavov (spolu so smútočným prejavom). Je to hovorená hodnotiaca úvaha, ktorá dáva rečníkovi priestor ukázať talent a rečnícke schopnosti. Aj keď môže mať spoločné znaky s výkladom (napr. v jubilejnom prejave k výročiu osobnosti, školy či knižnice sa približujú míľniky a hodnotí sa tvorba alebo prínos), úvahové prvky v ňom vždy prevládajú.',
     facts: [
       { label: 'Slohový postup', value: 'výkladový s prvkami úvahy' },
       { label: 'Štýl', value: 'rečnícky' },
@@ -1086,7 +1222,7 @@ export const slohoveUtvary: SlohovyUtvar[] = [
           {
             term: 'Jadro',
             text: 'Postupuje v štyroch krokoch: a) objasnenie pojmov, b) analýza – rozoberanie témy a hodnotenie obdobia, c) porovnanie, zovšeobecnenie a podloženie tvrdenia citátom, d) vyslovenie predpokladu, viery či presvedčenia autora.',
-            example: 'Stužková slávnosť je slávnosťou študentov už od 16. storočia… · Štyri roky, ktoré sme prežili… · Najväčšia vďaka patrí… · Po dnešnom slávnostnom dni precítime slová básnika: „Postoj, chvíľa, si krásna!“ · Som presvedčený, že všetci z nás…'
+            example: 'Stužková slávnosť je slávnosťou študentov už od 16. storočia… · Štyri roky, ktoré sme prežili… · Najväčšia vďaka patrí… · Ako by sme dnes mohli nespomenúť… · Stojíme tu pred vami ako tisíce iných… · Po dnešnom slávnostnom dni precítime slová básnika: „Postoj, chvíľa, si krásna!“ · Som presvedčený, že všetci z nás…'
           },
           {
             term: 'Záver',
@@ -1103,15 +1239,15 @@ export const slohoveUtvary: SlohovyUtvar[] = [
     ],
     sample: {
       title: 'Slávnostný prejav – 50. narodeniny',
-      note: 'Ukážka slávnostného prejavu z prezentácie – študentská práca (zdroj: zones.sk, cit. 18. 2. 2014; jazykovo upravené).',
+      note: 'Ukážka slávnostného prejavu z prezentácie – študentská práca (zdroj: zones.sk, cit. 18. 2. 2014; jazykovo a štylisticky upravené).',
       paras: [
         'Drahá oslávenkyňa, milí hostia!',
-        'Keď otváram svoj kalendár a listujem v ňom, vidím v ňom mnoho kolónok s menami a číslami dní, mnoho mojich poznámok, mnoho sviatočných dní vyznačených osobitne červeným písmom. Zastavím sa na augustovej strane. Vyzerá to ako ďalšia nudná strana plná všedných dní a každodenných povinností. No odrazu mi do očí padne deň označený krikľavým výkričníkom, ktorý v mojom kalendáriku označuje niečo výnimočné a nezvyčajné. Hneď zbystrím pozornosť. V kolónke „Sobota 20. august 2008“ mi výraznou farbou svieti nápis „Maminka – päťdesiatka“.',
-        'Tak ako som ja pred dvomi týždňami listovala vo svojom kalendári, tak aj čas listuje v knihách našich životov, kde každá strana znamená jeden rok, a každý deň do nich svojím perom vpisuje slová minulosti. Dnes sa však čas akoby na chvíľu zastavil a dovolil mi, milá mamička, nazrieť do tvojej knihy života a prečítať z nej pár riadkov.',
-        'Prvýkrát si svetlo tohto sveta uzrela v krásny slnečný augustový deň. Hoci si sa narodila ako štvrté dieťa, vždy si bola zahŕňaná rovnakou rodičovskou láskou ako tvoji súrodenci. Roky sa však míňali a s nimi aj dni plné šťastného detského smiechu, no aj sĺz vyplakaných nad rozbitými kolenami. Prišiel čas dospelosti, čas mnohých nových povinností, ale aj radostí, priateľov a lások. Láska do tvojho života priviedla i muža, ktorého si si zvolila za svojho jediného. Z vášho spoločného citu ste darovali život dvom novým bytostiam – mne a môjmu bratovi.',
-        'Odo dňa, keď som prišla na svet, pevne stojíš pri mne, keď zablúdim, vždy mi veríš, keď ma odsudzujú, a si jediná, ktorá ma miluje, keď ma ostatní nenávidia. Si pre mňa najlepšou kamarátkou, spoľahlivou osobou a milujúcou matkou, rovnako ako si pre ostatných vernou priateľkou.',
-        'Dnes presne o polnoci čas v tvojej knihe života obráti ďalšiu stranu. Od tejto chvíle pero času začne písať svoje riadky na päťdesiatu stranu, čo je pre nás znakom zastaviť sa aspoň na moment vo víre všednosti a neodkladných povinností a dopriať peru času napísať na úvod tejto strany krasopisným písmom slová: „Všetko najlepšie!“ Dnes je ten čas, keď aj ja môžem tu pred tebou vysloviť tieto slová spolu so slovami vďaky a obdivu za to, akou si skvelou matkou, manželkou a priateľkou.',
-        'Tak, milí priatelia, pozdvihnime poháre a pripime na zdravie tejto jedinečnej osoby a týmto gestom jej ešte raz poďakujme a do ďalšieho života poprajme len to najlepšie!'
+        'Keď som pred niekoľkými dňami listovala vo svojom kalendári, míňala som v ňom desiatky kolónok s menami, číslami a každodennými povinnosťami. Zastavila som sa až na augustovej strane. Spočiatku vyzerala ako mnohé iné, plná bežných letných dní, no odrazu mi do očí padol dátum označený červeným výkričníkom. V okienku „Sobota 20. augusta“ svietil nápis, pri ktorom sa mi okamžite rozžiaril úsmev: „Maminka – päťdesiatka!“ A práve táto vzácna chvíľa nás dnes všetkých priviedla k spoločnému slávnostnému stolu.',
+        'Tak ako my listujeme v stolovom kalendári, listuje aj neúprosný čas v knihách našich životov, kde každá strana znamená jeden rok a každý deň do nej vpisuje nové riadky. Čo je však päťdesiat rokov v živote človeka, ktorý ich naplnil láskou a obetavosťou? Nie je to len okrúhle číslo, ale predovšetkým bohatý príbeh. Dnes sa čas akoby na okamih zastavil a dovolil mi, milá mamička, s úctou nazrieť do tvojej knihy života.',
+        'Svoju prvú kapitolu si začala písať v slnečný augustový deň ako štvrté dieťa v rodine, no rodičia ťa od prvej chvíle zahŕňali rovnakou láskou ako tvojich starších súrodencov. Roky sa míňali a s nimi aj bezstarostné dni plné detského smiechu i drobných sĺz nad rozbitými kolenami. Prišiel čas dospelosti – čas nových povinností, priateľstiev a veľkej lásky. Lásky, ktorá ti do cesty priviedla muža tvojho života, s ktorým ste darovali život a bezpečný domov dvom deťom – mne a môjmu bratovi.',
+        'Odvtedy, čo si pamätám, stojíš pevne pri mne, keď zablúdim, veríš mi, keď iní pochybujú, a podržíš ma, keď si sama neviem rady. Si pre mňa láskavou matkou, si pre mňa najlepšou priateľkou, si pre celú našu rodinu neochvejnou oporou. Niet divu, že francúzsky spisovateľ Honoré de Balzac napísal: „Srdce matky je priepasť, na dne ktorej sa vždy nájde odpustenie.“ Presne takouto hĺbkou lásky a porozumenia nás i svojich priateľov obdarúvaš každý jeden deň.',
+        'Dnes čas v tvojej knihe života slávnostne uzatvára prvých päťdesiat popísaných strán a otvára novú, čistú kapitolu. Je to vzácny míľnik, pri ktorom sa môžeme zastaviť uprostred zhonu všedných dní a dopriať peru času, aby na úvod ďalšej päťdesiatky vpísalo krasopisom slová vďaky, obdivu a úprimného želania: „Všetko najlepšie!“',
+        'Pozdvihnime teda, milí priatelia, čaše a pripime na pevné zdravie, šťastie a spokojnosť našej drahej oslávenkyne – nech sú všetky nasledujúce strany jej životnej knihy naplnené slnkom, radosťou a láskou nás všetkých!'
       ]
     },
     checklist: [
@@ -1194,34 +1330,38 @@ export const ZDROJE: Record<SlohSlug, SlohZdroj> = {
   charakteristika: {
     prezentacia: 'Rukoväť na písanie slohovej práce – charakteristika',
     literatura: ['weidler', 'hincova', 'caltikova3'],
-    ukazky: ['Ukážka <em>Sme naozaj brat a sestra?</em> – študentská práca, zones.sk (cit. 4. 3. 2014).']
+    ukazky: ['Ukážka <em>Sme naozaj brat a sestra?</em> – študentská práca, zones.sk (cit. 4. 3. 2014; jazykovo a štylisticky upravené).']
   },
   'umelecky-opis': {
     prezentacia: 'Rukoväť na písanie slohovej práce – umelecký opis',
     literatura: ['weidler', 'hincova', 'caltikovaEnigma'],
-    ukazky: ['Ukážka <em>Čaro Vianoc</em> – študentská práca, zones.sk (cit. 14. 3. 2014).']
+    ukazky: ['Ukážka <em>Čaro Vianoc</em> – študentská práca, zones.sk (cit. 14. 3. 2014; jazykovo a kompozične upravené).']
   },
   rozpravanie: {
     prezentacia: 'Rukoväť na písanie slohovej práce – rozprávanie',
     literatura: ['caltikova3', 'hincova', 'weidler'],
-    ukazky: ['Ukážka <em>Prvý deň v škole</em> – študentská práca, zones.sk (cit. 18. 2. 2014).']
+    ukazky: ['Ukážka <em>Prvý deň v škole</em> – študentská práca, zones.sk (cit. 18. 2. 2014; jazykovo a kompozične upravené).']
   },
   'diskusny-prispevok': {
     prezentacia: 'Rukoväť na písanie slohovej práce – diskusný príspevok',
     literatura: ['caltikovaEnigma', 'hincova', 'weidler'],
-    ukazky: ['Ukážka <em>Od septembra v školách po novom</em> – študentská práca, zones.sk (cit. 19. 2. 2014).']
+    ukazky: ['Ukážka <em>Od septembra v školách po novom</em> – študentská práca, zones.sk (cit. 19. 2. 2014; jazykovo a kompozične upravené).']
   },
   'beletrizovany-zivotopis': {
     prezentacia: 'Rukoväť na písanie slohovej práce – beletrizovaný životopis',
     literatura: ['weidler', 'hincova', 'caltikova3'],
-    ukazky: ['Ukážka <em>Moja cesta životom</em> – študentská práca, zones.sk (cit. 7. 3. 2014).'],
+    ukazky: ['Ukážka <em>Moja cesta životom</em> – študentská práca, zones.sk (cit. 7. 3. 2014; jazykovo a štylisticky upravené).'],
     video: 'k9z7-3RXGFE'
   },
-  vyklad: { prezentacia: null, literatura: [] },
+  vyklad: {
+    prezentacia: null,
+    literatura: ['caltikova3', 'caltikovaEnigma', 'hincova', 'weidler'],
+    ukazky: ['Vzorová ukážka <em>Bezpečne na sociálnych sieťach</em> – spracované k maturitnej téme PFIČ MS 2023.']
+  },
   'slavnostny-prejav': {
     prezentacia: 'Rukoväť na písanie slohovej práce – slávnostný prejav',
     literatura: ['caltikova4', 'hincova'],
-    ukazky: ['Ukážka <em>Slávnostný prejav – 50. narodeniny</em> – študentská práca, zones.sk (cit. 18. 2. 2014).'],
+    ukazky: ['Ukážka <em>Slávnostný prejav – 50. narodeniny</em> – študentská práca, zones.sk (cit. 18. 2. 2014; jazykovo a štylisticky upravené).'],
     video: 'RKjHqJs5PwE'
   }
 };
