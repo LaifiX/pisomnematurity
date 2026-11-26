@@ -617,7 +617,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Príslovka je plnovýznamový slovný druh, na ktorý sa vieme spýtať otázkou kde?, kedy?, ako? alebo prečo? (vo vete je príslovkovým určením). Ktoré zo zvýraznených slov odpovedá na otázku „ako?“?',
+    hint: 'Príslovka je plnovýznamový slovný druh, na ktorý sa vieme spýtať otázkou kde? kedy? ako? prečo? (vo vete je príslovkovým určením). Ktoré zo zvýraznených slov odpovedá na príslovkovú otázku spôsobu?',
     solutionSteps: [
       {
         title: 'Určenie príslovky',
