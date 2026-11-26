@@ -81,11 +81,11 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Najprv sa opýtaj na pád spojenia „skupinou (koho? čoho?) 27 žien“. Potom si spomeň na dve pravidlá: či sa skloňovaná zložená číslovka píše spolu alebo oddelene a aké i/y má základná číslovka „sedem“ pri skloňovaní.',
+    hint: 'Najprv si urči pád spojenia „skupinou (koho? čoho?) 27 žien“. Potom si spomeň na pravidlá PSP pre zložené číslovky 22 – 99: kedy sa píšu spolu a kedy oddelene s medzerou, a aké i/y má základná číslovka „sedem“ pri skloňovaní.',
     solutionSteps: [
       {
         title: 'Určenie pádu a písanie medzery',
-        text: 'Pozor na predložku //so//: tá patrí k slovu //skupinou// (inštrumentál), ale výraz //27 žien// rozvíja podstatné meno //skupinou// v **genitíve** (//skupinou koho? čoho? – 27 žien//). Preto nemôže ostať v základnom tvare (vylučujeme **D**). Podľa PSP sa zložené základné číslovky pri skloňovaní v nepriamych pádoch píšu **osobitne s medzerou** a skloňujú sa obe časti (vylučujeme **B**).'
+        text: 'Pozor na predložku //so//: tá patrí k slovu //skupinou// (inštrumentál), zatiaľ čo výraz //27 žien// rozvíja podstatné meno //skupinou// v **genitíve** (//skupinou koho? čoho? – 27 žien//). Podľa PSP platí pre zložené základné číslovky 22 – 99 dvojaké pravidlo: ak ostanú nesklonné (aj v základnom tvare), píšu sa **spolu ako jedno slovo** (//dvadsaťsedem// – tým vylučujeme **D** //dvadsať sedem// s medzerou); ak sa v nepriamych pádoch **skloňujú**, píšu sa desiatky a jednotky **osobitne s medzerou** a skloňujú sa obe časti (tým vylučujeme **B** //dvadsiatichsiedmych//).'
       },
       {
         title: 'Pravopis i/y v slove siedmich',
@@ -137,7 +137,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Spodobovanie (znelostná asimilácia) nastáva vtedy, keď sa stretnú dve spoluhlásky s rôznou znelosťou a prvá sa vo výslovnosti prispôsobí druhej (napr. neznelé k pred znelým z sa vysloví ako g). Vyslov si nahlas každú trojicu slov a daj si pozor na spoluhlásky pred m, l a v!',
+    hint: 'Spodobovanie (znelostná asimilácia) nastáva vtedy, keď sa stretnú dve spoluhlásky s rôznou znelosťou a prvá sa vo výslovnosti prispôsobí druhej (napr. v slove prosba sa neznelé s pred znelým b vysloví ako z: [prozba]). Vyslov si nahlas každú trojicu slov a daj si pozor na spoluhlásky pred m, l a v!',
     solutionSteps: [
       {
         title: 'Overenie spodobovania v možnosti D',
@@ -299,7 +299,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Pozor na podčiarknutý zápor „nesúvisí“! Tri možnosti hovoria o tej istej téme – o sile verejnej mienky (predsudkov dediny) oproti pravde a vlastnej ceste človeka. Nájdi tú jedinú, ktorá rieši niečo úplne iné (zbabelosť pri vyslovovaní názoru).',
+    hint: 'Pozor na podčiarknutý zápor „nesúvisí“! Zamysli sa nad ústrednou témou novely Drak sa vracia (naznačenou aj vo vete „Tak aspoň usúdila dedina a taká musela byť pravda.“) – tri možnosti sa týkajú práve sily verejnej mienky a predsudkov okolia. Ktorá jediná možnosť hovorí o úplne inom spoločenskom probléme?',
     solutionSteps: [
       {
         title: 'Hlavná myšlienka diela Drak sa vracia',
@@ -391,7 +391,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Zaradenie ostatných autorov',
-        text: '**A** – Milo Urban je predstaviteľ medzivojnového sociálno-psychologického realizmu (román //Živý bič//).\n**C** – Peter Jilemnický je predstaviteľ medzivojnového socialistického realizmu (román //Kronika//, //Pole neorané//).\n**D** – Ladislav Mňačko je predstaviteľ povojnovej prózy (román //Ako chutí moc//, //Smrť sa volá Engelchen//).'
+        text: '**A** – Milo Urban je predstaviteľ medzivojnového sociálno-psychologického realizmu (román //Živý bič//).\n**C** – Peter Jilemnický je predstaviteľ socialistického realizmu (román //Kronika//, //Pole neorané//).\n**D** – Ladislav Mňačko je predstaviteľ povojnovej prózy (román //Ako chutí moc//, //Smrť sa volá Engelchen//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **B**.'
@@ -603,7 +603,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Hyperbola znamená po slovensky zveličenie (preháňanie). V ktorej možnosti sa nebezpečný účinok knihy zámerne a výrazne preháňa?',
+    hint: 'V ktorej zo štyroch možností sa vlastnosť alebo skutočnosť zámerne preháňa do nadsadených rozmerov?',
     solutionSteps: [
       {
         title: 'Určenie hyperboly (zveličenia)',
@@ -635,7 +635,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Citové zafarbenie slova v kontexte',
-        text: 'Vo vete //„Ale ten **blázon** prvýkrát chcel konať na vlastnú päsť“// slovo //blázon// nepomenúva lekársku diagnózu (neutrálny význam), ale vyjadruje hovoriaceho **citový postoj – hnev, výčitku a pohŕdanie** nerozvážnym konaním. Slová s kladným alebo záporným citovým zafarbením sa nazývajú **expresívne slová** (konkrétne pejoratívne/hanlivé).'
+        text: 'Vo vete //„Ale ten **blázon** prvýkrát chcel konať na vlastnú päsť“// slovo //blázon// nepomenúva lekársku diagnózu (neutrálny význam), ale vyjadruje **citový postoj** hovoriaceho – **hnev, výčitku a pohŕdanie** nerozvážnym konaním. Slová s kladným alebo záporným citovým zafarbením sa nazývajú **expresívne slová** (konkrétne pejoratívne/hanlivé).'
       },
       {
         title: 'Prečo sú ostatné možnosti nesprávne',
@@ -690,7 +690,19 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Napíšte gramaticky a pravopisne správny tvar genitívu plurálu slova //kópia//.',
     placeholder: 'Napíš tvar v genitíve plurálu',
     correctAnswerDisplay: 'kópií',
-    acceptedAnswers: ['kópií', 'bez kópií', 'od kópií', 'z kópií', 'do kópií', 'u kópií'],
+    acceptedAnswers: [
+      'kópií',
+      'bez kópií',
+      'od kópií',
+      'z kópií',
+      'do kópií',
+      'u kópií',
+      'okrem kópií',
+      'podľa kópií',
+      'namiesto kópií',
+      'okolo kópií',
+      'vedľa kópií'
+    ],
     commonMistakes: [
       {
         pattern: '^kópii$|^bez\\s+kópii$|^od\\s+kópii$|^z\\s+kópii$',
@@ -701,7 +713,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Nevynechávaj krátke -i-, ktoré patrí k základu slova (kópi-a → bez kópi-í).'
       }
     ],
-    hint: 'Utvor si v duchu pomocné spojenie pre genitív množného čísla: „zhotovil veľa … / bez viacerých …“ (ako „veľa fotografií, komédií, histórií“). Daj si veľký pozor na dĺžne – koľko písmen i je na konci a ktoré z nich je dlhé?',
+    hint: 'Utvor si v duchu pomocné spojenie pre genitív množného čísla: „zhotovil veľa … / bez viacerých …“. Cudzie podstatné mená ženského rodu zakončené na -ia sa skloňujú podľa vzoru ulica – po odtrhnutí prípony -a ostáva v základe krátke -i- (kópi-), ku ktorému sa pripája prípona genitívu plurálu. Daj si pozor na dĺžeň v koreni slova aj na to, koľko písmen i sa stretne na konci a ktoré z nich je dlhé!',
     solutionSteps: [
       {
         title: 'Skloňovanie cudzích slov na -ia podľa vzoru ulica',
@@ -727,7 +739,7 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Napíšte skloňovací vzor **zvýrazneného** slova v nasledujúcej vete.\n//Dnes predpoludním som **v skriptóriu** počul…//',
     placeholder: 'Napíš skloňovací vzor',
     correctAnswerDisplay: 'mesto',
-    acceptedAnswers: ['mesto', 'vzor mesto', 'podľa vzoru mesto', 'gymnázium', 'vzor gymnázium'],
+    acceptedAnswers: ['mesto', 'vzor mesto', 'podľa vzoru mesto', 'gymnázium', 'vzor gymnázium', 'podľa vzoru gymnázium'],
     lenient: true,
     commonMistakes: [
       {
@@ -765,7 +777,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Všímaj si nielen samotné slová postáv, ale aj scénické poznámky v zátvorkách! Ktorá postava nemyslí len na seba, ale vníma strach ostatných zadržaných a snaží sa ich upokojiť a povzbudiť?',
+    hint: 'Všímaj si nielen samotné slová postáv, ale aj scénické poznámky v zátvorkách! Ktorá postava nemyslí len na seba, ale vníma strach ostatných zadržaných a snaží sa ich upokojiť, zmierniť ich obavy a vliať im nádej?',
     solutionSteps: [
       {
         title: 'Nájdenie prejavu empatie',
@@ -773,7 +785,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné repliky',
-        text: '**A** – Šustek rieši len vlastnú nervozitu a fajčiarsku potrebu.\n**B** – Babica netrpezlivo skáče Fischlovi do reči.\n**C** – Ondrej je sklamaný, že Fischl nie je jedenástym rukojemníkom (prial by teda rovnaké nešťastie aj ďalšiemu človeku, čo je opak empatie).'
+        text: '**A** – Šustek rieši len vlastnú nervozitu a fajčiarsku potrebu.\n**B** – Babica netrpezlivo skáče Fischlovi do reči.\n**C** – Ondrej je sklamaný, že Fischla nezatkli ako jedenásteho (dúfal totiž, že ďalší zaistený prelomí hrozivý počet desiatich rukojemníkov „za jedného vojaka“ – myslí teda na vlastnú záchranu, nie súcitne na Fischla).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **D**.'
@@ -821,7 +833,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Spomeň si na známy príbeh o zrade a strachu o vlastný život pred ranným spevom kohúta: komu Ježiš predpovedal, že ho trikrát zaprie, skôr ako kohút zaspieva?',
+    hint: 'Ranný spev kohúta je v európskej kultúre symbolom chvíle, keď blízky učeník zo strachu o vlastný život trikrát zaprel svojho učiteľa (podobne ako postavy v pivnici pod tlakom strachu zapierajú vlastnú ľudskosť). Z ktorého zo štyroch uvedených prameňov pochádza tento známy príbeh?',
     solutionSteps: [
       {
         title: 'Pôvod symbolického názvu',
@@ -908,6 +920,9 @@ export const questionsPart1: QuestionData[] = [
       'starší muž',
       'Starší muž',
       'STARŠÍ MUŽ',
+      'starší človek',
+      'Starší človek',
+      'STARŠÍ ČLOVEK',
       'sprostredkovateľ',
       'Sprostredkovateľ',
       'SPROSTREDKOVATEĽ',
@@ -993,13 +1008,18 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: [
       '10',
       'desať',
+      'desiati',
       '10 ľudí',
       '10 osôb',
       'desať ľudí',
       'desať osôb',
       'desiatich',
       '10 rukojemníkov',
-      'desať rukojemníkov'
+      'desať rukojemníkov',
+      '10 zadržaných',
+      'desať zadržaných',
+      '10 zadržaných osôb',
+      'desať zadržaných osôb'
     ],
     lenient: true,
     commonMistakes: [
@@ -1008,7 +1028,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Pozor na chyták! Ondrej sa síce pýta Fischla „Tak vy nie ste… Ten jedenásty?“, no práve z toho vyplýva, že Fischla nezadržali (poslali ho len ako prostredníka), takže zadržaných ostalo o jedného menej!'
       }
     ],
-    hint: 'Odpoveď sa dá vyčítať priamo z ukážky 4 aj bez toho, aby si si pamätal celé dielo! Pozri sa na Ondrejove dve repliky: najprv sa Fischla pýta, či ho chytili až teraz, a keď Fischl povie „Mňa sem poslali“, Ondrej sklamaný povie: „Tak vy nie ste… Ten jedenásty?“ Koľko je teda v pivnici zadržaných?',
+    hint: 'Odpoveď sa dá logicky vyčítať priamo z ukážky 4! Prečítaj si v strednej časti ukážky krátky dialóg Ondreja s Fischlom – čo si Ondrej najprv o Fischlovi myslel a aké číslo v sklamaní vyslovil?',
     solutionSteps: [
       {
         title: 'Odhalenie počtu z textu aj z obsahu diela',

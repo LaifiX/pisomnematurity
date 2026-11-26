@@ -24,10 +24,10 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Prečítaj si pozorne Kreonovu otázku na konci jeho repliky („Vrav – priznávaš sa, že aj ty si mala niečo spoločné s…“). O akom čine hovorí a ako na priznanie sestry reaguje Antigona?',
+    hint: 'Prečítaj si pozorne Kreontovu otázku na konci jeho repliky („Vrav – priznávaš sa, že aj ty si mala niečo spoločné s…“). O akom čine hovorí a ako na priznanie sestry reaguje Antigona?',
     solutionSteps: [
       {
-        title: 'Čo vyplýva z Kreonovej repliky',
+        title: 'Čo vyplýva z Kreontovej repliky',
         text: 'Kreon si dal priviesť Ismenu a priamo sa jej pýta: //„Vrav – priznávaš sa, že aj ty si mala niečo spoločné s tým pohrebom, či to chceš pod prísahou poprieť?“// Podozrieva teda Ismenu zo spoluúčasti na **tom istom čine** (zakázanom pohrebe brata), z ktorého už usvedčil Antigonu.'
       },
       {
@@ -116,7 +116,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo sú ostatné možnosti nepravdivé',
-        text: 'A, C – Antigona a Ismena sú **vlastné sestry**, dcéry bývalého tébskeho kráľa **Oidipa** a kráľovnej Jokasty (Kreon je brat Jokasty, teda ich ujo).\nD – Antigona o Kreonovom príkaze veľmi dobre vedela (hneď v prológu o ňom hovorí Ismene) a brata pochovala vedome z morálneho presvedčenia.'
+        text: 'A, C – Antigona a Ismena sú **vlastné sestry**, dcéry bývalého tébskeho kráľa **Oidipa** a kráľovnej Jokasty (Kreon je brat Jokasty, teda ich ujo).\nD – Antigona o Kreontovom príkaze veľmi dobre vedela (hneď v prológu o ňom hovorí Ismene) a brata pochovala vedome z morálneho presvedčenia.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -369,7 +369,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'V článku boli tieto názvy vytlačené veľkými písmenami, takže musíš uplatniť Pravidlá slovenského pravopisu: 1. V názve inštitúcie zostáva zachované aj veľké písmeno vloženého oficiálneho názvu národného parku. 2. Vo viacslovných nesídelných zemepisných názvoch (potok, raj, výhľad) sa všeobecné podstatné meno píše s malým písmenom!',
+    hint: 'V článku boli tieto názvy vytlačené veľkými písmenami, preto uplatni Pravidlá slovenského pravopisu: 1. Ako sa píšu oficiálne názvy národných parkov a čo platí pre začiatočné písmeno ich názvu, keď je vložený do názvu inštitúcie (Správa…)? 2. Ako sa píšu všeobecné podstatné mená vo viacslovných nesídelných zemepisných názvoch (vodné toky, chránené územia, skalné útvary – podobne ako Štrbské pleso či Malá Fatra)?',
     solutionSteps: [
       {
         title: '1. Názov inštitúcie a národného parku (podľa PSP)',
@@ -420,9 +420,9 @@ export const questionsPart2: QuestionData[] = [
       'Koľko viet obsahuje nasledujúce súvetie?\n//Správca turistickej infraštruktúry odporúča na pohyb vo ferrate vysokú nepremokavú obuv, je tiež vhodné vziať si so sebou okrem povinného ferratového setu aj náhradné ponožky a obutie, prípadne aj oblečenie.//',
     placeholder: 'Napíš počet',
     correctAnswerDisplay: '2 (dve)',
-    acceptedAnswers: ['2', 'dve', '2 vety', 'dve vety'],
+    acceptedAnswers: ['2', 'dve', '2 vety', 'dve vety', '2 jednoduché vety', 'dve jednoduché vety'],
     lenient: true,
-    hint: 'Nenechaj sa pomýliť počtom čiarok ani neurčitkom „vziať si“! Počet viet v súvetí sa rovná počtu prísudkov (určitých slovesných alebo slovesno-menných tvarov). Druhá čiarka oddeľuje iba pripojený vetný člen „prípadne aj oblečenie“.',
+    hint: 'Nenechaj sa pomýliť počtom čiarok (čiarka môže oddeľovať aj voľne pripojený vetný člen, nielen vetu) ani neurčitkom slovesa! Počet jednoduchých viet v súvetí sa rovná počtu prísudkov – vyhľadaj len určité slovesné alebo slovesno-menné prísudky.',
     solutionSteps: [
       {
         title: 'Vyhľadanie prísudkov v súvetí',
@@ -455,7 +455,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Slovo „množstvo“ je podstatné meno (to množstvo, vzor mesto). Hľadaj neohybnú neurčitú číslovku s podobným významom už v nadpise a v 1. odseku.'
       }
     ],
-    hint: 'Základné číslovky odpovedajú na otázku koľko? Určité vyjadrujú presné číslo (napr. dva, sto), zatiaľ čo neurčité vyjadrujú počet alebo množstvo len všeobecne (napr. málo, mnoho, niekoľko). Pozri sa hneď do nadpisu alebo 1. odseku ukážky 6.',
+    hint: 'Základné číslovky odpovedajú na otázku koľko? Určité vyjadrujú presné číslo (napr. dva, sto), zatiaľ čo neurčité vyjadrujú počet alebo množstvo len všeobecne (napr. málo, mnoho, niekoľko). Prejdi si úvodnú časť ukážky 6 a hľadaj slovo vyjadrujúce neurčité (približné) množstvo.',
     solutionSteps: [
       {
         title: 'Rozdiel medzi určitou a neurčitou základnou číslovkou',
@@ -574,7 +574,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Prečítaj si začiatok posledného prehovoru hrdinu: „Tak ľahučko, krásne tancujete. Ani páper, keď v povetrí lieta.“ Akým slovom sa tu dá nahradiť porovnávacia spojka „ani“?',
+    hint: 'Prečítaj si začiatok posledného prehovoru hrdinu: „Tak ľahučko, krásne tancujete. Ani páper, keď v povetrí lieta.“ Akou bežnejšou spojkou sa v tejto vete dá nahradiť slovo „ani“ (a stupňuje sa v ďalších vetách význam, alebo sa len rovnocenne vymenúvajú smery fúknutia)?',
     solutionSteps: [
       {
         title: 'Porovnávacia spojka „ani“ = „ako“',
@@ -666,7 +666,7 @@ export const questionsPart2: QuestionData[] = [
       'vedľajšia veta je predmetová'
     ],
     lenient: true,
-    hint: 'Opýtaj sa prísudkom hlavnej vety („Myslel som si“) na celú vedľajšiu vetu za spojkou „že“. Akou pádovou otázkou sa pýtaš a ktorý vetný člen odpovedá na otázku koho? čo?',
+    hint: 'Opýtaj sa prísudkom hlavnej vety („Myslel som si“) na celú vedľajšiu vetu za spojkou „že“. Pri otázke „čo?“ si over celú pádovú dvojicu (nominatív kto? čo? verzus akuzatív koho? čo?) – podľa toho určíš zastupovaný vetný člen.',
     solutionSteps: [
       {
         title: 'Otázka z hlavnej vety na vedľajšiu',
@@ -699,7 +699,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Zámeno „jej“ je v datíve (komu? → jej), čiže je nepriamym predmetom. Podmet je priamo vo vete v nominatíve stredného rodu!'
       }
     ],
-    hint: 'Pozor na slovosled! Pozri sa na sloveso v prísudku „muselo pôsobiť“ – koncovka -o prezrádza, že podmet musí byť v strednom rode a v nominatíve (kto? čo?). Ktoré krátke slovo vo vete je v nominatíve stredného rodu?',
+    hint: 'Pozor na slovosled! Pozri sa na sloveso v prísudku „muselo pôsobiť“ – koncovka -o prezrádza, že podmet musí byť v strednom rode a v nominatíve (kto? čo?). Ktoré slovo vo vete je v nominatíve stredného rodu?',
     solutionSteps: [
       {
         title: 'Pomôcka cez prísudok a zhodu',
@@ -728,6 +728,8 @@ export const questionsPart2: QuestionData[] = [
       'moderna',
       'literárnej moderny',
       'literárna moderna',
+      'slovenskej moderny',
+      'slovenská moderna',
       'slovenskej literárnej moderny',
       'slovenská literárna moderna',
       'Básnici Janko Jesenský a Ivan Krasko patrili k významným predstaviteľom slovenskej literárnej moderny'
@@ -763,7 +765,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Prečítaj si pozorne úplne posledné súvetie ukážky („Pozrela tak nevinne, tak veselo, že kto by ju nepoznal, ako ju poznal manžel…“). Čo z neho vyplýva o tom, ako Annu prekukol jej manžel?',
+    hint: 'Prečítaj si pozorne predposledný odsek (o Anninom predstieraní túžby spať) a úplne posledné súvetie ukážky („Pozrela tak nevinne, tak veselo, že kto by ju nepoznal, ako ju poznal manžel, nevybadal by…“). Dal sa manžel, ktorý Annu dobre poznal, jej nevinným pohľadom oklamať, alebo v jej tóne spoznal neprirodzenosť?',
     solutionSteps: [
       {
         title: 'Rozlúštenie poslednej vety ukážky',
@@ -791,7 +793,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Všímaj si iba podčiarknutý prvý odsek: ako Anna kráčala, čo robila s rukami a k čomu rozprávač prirovnáva neradostný jas v jej tvári?',
+    hint: 'Všímaj si iba podčiarknutý prvý odsek: ako Anna kráčala, čím sa pohrávala a k čomu rozprávač prirovnáva neradostný jas v jej tvári?',
     solutionSteps: [
       {
         title: 'Rozbor podčiarknutého odseku',
@@ -848,7 +850,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Všimni si v úryvku spojenia „vravela, čo jej slina na jazyk priniesla“ a „odiata do nepreniknuteľného panciera lži“. Sú tieto vety myslené doslovne, alebo obrazne?',
+    hint: 'Všimni si v úryvku spojenia „vravela, čo jej slina na jazyk priniesla“ a „odiata do nepreniknuteľného panciera lži“. Majú tu slová svoj priamy (doslovný), alebo prenesený význam?',
     solutionSteps: [
       {
         title: 'Nájdenie obrazných vyjadrení v úryvku',
@@ -910,7 +912,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Zachovaj aj rovnaký stupeň stupňovania: „lepšie“ je 2. stupeň od príslovky dobre, preto utvor 2. stupeň od príslovky zle.'
       }
     ],
-    hint: 'Antonymum je slovo s opačným významom v tom istom slovnom druhu a v rovnakom gramatickom tvare. Opýtaj sa slovesom: „Ako by sme urobili? → lepšie.“ Je to príslovka v 2. stupni (dobre – lepšie – najlepšie) – ako znie 2. stupeň od opačnej príslovky „zle“?',
+    hint: 'Antonymum musí zachovať ten istý slovný druh aj rovnaký stupeň stupňovania. Opýtaj sa slovesom („by sme urobili“) na slovo „lepšie“ – určíš tak jeho slovný druh aj stupeň a v rovnakom tvare utvor slovo s opačným významom.',
     solutionSteps: [
       {
         title: '1. Určenie slovného druhu a stupňa slova lepšie',
@@ -951,7 +953,7 @@ export const questionsPart2: QuestionData[] = [
         hint: '„ozvala sa spoza dverí“ je až druhá uvádzacia veta – pozri sa na začiatok 2. odseku hneď za prvú priamu reč.'
       }
     ],
-    hint: 'Uvádzacia veta je veta rozprávača pri priamej reči, ktorá uvádza, kto a ako prehovoril (napr. povedal, spýtala sa). V 1. odseku ešte priama reč nie je – nájdi úplne prvú repliku v 2. odseku (začína sa pomlčkou) a pozri sa na autorskú vetu bezprostredne za ňou.',
+    hint: 'Uvádzacia veta je veta rozprávača pri priamej reči, ktorá uvádza, kto a ako prehovoril (napr. povedal, spýtala sa). V tejto ukážke nie je priama reč v úvodzovkách, ale je oddelená pomlčkami – nájdi prvú priamu reč postavy, odlíš ju od sprievodnej vety rozprávača a vypíš z tejto uvádzacej vety jej prvé slovo.',
     solutionSteps: [
       {
         title: 'Čo je uvádzacia veta',
@@ -973,7 +975,16 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Koľko viet so stúpavou vetnou melódiou obsahuje ukážka 8?',
     placeholder: 'Napíš počet',
     correctAnswerDisplay: '3 (tri)',
-    acceptedAnswers: ['3', 'tri', '3 vety', 'tri vety'],
+    acceptedAnswers: [
+      '3',
+      'tri',
+      '3 vety',
+      'tri vety',
+      '3 vety so stúpavou melódiou',
+      'tri vety so stúpavou melódiou',
+      '3 vety so stúpavou vetnou melódiou',
+      'tri vety so stúpavou vetnou melódiou'
+    ],
     lenient: true,
     commonMistakes: [
       {

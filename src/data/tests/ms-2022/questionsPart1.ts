@@ -28,7 +28,7 @@ export const questionsPart1: QuestionData[] = [
     hint: 'Prečítaj si posledné štyri verše. Čo lyrický subjekt so svojím srdcom urobí – poddá sa mu, alebo ho skrotí?',
     solutionSteps: [
       { title: 'Záver básne', text: '„Hľadím a trpím neprestajne, / no prísny zákon ctiť si viem, / zavraciam srdce: skrotni, driem – / mlčím… a vzdychám, blčím tajne.“ Lyrický subjekt túži, ale city potláča a mlčí.' },
-      { title: 'Prečo nie ostatné', text: 'A – práve preto, že túžbu cíti ako hriech, prosí o odpustenie („odpusť mi, že mu závidím“).\nB – o bozku iba uvažuje v podmienke („krádež bozku dovolí mi hlas svedomia“), nič neurobil.\nD – báseň práveže rozlišuje jeho postoj podľa postavenia ženy: pri „nevoľnej peknoočke“ by si bozk dovolil, kým pri priateľovej „milej družke“ city potláča a mlčí.' }
+      { title: 'Prečo nie ostatné', text: 'A – práve preto, že túžbu cíti ako hriech, prosí o odpustenie („odpusť mi, že mu závidím“).\nB – priateľovu družku nepobozkal (iba na ňu hľadí a tajne vzdychá); o „krádeži bozku“ uvažuje len podmienečne, a aj to pri „nevoľnej peknoočke“, nie pri priateľovej družke.\nD – báseň práveže rozlišuje jeho postoj podľa postavenia ženy: pri „nevoľnej peknoočke“ by si bozk dovolil, kým pri priateľovej „milej družke“ city potláča a mlčí.' }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
   },
@@ -129,7 +129,7 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Do ktorého literárneho smeru sa zaraďuje prevažná časť tvorby A. S. Puškina?',
     placeholder: 'Napíš literárny smer',
     correctAnswerDisplay: 'romantizmus',
-    acceptedAnswers: ['romantizmus', 'do romantizmu', 'romantizmu', 'preromantizmus', 'do preromantizmu', 'romantický'],
+    acceptedAnswers: ['romantizmus', 'do romantizmu', 'romantizmu', 'preromantizmus', 'do preromantizmu', 'preromantizmu', 'romantický', 'romantický smer'],
     lenient: true,
     hint: 'Puškin žil v rokoch 1799 – 1837 a napísal román vo veršoch Eugen Onegin. Ktorý smer vtedy v Európe vrcholil?',
     solutionSteps: [
@@ -151,6 +151,7 @@ export const questionsPart1: QuestionData[] = [
     hint: 'Zložené slovo vzniklo spojením dvoch slovných základov. Hľadaj podstatné meno, ktoré pomenúva krásnu ženu.',
     solutionSteps: [
       { title: 'Rozbor slova', text: '„No ak má doma peknoočku…“ – peknoočka vzniklo spojením základov pekn-(ý) a oč-(i/ko): žena s peknými očami. Je to zložené slovo a zároveň plnovýznamové (podstatné meno).' },
+      { title: 'Prečo nie kristepane', text: 'Slovo kristepane v básni je síce tiež zložené slovo, ale ide o citoslovce (neplnovýznamový slovný druh), preto nevyhovuje zadaniu (plnovýznamové zložené slovo).' },
       { title: 'Pozor na pravopis', text: 'Slovo musí byť napísané pravopisne správne – s dvoma o: pekno-očka.' }
     ],
     solutionConclusion: 'Správna odpoveď: peknoočku (peknoočka).'
@@ -255,7 +256,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Skratka je skrátený zápis slova, za ktorým sa zvyčajne píše bodka a číta sa celým slovom. V ktorej možnosti nejde o skrátené slovo, ale iba o časť slova (príponu)?',
+    hint: 'Skratka je skrátený zápis slova alebo slovného spojenia, za ktorým sa píše bodka a pri čítaní sa vyslovuje v plnom tvare. V ktorej možnosti nejde o skratku, ale len o časť slova?',
     solutionSteps: [
       { title: 'Skratky', text: 'tzv. (takzvaný), napr. (napríklad), t. j. (to jest) sú skratky – píšu sa s bodkou a čítajú sa celým slovom.' },
       { title: '-izmus', text: '-izmus je prípona (slovotvorný formant), ktorou sa tvoria názvy smerov (romantizmus, realizmus). Spojovník naznačuje, že ide o časť slova, nie o skratku.' }
@@ -277,7 +278,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Pomlčka (–) je dlhšia a píše sa s medzerami, spojovník (-) je krátky a bez medzier. Prejdi prvý odsek po znamienkach.',
+    hint: 'Pomlčka (–) je dlhšia a oddeľuje časti vety (s medzerami z oboch strán), kým kratší spojovník (-) spája časti slov alebo stojí pri osamostatnenej prípone. Prejdi prvý odsek po znamienkach.',
     solutionSteps: [
       { title: 'Znamienka v 1. odseku', text: 'Spojovník: „nový -izmus“. Úvodzovky: „postmodernizmus“. Výkričník: „…„postmodernizmus“ mätúce!“. Okrem nich zátvorky, čiarky a bodky.' },
       { title: 'Chýbajúce znamienko', text: 'Pomlčka sa v prvom odseku nenachádza.' }
@@ -293,7 +294,21 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Ktorý slohový postup prevláda v ukážke 2?',
     placeholder: 'Napíš slohový postup',
     correctAnswerDisplay: 'výkladový',
-    acceptedAnswers: ['výkladový', 'úvahový', 'výkladový a úvahový', 'úvahový, výkladový', 'úvahový a výkladový', 'výkladový, úvahový'],
+    acceptedAnswers: [
+      'výkladový',
+      'výkladový postup',
+      'výkladový slohový postup',
+      'úvahový',
+      'úvahový postup',
+      'úvahový slohový postup',
+      'výkladovo-úvahový',
+      'výkladovo-úvahový postup',
+      'výkladovo-úvahový slohový postup',
+      'výkladový a úvahový',
+      'úvahový, výkladový',
+      'úvahový a výkladový',
+      'výkladový, úvahový'
+    ],
     lenient: true,
     hint: 'Text nerozpráva príbeh ani neopisuje vec – vysvetľuje pojem, jeho vznik, príčiny a súvislosti.',
     solutionSteps: [
@@ -311,7 +326,17 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Ktorý jazykový štýl sa uplatnil v ukážke 2?',
     placeholder: 'Napíš jazykový štýl',
     correctAnswerDisplay: 'náučný',
-    acceptedAnswers: ['náučný', 'odborný', 'populárno-náučný', 'náučný štýl', 'odborný štýl', 'populárnonáučný', 'vedecký'],
+    acceptedAnswers: [
+      'náučný',
+      'odborný',
+      'populárno-náučný',
+      'náučný štýl',
+      'odborný štýl',
+      'populárnonáučný',
+      'populárno-náučný štýl',
+      'populárnonáučný štýl',
+      'vedecký'
+    ],
     lenient: true,
     hint: 'Ukážka pochádza z knihy o slovenskej literatúre a využíva literárnovedné termíny (avantgarda, konkretizmus, determinizmus).',
     solutionSteps: [
@@ -469,13 +494,15 @@ export const questionsPart1: QuestionData[] = [
       'uspokojivo končiaca melódia',
       'uspokojivá končiaca kadencia',
       'uspokojivo končiaca kadencia',
+      'uspokojivá kadencia',
       'konkluzívna kadencia',
+      'konkluzívna melódia',
       'konkluzívna',
       'kadencia',
       'klesavá konkluzívna kadencia'
     ],
     lenient: true,
-    hint: 'Je to oznamovacia veta. Ako sa hlas na konci oznamovacej vety pohybuje – stúpa, alebo klesá?',
+    hint: 'Urči modálnosť vety (zámer hovoriaceho) podľa znamienka na konci, prečítaj si ju nahlas a pomenuj smer pohybu hlasu v jej závere (prípadne použi odborný názov kadencie).',
     solutionSteps: [
       { title: 'Typ vety', text: 'Veta je oznamovacia a ukončená – nič už nenasleduje.' },
       { title: 'Vetná melódia', text: 'Na konci oznamovacej vety hlas klesá. Takáto melódia sa volá klesavá, uspokojivo končiaca – konkluzívna kadencia. (Stúpavá melódia – antikadencia – je typická pre zisťovacie otázky.)' }
@@ -508,8 +535,17 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Vypíšte z ukážky 3 ustálené slovné spojenie/vetu, ktoré/á vyjadruje odvahu riskovať úspech či neúspech.',
     placeholder: 'Vypíš slovné spojenie',
     correctAnswerDisplay: 'Hop alebo trop',
-    acceptedAnswers: ['Hop alebo trop', 'Hop alebo trop…', 'Hop alebo trop...', 'Hop alebo trop.', '„Hop alebo trop.“', 'hop alebo trop'],
-    hint: 'Hľadaj frazeologizmus na samom začiatku ukážky, v McMurphyho výzve na stávku.',
+    acceptedAnswers: [
+      'Hop alebo trop',
+      'Hop alebo trop…',
+      'Hop alebo trop...',
+      'Hop alebo trop.',
+      '„Hop alebo trop.“',
+      '„Hop alebo trop…“',
+      '„Hop alebo trop“',
+      'hop alebo trop'
+    ],
+    hint: 'Hľadaj krátky rýmujúci sa frazeologizmus v úvodných replikách ukážky.',
     solutionSteps: [
       { title: 'Frazeologizmus', text: '„Kto chce prehrať päť dolárov? Hop alebo trop…“ – Hop alebo trop znamená: buď sa to podarí, alebo nie; riskujem.' },
       { title: 'Zápis', text: 'Spojenie musí byť vypísané pravopisne správne.' }
@@ -638,7 +674,7 @@ export const questionsPart1: QuestionData[] = [
     placeholder: 'Vypíš názov žánru',
     correctAnswerDisplay: 'denník',
     acceptedAnswers: ['denník', 'denníku'],
-    hint: 'Kam si Sloboda robil záznamy predtým, ako začal písať Rozum?',
+    hint: 'V ukážke sa spomína viacero žánrov – pozri sa do tretieho odseku a nájdi ten, ktorý má osobnejší, chronologicky zaznamenávaný charakter.',
     solutionSteps: [
       { title: 'Miesto v texte', text: '„Sloboda si prestal robiť záznamy vo svojom denníku…“ – denník je žáner založený na pravidelných (dátumovaných) zápisoch.' },
       { title: 'Zápis', text: 'Kľúč uznáva denník aj denníku, pravopisne správne.' }

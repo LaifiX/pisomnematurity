@@ -80,7 +80,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Priamy rozprávač rozpráva príbeh v 1. osobe jednotného čísla (ja-rozprávanie) ako jedna z postáv. Všimni si slovesné tvary rozprávača a to, či nepozná všetky súvislosti, alebo vie úplne všetko.',
+    hint: 'Všimni si slovesnú osobu, v ktorej je príbeh vyrozprávaný, či rozprávač sám vystupuje ako postava v scéne a či pozná všetky súvislosti dopredu, alebo sa pýta Dupina. Ako sa v teórii literatúry nazýva takýto typ rozprávača?',
     solutionSteps: [
       {
         title: 'Určenie typu rozprávača',
@@ -312,7 +312,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Pozri sa pozorne na verše tretej strofy a spočítaj v nich slabiky (8, 8, 8, 8). Všimni si predložku v poslednom verši „čo ku oblakom letelo“ – aký tvar predložky by sme pred slovom oblakom použili v bežnej spisovnej reči?',
+    hint: 'Pozri sa pozorne na verše tretej strofy a spočítaj v nich slabiky. Všimni si predložku v poslednom verši „čo ku oblakom letelo“ – aký tvar predložky by sme pred slovom oblakom použili v bežnej spisovnej reči?',
     solutionSteps: [
       {
         title: 'Rytmus a tvary slov v 3. strofe',
@@ -340,11 +340,11 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Hypotetická situácia pomenúva predstavu „čo by sa stalo v prípade, že…“ a spája sa s podmienkovým spôsobom. Ktoré slovo v básni opakovane uvádza takéto želania?',
+    hint: 'Hypotetická situácia pomenúva predstavu „čo by sa stalo v prípade, že…“ a spája sa s podmieňovacím spôsobom. Ktoré slovo v básni opakovane uvádza takéto želania?',
     solutionSteps: [
       {
         title: 'Funkcia slova v texte',
-        text: 'Spojka/častica **keby** sa v básni opakuje šesťkrát (//keby bol závoj hmlovinou//, //Keby bol spal ker spanilý//, //Keby bol vtáčik malučký…//) a viaže sa so slovesom v podmienkovom spôsobe. Vyjadruje neskutočnú podmienku, snovú predstavu (**hypotetickú situáciu**) a zároveň tiché želanie (**túžbu**).'
+        text: 'Spojka/častica **keby** sa v básni opakuje šesťkrát (//keby bol závoj hmlovinou//, //Keby bol spal ker spanilý//, //Keby bol vtáčik malučký…//) a viaže sa so slovesom v podmieňovacom spôsobe. Vyjadruje neskutočnú podmienku, snovú predstavu (**hypotetickú situáciu**) a zároveň tiché želanie (**túžbu**).'
       },
       {
         title: 'Prečo nie ostatné možnosti',
@@ -376,7 +376,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'B – existencializmus rieši úzkosť, odcudzenie a absurditu ľudskej existencie (napr. J.-P. Sartre, A. Camus).\nC – sociálno-kritický realizmus zobrazuje biedu a spoločenské krivdy v próze konca 19. a začiatku 20. storočia.\nD – socialistický realizmus bol ideologicky riadený smer po roku 1948; Dilong ako františkánsky mních pred režimom emigroval.'
+        text: 'B – existencializmus rieši úzkosť, odcudzenie a absurditu ľudskej existencie (napr. J.-P. Sartre, A. Camus).\nC – sociálno-kritický realizmus zobrazuje biedu a spoločenské krivdy v próze konca 19. a začiatku 20. storočia.\nD – socialistický realizmus bol ideologicky riadený smer po roku 1948; Dilong ako františkánsky mních žil už od roku 1945 v emigrácii.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -397,11 +397,16 @@ export const questionsPart1: QuestionData[] = [
       'tretej',
       'v tretej',
       'v tretej strofe',
+      'tretej strofe',
       'v 3. strofe',
       'v 3 strofe',
+      '3. strofa',
+      '3. strofe',
       'tretia strofa',
       'III',
       'III.',
+      'III. strofa',
+      'III. strofe',
       'v III. strofe'
     ],
     lenient: true,
@@ -463,8 +468,14 @@ export const questionsPart1: QuestionData[] = [
       'združený rým',
       'združený AABB',
       'združený (AABB)',
+      'združený - AABB',
       'združený rým AABB',
       'združený rým (AABB)',
+      'združený rým - AABB',
+      'AABB združený',
+      'AABB (združený)',
+      'AABB - združený',
+      'AABB - združený rým',
       'V ukážke 2 autor využil združený rým'
     ],
     lenient: true,
@@ -588,7 +599,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Pozor na dva časté chytáky! Po prvé: je podmet „vy“ vo vete priamo napísaný, alebo len zamlčaný (taká veta sa nevolá úplná, ale neúplná)? Po druhé: prikazuje nám hovoriaci niečo rozkazovacím spôsobom, alebo nám iba s citovým dôrazom oznamuje zaujímavý fakt?',
+    hint: 'Skontroluj dve veci: 1. stavbu vety – či si k slovesu vieme doplniť podmet a či je vo vete priamo slovne vyjadrený (úplná veta), alebo zamlčaný (neúplná veta); 2. zámer hovoriaceho a slovesný spôsob – pozor, samotný výkričník na konci vety označuje zvolaciu intonáciu, no ešte z nej nerobí rozkazovaciu vetu!',
     solutionSteps: [
       {
         title: 'Veta podľa obsahu (zámeru hovoriaceho)',
@@ -639,7 +650,7 @@ export const questionsPart1: QuestionData[] = [
     fillSentenceHtml: 'V časti //Ako na to// sa uplatnil {{blank}} slohový postup.',
     placeholder: 'Doplň slohový postup',
     correctAnswerDisplay: 'opisný',
-    acceptedAnswers: ['opisný', 'opisný slohový postup', 'V časti Ako na to sa uplatnil opisný slohový postup'],
+    acceptedAnswers: ['opisný', 'opisný postup', 'opisný slohový postup', 'V časti Ako na to sa uplatnil opisný slohový postup'],
     lenient: true,
     commonMistakes: [
       {
@@ -647,7 +658,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Opis je slohový útvar – zadanie sa pýta na slohový postup (prídavné meno zakončené na -ný).'
       }
     ],
-    hint: 'Spomeň si na štyri základné slohové postupy: informačný, rozprávací, opisný a výkladový. Časť „Ako na to“ v kuchynskom recepte zachytáva pracovný postup krok za krokom – ktorý slohový postup sa v takomto pracovnom návode uplatňuje?',
+    hint: 'Nezamieňaj si slohový útvar ani jazykový štýl so slohovým postupom (prídavné meno zakončené na -ný/-cí; v štylistike rozlišujeme štyri základné). Časť „Ako na to“ v kuchynskom recepte zachytáva pracovný postup krok za krokom – ktorý zo štyroch slohových postupov zachytáva znaky predmetu alebo následnosť pracovných činností?',
     solutionSteps: [
       {
         title: 'Recept ako opis pracovného postupu',
@@ -814,7 +825,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Pozor, hľadáš nepravdivé tvrdenie! Štúrova slovenčina (1843) uplatňovala fonetický pravopis „píš, ako počuješ“ (bez ypsilonu, bez mäkkého ľ, s mäkčeňmi a osobitným zápisom dvojhlások). Ktoré zo štyroch tvrdení do štúrovskej slovenčiny nepatrí, lebo je typické pre cudzí jazyk?',
+    hint: 'Pozor, hľadáš nepravdivé tvrdenie! Spomeň si na hlavnú zásadu Štúrovej kodifikácie (1843) – fonetický pravopis „píš, ako počuješ“, ktorý upravoval zapisovanie samohlások, dvojhlások a mäkkých či tvrdých spoluhlások podľa výslovnosti. Ktoré zo štyroch pravidiel s výslovnosťou hlások vôbec nesúvisí a v slovenčine nikdy neplatilo?',
     solutionSteps: [
       {
         title: 'Odhalenie nepravdivého tvrdenia',
@@ -921,14 +932,15 @@ export const questionsPart1: QuestionData[] = [
       'slovenský romantizmus',
       'do romantizmu',
       'do slovenského romantizmu',
-      'romantizmu'
+      'romantizmu',
+      'slovenského romantizmu'
     ],
     lenient: true,
     hint: 'Štúrovská generácia (Samo Chalupka, Janko Kráľ, Andrej Sládkovič, Ján Botto) tvorila v polovici 19. storočia – uprednostňovala cit, ideál slobody, ľudovú slovesnosť a hrdinskú minulosť. Ako sa jedným slovom volá tento literárny smer?',
     solutionSteps: [
       {
         title: 'Zaradenie štúrovskej poézie',
-        text: 'Generácia okolo Ľudovíta Štúra (S. Chalupka, J. Kráľ, A. Sládkovič, J. Botto) pôsobila v rokoch 1843 – 1850 a predstavuje vrchol **romantizmu** v slovenskej literatúre (inšpirácia ľudovou piesňou a baladou, sylabický verš, rozpor medzi snom/ideálom a skutočnosťou, národnooslobodzovací zápas).'
+        text: 'Generácia okolo Ľudovíta Štúra (S. Chalupka, J. Kráľ, A. Sládkovič, J. Botto) vystúpila v 40. rokoch 19. storočia a tvorila až do 70. rokov 19. storočia (slovenský romantizmus vymedzujeme rokmi 1836 – 1875) a predstavuje vrchol **romantizmu** v slovenskej literatúre (inšpirácia ľudovou piesňou a baladou, sylabický verš, rozpor medzi snom/ideálom a skutočnosťou, národnooslobodzovací zápas).'
       },
       {
         title: 'Ako hodnotí kľúč',

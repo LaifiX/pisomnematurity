@@ -137,7 +137,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Rozlíš dvojhlásku (spojenie dvoch samohláskových prvkov v jednej slabike: ia, ie, iu, ô) od samohláskovej skupiny (dve susedné samohlásky v cudzom slove, ktoré patria do dvoch rôznych slabík).',
+    hint: 'Rozlíš dvojhlásku (spojenie dvoch samohláskových prvkov v jednej slabike: ia, ie, iu, ô) od samohláskovej skupiny (dve susedné samohlásky patriace do dvoch rôznych slabík – v prevzatých slovách alebo na rozhraní predpony a koreňa).',
     solutionSteps: [
       {
         title: 'Samohlásková skupina v cudzích slovách',
@@ -240,15 +240,15 @@ export const questionsPart1: QuestionData[] = [
     hint: 'Domáci názov tohto novinárskeho žánru (otázky redaktora a odpovede osobnosti) je v samotnom podtitule ukážky: „Rozhovor…“. Ako sa takýto publicistický rozhovor nazýva cudzím slovom z angličtiny?',
     solutionSteps: [
       {
-        title: 'Publicistický žáner',
-        text: 'Ukážka má formu cielených otázok novinára a odpovedí spovedanej osobnosti s cieľom predstaviť jej tvorbu a názory verejnosti. Cudzí odborný názov tohto dialogického žánru publicistického štýlu je **interview** (v zdomácnenej podobe aj **interviu**).'
+        title: 'Publicistický žáner a kodifikovaný pravopis',
+        text: 'Ukážka má formu cielených otázok novinára a odpovedí spovedanej osobnosti s cieľom predstaviť jej tvorbu a názory verejnosti. Cudzí odborný názov tohto dialogického žánru publicistického štýlu je **interview** (výslovnosť //[intervjú]//) – podľa //Pravidiel slovenského pravopisu// a //Krátkeho slovníka slovenského jazyka// (KSSJ 4) ide o jediný kodifikovaný pravopis.'
       },
       {
         title: 'Ako hodnotí kľúč',
-        text: 'Kľúč NIVaM uznáva pôvodný anglický pravopis //interview// aj zdomácnený zápis //interviu//, pričom prihliada na vecnú správnosť (uznáva sa aj odpoveď s drobnou pravopisnou chybou).'
+        text: 'Kľúč NIVaM uvádza tvar **interview**, no keďže pri tejto úlohe prihliada na vecnú správnosť a odpúšťa pravopisné chyby, pri vyhodnocovaní sa uznáva aj starší poslovenčený (dnes nekodifikovaný) zápis //interviu// či fonetický prepis //intervjú//.'
       }
     ],
-    solutionConclusion: 'Správna odpoveď: interview (interviu).'
+    solutionConclusion: 'Správna odpoveď: interview.'
   },
 
   // ---------------- Ukážka 2 – Rimbaud
@@ -295,7 +295,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Sústreď sa iba na posledné tri verše básne. Prever si postupne: je v nich zjemnené slovo (zdrobnenina), rovnaký začiatok veršov (anafora), zveličenie (hyperbola), alebo prenesené pomenovanie (metafora)?',
+    hint: 'Sústreď sa iba na posledné tri verše básne. Prever si postupne: je v nich zmenšujúce/nežné slovo (zdrobnenina), rovnaký začiatok veršov (anafora), zveličenie (hyperbola), alebo prenesené pomenovanie (metafora)?',
     solutionSteps: [
       {
         title: 'Posledná (štvrtá) strofa',
@@ -533,7 +533,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Slovo „polemizovať“ znamená viesť ostrý názorový spor. Vedie jazykovedec v odpovedi vedecký spor o nových objavoch, alebo pokojne vysvetľuje používanie slov čitateľovi? Pozor na podčiarknuté „neplatí“.',
+    hint: 'Pozor na podčiarknuté slovo „neplatí“. Over si v texte všetky štyri tvrdenia: komu je webová poradňa určená, či využíva aj domáce jazykovedné termíny a doklady zo slovníkov a či v nej autor len vysvetľuje známy jav, alebo vedie ostrý vedecký spor (polemiku) o nových objavoch.',
     solutionSteps: [
       {
         title: 'Čo pre ukážku platí (A, B, D)',
@@ -561,7 +561,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Nepopleť si iniciálovú skratku KSSJ (číta sa po písmenách) so skratkovým slovom ani značkou! Rozmysli si, ako voláme viacslovný ustálený odborný názov jedného pojmu, napríklad „prídavné meno“.',
+    hint: 'Over si v ukážke presný rozdiel medzi štyrmi pojmami: frazeologizmus je obrazné ustálené spojenie, združené pomenovanie je viacslovný neobrazný názov jedného pojmu, skratkové slovo sa číta a skloňuje ako slovo (na rozdiel od hláskovanej iniciálovej skratky) a značka sa píše bez bodky.',
     solutionSteps: [
       {
         title: 'Združené pomenovania v ukážke',
@@ -569,7 +569,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti (časté chytáky)',
-        text: 'A – frazeologický výraz (obrazné ustálené spojenie, napr. //mať niečo za lubom//) sa vo vecnom odbornom texte nenachádza.\nC – **KSSJ** nie je skratkové slovo, ale **iniciálová skratka** (neskloňuje sa a hláskuje sa //[ká-es-es-jé]//; skratkové slovo sa číta a skloňuje ako bežné slovo, napr. //Sľuk – v Sľuku//).\nD – v texte sú len administratívne skratky s bodkou (//a pod., napr., r.//), nie značky bez bodky (ako //km, kg, €//).'
+        text: 'A – frazeologický výraz (obrazné ustálené spojenie, napr. //mať niečo za lubom//) sa vo vecnom odbornom texte nenachádza.\nC – **KSSJ** nie je skratkové slovo, ale **iniciálová skratka** (neskloňuje sa a hláskuje sa //[ká-es-es-jé]//; skratkové slovo sa číta a skloňuje ako bežné slovo, napr. //Slovnaft – v Slovnafte//).\nD – v texte sú len administratívne skratky s bodkou (//a pod., napr., r.//), nie značky bez bodky (ako //km, kg, €//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -589,7 +589,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Všímaj si jazykovedné pojmy priamo v texte ukážky 3: autor hovorí o „zložených“ prídavných menách a o tvorení slov rôznymi „príponami“.',
+    hint: 'Pozor na presné znenie otázky: nepýta sa, aké slová či skratky sa v ukážke vyskytujú, ale ktoré spôsoby tvorenia slov sa v nej priamo spomínajú – všimni si odborné pomenovania druhov prídavných mien a slovotvorných prostriedkov v odpovedi.',
     solutionSteps: [
       {
         title: 'Obohacovanie slovnej zásoby v texte',
@@ -639,9 +639,20 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Koľko viet obsahuje prvé súvetie ukážky 3?',
     placeholder: 'Napíš počet',
     correctAnswerDisplay: '2',
-    acceptedAnswers: ['2', 'dve', '2 vety', 'dve vety', '3', 'tri', '3 vety', 'tri vety'],
+    acceptedAnswers: [
+      '2',
+      'dve',
+      '2 vety',
+      'dve vety',
+      '2 jednoduché vety',
+      'dve jednoduché vety',
+      '3',
+      'tri',
+      '3 vety',
+      'tri vety'
+    ],
     lenient: true,
-    hint: 'Prečítaj si prvú vetu ukážky až po prvú bodku (pozor, bodka v skratke „a pod.“ vetu nekončí!) a spočítaj v nej prísudky – určité slovesné tvary.',
+    hint: 'Prečítaj si prvé súvetie ukážky až po prvú bodku (pozor, bodka v skratke „a pod.“ vetu nekončí!) a spočítaj v ňom prísudky – určité slovesné tvary.',
     solutionSteps: [
       {
         title: 'Rozbor prvého súvetia podľa prísudkov',
@@ -671,7 +682,13 @@ export const questionsPart1: QuestionData[] = [
       'k výkladovým',
       'k výkladovým slovníkom',
       'ku výkladovým',
-      'ku výkladovým slovníkom'
+      'ku výkladovým slovníkom',
+      'k výkladovému',
+      'ku výkladovému',
+      'k výkladovému slovníku',
+      'ku výkladovému slovníku',
+      'k výkladovému druhu',
+      'výkladovému'
     ],
     lenient: true,
     commonMistakes: [
@@ -680,7 +697,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Krátky slovník slovenského jazyka je síce aj kodifikačnou príručkou, ale ako druh slovníka nevysvetľuje len pravopis ani neprekladá do cudzieho jazyka – objasňuje (vykladá) významy slov.'
       }
     ],
-    hint: 'V druhom odseku sa spomínajú Slovník slovenského jazyka a Krátky slovník slovenského jazyka (KSSJ). Čo je ich hlavnou úlohou – prekladať slová, uvádzať len pravopis, alebo vykladať významy slov?',
+    hint: 'V druhom odseku sa spomínajú Slovník slovenského jazyka a Krátky slovník slovenského jazyka (KSSJ). Spomeň si na druhy slovníkov v lexikológii – ako sa odborne nazýva slovník, ktorého hlavnou úlohou je objasňovať a vysvetľovať významy slov?',
     solutionSteps: [
       {
         title: 'Druhy slovníkov v slovenčine',
@@ -709,7 +726,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Pozor na koncovku! Slová na -úci, -úce, -úca (majúci, vyjadrujúce, udávajúci) sa skloňujú – sú to činné príčastia. Prechodník je neohybný tvar a končí sa len na -úc alebo -iac (bez samohlásky na konci).'
       }
     ],
-    hint: 'Prechodník je neohybný slovesný tvar zakončený príponou -úc/-uc alebo -iac/-ac (napr. robiac, idúc). Nepopleť si ho s príčastiami na -úci/-úce! Pozri sa hneď na začiatok odpovede za pomlčkou.',
+    hint: 'Prechodník je neohybný slovesný tvar zakončený príponou -úc/-uc alebo -iac/-ac (napr. robiac, idúc). Pozorne si prečítaj prvý odsek a nepopleť si ho so sklonnými príčastiami na -úci, -úca, -úce!',
     solutionSteps: [
       {
         title: 'Ako spoznať prechodník',
@@ -739,7 +756,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Over si v prvom odseku aj v rozhovore s valachom, aký je Ondrej: stále cestuje za obchodmi, s každým sa bratríčkuje a vie sa rýchlo vynájsť. Zaujíma sa však úprimne a zvedavo o druhých? Pozor na „necharakterizuje“.',
+    hint: 'Pozor na podčiarknuté slovo „necharakterizuje“. Ku každej zo štyroch vlastností si skús nájsť konkrétny doklad v prvom odseku alebo v rozhovore s valachom – tri črty z Ondrejovho správania jasne vyplývajú a jedna v ukážke nemá oporu.',
     solutionSteps: [
       {
         title: 'Črty, ktoré Ondreja vystihujú (A, B, D)',
@@ -823,7 +840,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Homonymá sú slová, ktoré rovnako znejú a rovnako sa píšu, ale majú úplne odlišný pôvod a nijako spolu významovo nesúvisia (napr. koruna stromu = viacvýznamové slovo, ale čajka vták / čajka loď = homonymá).',
+    hint: 'Homonymá sú slová, ktoré rovnako znejú a rovnako sa píšu, ale majú úplne odlišný pôvod a nijako spolu významovo nesúvisia (napr. koruna stromu = viacvýznamové slovo, ale rys šelma / rys výkres = homonymá).',
     solutionSteps: [
       {
         title: 'Homonymum vlna',
@@ -886,7 +903,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Našiel si správnu vsuvku medzi pomlčkami, ale pozri sa pozorným okom hneď za prvú pomlčku – pred slovom „všetci“ stojí ešte jedno krátke slovo.'
       }
     ],
-    hint: 'Vsuvka (parentéza) je vsunutá poznámka uprostred vety, ktorá je z oboch strán oddelená čiarkami, zátvorkami alebo pomlčkami. Nájdi v 1. odseku časť medzi dvoma pomlčkami.',
+    hint: 'Vsuvka (parentéza) je vsunutá poznámka uprostred vety, ktorá je z oboch strán oddelená čiarkami, zátvorkami alebo pomlčkami. Nájdi takúto vsunutú časť v 1. odseku a vypíš jej prvé slovo.',
     solutionSteps: [
       {
         title: 'Vyhľadanie vsuvky v 1. odseku',
@@ -908,7 +925,15 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Vypíšte z ukážky 4 slovo, ktorým sa v nej začína pásmo rozprávača.',
     placeholder: 'Vypíš slovo z ukážky',
     correctAnswerDisplay: 'Prirodzená',
-    acceptedAnswers: ['Prirodzená', 'Prirodzená vec', 'Prirodzená vec, že málo bývaval doma'],
+    acceptedAnswers: [
+      'Prirodzená',
+      'Prirodzená vec',
+      'Prirodzená vec, že málo bývaval doma',
+      'slovom Prirodzená',
+      'slovo Prirodzená',
+      'začína sa slovom Prirodzená',
+      'pásmo rozprávača sa začína slovom Prirodzená'
+    ],
     commonMistakes: [
       {
         pattern: '^počul$|^Ondrej$',

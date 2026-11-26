@@ -189,7 +189,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Vypíš iba samotnú dvojicu slov oddelenú pomlčkou alebo čiarkou (bez spojky „a“).'
       }
     ],
-    hint: 'Nájdi poslednú priamu reč (dlhší prehovor Alchymistu s pomlčkou na začiatku) a pozri sa na jej posledné dve krátke vety: „Každé hľadanie … A vždy …“. Ktoré dve slovesá v nich majú presne opačný význam (antonymá)?',
+    hint: 'Nájdi poslednú priamu reč v ukážke (dlhší prehovor Alchymistu uvedený pomlčkou) a sústreď sa na jej záver. Nachádzajú sa tam dve slovesá s opačným významom (antonymá) – vypíš túto dvojicu!',
     solutionSteps: [
       {
         title: 'Hľadanie v poslednej priamej reči',
@@ -223,7 +223,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Na hranici skupiny spoluhlások -kc- vedie rozdelenie medzi nimi: prvá slabika sa končí spoluhláskou k (lek-).'
       }
     ],
-    hint: 'Vyslov si nahlas a pomaly cudzie slovo „lekcia“ – v prevzatých slovách zakončených na -cia, -zia, -gia (napr. po-lí-ci-a) nejde o slovenskú dvojhlásku ia, ale o dve samostatné samohlásky so vsunutým [j] vo výslovnosti! Koľko slabík má teda toto slovo?',
+    hint: 'Rozlíš domácu dvojhlásku „ia“, ktorá tvorí jednu slabiku (napr. „čia-ra“), od stretnutia dvoch samohlások „i + a“ v cudzích slovách zakončených na „-ia“, kde pri výslovnosti počujeme vsunuté [j] a samohlásky patria do dvoch samostatných slabík. Nezabudni správne viesť aj hranicu medzi dvoma spoluhláskami uprostred slova!',
     solutionSteps: [
       {
         title: 'Prečo v slove lekcia nie je dvojhláska ia',
@@ -248,10 +248,21 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: [
       'klesavá',
       'klesavá melódia',
+      'klesavú',
+      'klesavú melódiu',
+      'klesavou',
+      'klesavou melódiou',
       'klesajúca',
       'klesajúca melódia',
+      'klesajúcu',
+      'klesajúcu melódiu',
+      'klesajúcou',
+      'klesajúcou melódiou',
       'kadencia',
+      'kadenciou',
       'konkluzívna kadencia',
+      'konkluzívnu kadenciu',
+      'konkluzívnou kadenciou',
       'konkluzívna',
       'klesavá kadencia',
       'klesavá konkluzívna kadencia',
@@ -273,7 +284,7 @@ export const questionsPart2: QuestionData[] = [
         hint: '„Opytovacia“ je druh vety podľa zámeru hovoriaceho, ale úloha sa pýta na vetnú melódiu – teda či hlas na konci vety stúpa, alebo klesá.'
       }
     ],
-    hint: 'Pozor na otáznik! Nie každá opytovacia veta má stúpavú melódiu. Rozlišujeme zisťovacie otázky (odpoveď áno/nie: „Mám niečo robiť?“) a dopĺňacie otázky, ktoré sa začínajú opytovacím zámenom alebo príslovkou (kto, čo, kde, kedy, prečo). Prečítaj si prirodzene nahlas vetu „Čo mám robiť teraz?“ – stúpa ti hlas na slove „teraz“, alebo klesá?',
+    hint: 'Neriaď sa automaticky iba otáznikom na konci vety! Rozlíš, o aký druh opytovacej vety ide – či o zisťovaciu otázku (odpoveď áno/nie), alebo o dopĺňaciu otázku so začiatočným opytovacím zámenom „Čo“ – a spomeň si, aký priebeh má vetná melódia na konci dopĺňacích otázok.',
     solutionSteps: [
       {
         title: 'Dva druhy otázok a ich melódia',
@@ -359,7 +370,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Odlíš od seba štyri ponúkané pojmy: umelecké zveličenie, úplne posledné uvedenie divadelnej hry, záverečné myšlienkové vyvrcholenie a krátky anglický termín pre nečakaný komický prvok, ktorý náhle poruší logiku situácie.',
+    hint: 'Použi vylučovaciu metódu – najprv vyraď pojmy z teórie literatúry a divadla, ktoré dobre poznáš: ako voláme umelecké zveličenie, posledné uvedenie divadelnej hry pred stiahnutím z repertoáru a záverečné myšlienkové vyvrcholenie diela?',
     solutionSteps: [
       {
         title: 'Literárny a divadelný pojem gag',
@@ -415,7 +426,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Zoraď si časti divadelnej hry od najväčšej po najmenšiu: čo je väčší celok oddelený spustením opony (dejstvo) a čo menšia časť, ktorá sa mení pri príchode alebo odchode postavy z javiska (výstup)?',
+    hint: 'Premysli si hierarchiu vonkajšej stavby divadelnej hry: ktorý z pojmov označuje väčší celok oddelený spustením opony/prestávkou a ktorý menšiu časť ohraničenú príchodom alebo odchodom postavy z javiska? Podobne si porovnaj vzťah medzi dialógom, monológom a replikou.',
     solutionSteps: [
       {
         title: 'Vonkajšia stavba divadelnej hry',
@@ -450,6 +461,12 @@ export const questionsPart2: QuestionData[] = [
       's dediny',
       'zo vidieka',
       'zo dediny',
+      'bol vidiečan',
+      'bol vidiečanom',
+      'bol dedinčan',
+      'bol dedinčanom',
+      'bol z vidieka',
+      'bol z dediny',
       'L obhajoval svoju nevedomosť tým, že bol vidiečan',
       'L obhajoval svoju nevedomosť tým, že bol dedinčan',
       'L obhajoval svoju nevedomosť tým, že bol vidiečanom',
@@ -494,8 +511,11 @@ export const questionsPart2: QuestionData[] = [
     correctAnswerDisplay: 'ulica',
     acceptedAnswers: [
       'ulica',
+      'ulice',
       'vzor ulica',
+      'vzor ulice',
       'podľa vzoru ulica',
+      'podľa vzoru ulice',
       'Himaláje - ulica',
       'Himaláje, ulica',
       'Himaláje (ulica)',
@@ -529,7 +549,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Zemepisné pomnožné mená typu Košice, Alpy, Tatry, Himaláje sa neskloňujú podľa vzoru dlaň, ale podľa vzorov žena (tvrdé: Tatry) alebo … (mäkké: Košice, Himaláje).'
       }
     ],
-    hint: 'Najprv nájdi v ukážke 6 pomnožné podstatné meno – je to názov veľhôr, ktorý má tvar množného čísla, hoci pomenúva jedno pohorie. Potom si pozri jeho zakončenie (mäkká spoluhláska j + prípona -e) a tvar lokálu priamo v texte („na …-ach“, nie „-och“!). Ktorý ženský vzor má v množnom čísle prípony -e, -am/-iam, -ach/-iach?',
+    hint: 'Pomnožným podstatným menom v ukážke 6 je vlastné meno „Himaláje“ – je ženského rodu (v texte „na Himalájach“) a po mäkkej spoluhláske „j“ je zakončené na „-e“. Pozor, vzor „dlaň“ takéto pomnožné mená nemá: pomnožné podstatné mená ženského rodu zakončené na „-e“ sa skloňujú podľa mäkkého vzoru, ktorý má v nominatíve jednotného čísla príponu „-a“!',
     solutionSteps: [
       {
         title: '1. Nájdenie pomnožného podstatného mena',
@@ -537,7 +557,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: '2. Určenie rodu a skloňovacieho vzoru',
-        text: '• V texte vidíme tvar lokálu //„na Himaláj**ach**“// (a v datíve //Himaláj**am**//) – prípony //-am, -ach// jednoznačne dokazujú **ženský rod** (mužský vzor //stroj// by mal //strojom, na strojoch//).\n• Kmeň slova //Himaláj-e// je zakončený na **mäkkú spoluhlásku j** a v nominatíve má príponu **-e** (v datíve a lokáli je //-am, -ach// namiesto //-iam, -iach// pre pravidlo o rytmickom krátení po dlhej slabike //-lá-//).\n• Ženské pomnožné podstatné mená s mäkkým zakončením (ako //Košice, Kysuce, nožnice, nohavice, Himaláje//) sa skloňujú podľa vzoru **ulica**.'
+        text: '• V texte vidíme tvar lokálu //„na Himaláj**ach**“// (a v datíve //Himaláj**am**//) – prípony //-am, -ach// jednoznačne dokazujú **ženský rod** (mužský vzor //stroj// by mal //strojom, na strojoch//).\n• Kmeň slova //Himaláj-e// je zakončený na **mäkkú spoluhlásku j** a v nominatíve má príponu **-e** (v datíve a lokáli je //-am, -ach// namiesto //-iam, -iach// pre pravidlo o rytmickom krátení po dlhej slabike //-lá-//).\n• Ženské pomnožné podstatné mená zakončené na //-e// po mäkkej spoluhláske (ako //Košice, Kysuce, nožnice, nohavice, Himaláje//) sa skloňujú podľa vzoru **ulica** (vzor //dlaň// takéto pomnožné mená nemá; cudzí genitív //z Himalájí// má pri vzore //ulica// rovnakú príponu //-í// ako prevzaté slová typu //história – histórií//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: **ulica**.'
@@ -558,10 +578,14 @@ export const questionsPart2: QuestionData[] = [
       'jeden',
       '1 autorskú poznámku',
       'jednu autorskú poznámku',
+      '1 scénickú poznámku',
+      'jednu scénickú poznámku',
       '1 poznámku',
       'jednu poznámku',
       '1 autorská poznámka',
-      'jedna autorská poznámka'
+      'jedna autorská poznámka',
+      '1 scénická poznámka',
+      'jedna scénická poznámka'
     ],
     lenient: true,
     commonMistakes: [
@@ -604,7 +628,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Prečítaj si záverečné štvorveršie básne, najmä posledné dva verše: „Zlý obed, hojná večera posluhuje k zdraví, / neb žalúdek v nočném spaní lépej jídlo tráví.“ Čo podľa autora prospieva žalúdku?',
+    hint: 'Prečítaj si pozorne prvú a tretiu strofu básne – všimni si, ktoré denné jedlá autor spomína (píše vôbec o raňajkách?) a aký obed („zlý“ = skromný) a akú večeru odporúča v záverečnom dvojverší.',
     solutionSteps: [
       {
         title: 'Myšlienka v poslednej strofe',
@@ -632,7 +656,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Pozri sa na prvé dva verše druhej strofy: „Nikdy nemoci necítil, snad by byl dluhšej žil, / kdyby se byl z pritrefení z rebríka nezabil.“ Spochybňuje autor, že sa Hippokrates zabil pádom z rebríka, alebo to berie ako hotovú vec?',
+    hint: 'Pozor, hľadáš tvrdenie, ktoré z ukážky „nevyplýva“! Over si postupne všetky štyri možnosti v jednotlivých strofách: Salernov výrok (2. strofa), vplyv stravovania na dĺžku života (nadpis a 1. strofa), postoj autora k príčine Hippokratovej smrti (začiatok 2. strofy; „z pritrefení“ = náhodou) a vzťah žalúdka a krvi (3. strofa).',
     solutionSteps: [
       {
         title: 'Hippokratova smrť v druhej strofe',
@@ -688,7 +712,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Dielo vzniklo v roku 1755 – teda ešte pred prvým uzákonením (kodifikáciou) spisovnej slovenčiny Antonom Bernolákom v roku 1787! Všimni si typické západoslovenské tvary v ukážke („s večerú“, „žalúdek“, „múže“, „pálčivosťú“). Ako v dejinách jazyka voláme takúto kultivovanú podobu jazyka spred kodifikácie?',
+    hint: 'Dielo vzniklo v polovici 18. storočia (1755) a jeho autorom bol katolícky františkán pôsobiaci na západnom Slovensku. Všimni si v ukážke západoslovenské prvky („s večerú“, „čo“, „pálčivosťú“) a porovnaj rok vzniku diela s rokom prvej kodifikácie spisovnej slovenčiny Antonom Bernolákom!',
     solutionSteps: [
       {
         title: 'Kultúrna západoslovenčina (predspisovné obdobie)',
@@ -1002,7 +1026,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Spomeň si na najznámejšie diela týchto štyroch prozaikov: „Kto chytá v žite“, „Na západe nič nové“, „Jozef Mak“ a „Živý bič“. Ktorí traja patrili do medzivojnovej literatúry a ktorý autor vydal svoj slávny román až v roku 1951?',
+    hint: 'Spomeň si na najznámejšie diela týchto štyroch prozaikov („Živý bič“, „Jozef Mak“, „Kto chytá v žite“ a „Na západe nič nové“) a priraď si ich k autorom. Ktorí traja patrili do medzivojnovej literatúry a ktorý autor vydal svoj slávny román až v roku 1951?',
     solutionSteps: [
       {
         title: 'Zaradenie autorov do literárnych období',
@@ -1027,7 +1051,6 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: [
       'epiteton',
       'epiteton ornans',
-      'epiteton constans',
       'básnický prívlastok',
       'umelecký prívlastok',
       'ozdobný prívlastok'
@@ -1043,7 +1066,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Zvýraznené je len prídavné meno „Velebné“ pred podstatným menom „tóny“ – je to citovo a esteticky zafarbený prívlastok!'
       }
     ],
-    hint: 'V prvom odseku je zvýraznené prídavné meno „Velebné“ (v spojení „Velebné tóny organa“). Neurčuje vlastnosť len vecne, ale vnáša do textu vznešenosť, cit a krásu. Ako sa v literárnej teórii volá takýto obrazný, citovo zafarbený prívlastok?',
+    hint: 'V prvom odseku je zvýraznené prídavné meno „Velebné“ pred podstatným menom „tóny“. Neurčuje vlastnosť len vecne, ale vnáša do textu vznešenosť, citové zafarbenie a estetickú pôsobivosť. Ako sa v teórii literatúry nazýva takýto umelecký jazykový prostriedok?',
     solutionSteps: [
       {
         title: 'Rozbor zvýrazneného slova Velebné',
@@ -1084,7 +1107,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Kontrola viet v 1. odseku ukážky 8',
-        text: '• //Vošli do chrámu.// – obsahuje sloveso //vošli//.\n• //Nad hlavami im hrkútal holub.// – obsahuje sloveso //hrkútal//.\n• //**Posledný** zvuk zvonku.// – v celej tejto vete **nie je žiadne sloveso**! Jej jadrom je podstatné meno //zvuk// rozvité prívlastkami //posledný// a //zvonku//. Ide o jedinú jednočlennú mennú vetu v ukážke.\nJej prvým slovom je **Posledný** (kľúč uznáva aj vypísanie celej vety //Posledný zvuk zvonku//; slovo musí byť napísané pravopisne správne).'
+        text: '• //Vošli do chrámu.// – obsahuje sloveso //vošli//.\n• //Nad hlavami im hrkútal holub.// – obsahuje sloveso //hrkútal//.\n• //**Posledný** zvuk zvonku.// – v celej tejto vete **nie je žiadne sloveso**! Jej jadrom je podstatné meno //zvuk// rozvité zhodným prívlastkom //posledný// a nezhodným prívlastkom //zvonku//. Ide o jedinú jednočlennú mennú vetu v ukážke.\nJej prvým slovom je **Posledný** (kľúč uznáva aj vypísanie celej vety //Posledný zvuk zvonku//; slovo musí byť napísané pravopisne správne).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: **Posledný**.'
@@ -1098,7 +1121,7 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Koľko viet obsahuje podčiarknuté súvetie v ukážke 8?',
     placeholder: 'Napíš počet viet',
     correctAnswerDisplay: '3 (tri)',
-    acceptedAnswers: ['3', 'tri', '3 vety', 'tri vety'],
+    acceptedAnswers: ['3', 'tri', '3 vety', 'tri vety', '3 jednoduché vety', 'tri jednoduché vety'],
     lenient: true,
     commonMistakes: [
       {

@@ -68,7 +68,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Úlohu nevyriešiš len z ukážky – vyžaduje znalosť Bednárovej novely Kolíska. Spomeň si na Zitinu minulosť pred manželstvom s Černekom: aký vzťah kedysi mala so ženatým gazdom Majerským?',
+    hint: 'Úlohu nevyriešiš len z ukážky – vyžaduje znalosť Bednárovej novely Kolíska. Spomeň si na Zitine spomienky na mladosť, keď slúžila na statku u bohatého gazdu Majerského, a nepleť si ho s Janom Ragalom.',
     solutionSteps: [
       { title: 'Znalosť diela', text: 'V Bednárovej novele Kolíska je Majerský Zitin bývalý milenec, ktorý však už bol ženatý. Zita je vydatá za Černeka.' },
       { title: 'Prečo práve Kolíska', text: 'Zita počúva súd s mužom, ktorého kedysi milovala, a na povrch vychádzajú spomienky aj vina iných postáv.' }
@@ -90,7 +90,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Úloha vyžaduje znalosť novely Kolíska – zamysli sa, kto z uvedených postáv vystupoval ako svedok obžaloby proti Majerskému a podľa záveru prvého odseku ukážky nebol v ten večer doma.',
+    hint: 'Úloha vyžaduje znalosť novely Kolíska – odlíš postavy z vojnovej dejovej línie (1945) od postavy z prítomnej dejovej línie (50. roky), v ktorej prebieha súd s Majerským. Nenápadnú indíciu nájdeš aj v závere prvého odseku ukážky.',
     solutionSteps: [
       { title: 'Znalosť diela', text: 'V procese s Majerským vystupuje ako svedok Zitin manžel Mišo Černek. Ukážka to nenápadne naznačuje – v ten večer „nebol doma“ a Zita sleduje súd z rádia.' },
       { title: 'Ostatné mená', text: 'Všetky ostatné postavy v novele Kolíska síce tiež vystupujú (Paul Hals – nemecký dôstojník, Jano Ragala – Zitin prvý manžel, Michal Martinec – študent skrývajúci sa v bunkri), ale ako svedok v procese s Majerským vypovedal Mišo Černek.' }
@@ -112,9 +112,9 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Nepriamy predmet je predmet v inom páde než v akuzatíve – často v datíve (komu? čomu?).',
+    hint: 'Priamy predmet stojí v bezpredložkovom akuzatíve; nepriamy predmet je v ostatných pádoch alebo v predložkovom akuzatíve (často napr. v datíve – komu? čomu?).',
     solutionSteps: [
-      { title: 'Otázky', text: 'Zavieval komu? – jej (datív). Je to predmet v inom ako 4. páde, teda nepriamy predmet.' },
+      { title: 'Otázky', text: 'Zavieval komu? – jej (datív). Priamy predmet je iba v bezpredložkovom akuzatíve; predmet v ostatných pádoch alebo v predložkovom akuzatíve je nepriamy predmet.' },
       { title: 'Ostatné vetné členy', text: 'chlad – podmet (kto? čo? – chlad), dverami – príslovkové určenie (kade?), do kuchyne – príslovkové určenie miesta (kam?).' }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -128,8 +128,15 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Zmeňte nezhodný prívlastok z nasledujúcej vety na zhodný a napíšte ho.\n//Dvere na kuchyni mala otvorené.//',
     placeholder: 'Napíš zhodný prívlastok',
     correctAnswerDisplay: 'kuchynské',
-    acceptedAnswers: ['kuchynské', 'kuchynské dvere', 'Kuchynské dvere mala otvorené', 'Kuchynské dvere mala otvorené.'],
-    hint: 'Nezhodný prívlastok je „na kuchyni“. Utvor z neho prídavné meno, ktoré sa bude zhodovať so slovom dvere.',
+    acceptedAnswers: [
+      'kuchynské',
+      'kuchynské dvere',
+      'dvere kuchynské',
+      'Kuchynské dvere mala otvorené',
+      'Kuchynské dvere mala otvorené.',
+      'Dvere kuchynské mala otvorené'
+    ],
+    hint: 'Najprv nájdi podstatné meno s predložkou, ktoré bližšie určuje slovo „dvere“, a utvor z neho prídavné meno v správnom tvare (pozor na pravopis pred príponou -ský/-ské).',
     solutionSteps: [
       { title: 'Premena', text: 'Dvere (aké?) na kuchyni → kuchynské dvere. Prídavné meno kuchynské sa zhoduje s podstatným menom dvere v rode, čísle aj páde – je to zhodný prívlastok.' },
       { title: 'Pravopis', text: 'kuchyňa → kuchynský (pred príponou -ský sa ň mení na n): kuchynské, nie „kuchyňské“.' }
@@ -145,9 +152,20 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Ktorý kompozičný postup využil autor pri spomienkach Zity Černekovej na Majerského v diele //Kolíska//?',
     placeholder: 'Napíš kompozičný postup',
     correctAnswerDisplay: 'retrospektívny',
-    acceptedAnswers: ['retrospektívny', 'spätný', 'retrospektíva', 'retrospektívu', 'retrospektívny postup', 'retrospekcia'],
+    acceptedAnswers: [
+      'retrospektívny',
+      'retrospektívny postup',
+      'retrospektívny kompozičný postup',
+      'retrospektívna kompozícia',
+      'spätný',
+      'spätný postup',
+      'spätný kompozičný postup',
+      'retrospektíva',
+      'retrospektívu',
+      'retrospekcia'
+    ],
     lenient: true,
-    hint: 'Spomienky sa vracajú do minulosti. Ako sa volá kompozícia, ktorá sa obzerá späť?',
+    hint: 'Spomienky porušujú prirodzenú časovú následnosť a vracajú dej z prítomnosti do minulosti – ide o opak chronologického postupu.',
     solutionSteps: [
       { title: 'Návrat do minulosti', text: 'Zita pri počúvaní rozhlasového prenosu zo súdu spomína na to, čo s Majerským prežila kedysi. Dej sa vracia z prítomnosti do minulosti – ide o retrospektívny (spätný) kompozičný postup.' },
       { title: 'Ako hodnotí kľúč', text: 'Uznáva sa retrospektívny, spätný, retrospektíva aj retrospektívu.' }
@@ -292,7 +310,7 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Napíšte názov opakovacej figúry uplatnenej v prvom Alcestovom prehovore v ukážke 6.',
     placeholder: 'Napíš názov figúry',
     correctAnswerDisplay: 'anafora',
-    acceptedAnswers: ['anafora', 'paralelizmus'],
+    acceptedAnswers: ['anafora', 'paralelizmus', 'syntaktický paralelizmus'],
     lenient: true,
     hint: 'Pozri sa na začiatky veršov 4 až 7. Ktoré slovo sa opakuje na začiatku?',
     solutionSteps: [
@@ -313,10 +331,10 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: ['ta-', 'ta', '„ta“', '"ta"'],
     hint: 'Kde je v slovenčine hlavný (slovný) prízvuk?',
     solutionSteps: [
-      { title: 'Pravidlo', text: 'V spisovnej slovenčine je hlavný slovný prízvuk vždy na prvej slabike slova.' },
+      { title: 'Pravidlo', text: 'V spisovnej slovenčine je hlavný slovný prízvuk pri samostatnom slove vždy na prvej slabike.' },
       { title: 'Rozdelenie', text: 'ta – ký – to → prízvuk je na prvej slabike ta.' }
     ],
-    solutionConclusion: 'Správna odpoveď: ta.'
+    solutionConclusion: 'Správna odpoveď: ta- (ta).'
   },
   {
     id: 48,
@@ -374,7 +392,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Skús pri každom slove nájsť aj prenesený význam (napr. úsmev mu zmrzol).',
+    hint: 'Skús pri každom slove nájsť aj prenesený význam (napr. pri slovese horieť: drevo horí – horieť túžbou).',
     solutionSteps: [
       { title: 'Jeden význam', text: 'Raňajkovať má jediný význam – jesť raňajky.' },
       { title: 'Viacvýznamové slová', text: 'zmrznúť (premeniť sa na ľad / úsmev zmrzol), sadnúť (posadiť sa / šaty jej sadli), podávať (podať vec / podávať výkon, podávať správu).' }
@@ -398,8 +416,8 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: ['C'],
     hint: 'Pozor na rozdiel medzi slovesným príčastím a prídavným menom! Hľadané prídavné meno je utvorené od názvu zvieraťa (druhové privlastňovacie prídavné meno) – podľa ktorého vzoru sa takéto prídavné mená skloňujú?',
     solutionSteps: [
-      { title: 'Prídavné meno diviačí', text: 'Diviačí (hlava – diviačia, s diviačou hlavou) je druhové privlastňovacie prídavné meno utvorené od podstatného mena diviak. Takéto prídavné mená (páví, vtáčí, líščí) sa skloňujú podľa vzoru páví.' },
-      { title: 'Pozor', text: 'Zápasiaci je príčastie a skloňuje sa podľa vzoru cudzí – úloha sa však pýta na prídavné meno v spojení „s diviačou hlavou“ (kľúč: C).' }
+      { title: 'Prídavné meno diviačí', text: 'Diviačí (hlava – diviačia, s diviačou hlavou) je druhové privlastňovacie prídavné meno utvorené od podstatného mena diviak. Takéto prídavné mená (páví, vtáčí, líščí) sa skloňujú podľa vzoru páví, pri ktorom sa neuplatňuje rytmické krátenie.' },
+      { title: 'Pozor', text: 'Zápasiaci je príčastie a skloňuje sa podľa vzoru cudzí – úloha sa však pýta na prídavné meno v spojení „s diviačou hlavou“.' }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
   },
@@ -418,7 +436,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Prečítaj si niekoľko viet za sebou: „Sadne si na svoje miesto. Má ho rezervované. Čašníci sa idú pretrhnúť.“ Aké sú dlhé?',
+    hint: 'Prečítaj si niekoľko viet za sebou v úvodnej časti ukážky a všimni si ich stavbu a rozsah.',
     solutionSteps: [
       { title: 'Krátke vety', text: 'Text tvoria prevažne krátke jednoduché vety (a krátke súvetia), ktoré rýchlo striedajú deje: „Sadne si na svoje miesto. Má ho rezervované. Čašníci sa idú pretrhnúť. Hostia si na to zvykli. Radi počkajú.“ Takéto hromadenie krátkych viet zrýchľuje tempo – dynamizuje.' },
       { title: 'Prečo nie ostatné', text: 'Oznamovacie vety samy osebe text nedynamizujú, stavové slovesá ho naopak spomaľujú a dlhé súvetia tiež.' }
@@ -457,9 +475,9 @@ export const questionsPart2: QuestionData[] = [
     placeholder: 'Vypíš slovo',
     correctAnswerDisplay: 'dennodenne',
     acceptedAnswers: ['dennodenne'],
-    hint: 'Hľadaj príslovku na začiatku ukážky – ako často Rácz jedáva v reštaurácii?',
+    hint: 'Neohybné slová sa neskloňujú ani nečasujú (napr. príslovky) a zložené slovo obsahuje dva slovné základy. Pozri sa do úvodných viet ukážky.',
     solutionSteps: [
-      { title: 'Nájdenie', text: '„Dennodenne raňajkuje, obeduje a večeria v hotelovej reštaurácii.“ – dennodenne je príslovka (neohybný slovný druh), zložená zo základov denne + denne, a vyjadruje pravidelnosť.' },
+      { title: 'Nájdenie', text: '„Dennodenne raňajkuje, obeduje a večeria v hotelovej reštaurácii.“ – dennodenne je príslovka (neohybný slovný druh) utvorená zdvojením slovného základu denn- so spájacou samohláskou -o- (denn-o-denne) a vyjadruje pravidelnosť.' },
       { title: 'Pravopis', text: 'Píše sa spolu: dennodenne.' }
     ],
     solutionConclusion: 'Správna odpoveď: dennodenne.'
@@ -493,7 +511,7 @@ export const questionsPart2: QuestionData[] = [
     correctAnswerDisplay: 'prisudzovací (sklad)',
     acceptedAnswers: ['prisudzovací', 'prisudzovací sklad', 'prísudzovací', 'prisudzovací vetný sklad'],
     lenient: true,
-    hint: 'Veta má len podmet a prísudok. Ako sa volá sklad, ktorý ich spája?',
+    hint: 'Spojenie „sa idú pretrhnúť“ je frazeologizmus, ktorý vo vete platí za jeden vetný člen. Urči, ktoré hlavné vetné členy veta obsahuje, a pomenuj sklad medzi nimi.',
     solutionSteps: [
       { title: 'Rozbor', text: 'Podmet: čašníci. Prísudok: sa idú pretrhnúť. Iný vetný člen tu nie je.' },
       { title: 'Vetný sklad', text: 'Spojenie podmetu a prísudku tvorí prisudzovací sklad.' }
@@ -561,7 +579,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Zvieracie podstatné mená mužského rodu sa v množnom čísle skloňujú podľa neživotných vzorov. Rozhoduje koncová spoluhláska.',
+    hint: 'Porovnaj v danej vete prípony podstatných mien „kuchári, čašníci“ (-i) so zvieracími menami „kamzíky“ (-y) a „svište“ (-e). Správajú sa tieto zvieracie mená v množnom čísle ako životné, alebo ako neživotné? Potom rozlíš tvrdé a mäkké zakončenie.',
     solutionSteps: [
       { title: 'Kamzíky', text: 'kamzík – kamzíky (tvrdé zakončenie) → v množnom čísle podľa vzoru dub (duby).' },
       { title: 'Svište', text: 'svišť – svište (mäkké zakončenie) → podľa vzoru stroj (stroje).' }
@@ -583,7 +601,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Prečítaj si časť o Vysokých Tatrách. Aký problém s ľuďmi v službách tam majú?',
+    hint: 'Pozorne si prečítaj prvé dve časti ukážky a over každé tvrdenie presne podľa textu – všímaj si najmä časť o problémoch vo Vysokých Tatrách.',
     solutionSteps: [
       { title: 'Doklad', text: '„…trápime sa aj s nedostatkom zamestnancov. Kuchári či čašníci sú totiž v Tatrách vzácnejší ako kamzíky a svište.“ – v Tatrách výrazne chýbajú pracovníci v službách.' },
       { title: 'Prečo nie ostatné', text: 'A – služby oceňujú zahraniční návštevníci. B – text len konštatuje, že ministerstvo chýba. D – Slováci necestujú do zahraničia, lebo Slovensko je bezpečné; o odkladaní dovoleniek text nehovorí.' }
@@ -622,7 +640,7 @@ export const questionsPart2: QuestionData[] = [
     placeholder: 'Vypíš sloveso',
     correctAnswerDisplay: 'vzrástla',
     acceptedAnswers: ['vzrástla'],
-    hint: 'Neslabičná predpona neobsahuje samohlásku (v-, vz-, s-, z-).',
+    hint: 'Neslabičná predpona neobsahuje samohlásku (napr. s-, z-, v-).',
     solutionSteps: [
       { title: 'Nájdenie', text: '„Tento rok vzrástla návštevnosť takmer o 25 %.“ – vz-rástla: predpona vz- nemá samohlásku, je neslabičná.' },
       { title: 'Pravopis', text: 'Slovo musí byť napísané správne: vzrástla (dlhé á).' }
@@ -639,7 +657,7 @@ export const questionsPart2: QuestionData[] = [
     placeholder: 'Vypíš slovo',
     correctAnswerDisplay: 'destináciu',
     acceptedAnswers: ['destináciu', 'destinácia'],
-    hint: 'Hľadaj cudzie slovo v prvom odseku, v spojení „…ako turistickú …“.',
+    hint: 'Hľadaj v prvom odseku podstatné meno cudzieho pôvodu, ktorým sa v cestovnom ruchu označuje cieľová krajina alebo oblasť cesty.',
     solutionSteps: [
       { title: 'Synonymum', text: '„…záujem… o Slovensko ako turistickú destináciu…“ – destinácia = cieľové miesto cesty, miesto pobytu.' },
       { title: 'Pravopis', text: 'Uznáva sa destináciu aj destinácia, napísané pravopisne správne.' }
@@ -655,8 +673,8 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'V ktorom roku podľa ukážky 8 dosiahla návštevnosť Slovenska najnižšiu úroveň za sledované obdobie?',
     placeholder: 'Napíš rok',
     correctAnswerDisplay: '2009',
-    acceptedAnswers: ['2009', 'v roku 2009', 'rok 2009'],
-    hint: 'Pozri sa na graf návštevnosti. Kde je čiara najnižšie?',
+    acceptedAnswers: ['2009', 'v roku 2009', 'rok 2009', 'v r. 2009', 'r. 2009'],
+    hint: 'Pozri sa na graf návštevnosti na konci ukážky – nájdi najnižšiu časť krivky a pre istotu porovnaj aj presné číselné údaje nad susednými rokmi.',
     solutionSteps: [
       { title: 'Graf', text: 'Najnižšia hodnota je 3 381 354 návštevníkov v roku 2009 (pokles po roku 2008 – 4 082 645).' },
       { title: 'Kontrola', text: 'Hodnota v roku 2010 (3 392 361) je o niečo vyššia, rok 2005 (3 428 083) tiež.' }

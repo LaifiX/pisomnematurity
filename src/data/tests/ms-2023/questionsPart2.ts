@@ -25,7 +25,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Pozorne čítaj detaily v prvom, druhom a predposlednom odseku: v čom dome bol hrdina, čo presne ležalo na sedadle spolujazdca a čo vytvorili dve zrkadlá oproti sebe v kúpeľni?',
+    hint: 'Pozorne čítaj detaily v prvom, druhom a predposlednom odseku: v čiom dome bol hrdina, čo presne ležalo na sedadle spolujazdca a čo vytvorili dve zrkadlá oproti sebe v kúpeľni?',
     solutionSteps: [
       {
         title: 'Sústava dvoch zrkadiel v kúpeľni',
@@ -109,7 +109,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Všimni si gramatickú osobu rozprávania (3. osoba: zaparkoval, mal pocit, triasol sa) aj to, že rozprávač vidí do vnútra postáv – dokonca aj do pocitov Kizeka v zrkadle („Už sa nebál; nič ho nebolelo“).',
+    hint: 'Všimni si, v akej gramatickej osobe je text rozprávaný, či rozprávač vystupuje ako jedna z postáv deja a či pozná vnútorné pocity a myšlienky jednej postavy, alebo viacerých postáv.',
     solutionSteps: [
       {
         title: 'Znaky vševediaceho rozprávača',
@@ -170,11 +170,11 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Rozdeľ si toto slovo na slabiky – v každej z nich je samohláska. Hľadaj v predposlednom odseku také prídavné meno, v ktorom celú slabiku nesie spoluhláska r alebo l medzi spoluhláskami.'
       }
     ],
-    hint: 'Slabikotvorné spoluhlásky sú r, ŕ, l, ĺ vtedy, keď stoja medzi dvoma spoluhláskami a samy tvoria jadro slabiky (napr. vĺ-ča, sr-dce). Pozor: hľadáš prídavné meno (aký?/akým?) v predposlednom odseku, nie podstatné meno!',
+    hint: 'Slabikotvorné spoluhlásky sú r, ŕ, l, ĺ vtedy, keď stoja medzi dvoma spoluhláskami a samy tvoria jadro slabiky (napr. vĺ-ča, vŕ-ba). Pozor: hľadáš prídavné meno (aký?/akým?) v predposlednom odseku, nie podstatné meno!',
     solutionSteps: [
       {
         title: 'Čo je slabikotvorná spoluhláska a hľadanie v texte',
-        text: 'Ak v slabike nie je samohláska ani dvojhláska, úlohu nositeľa slabiky preberajú spoluhlásky **r, ŕ, l, ĺ** stojace medzi spoluhláskami. V predposlednom (treťom) odseku sú prídavné mená //pomalý, kradmý, malé, rozloženého, premenený// a **nemilosrdným** („Hľadel mu priamo do očí, **nemilosrdným** pohľadom…“).'
+        text: 'Ak v slabike nie je samohláska ani dvojhláska, úlohu nositeľa slabiky preberajú spoluhlásky **r, ŕ, l, ĺ** stojace medzi spoluhláskami. V predposlednom odseku sa nachádzajú prídavné mená //pomalý, kradmý, malé// a **nemilosrdným** (tvary //rozloženého, premenený// sú trpné príčastia, pričom ani v nich slabikotvorná spoluhláska nie je): „Hľadel mu priamo do očí, **nemilosrdným** pohľadom…“'
       },
       {
         title: 'Rozdelenie na slabiky a hodnotenie kľúča',
@@ -192,7 +192,13 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Pomenujte jazykový štýl použitý v ukážke 5.',
     placeholder: 'Napíš jazykový štýl',
     correctAnswerDisplay: 'umelecký',
-    acceptedAnswers: ['umelecký', 'umelecký štýl', 'umelecký jazykový štýl'],
+    acceptedAnswers: [
+      'umelecký',
+      'umelecký štýl',
+      'umelecký jazykový štýl',
+      'umelecký funkčný štýl',
+      'umelecký funkčný jazykový štýl'
+    ],
     lenient: true,
     commonMistakes: [
       {
@@ -320,7 +326,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Pri tvorení prídavného mena od názvu „Sliač“ si daj pozor na dve pravidlá naraz: po spoluhláske „č“ v domácom názve neodpadáva „č“, a po dvojhláske „ia“ v základe musí zaúčinkovať zákon o rytmickom krátení!',
+    hint: 'Všimni si jednak zakončenie domáceho názvu „Sliač“ na spoluhlásku „č“ (aká prípona sa pripája a či sa „č“ zachováva) a jednak dĺžku slabiky s dvojhláskou „ia“ v koreni slova z hľadiska zákona o rytmickom krátení.',
     solutionSteps: [
       {
         title: '1. Zachovanie spoluhlásky č pred príponou -sky',
@@ -348,7 +354,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Všimni si, čo týmito troma slovesami autor od čitateľa žiada (vyzýva ho, odporúča mu). Ktorý zo slovesných spôsobov (oznamovací, rozkazovací, podmieňovací) majú všetky tri tvary?',
+    hint: 'Postupne si pri všetkých troch slovesách over každú možnosť: existujú aj bez „sa/si“ (napr. dať, užiť)? Majú predponu všetky tri vrátane „dať“? Aký majú slovesný vid a v akom slovesnom spôsobe sú použité?',
     solutionSteps: [
       {
         title: 'Rovnaký slovesný spôsob',
@@ -356,7 +362,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – nie sú to slovesá vždy zvratné (ako //smiať sa, báť sa//), pretože bežne existujú aj nezvratné slovesá //dať, užiť, zastaviť//.\nB – sloveso //dať (sa)// nemá predponu (predponu //u-// a //za-// majú iba zvyšné dve).\nC – slovesá //užiť si// a //zastaviť sa// pomenúvajú ukončený dej, majú teda **dokonavý** vid, nie nedokonavý.'
+        text: 'A – nie sú to slovesá vždy zvratné (ako //smiať sa, báť sa//), pretože bežne existujú aj nezvratné slovesá //dať, užiť, zastaviť//.\nB – sloveso //dať (sa)// nemá predponu (predponu //u-// a //za-// majú iba zvyšné dve).\nC – všetky tri slovesá (//dať sa, užiť si, zastaviť sa//) pomenúvajú ohraničený, ukončený dej, majú teda **dokonavý** vid, nie nedokonavý.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -376,11 +382,11 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Pri každom slove si skús vymyslieť dve rôzne vety, v ktorých by znamenalo niečo iné (napr. plynný obal Zeme aj nálada v miestnosti). Tri z týchto slov majú viac významov a iba jedno pomenúva jedinú vec.',
+    hint: 'Pri každom slove si skús vymyslieť dve rôzne vety, v ktorých by znamenalo niečo iné (napr. koruna kráľa aj koruna stromu). Tri z týchto slov majú viac významov a iba jedno pomenúva jedinú vec.',
     solutionSteps: [
       {
         title: 'Jednovýznamové slovo minca',
-        text: 'Podstatné meno **minca** má iba jeden vecný význam: kovové platidlo vyrazené z kovu (vo frazéme //odplatiť rovnakou mincou// má prenesený význam celé ustálené spojenie, nie samotné slovo //minca//).'
+        text: 'Podstatné meno **minca** má iba jeden vecný význam: kovový peniaz (platidlo vyrazené z kovu) – vo frazéme //odplatiť rovnakou mincou// má prenesený význam celé ustálené spojenie, nie samotné slovo //minca//.'
       },
       {
         title: 'Viacvýznamové slová v A, B a C',
@@ -405,7 +411,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Slovo „história“ označuje dejiny, nie módny či dizajnový štýl vracajúci sa k nedávnej minulosti. Pozri sa do nadpisu a textu 4. tipu.'
       }
     ],
-    hint: 'Pozri sa do 4. tipu v ukážke 6 – akým nesklonným prívlastkom cudzieho pôvodu sa tam označuje kúpalisko v Sliači?',
+    hint: 'Nezamieňaj si pomenovanie vedy či dejín („história“) s pomenovaním módneho alebo dizajnového štýlu, ktorý napodobňuje nedávnu minulosť. Hľadaj krátke nesklonné slovo cudzieho pôvodu v nadpisoch a texte jednotlivých tipov.',
     solutionSteps: [
       {
         title: 'Význam slova a výskyt v ukážke',
@@ -680,7 +686,7 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Doplňte na zakryté miesto v ukážke 7 slovo označujúce časť vonkajšej kompozície divadelnej hry.',
     placeholder: 'Napíš časť hry',
     correctAnswerDisplay: 'dejstvo',
-    acceptedAnswers: ['dejstvo', 'piate dejstvo'],
+    acceptedAnswers: ['dejstvo', 'piate dejstvo', '5. dejstvo'],
     lenient: true,
     commonMistakes: [
       {
@@ -720,7 +726,9 @@ export const questionsPart2: QuestionData[] = [
       'predmet v akuzatíve',
       'predmet v A',
       'predmetom',
-      'priamym predmetom'
+      'priamym predmetom',
+      'predmetom v akuzatíve',
+      'predmetom v A'
     ],
     lenient: true,
     commonMistakes: [
@@ -787,7 +795,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Vokatív je starší piaty pád slúžiaci na oslovenie s osobitnou koncovkou (napr. človek → človeče!, priateľ → priateľu!). Nájdi oslovenie v predposlednej vete listu!',
+    hint: 'Postupne si v Zoéinom liste over všetky štyri možnosti: sú v ňom opytovacie vety (básnická otázka)? Je list veršovaný (rytmicko-syntaktický paralelizmus)? Ide o voľný prúd predstáv bez kontroly rozumu (automatický text), alebo obsahuje oslovenie v staršom 5. páde s osobitnou príponou (napr. človeče, priateľu)?',
     solutionSteps: [
       {
         title: 'Vokatívne oslovenie v liste',
@@ -935,10 +943,10 @@ export const questionsPart2: QuestionData[] = [
     commonMistakes: [
       {
         pattern: 'administratívn|úradn',
-        hint: 'Pozor na zámenu pojmov: „administratívny“ je jazykový štýl, nie slohový postup! Vyber zo štyroch slohových postupov: informačný, rozprávací, opisný, výkladový.'
+        hint: 'Pozor na zámenu pojmov: „administratívny“ je jazykový štýl, nie slohový postup! Vyber zo štyroch slohových postupov (rozprávací, opisný, výkladový, …).'
       }
     ],
-    hint: 'Nezameň si jazykový štýl (administratívny) so slohovým postupom! Ktorý zo štyroch slohových postupov (informačný, rozprávací, opisný, výkladový) stručne uvádza fakty, čísla a dátumy (čo, kto, kedy, kde, ako)?',
+    hint: 'Nezameň si jazykový štýl (administratívny) so slohovým postupom! Ktorý zo štyroch základných slohových postupov stručne a heslovite uvádza vecné fakty, čísla a dátumy (odpovedá na otázky čo, kto, kedy, kde, ako)?',
     solutionSteps: [
       {
         title: 'Znaky slohového postupu v tabuľke',
@@ -963,6 +971,10 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: [
       'milý',
       'ľúbostný',
+      'milý / ľúbostný',
+      'milý/ľúbostný',
+      'ľúbostný / milý',
+      'ľúbostný/milý',
       'milý, ľúbostný',
       'ľúbostný, milý',
       'milý a ľúbostný',
@@ -980,7 +992,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Toto prídavné meno nevyjadruje citový vzťah Zoé k tulákovi (napr. „hnedý“ opisuje len opálenú pokožku chlapca). Pozri sa na prvé slovo oslovenia v liste alebo do stĺpca Obsah v tabuľke!'
       }
     ],
-    hint: 'Pozri sa na prvé slovo oslovenia na začiatku Zoéinho listu alebo na pomenovanie listu v stĺpci „Obsah“ v tabuľke – pozor, vypíš prídavné meno (aký?), nie privlastňovacie zámeno „môj“!',
+    hint: 'Neprehliadni, že súčasťou ukážky 8 nie je len úvodný odsek, ale aj tabuľka a samotný list. Hľadaj prídavné meno (aký?), ktoré priamo vyjadruje láskyplnú náklonnosť (pozor, slovo „môj“ je zámeno a „hnedý“ opisuje iba vzhľad).',
     solutionSteps: [
       {
         title: 'Prídavné mená vyjadrujúce citový vzťah Zoé k tulákovi',

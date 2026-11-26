@@ -109,7 +109,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Pozri sa na vonkajšiu grafickú úpravu básne: tvoria všetky verše jeden súvislý stĺpec bez medzier (astrofická báseň), alebo je rozdelená do viacerých oddelených celkov – slôh/strof?',
+    hint: 'Over si v ukážke 5 postupne všetky štyri možnosti: ide o rozsiahlu polytematickú báseň (básnické pásmo), zhoduje sa koniec každého verša bez presahov s hranicou vety (rytmicko-syntaktický paralelizmus), je báseň graficky rozčlenená na oddelené skupiny veršov (strofy), alebo sa na začiatku susedných veršov opakujú tie isté slová (anafora) so skrytým alegorickým významom (inotaj)?',
     solutionSteps: [
       {
         title: 'Vonkajšia kompozícia básne',
@@ -243,7 +243,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Báseň je literárny útvar/žáner, zatiaľ čo zadanie pýta jeden z troch základných literárnych druhov.'
       }
     ],
-    hint: 'Nezamieňaj si literárnu formu (poézia – próza) s literárnym druhom! Základné literárne druhy sú len tri: jeden má dej a rozprávača, druhý je určený na javisko a tretí vyjadruje pocity, nálady a vnútorné prežívanie lyrického subjektu.',
+    hint: 'Nezamieňaj si literárnu formu (poézia – próza) s literárnym druhom! Základné literárne druhy sú len tri: jeden má dej a rozprávača, druhý je určený na javisko a tretí je bezdejový – vyjadruje pocity, nálady, úvahy a vnútorné prežívanie.',
     solutionSteps: [
       {
         title: 'Rozlíšenie literárneho druhu a formy',
@@ -265,7 +265,7 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Napíšte názov verša/veršového systému využitého v ukážke 5.',
     placeholder: 'Napíš druh verša',
     correctAnswerDisplay: 'voľný verš',
-    acceptedAnswers: ['voľný', 'voľný verš'],
+    acceptedAnswers: ['voľný', 'voľný verš', 'voľný veršový systém', 'voľného verša', 'voľného'],
     lenient: true,
     commonMistakes: [
       {
@@ -391,7 +391,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Rozdeľ si slovo „dodávateľ“ na časti podľa toho, ako postupne vzniklo od slovesa „dávať“ → „do-dávať“ → „do-dáva-teľ“. Koľko má koreňov a čo stojí pred koreňom a za ním?',
+    hint: 'Odvoď si postupne, z akého základného slovesa vzniklo podstatné meno „dodávateľ“, nájdi jeho koreň a zisti, či má viac koreňov (skladanie), alebo jeden koreň obohatený pri odvodzovaní predponou aj príponou.',
     solutionSteps: [
       {
         title: 'Slovotvorný rozbor slova dodávateľ',
@@ -488,7 +488,11 @@ export const questionsPart2: QuestionData[] = [
       'jedno slovesné podstatné meno',
       'zásobovaniu',
       'zásobovanie',
-      'vďaka zásobovaniu'
+      'vďaka zásobovaniu',
+      '1 - zásobovaniu',
+      '1 - zásobovanie',
+      '1 (zásobovaniu)',
+      '1 (zásobovanie)'
     ],
     lenient: true,
     commonMistakes: [
@@ -543,7 +547,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Hodnotenie podľa kľúča NIVaM',
-        text: 'Uznáva sa spisovný slovenský termín **odsek**, pričom kľúč zohľadňuje vecnú správnosť a uznáva aj pomenovania **odstavec** či **paragraf**.'
+        text: 'Uznáva sa spisovný slovenský termín **odsek** (kľúčom pripustený tvar //odstavec// – bohemizmus, spisovne //odsek// – či //paragraf// sa uznávajú len v rámci benevolentného vecného hodnotenia NIVaM).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: **odsek**.'
@@ -770,7 +774,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Hodnotenie podľa kľúča NIVaM',
-        text: 'Uznáva sa tvar v príslušnom páde **v materskej škole / materskej škole**, základný tvar **materská škola** (kľúč pripúšťa aj variant //v materskej škôlke / materská škôlka// a zapojenie do vety; prihliada sa na vecnú správnosť).'
+        text: 'Uznáva sa tvar v príslušnom páde **v materskej škole / materskej škole**, základný tvar **materská škola**, prípadne zapojenie do vety (kľúčom pripustený variant //v materskej škôlke / materská škôlka// je hovorová kontaminácia – spisovne len //materská škola// – a uznáva sa iba v rámci benevolentného vecného hodnotenia NIVaM).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: **v materskej škole** (alebo **materská škola**).'
@@ -796,7 +800,11 @@ export const questionsPart2: QuestionData[] = [
       'administratívneho',
       'úradného',
       'administratívneho štýlu',
-      'úradného štýlu'
+      'úradného štýlu',
+      'Text B patrí do administratívneho štýlu',
+      'Text B patrí do úradného štýlu',
+      'Patrí do administratívneho štýlu',
+      'Patrí do úradného štýlu'
     ],
     lenient: true,
     commonMistakes: [
@@ -839,7 +847,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Pozri sa výlučne na zvýraznený posledný odsek (nie na 4. odsek pred ním!). Werther v ňom hodnotí vlastné slová („nesmierne, hlúpe táraniny“), váha, polemizuje sám so sebou a uvažuje nad svojím sľubom a konaním. Ktorému útvaru zodpovedá takéto subjektívne zamýšľanie sa?',
+    hint: 'Pozri sa výlučne na zvýraznený posledný odsek (nie na 4. odsek pred ním!). Werther v ňom hodnotí vlastné slová („nesmierne, hlúpe táraniny“), váha, polemizuje sám so sebou a zamýšľa sa nad rozporom medzi svojím sľubom a citmi. Ktorému útvaru zodpovedá takéto subjektívne zamýšľanie sa?',
     solutionSteps: [
       {
         title: 'Rozbor zvýrazneného odseku',
@@ -923,7 +931,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Byť neobjektívny znamená nedokázať niečo opísať nestranne, vecne a pravdivo, pretože človeka ovplyvňujú silné city. V ktorom úryvku Werther priamo píše, že pre svoju radosť a šťastie asi nedokáže všetko pravdivo opísať?',
+    hint: 'Byť neobjektívny znamená nedokázať posúdiť alebo zachytiť skutočnosť nestranne a vecne, pretože úsudok človeka skresľujú silné emócie. V ktorom zo štyroch úryvkov sám Werther spája svoje silné citové rozpoloženie s pochybnosťou, či dokáže podať verné svedectvo?',
     solutionSteps: [
       {
         title: 'Kde Werther priznáva neobjektívnosť',
@@ -951,7 +959,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Všimni si spojku „a“ medzi oboma hlavnými vetami („1. Teším sa tomu“ + „2. som šťastný“) a významový vzťah medzi nimi: odporujú si, vylučujú sa, stupňujú sa, alebo sa len voľne spájajú (zlučujú) ako dva súbežné pocity?',
+    hint: 'Všimni si spojku „a“ medzi oboma hlavnými vetami („1. Teším sa tomu“ + „2. som šťastný“) a významový vzťah medzi nimi: odporujú si, vylučujú sa, stupňujú sa, alebo sa len voľne spájajú ako dva súbežné pocity?',
     solutionSteps: [
       {
         title: 'Určenie typu priraďovacieho súvetia',
@@ -978,6 +986,8 @@ export const questionsPart2: QuestionData[] = [
       'tri',
       '3 sklady',
       'tri sklady',
+      '3 vetné sklady',
+      'tri vetné sklady',
       '3 určovacie sklady',
       'tri určovacie sklady',
       '3 určovacie vetné sklady',
@@ -998,7 +1008,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Veta má len 4 slová; prísudok „zaujala“ s nevyjadreným podmetom „(ona)“ tvorí prisudzovací sklad, nie určovací.'
       }
     ],
-    hint: 'V slovenčine poznáme tri druhy vetných skladov: prisudzovací (podmet + prísudok), priraďovací (viacnásobný vetný člen) a určovací (nadradený člen + podradený rozvíjací člen). Daj si obrovský pozor na podmet tejto vety: kto zaujal koho? Podmetom je zamlčané „(ona – dievčina)“! Zisti, koľko zvyšných slov rozvíja prísudok „zaujala“ (prípadne slovo „myseľ“).',
+    hint: 'V slovenčine poznáme tri druhy vetných skladov: prisudzovací (podmet + prísudok), priraďovací (viacnásobný vetný člen) a určovací (každá dvojica nadradený člen + podradený rozvíjací člen). Najprv urči prísudok „zaujala“ a daj si veľký pozor pri hľadaní podmetu: z kontextu 3. odseku ukážky 8 sa opýtaj „kto zaujal?“ (všimni si aj ženský rod slovesa!) a odlíš podmet od slova, na ktoré sa pýtame v akuzatíve „koho? čo?“.',
     solutionSteps: [
       {
         title: '1. Odhalenie zamlčaného podmetu (pozor na chyták!)',
@@ -1039,7 +1049,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Toto slovo patrí do bežnej spisovnej (príp. knižnej) slovnej zásoby. Hľadaj na samom konci ukážky básnickú podobu slova „slnko“!'
       }
     ],
-    hint: 'Básnické slová (poetizmy) sú slová so slávnostným, umeleckým nádychom, ktoré majú v bežnej reči neutrálny náprotivok (napr. luna – mesiac, vesna – jar, zora – úsvit). Prečítaj si poslednú vetu zvýrazneného odseku až do úplného konca!',
+    hint: 'Básnické slová (poetizmy) sú slová so slávnostným, umeleckým nádychom, ktoré majú v bežnej reči neutrálny náprotivok (napr. luna – mesiac, vesna – jar, zora – úsvit). Prečítaj si záverečné vety zvýrazneného odseku (pozor, slovo ‚oblok‘ je v slovenčine neutrálne spisovné slovo, nie poetizmus).',
     solutionSteps: [
       {
         title: 'Vyhľadanie básnického slova (poetizmu)',

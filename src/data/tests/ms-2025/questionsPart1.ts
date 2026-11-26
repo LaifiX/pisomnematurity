@@ -109,7 +109,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Ukážka je odborným výkladom z verejnej webovej poradne. Zamysli sa: je určená pre širokú verejnosť alebo len do súkromia? Striedajú sa v nej repliky dvoch hovoriacich (dialóg), alebo ide o súvislý výklad (monológ) s presnými údajmi?',
+    hint: 'Posúď ukážku z troch hľadísk: patrí do súkromnej alebo verejnej komunikačnej sféry? Prebieha v priamom kontakte s adresátom so striedaním replík (dialogický prejav), alebo ide o súvislý jednosmerný prejav (monologický prejav)? A uplatňuje sa v nej presnosť alebo variabilnosť výrazových prostriedkov?',
     solutionSteps: [
       {
         title: 'Štýlotvorné znaky náučného (odborného) štýlu',
@@ -117,7 +117,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Vylúčenie nesprávnych možností',
-        text: 'Možnosti B a D obsahujú **súkromnosť** (znak hovorového štýlu). Možnosti A a B obsahujú **dialogickosť** a **variabilnosť** (pestrosť a uvoľnenosť typickú pre hovorový či publicistický štýl).'
+        text: 'Možnosti B a D obsahujú **súkromnosť** (znak hovorového štýlu). Možnosti A a B obsahujú **dialogickosť** a **variabilnosť** (pestrosť výrazových prostriedkov typickú pre umelecký a publicistický štýl).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **C**.'
@@ -453,6 +453,8 @@ export const questionsPart1: QuestionData[] = [
       'slovesnosti',
       'ľudovú pieseň',
       'ľudovú slovesnosť',
+      'na ľudovú pieseň',
+      'na ľudovú slovesnosť',
       'ľudová pieseň',
       'ľudová slovesnosť',
       'Haiku v texte C obsahuje narážku na ľudovú pieseň',
@@ -465,7 +467,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Pozor! Spojenie „ľudová tvorba“ kľúč neuznáva, lebo nie je presným literárnovedným termínom (zahŕňa aj výšivky, tanec či rezbárstvo). Pomenuj konkrétny žáner, ktorý si pri slovách „Hájku, háječku, hájku zelený…“ spievame, alebo celé ústne slovesné umenie ľudu!'
       }
     ],
-    hint: 'Prečítaj si nahlas verše textu C: „Haiku, haiečku, / haiku zelený…“. Pripomínajú ti známu slovenskú melódiu „Hájku, háječku, hájku zelený…“? Ako sa v literatúre volá tento spievaný žáner (ľudová …) alebo súhrnne celé ústne slovesné umenie ľudu (ľudová …)?',
+    hint: 'Prečítaj si nahlas verše textu C: „Haiku, haiečku, / haiku zelený…“. Pripomínajú ti známu slovenskú melódiu „Hájku, háječku, hájku zelený…“? Ako sa v literatúre odborným termínom volá tento spievaný žáner alebo súhrnne ústna tvorba ľudu (rozprávky, povesti, balady)?',
     solutionSteps: [
       {
         title: 'Odhalenie narážky (alúzie) v texte C',
@@ -536,7 +538,7 @@ export const questionsPart1: QuestionData[] = [
       'Cudzie slovo haiku nemá v slovenčine žiadny skloňovací vzor, teda je neohybným'
     ],
     lenient: true,
-    hint: 'Vyskúšaj si dať slovo „haiku“ do rôznych pádov: toto je haiku, bez haiku, o haiku, čítam haiku (rovnako ako slová menu, tabu či alibi). Keď sa slovo vôbec neskloňuje, ako ho v gramatike jedným slovom nazývame?',
+    hint: 'Keď ohybný slovný druh (tu podstatné meno cudzieho pôvodu) v žiadnom páde nemení svoj tvar a nemá pádové prípony, akým jednoslovným termínom ho v gramatike označujeme?',
     solutionSteps: [
       {
         title: 'Cudzie podstatné mená zakončené na -u',
@@ -594,7 +596,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Pozor, hľadáš tvrdenie, ktoré z textu „nevyplýva“! Pozorne si skontroluj presnú pracovnú funkciu Tomáša Gergeľa v treťom odseku.',
+    hint: 'Pozor, hľadáš tvrdenie, ktoré z textu „nevyplýva“! Over si postupne všetky štyri možnosti v prvom a treťom odseku: vzťah inštitúcií v plnom názve centra, presnú pracovnú pozíciu citovanej osoby, spomínané výrobky z listnatého dreva aj umiestnenie skenera.',
     solutionSteps: [
       {
         title: 'Kontrola funkcie Tomáša Gergeľa',
@@ -817,7 +819,7 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Pomenujte vetný člen zvýraznený v nasledujúcej vete.\n//Tu sa používa najkvalitnejšie **drevo**.//',
     placeholder: 'Napíš názov vetného člena',
     correctAnswerDisplay: 'podmet',
-    acceptedAnswers: ['podmet', 'subjekt', 'vyjadrený podmet', 'gramatický podmet'],
+    acceptedAnswers: ['podmet', 'podmetom', 'subjekt', 'subjektom', 'vyjadrený podmet', 'gramatický podmet'],
     lenient: true,
     commonMistakes: [
       {
@@ -825,7 +827,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Pozor, toto je najčastejší maturitný chyták! Vo vete nie je činné sloveso „niekto používa drevo“, ale zvratný trpný tvar „sa používa“. Opýtaj sa v 1. páde: „Kto? Čo sa tu používa?“ – drevo! Skús si namiesto „drevo“ dosadiť ženský rod „guľatina“: povieme „Tu sa používa guľatina“ (1. pád), nie „guľatinu“ (4. pád)!'
       }
     ],
-    hint: 'Daj si obrovský pozor, aby si sa nenechal(a) nachytať na predmet! Vo vete je zvratný trpný tvar slovesa „sa používa“ (nevieme, kto ho používa). Skús si namiesto slova stredného rodu „drevo“ dosadiť podstatné meno ženského rodu „guľatina“: povieme „Tu sa používa najkvalitnejšia guľatina“ (nominatív – kto? čo?), alebo „guľatinu“ (akuzatív – koho? čo?)? Ktorý hlavný vetný člen stojí v nominatíve?',
+    hint: 'Pri strednom rode („drevo“) majú viaceré pády rovnaký tvar. Všimni si zvratnú podobu slovesa „sa používa“, dosaď si za prívlastok „najkvalitnejšia“ nadradené podstatné meno ženského rodu z predchádzajúcich viet odseku („guľatina“), opýtaj sa naň spolu so slovesom a urči jeho pád aj vetný člen!',
     solutionSteps: [
       {
         title: '1. Prečo nejde o predmet (ako odhaliť chyták)',
@@ -915,7 +917,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Nezamieňaj si slovo „novostavba“ (novopostavený dom) s tým, ako dlho už realitná kancelária tento byt inzeruje! Je v texte informácia o tom, že ide o novinku v ponuke kancelárie?',
+    hint: 'Pozor, hľadáš tvrdenie, ktoré z inzerátu „nevyplýva“! Dôkladne porovnaj každú z možností A – D s textom ukážky 4 a daj si pozor na zámenu podobne znejúcich pojmov (napr. vek samotnej stavby verzus dĺžka zverejnenia ponuky, širšie centrum verzus okraj mesta).',
     solutionSteps: [
       {
         title: 'Čo v texte nenájdeme',
@@ -971,7 +973,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Spomeň si, čo znamená slovo „hybrid“ napr. pri autách (kombinácia spaľovacieho a elektrického pohonu). Ako sa volá žáner, ktorý kombinuje prvky viacerých jazykových štýlov (ako inzerát či esej)?',
+    hint: 'Prelož si do slovenčiny cudzie prídavné mená v možnostiach: ktoré z nich znamená „viacvýznamový“ (pri slovách), ktoré „osobný/zaujatý“, ktoré „vecný/nestranný“ a ktoré „zmiešaný“ (spájajúci prvky rôznych štýlov)?',
     solutionSteps: [
       {
         title: 'Hybridný slohový útvar',
@@ -1000,7 +1002,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Cena je celková suma za byt, nie samotná odmena pre makléra za sprostredkovanie predaja. Pozri sa do zvýraznenej hlavičky inzerátu hneď pod riadok „Cena: v texte“!'
       }
     ],
-    hint: 'Pozri sa do zvýrazneného zoznamu parametrov na začiatku inzerátu. Ktoré cudzie podstatné meno tam pomenúva odmenu realitnej kancelárie (a píše sa pri ňom, že je už zahrnutá v cene)?',
+    hint: 'Pozri sa do zvýrazneného zoznamu parametrov na začiatku inzerátu. Ktoré cudzie podstatné meno ženského rodu tam označuje peňažnú (percentuálnu) odmenu pre realitnú kanceláriu?',
     solutionSteps: [
       {
         title: 'Vyhľadanie slova v texte',
@@ -1082,7 +1084,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Opisný slohový postup zachytáva znaky a vlastnosti predmetu v súvislom opise. Zvýraznená hlavička inzerátu však len heslovite vymenúva základné vecné údaje a čísla (typ, druh, stav, identifikačné číslo).'
       }
     ],
-    hint: 'Nezameň si jazykový štýl so slohovým postupom! Slohové postupy máme štyri: rozprávací, opisný, výkladový a … Pozri sa na zvýraznenú hlavičku inzerátu (Typ: predaj, Druh: 4-izbový byt, Stav: novostavba…) – heslovite prináša základné fakty, údaje a čísla.',
+    hint: 'Nezameň si jazykový štýl s jedným zo štyroch základných slohových postupov! Ktorý slohový postup sa uplatňuje tam, kde sa v heslách a číslach len stručne uvádzajú základné vecné údaje a parametre?',
     solutionSteps: [
       {
         title: 'Rozlíšenie slohových postupov',
