@@ -68,10 +68,10 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Úlohu nevyriešiš len z ukážky – vyžaduje znalosť Bednárovej novely Kolíska. Spomeň si na Zitine spomienky na mladosť, keď slúžila na statku u bohatého gazdu Majerského, a nepleť si ho s Janom Ragalom.',
+    hint: 'Úlohu nevyriešiš len z ukážky – vyžaduje znalosť Bednárovej novely Kolíska. Spomeň si na Zitine spomienky na mladosť v Radotíne, kde bol Majerský šafárom na veľkostatku, a nepleť si ho s Janom Ragalom.',
     solutionSteps: [
       { title: 'Znalosť diela', text: 'V Bednárovej novele Kolíska je Majerský Zitin bývalý milenec, ktorý však už bol ženatý. Zita je vydatá za Černeka.' },
-      { title: 'Prečo práve Kolíska', text: 'Zita počúva súd s mužom, ktorého kedysi milovala, a na povrch vychádzajú spomienky aj vina iných postáv.' }
+      { title: 'Súvislosť s dejom', text: 'Zita počúva súd s mužom, ktorého kedysi milovala, a na povrch vychádzajú spomienky aj vina iných postáv.' }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
   },
@@ -90,7 +90,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Úloha vyžaduje znalosť novely Kolíska – odlíš postavy z vojnovej dejovej línie (1945) od postavy z prítomnej dejovej línie (50. roky), v ktorej prebieha súd s Majerským. Nenápadnú indíciu nájdeš aj v závere prvého odseku ukážky.',
+    hint: 'Úloha vyžaduje znalosť novely Kolíska. Spomeň si, ktorá z uvedených postáv žije so Zitou v prítomnej dejovej línii v 50. rokoch a má priamy vzťah k politickému procesu s Majerským.',
     solutionSteps: [
       { title: 'Znalosť diela', text: 'V procese s Majerským vystupuje ako svedok Zitin manžel Mišo Černek. Ukážka to nenápadne naznačuje – v ten večer „nebol doma“ a Zita sleduje súd z rádia.' },
       { title: 'Ostatné mená', text: 'Všetky ostatné postavy v novele Kolíska síce tiež vystupujú (Paul Hals – nemecký dôstojník, Jano Ragala – Zitin prvý manžel, Michal Martinec – študent skrývajúci sa v bunkri), ale ako svedok v procese s Majerským vypovedal Mišo Černek.' }
@@ -112,10 +112,10 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Priamy predmet stojí v bezpredložkovom akuzatíve; nepriamy predmet je v ostatných pádoch alebo v predložkovom akuzatíve (často napr. v datíve – komu? čomu?).',
+    hint: 'Priamy predmet stojí v bezpredložkovom akuzatíve; nepriamy predmet je v ostatných nepriamych pádoch (G, D, L, I) alebo v predložkovom akuzatíve (často napr. v datíve – komu? čomu?).',
     solutionSteps: [
-      { title: 'Otázky', text: 'Zavieval komu? – jej (datív). Priamy predmet je iba v bezpredložkovom akuzatíve; predmet v ostatných pádoch alebo v predložkovom akuzatíve je nepriamy predmet.' },
-      { title: 'Ostatné vetné členy', text: 'chlad – podmet (kto? čo? – chlad), dverami – príslovkové určenie (kade?), do kuchyne – príslovkové určenie miesta (kam?).' }
+      { title: 'Otázky', text: 'Zavieval komu? – jej (datív). Priamy predmet je iba v bezpredložkovom akuzatíve; predmet v ostatných nepriamych pádoch (G, D, L, I) alebo v predložkovom akuzatíve je nepriamy predmet.' },
+      { title: 'Ostatné vetné členy', text: 'chlad – podmet (kto? čo? – chlad), dverami – príslovkové určenie miesta (kade?), do kuchyne – príslovkové určenie miesta (kam?).' }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
   },
@@ -134,7 +134,14 @@ export const questionsPart2: QuestionData[] = [
       'dvere kuchynské',
       'Kuchynské dvere mala otvorené',
       'Kuchynské dvere mala otvorené.',
-      'Dvere kuchynské mala otvorené'
+      'Dvere kuchynské mala otvorené',
+      'Dvere kuchynské mala otvorené.'
+    ],
+    commonMistakes: [
+      {
+        pattern: 'kuchyňsk',
+        hint: 'Pozor na pravopis: pri tvorení prídavného mena príponou -ský sa mäkké ň mení na tvrdé n (kuchyňa → kuchynský, kuchynské).'
+      }
     ],
     hint: 'Najprv nájdi podstatné meno s predložkou, ktoré bližšie určuje slovo „dvere“, a utvor z neho prídavné meno v správnom tvare (pozor na pravopis pred príponou -ský/-ské).',
     solutionSteps: [
@@ -157,12 +164,16 @@ export const questionsPart2: QuestionData[] = [
       'retrospektívny postup',
       'retrospektívny kompozičný postup',
       'retrospektívna kompozícia',
+      'retrospektívnu kompozíciu',
       'spätný',
       'spätný postup',
       'spätný kompozičný postup',
+      'spätnú kompozíciu',
       'retrospektíva',
       'retrospektívu',
-      'retrospekcia'
+      'retrospekcia',
+      'retrospekciu',
+      'retrospektývny'
     ],
     lenient: true,
     hint: 'Spomienky porušujú prirodzenú časovú následnosť a vracajú dej z prítomnosti do minulosti – ide o opak chronologického postupu.',
@@ -182,7 +193,17 @@ export const questionsPart2: QuestionData[] = [
     placeholder: 'Vypíš prístavok',
     correctAnswerDisplay: 'jej muž',
     acceptedAnswers: ['jej muž'],
-    hint: 'Prístavok bližšie určuje podstatné meno, stojí hneď za ním a oddeľuje sa čiarkami z oboch strán.',
+    commonMistakes: [
+      {
+        pattern: '^mu[zž]$',
+        hint: 'Samotné slovo „muž“ nestačí – vypíš celý rozvitý prístavok z vety.'
+      },
+      {
+        pattern: '[cč]ernek',
+        hint: 'Meno „Černek“ je nadradené podstatné meno, ktoré prístavok rozvíja – vypíš iba samotný prístavok stojaci za ním medzi čiarkami.'
+      }
+    ],
+    hint: 'Prístavok je menné spojenie (s podstatným menom v tom istom páde), ktoré inak pomenúva tú istú osobu alebo vec, a uprostred vety sa oddeľuje čiarkami z oboch strán.',
     solutionSteps: [
       { title: 'Nájdenie', text: '„…ako Černek, jej muž, spravil z bukového dreva konzolu…“ – spojenie jej muž bližšie určuje meno Černek a je oddelené čiarkami.' },
       { title: 'Zápis', text: 'Spojenie musí byť vypísané pravopisne správne: jej muž.' }
@@ -231,7 +252,7 @@ export const questionsPart2: QuestionData[] = [
     hint: 'Harpagon je stelesnením jednej ľudskej vlastnosti. Ako sa volá taký typ postavy?',
     solutionSteps: [
       { title: 'Harpagon', text: 'Hlavná postava Lakomca, Harpagon, zosobňuje jednu výraznú vlastnosť – lakomstvo. Klasicistická komédia charakterov vytvára takéto charakterové typy (lakomec, mizantrop, pokrytec).' },
-      { title: 'Ostatné typy', text: 'Autobiografická postava zobrazuje autora, idealizovaná je zidealizovaný vzor, sociálny typ predstavuje spoločenskú vrstvu.' }
+      { title: 'Ostatné typy', text: 'Autobiografická postava zobrazuje autora, idealizovaná predstavuje dokonalý, prikrášlený vzor, sociálny typ predstavuje spoločenskú vrstvu.' }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
   },
@@ -252,7 +273,7 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: ['C'],
     hint: 'Nájdi v prehovore slová, ktoré hodnotia ľudí hanlivo (podliak, …). Ako sa takéto citovo zafarbené slová volajú?',
     solutionSteps: [
-      { title: 'Citovo zafarbené slová', text: 'podliak, taľafatky, oplan, podkurovať, líškavo, bľabotať, lump, tĺk – to sú expresívne (citovo zafarbené, hanlivé) slová. Umocňujú Alcestov hnev.' },
+      { title: 'Citovo zafarbené slová', text: 'podliak, taľafatky, oplan, podkurovať, líškavo, bľabotať, lump, tĺk – to sú expresívne (citovo zafarbené, často hanlivé) slová. Umocňujú Alcestov hnev.' },
       { title: 'Prečo nie ostatné', text: 'Nejde o slang (reč skupiny), nárečie (regionálne slová) ani o básnické slová (poetizmy ako luna, sťa).' }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -285,7 +306,7 @@ export const questionsPart2: QuestionData[] = [
     type: 'choice',
     category: L,
     sharedContextId: 'ukazka_6',
-    questionText: 'Ak Molière ako autor zaradil svoju hru do repertoáru svojho divadla, tak bol zároveň',
+    questionText: 'Ak Molière ako autor zaradil svoju hru do repertoára svojho divadla, tak bol zároveň',
     options: [
       { key: 'A', text: 'scenáristom.' },
       { key: 'B', text: 'hercom.' },
@@ -296,8 +317,8 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: ['D'],
     hint: 'Kto v divadle rozhoduje o tom, ktoré hry sa budú hrať – teda zostavuje repertoár?',
     solutionSteps: [
-      { title: 'Funkcia dramaturga', text: 'Dramaturg vyberá hry do repertoáru divadla a pripravuje ich text na inscenáciu. Kto hru zaradí do repertoáru, plní úlohu dramaturga.' },
-      { title: 'Pozor', text: 'Molière bol síce aj herec a riaditeľ súboru, ale úloha sa pýta na funkciu spojenú so zaradením hry do repertoáru.' }
+      { title: 'Funkcia dramaturga', text: 'Dramaturg vyberá hry do repertoára divadla a pripravuje ich text na inscenáciu. Kto hru zaradí do repertoára, plní úlohu dramaturga.' },
+      { title: 'Pozor', text: 'Molière bol síce aj herec a riaditeľ súboru, ale úloha sa pýta na funkciu spojenú so zaradením hry do repertoára.' }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
   },
@@ -310,7 +331,14 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Napíšte názov opakovacej figúry uplatnenej v prvom Alcestovom prehovore v ukážke 6.',
     placeholder: 'Napíš názov figúry',
     correctAnswerDisplay: 'anafora',
-    acceptedAnswers: ['anafora', 'paralelizmus', 'syntaktický paralelizmus'],
+    acceptedAnswers: [
+      'anafora',
+      'anaforu',
+      'paralelizmus',
+      'syntaktický paralelizmus',
+      'paralelismus',
+      'syntaktický paralelismus'
+    ],
     lenient: true,
     hint: 'Pozri sa na začiatky veršov 4 až 7. Ktoré slovo sa opakuje na začiatku?',
     solutionSteps: [
@@ -332,7 +360,7 @@ export const questionsPart2: QuestionData[] = [
     hint: 'Kde je v slovenčine hlavný (slovný) prízvuk?',
     solutionSteps: [
       { title: 'Pravidlo', text: 'V spisovnej slovenčine je hlavný slovný prízvuk pri samostatnom slove vždy na prvej slabike.' },
-      { title: 'Rozdelenie', text: 'ta – ký – to → prízvuk je na prvej slabike ta.' }
+      { title: 'Rozdelenie', text: 'ta-ký-to → prízvuk je na prvej slabike ta.' }
     ],
     solutionConclusion: 'Správna odpoveď: ta- (ta).'
   },
@@ -346,7 +374,17 @@ export const questionsPart2: QuestionData[] = [
     placeholder: 'Vypíš zámeno',
     correctAnswerDisplay: 'to isté',
     acceptedAnswers: ['to isté'],
-    hint: 'Vymedzovacie zámená vyjadrujú totožnosť, odlišnosť, výlučnosť alebo súhrnnosť (napr. sám, samý, iný, každý, všetok, žiaden). Hľadaj vo zvýraznenej časti dvojslovné spojenie vyjadrujúce totožnosť.',
+    commonMistakes: [
+      {
+        pattern: '^tak[aá]to$',
+        hint: 'Zámeno „takáto“ je ukazovacie, nie vymedzovacie.'
+      },
+      {
+        pattern: '^ist[eé]$',
+        hint: 'Vypísal/vypísala si len druhú časť – celé vymedzovacie zámeno vo vete je dvojslovné.'
+      }
+    ],
+    hint: 'Vymedzovacie zámená vyjadrujú totožnosť, odlišnosť, výlučnosť alebo súhrnnosť – napr. sám, samý, iný, každý, všetok, žiaden. Pozor, niektoré vymedzovacie zámená môžu byť aj dvojslovné.',
     solutionSteps: [
       { title: 'Nájdenie', text: '„…keď zajtra bľaboce to isté lumpovi.“ – to isté je vymedzovacie zámeno (zdôrazňuje totožnosť).' },
       { title: 'Pozor', text: 'Takáto (v spojení takáto podlá pocta) je ukazovacie zámeno, nie vymedzovacie.' }
@@ -373,7 +411,7 @@ export const questionsPart2: QuestionData[] = [
     hint: 'Kde Rácz predtým jedával a za čo mu hostia musia „znova zaplatiť“?',
     solutionSteps: [
       { title: 'Indície v texte', text: '„Teraz už Rácz nejedáva zvyšky v ústraní tmavej kotolne.“ a „Ak nechcú zmrznúť, musia mu za teplé radiátory znova zaplatiť.“ – Rácz kúri v hotelovej kotolni a od neho závisí teplo.' },
-      { title: 'Prečo nie ostatné', text: 'Riaditeľ ani inšpektor by nekúrili, a vrchnému čašníkovi sa Rácz len „zmieni“.' }
+      { title: 'Prečo nie ostatné', text: 'Riaditeľ ani inšpektor by nekúrili a pred hlavným čašníkom sa Rácz len „zmieni“, takže sám vrchným čašníkom nie je.' }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
   },
@@ -438,8 +476,8 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: ['A'],
     hint: 'Prečítaj si niekoľko viet za sebou v úvodnej časti ukážky a všimni si ich stavbu a rozsah.',
     solutionSteps: [
-      { title: 'Krátke vety', text: 'Text tvoria prevažne krátke jednoduché vety (a krátke súvetia), ktoré rýchlo striedajú deje: „Sadne si na svoje miesto. Má ho rezervované. Čašníci sa idú pretrhnúť. Hostia si na to zvykli. Radi počkajú.“ Takéto hromadenie krátkych viet zrýchľuje tempo – dynamizuje.' },
-      { title: 'Prečo nie ostatné', text: 'Oznamovacie vety samy osebe text nedynamizujú, stavové slovesá ho naopak spomaľujú a dlhé súvetia tiež.' }
+      { title: 'Krátke vety', text: 'Text tvoria prevažne krátke jednoduché vety (a krátke súvetia), ktoré rýchlo striedajú deje: „Sadne si na svoje miesto. Má ho rezervované. Čašníci sa idú pretrhnúť. […] Hostia si na to zvykli. Radi počkajú.“ Takéto hromadenie krátkych viet zrýchľuje tempo – dynamizuje dej/text.' },
+      { title: 'Prečo nie ostatné', text: 'Oznamovacie vety samy osebe text nedynamizujú, stavové slovesá ho, naopak, spomaľujú a dlhé súvetia tiež.' }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
   },
@@ -458,10 +496,10 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Ak uvádzacia veta preruší priamu reč, čiarka patrí dovnútra úvodzoviek a uvádzacia veta sa začína malým písmenom.',
+    hint: 'Všimni si, že uvádzacia veta je vložená doprostred jednej vety priamej reči. Skontroluj polohu interpunkčných znamienok voči úvodzovkám, prvé písmeno uvádzacej vety a zmysluplnosť rozdelenia vety.',
     solutionSteps: [
-      { title: 'Pravidlá', text: 'Prvá časť priamej reči sa končí čiarkou vnútri úvodzoviek („Pán hlavný,“), uvádzacia veta sa začína malým písmenom (požiadal hosť), za ňou čiarka a druhá časť priamej reči s výkričníkom vnútri úvodzoviek.' },
-      { title: 'Chyby v A, B, C', text: 'A – veľké písmeno v uvádzacej vete. B – čiarka a výkričník za úvodzovkami. C – priama reč je nelogicky rozdelená (výkričník uprostred vety).' }
+      { title: 'Pravidlá', text: 'Prvá časť priamej reči sa končí čiarkou vnútri úvodzoviek („Pán hlavný,“), uvádzacia veta sa začína malým písmenom (požiadal hosť), za ňou nasleduje čiarka a druhá časť priamej reči s výkričníkom vnútri úvodzoviek.' },
+      { title: 'Chyby v A, B, C', text: 'A – veľké písmeno v uvádzacej vete (navyše po výkričníku by nová veta v priamej reči nemohla pokračovať čiarkou a malým písmenom). B – čiarka a výkričník za úvodzovkami. C – priama reč je nelogicky rozdelená (výkričník uprostred vety).' }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
   },
@@ -475,6 +513,16 @@ export const questionsPart2: QuestionData[] = [
     placeholder: 'Vypíš slovo',
     correctAnswerDisplay: 'dennodenne',
     acceptedAnswers: ['dennodenne'],
+    commonMistakes: [
+      {
+        pattern: '^denodenne$|^denn?o[- ]denne$',
+        hint: 'Príslovka „dennodenne“ sa píše spolu ako jedno slovo a s dvoma n v oboch častiach (denn-o-denne).'
+      },
+      {
+        pattern: '^mimochodom$',
+        hint: 'Príslovka „mimochodom“ je síce neohybné zložené slovo, ale nevyjadruje pravidelnosť.'
+      }
+    ],
     hint: 'Neohybné slová sa neskloňujú ani nečasujú (napr. príslovky) a zložené slovo obsahuje dva slovné základy. Pozri sa do úvodných viet ukážky.',
     solutionSteps: [
       { title: 'Nájdenie', text: '„Dennodenne raňajkuje, obeduje a večeria v hotelovej reštaurácii.“ – dennodenne je príslovka (neohybný slovný druh) utvorená zdvojením slovného základu denn- so spájacou samohláskou -o- (denn-o-denne) a vyjadruje pravidelnosť.' },
@@ -491,7 +539,14 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Napíšte názov obrazného pomenovania/prostriedku z nasledujúcej vety, založeného na vnútornej súvislosti medzi pomenúvanými javmi.\n//Celá reštaurácia sa zhrčila k Ráczovmu stolu.//',
     placeholder: 'Napíš názov',
     correctAnswerDisplay: 'metonymia',
-    acceptedAnswers: ['metonymia', 'synekdocha'],
+    acceptedAnswers: [
+      'metonymia',
+      'synekdocha',
+      'metonimia',
+      'sinekdocha',
+      'metonymiu',
+      'synekdochu'
+    ],
     lenient: true,
     hint: 'Kto sa v skutočnosti zhrčil – budova reštaurácie, alebo ľudia v nej?',
     solutionSteps: [
@@ -509,11 +564,18 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'Pomenujte vetný sklad v nasledujúcej vete.\n//Čašníci sa idú pretrhnúť.//',
     placeholder: 'Napíš vetný sklad',
     correctAnswerDisplay: 'prisudzovací (sklad)',
-    acceptedAnswers: ['prisudzovací', 'prisudzovací sklad', 'prísudzovací', 'prisudzovací vetný sklad'],
+    acceptedAnswers: [
+      'prisudzovací',
+      'prisudzovací sklad',
+      'prísudzovací',
+      'prisudzovací vetný sklad',
+      'prysudzovací',
+      'prysudzovací sklad'
+    ],
     lenient: true,
-    hint: 'Spojenie „sa idú pretrhnúť“ je frazeologizmus, ktorý vo vete platí za jeden vetný člen. Urči, ktoré hlavné vetné členy veta obsahuje, a pomenuj sklad medzi nimi.',
+    hint: 'Spojenie „sa idú pretrhnúť“ je frazeologizmus, ktorý vo vete tvorí jeden vetný člen. Urči, ktoré hlavné vetné členy veta obsahuje, a pomenuj sklad medzi nimi.',
     solutionSteps: [
-      { title: 'Rozbor', text: 'Podmet: čašníci. Prísudok: sa idú pretrhnúť. Iný vetný člen tu nie je.' },
+      { title: 'Rozbor', text: 'Podmet: čašníci. Prísudok: „sa idú pretrhnúť“. Iný vetný člen tu nie je.' },
       { title: 'Vetný sklad', text: 'Spojenie podmetu a prísudku tvorí prisudzovací sklad.' }
     ],
     solutionConclusion: 'Správna odpoveď: prisudzovací (sklad).'
@@ -535,7 +597,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Pozri sa na koniec časti o Banskej Štiavnici. Čo by „sa zišlo“?',
+    hint: 'Pozri sa na nedostatky spomenuté v časti o Banskej Štiavnici a porovnaj ich presné znenie s možnosťami A – D.',
     solutionSteps: [
       { title: 'Doklad', text: '„Zišla by sa aj oprava niektorých pamiatok.“ – lepšia starostlivosť o pamiatky.' },
       { title: 'Pasca', text: 'Parkoviská podľa textu chýbajú úplne – nejde o ich vybavenie. O ubytovaní a jedle sa text v tomto zmysle nezmieňuje.' }
@@ -604,7 +666,7 @@ export const questionsPart2: QuestionData[] = [
     hint: 'Pozorne si prečítaj prvé dve časti ukážky a over každé tvrdenie presne podľa textu – všímaj si najmä časť o problémoch vo Vysokých Tatrách.',
     solutionSteps: [
       { title: 'Doklad', text: '„…trápime sa aj s nedostatkom zamestnancov. Kuchári či čašníci sú totiž v Tatrách vzácnejší ako kamzíky a svište.“ – v Tatrách výrazne chýbajú pracovníci v službách.' },
-      { title: 'Prečo nie ostatné', text: 'A – služby oceňujú zahraniční návštevníci. B – text len konštatuje, že ministerstvo chýba. D – Slováci necestujú do zahraničia, lebo Slovensko je bezpečné; o odkladaní dovoleniek text nehovorí.' }
+      { title: 'Prečo nie ostatné', text: 'A – text nespomína „dlhoročných domácich zákazníkov“, uvádza iba, že skvalitnené služby ocenia aj mnohí zahraniční návštevníci. B – text len konštatuje, že ministerstvo chýba. D – text hovorí o poklese záujmu Slovákov o vycestovanie za dovolenkou, nie o tom, že by dovolenky odkladali na nasledujúci rok.' }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
   },
@@ -640,6 +702,12 @@ export const questionsPart2: QuestionData[] = [
     placeholder: 'Vypíš sloveso',
     correctAnswerDisplay: 'vzrástla',
     acceptedAnswers: ['vzrástla'],
+    commonMistakes: [
+      {
+        pattern: '^vzrastla$',
+        hint: 'V tvare minulého času slovesa „vzrásť“ je v koreni dlhé á (vzrástla).'
+      }
+    ],
     hint: 'Neslabičná predpona neobsahuje samohlásku (napr. s-, z-, v-).',
     solutionSteps: [
       { title: 'Nájdenie', text: '„Tento rok vzrástla návštevnosť takmer o 25 %.“ – vz-rástla: predpona vz- nemá samohlásku, je neslabičná.' },
@@ -662,7 +730,7 @@ export const questionsPart2: QuestionData[] = [
       { title: 'Synonymum', text: '„…záujem… o Slovensko ako turistickú destináciu…“ – destinácia = cieľové miesto cesty, miesto pobytu.' },
       { title: 'Pravopis', text: 'Uznáva sa destináciu aj destinácia, napísané pravopisne správne.' }
     ],
-    solutionConclusion: 'Správna odpoveď: destináciu.'
+    solutionConclusion: 'Správna odpoveď: destináciu (destinácia).'
   },
   {
     id: 64,
@@ -673,7 +741,8 @@ export const questionsPart2: QuestionData[] = [
     questionText: 'V ktorom roku podľa ukážky 8 dosiahla návštevnosť Slovenska najnižšiu úroveň za sledované obdobie?',
     placeholder: 'Napíš rok',
     correctAnswerDisplay: '2009',
-    acceptedAnswers: ['2009', 'v roku 2009', 'rok 2009', 'v r. 2009', 'r. 2009'],
+    acceptedAnswers: ['2009', 'v roku 2009', 'rok 2009', 'v r. 2009', 'r. 2009', 'v 2009', 'roku 2009'],
+    lenient: true,
     hint: 'Pozri sa na graf návštevnosti na konci ukážky – nájdi najnižšiu časť krivky a pre istotu porovnaj aj presné číselné údaje nad susednými rokmi.',
     solutionSteps: [
       { title: 'Graf', text: 'Najnižšia hodnota je 3 381 354 návštevníkov v roku 2009 (pokles po roku 2008 – 4 082 645).' },

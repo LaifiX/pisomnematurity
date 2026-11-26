@@ -68,7 +68,7 @@ const pointsWord = (n: number) => `${n} ${n === 1 ? 'bod' : n >= 2 && n < 5 ? 'b
 const plain = (html: string) => html.replace(/<[^>]+>/g, '');
 
 const checklist = [
-  `Moja práca má aspoň ${CRITERIA_COMMON.minWords} slov a najviac 3 strany.`,
+  `Moja práca má rozsah 1,5 až 3 strany A4 (pri hustom písme aspoň 300 slov; pod ${CRITERIA_COMMON.minWords} slov je 0 bodov).`,
   'Dodržal/a som tému a reagujem na všetky kľúčové slová zadania.',
   ...u.checklist,
   'Text je členený na odseky, čitateľný, bez škrtania a s dodržanými okrajmi.',
@@ -276,7 +276,7 @@ const checklist = [
             <p class="sl-score-total">Vnútorná forma = obsah, kompozícia, jazyk, pravopis a&nbsp;štýl, každé po 4&nbsp;body.</p>
             <div class="sl-warn">
               <Fragment set:html={icon(I.alert)} />
-              <span><strong>Pozor:</strong> ak práca nemá aspoň {CRITERIA_COMMON.minWords}&nbsp;slov, hodnotí sa 0&nbsp;bodmi.</span>
+              <span><strong>Pozor:</strong> Ak práca nemá aspoň {CRITERIA_COMMON.minWords}&nbsp;slov, hodnotí sa 0&nbsp;bodmi.</span>
             </div>
             <div class="sl-crit">
               <article class="sl-crit-card">
@@ -320,7 +320,7 @@ const checklist = [
             <span class="sl-sec-num">{num('kontrola')}</span>
             <h2>Kontrola pred odovzdaním</h2>
             <div class="sl-check-meta">
-              <span>Odškrtni si, čo máš splnené. <span data-check-count></span></span>
+              <span>Začiarkni si, čo máš splnené. <span data-check-count></span></span>
               <button type="button" data-check-reset>Vymazať</button>
             </div>
             <ul class="sl-check" data-checklist={u.slug}>
@@ -351,7 +351,7 @@ const checklist = [
               </div>
             ) : (
               <p class="sl-sec-lead">
-                {u.name} v&nbsp;sérii prezentácií <cite>{PROJEKT.series}</cite> ({PROJEKT.year}) nebol. Text je pripravený nanovo podľa kritérií NIVaM a&nbsp;rovnakej štruktúry ako ostatné útvary.
+                {u.name} v&nbsp;sérii prezentácií <cite>{PROJEKT.series}</cite> ({PROJEKT.year}) nebol. Text je pripravený nanovo podľa kritérií NIVaM a&nbsp;má rovnakú štruktúru ako ostatné útvary.
               </p>
             )}
             {(zdroj.literatura.length > 0 || (zdroj.ukazky && zdroj.ukazky.length > 0)) && (

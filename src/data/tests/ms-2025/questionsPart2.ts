@@ -13,6 +13,10 @@ const ANTO_PAIRS_38: [string, string][] = [
   ['končí sa', 'začína sa'],
   ['sa začína', 'sa končí'],
   ['sa končí', 'sa začína'],
+  ['sa začína', 'končí sa'],
+  ['končí sa', 'sa začína'],
+  ['začína sa', 'sa končí'],
+  ['sa končí', 'začína sa'],
   ['začína', 'končí'],
   ['končí', 'začína'],
   ['začínať sa', 'končiť sa'],
@@ -20,11 +24,11 @@ const ANTO_PAIRS_38: [string, string][] = [
   ['začínať', 'končiť'],
   ['končiť', 'začínať']
 ];
-const ANTO_SEPS_38 = [' - ', '-', ', ', ',', '; ', ';', ' / ', '/', ' '];
+const ANTO_SEPS_38 = [' - ', '-', '- ', ' -', ', ', ',', '; ', ';', ' / ', '/', ' '];
 const ACCEPTED_38: string[] = ANTO_PAIRS_38.flatMap(([a, b]) => ANTO_SEPS_38.map((sep) => `${a}${sep}${b}`));
 
 export const questionsPart2: QuestionData[] = [
-  // ---------------- Ukážka 5 – Paolo Coelho: Alchymista
+  // ---------------- Ukážka 5 – Paulo Coelho: Alchymista
   {
     id: 33,
     code: '33',
@@ -124,7 +128,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Porovnaj možnosti s prvým a druhým Alchymistovým prehovorom: čo mu podľa neho ukáže, kde je poklad – chladný rozum, alebo srdce a znamenia?',
+    hint: 'Pozor, hľadáš radu, ktorú Alchymista chlapcovi nedal! Porovnaj jednotlivé možnosti s oboma Alchymistovými prehovormi v ukážke 5 a všimni si, čím sa má Santiago na ceste k pokladu riadiť a pred čím ho Alchymista vystríha.',
     solutionSteps: [
       {
         title: 'Porovnanie s radami Alchymistu',
@@ -215,15 +219,23 @@ export const questionsPart2: QuestionData[] = [
     orderedWords: ['lek', 'ci', 'a'],
     commonMistakes: [
       {
+        pattern: '^lekcia$',
+        hint: 'Slovo „lekcia“ si nerozdelil/nerozdelila – jednotlivé slabiky oddeľ napr. spojovníkom (ako v zadaní).'
+      },
+      {
         pattern: '^lek[\\s\\-./|,;:·•]+cia$',
         hint: 'V cudzom slove „lekcia“ nie je slovenská dvojhláska ia – vyslovujeme ho so vsunutým j ako [lek-ci-ja], preto samohlásky i a a tvoria dve samostatné slabiky!'
+      },
+      {
+        pattern: '^le[\\s\\-./|,;:·•]+k[\\s\\-./|,;:·•]+ci',
+        hint: 'Spoluhláska k netvorí samostatnú slabiku – patrí na koniec prvej slabiky (lek-).'
       },
       {
         pattern: '^le[\\s\\-./|,;:·•]+kci',
         hint: 'Na hranici skupiny spoluhlások -kc- vedie rozdelenie medzi nimi: prvá slabika sa končí spoluhláskou k (lek-).'
       }
     ],
-    hint: 'Rozlíš domácu dvojhlásku „ia“, ktorá tvorí jednu slabiku (napr. „čia-ra“), od stretnutia dvoch samohlások „i + a“ v cudzích slovách zakončených na „-ia“, kde pri výslovnosti počujeme vsunuté [j] a samohlásky patria do dvoch samostatných slabík. Nezabudni správne viesť aj hranicu medzi dvoma spoluhláskami uprostred slova!',
+    hint: 'Všimni si dve miesta v slove „lekcia“: kade vedie slabičná hranica v skupine dvoch spoluhlások uprostred slova a či spojenie „ia“ v prevzatom slove zakončenom na „-ia“ predstavuje jednu dvojhlásku, alebo dve samostatné samohlásky (pomôž si prirodzenou výslovnosťou)!',
     solutionSteps: [
       {
         title: 'Prečo v slove lekcia nie je dvojhláska ia',
@@ -231,7 +243,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Rozdelenie na slabiky',
-        text: '1. Hranica medzi spoluhláskami //-kc-// prechádza medzi nimi: **lek-**.\n2. Samohláska //-i-// tvorí druhú slabiku: **-ci-**.\n3. Koncová samohláska //-a// tvorí samostatnú tretiu slabiku: **-a**.\nSprávne rozdelenie na tri slabiky je: **lek-ci-a**.'
+        text: '1. Slabičná hranica v skupine spoluhlások //-kc-// prechádza medzi nimi: **lek-**.\n2. Samohláska //-i-// tvorí druhú slabiku: **-ci-**.\n3. Koncová samohláska //-a// tvorí samostatnú tretiu slabiku: **-a**.\nSprávne rozdelenie na tri slabiky je: **lek-ci-a**.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: **lek-ci-a**.'
@@ -342,7 +354,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Spomeň si na štýl autorského divadla Lasicu a Satinského a pozri sa na ich rozhovor v ukážke: odohráva sa na scéne bláznivý dej plný pádov, alebo sa dvaja partneri s vážnou tvárou rozprávajú o absurdných nezmysloch?',
+    hint: 'Všimni si, z čoho v ukážke 6 pramení komika autorského divadla Lasicu a Satinského: vyplýva z vonkajšieho scénického deja, zo spôsobu a logiky vedeného dialógu, alebo z vykreslenia postáv ako vznešených hrdinov či spoločenských typov?',
     solutionSteps: [
       {
         title: 'Podstata humoru Lasicu a Satinského',
@@ -378,7 +390,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Význam ostatných pojmov',
-        text: 'A – **hyperbola**: umelecké zveličenie (nadsázka).\nB – **derniéra**: úplne posledné uvedenie divadelnej inscenácie pred jej stiahnutím z repertoáru (opak premiéry).\nC – **pointa**: vtipné alebo prekvapivé myšlienkové vyvrcholenie na samom konci diela (nemusí porušovať logiku situácie).'
+        text: 'A – **hyperbola**: umelecké zveličenie (preháňanie).\nB – **derniéra**: úplne posledné uvedenie divadelnej inscenácie pred jej stiahnutím z repertoáru (opak premiéry).\nC – **pointa**: vtipné alebo prekvapivé myšlienkové vyvrcholenie na samom konci diela (nemusí porušovať logiku situácie).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **D**.'
@@ -484,7 +496,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         pattern: 'vidieck|dedinsk',
-        hint: 'Napísal(a) si prídavné meno, ale zadanie žiada doplniť podstatné meno (pomenovanie obyvateľa tohto prostredia alebo predložkové spojenie podstatného mena)!'
+        hint: 'Napísal/napísala si prídavné meno, ale zadanie žiada doplniť podstatné meno (pomenovanie obyvateľa tohto prostredia alebo predložkové spojenie podstatného mena)!'
       }
     ],
     hint: 'Keď S zvolá „Lietadlo už dávno objavili!“, L sa vyhovára: „To som práve nevedel. K nám na … sa to nedostalo.“ Utvor z tohto miesta jedno vhodné podstatné meno (pomenovanie obyvateľa tohto prostredia), aby veta dávala zmysel!',
@@ -516,12 +528,15 @@ export const questionsPart2: QuestionData[] = [
       'vzor ulice',
       'podľa vzoru ulica',
       'podľa vzoru ulice',
+      'Himaláje ulica',
       'Himaláje - ulica',
       'Himaláje, ulica',
       'Himaláje (ulica)',
       'Himaláje: ulica',
+      'Himaláje = ulica',
       'Himaláje - vzor ulica',
       'Himaláje, vzor ulica',
+      'ulica Himaláje',
       'ulica (Himaláje)',
       'ulica - Himaláje',
       'ulica, Himaláje',
@@ -537,7 +552,7 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^himal[aá]j[ea]?$|^himal[aá]jami$|^himal[aá]jach$',
+        pattern: '^(nad\\s+|na\\s+)?(himal[aá]j[ea]?|himal[aá]jami|himal[aá]jach)$',
         hint: 'Správne si v texte našiel/našla pomnožné podstatné meno „Himaláje“, ale úloha žiada napísať jeho skloňovací vzor!'
       },
       {
@@ -549,7 +564,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Zemepisné pomnožné mená typu Košice, Alpy, Tatry, Himaláje sa neskloňujú podľa vzoru dlaň, ale podľa vzorov žena (tvrdé: Tatry) alebo … (mäkké: Košice, Himaláje).'
       }
     ],
-    hint: 'Pomnožným podstatným menom v ukážke 6 je vlastné meno „Himaláje“ – je ženského rodu (v texte „na Himalájach“) a po mäkkej spoluhláske „j“ je zakončené na „-e“. Pozor, vzor „dlaň“ takéto pomnožné mená nemá: pomnožné podstatné mená ženského rodu zakončené na „-e“ sa skloňujú podľa mäkkého vzoru, ktorý má v nominatíve jednotného čísla príponu „-a“!',
+    hint: 'Najprv v ukážke 6 nájdi podstatné meno, ktoré má len tvary množného čísla, hoci pomenúva jedno pohorie. Podľa pádovej prípony v spojení s predložkou „na“ urči jeho rod a všimni si, či sa kmeň končí tvrdou alebo mäkkou spoluhláskou – podľa toho urči skloňovací vzor.',
     solutionSteps: [
       {
         title: '1. Nájdenie pomnožného podstatného mena',
@@ -594,7 +609,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Pozri sa pozorne do druhej repliky postavy L – je tam veta v zátvorke, ktorá opisuje, čo postavy práve robia!'
       },
       {
-        pattern: '^(2|dve|dva)$',
+        pattern: '^(2|dve|dva)(\\s|$)',
         hint: 'Údaj „(úryvok, upravené)“ pod nadpisom nie je scénická poznámka autora divadelnej hry, ale redakčná poznámka zostavovateľov testu! Rátaj len scénickú poznámku priamo v texte dialógu.'
       }
     ],
@@ -606,7 +621,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Vyhľadanie v ukážke 6',
-        text: 'V druhej replike postavy L sa nachádza presne **1 (jedna)** autorská poznámka: //„(Obaja letia nad Himalájami.)“//.\n(Poznámka //(úryvok, upravené)// pod názvom diela je len redakčný údaj zostavovateľov maturitného testu.)'
+        text: 'V druhej replike postavy L sa nachádza presne **1 (jedna)** autorská poznámka: //„(Obaja letia nad Himalájami.)“//\n(Poznámka //(úryvok, upravené)// pod názvom diela je len redakčný údaj zostavovateľov maturitného testu.)'
       }
     ],
     solutionConclusion: 'Správna odpoveď: **1** (jednu).'
@@ -716,7 +731,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Kultúrna západoslovenčina (predspisovné obdobie)',
-        text: 'Dielo //Valaská škola mravúv stodola// vzniklo v polovici 18. storočia (1755), teda ešte v **predspisovnom období** (pred Bernolákovou kodifikáciou z roku 1787). Je napísané v tzv. **kultúrnej západoslovenčine** (s prvkami češtiny a západoslovenských nárečí, napr. //s večerú, múže, pálčivosťú, prísloví// namiesto dvojhlások a tvary ako //mravúv, žalúdek//), čo je **jedna z troch podôb kultúrnej predspisovnej slovenčiny**.'
+        text: 'Dielo //Valaská škola mravúv stodola// vzniklo v polovici 18. storočia (1755), teda ešte v **predspisovnom období** (pred Bernolákovou kodifikáciou z roku 1787). Je napísané v tzv. **kultúrnej západoslovenčine** (s prvkami češtiny a západoslovenských nárečí, napr. dlhé samohlásky namiesto dvojhlások a prípony //-ou//: //múže, prísloví, s večerú, pálčivosťú//, či tvary ako //mravúv, žalúdek//), čo je **jedna z troch podôb kultúrnej predspisovnej slovenčiny**.'
       },
       {
         title: 'Prečo neplatia ostatné možnosti',
@@ -740,7 +755,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Urči najprv slovný druh oboch slov: „krátká“ (aká?) a „tráví“ (čo robí?). Sú to plnovýznamové a ohybné slovné druhy? A pre kontrolu si všimni dĺžne v oboch slabikách týchto historických tvarov!',
+    hint: 'Urči najprv slovný druh oboch slov: „krátká“ (aká?) a „tráví“ (čo robí?) – zaraď ich podľa významu a ohybnosti. Pre kontrolu si v týchto historických tvaroch všimni aj dĺžne v susedných slabikách a to, čo v nich tvorí jadro slabík.',
     solutionSteps: [
       {
         title: 'Určenie slovných druhov',
@@ -880,7 +895,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'V ukážke nasleduje len jedno konkrétne príslovie („že krátká večera nočnej lehkosti osoží“) – ide o akuzatív jednotného čísla (to príslovie), nie množného čísla!'
       }
     ],
-    hint: 'Skontroluj si obe slová krok za krokom: 1. Druhé slovo „prísloví“ označuje v texte jednu ľudovú múdrosť (akuzatív jednotného čísla stredného rodu – vzor vysvedčenie). 2. Prvé slovo je individuálne privlastňovacie prídavné meno od osobného mena Salernus (skloňuje sa podľa vzoru otcov: v strednom rode jednotného čísla hovoríme „otcovo mesto“, nikdy nie s -é!). Píše sa s veľkým S a pri menách na -us môže prípona -us aj vypadnúť.',
+    hint: 'Skontroluj si obe slová osobitne: 1. V akom čísle a podľa akého vzoru stredného rodu sa skloňuje druhé slovo (v ukážke nasleduje jedno konkrétne príslovie)? 2. Podľa akého vzoru sa skloňuje individuálne privlastňovacie prídavné meno od osobného mena v strednom rode jednotného čísla a s akým začiatočným písmenom sa píše?',
     solutionSteps: [
       {
         title: '1. Podstatné meno v jednotnom čísle stredného rodu',
@@ -914,7 +929,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Prečítaj si posledný odsek ukážky – čo Peter a Lucia držiac sa za ruky v chráme súčasne šepkajú („pred tvojou tvárou si ho beriem, pred tvojou tvárou si ju beriem. Spoj nás!“)?',
+    hint: 'Prečítaj si posledný odsek ukážky – čo Peter a Lucia, držiac sa za ruky, v chráme súčasne šepkajú („pred tvojou tvárou si ho beriem, pred tvojou tvárou si ju beriem. Spoj nás!“)?',
     solutionSteps: [
       {
         title: 'Sľub v závere ukážky',
@@ -922,7 +937,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo neplatia ostatné možnosti',
-        text: 'A – o tom, že by ich dovnútra prilákal spev zboru, sa v texte nepíše.\nB – v chráme neboli sami (//„ukrytí pred pohľadmi ostatných ľudí“//) a neprišli tam len kvôli samote, ale kvôli sľubu lásky.\nC – spojenie //„veľký priateľ“// v chráme označuje nepriamo Ježiša Krista (Boha), nie bežného smutného kamaráta (do smútku bol ponorený samotný chrám).'
+        text: 'A – o tom, že by ich dovnútra prilákal spev zboru, sa v texte nepíše.\nB – v chráme neboli sami (//„ukrytí pred pohľadmi ostatných ľudí“//) a neprišli tam len pre samotu, ale pre sľub lásky.\nC – spojenie //„veľký priateľ“// v chráme označuje nepriamo Ježiša Krista (Boha), nie bežného smutného kamaráta (do smútku bol ponorený samotný chrám).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **D**.'
@@ -942,7 +957,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Nájdi v texte, čo postavy počujú, čo vidia a čoho sa dotýkajú – a potom si daj veľký pozor na vymedzovacie slovíčka „Iba“, „Aj“ a „všetkými“ na začiatku možností!',
+    hint: 'Nájdi v texte, čo postavy počujú, čo vidia a čoho sa dotýkajú – a potom si daj veľký pozor na kľúčové slovíčka „Iba“, „Aj“ a „všetkými“ v jednotlivých možnostiach!',
     solutionSteps: [
       {
         title: 'Zmyslové vnemy v ukážke 8',
@@ -1002,7 +1017,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Odhalenie nepriameho pomenovania',
-        text: 'Vo vete **C** //„Držali sa za ruky pred svojím veľkým priateľom…“// nestoja Peter a Lucia v chráme pred nijakým fyzickým kamarátom, ale pred oltárom a krížom – slovné spojenie **veľký priateľ** je tu použité ako **nepriame (obrazné, opisné – perifrastické) pomenovanie** pre Ježiša Krista / Boha.'
+        text: 'Vo vete **C** //„Držali sa za ruky pred svojím veľkým priateľom…“// nestoja Peter a Lucia v chráme pred nijakým skutočným priateľom, ale pred oltárom a krížom – slovné spojenie **veľký priateľ** je tu použité ako **nepriame (obrazné, opisné – perifrastické) pomenovanie** pre Ježiša Krista / Boha.'
       },
       {
         title: 'Priame pomenovania v ostatných možnostiach',
@@ -1050,8 +1065,10 @@ export const questionsPart2: QuestionData[] = [
     correctAnswerDisplay: 'epiteton (básnický prívlastok)',
     acceptedAnswers: [
       'epiteton',
+      'epitetonom',
       'epiteton ornans',
       'básnický prívlastok',
+      'básnickým prívlastkom',
       'umelecký prívlastok',
       'ozdobný prívlastok'
     ],
@@ -1099,7 +1116,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Slovo „zvuk“ je síce jadrom tejto mennej vety, ale prečítaj si pozorne zadanie: vypíš prvé slovo tejto vety!'
       }
     ],
-    hint: 'Jednočlenná menná (neslovesná) veta je taká veta medzi dvoma bodkami, v ktorej sa nenachádza vôbec žiadne určité sloveso a jej základom je podstatné meno! Prejdi si vety v prvom odseku jednu po druhej, nájdi vetu bez slovesa a vypíš jej úplne prvé slovo.',
+    hint: 'Jednočlenná menná (neslovesná) veta je samostatná veta, v ktorej sa nenachádza nijaké určité sloveso a jej základom je meno, napr. podstatné meno. Prejdi si vety v prvom odseku jednu po druhej, nájdi vetu bez slovesa a vypíš jej úplne prvé slovo.',
     solutionSteps: [
       {
         title: 'Čo je jednočlenná menná (neslovesná) veta',
@@ -1125,15 +1142,15 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^(2|dve)$',
+        pattern: '^(2|dve)(\\s|$)',
         hint: 'Spočítaj pozorne všetky určité slovesné tvary (prísudky) v podčiarknutom súvetí: „boli obrátení“, „zdvihli“ a ešte jeden po druhej čiarke!'
       },
       {
-        pattern: '^(4|[sš]tyri|5|p[aä][tť])$',
+        pattern: '^(4|[sš]tyri|5|p[aä][tť])(\\s|$)',
         hint: 'Nenechaj sa pomýliť poslednou čiarkou! V časti „videli štít oltára, kríž a farebné obloky bočnej kaplnky“ je len jeden prísudok „videli“ a za ním trojnásobný predmet (štít, kríž a obloky), nie ďalšie samostatné vety.'
       }
     ],
-    hint: 'Zlaté pravidlo zo skladby: v súvetí je presne toľko jednoduchých viet, koľko je v ňom prísudkov (určitých slovesných tvarov)! Nájdi a spočítaj všetky prísudky v podčiarknutom súvetí (pozor: čiarka medzi slovami „štít oltára, kríž“ oddeľuje len viacnásobný vetný člen, nie novú vetu).',
+    hint: 'Zlaté pravidlo zo skladby: v súvetí je presne toľko jednoduchých viet, koľko je v ňom prísudkov (určitých slovesných tvarov, vrátane zloženého slovesno-menného prísudku)! Nájdi a spočítaj všetky prísudky v podčiarknutom súvetí (pozor: čiarka medzi slovami „štít oltára, kríž“ oddeľuje len viacnásobný vetný člen, nie novú vetu).',
     solutionSteps: [
       {
         title: 'Vyhľadanie prísudkov v podčiarknutom súvetí',

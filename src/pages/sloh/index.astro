@@ -78,7 +78,7 @@ const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
               <span class="sl-num">Písomná forma internej časti</span>
               <h1>Slohové útvary na maturite</h1>
               <p class="sl-lead">
-                Na písomnej maturite sa z&nbsp;ôsmich slohových útvarov vyžrebujú štyri – každý má vlastnú tému a&nbsp;z&nbsp;nich si vyberieš jednu. Pri každom útvare tu nájdeš hlavné znaky, stavbu textu, jazykové prostriedky, praktické rady, ukážku, témy z&nbsp;rokov 2007&nbsp;–&nbsp;2026 aj presné kritériá hodnotenia.
+                Na písomnej maturite sa z&nbsp;ôsmich slohových útvarov vyžrebujú štyri témy (každá v&nbsp;inom útvare) a&nbsp;z&nbsp;nich si vyberieš jednu. Pri každom útvare tu nájdeš hlavné znaky, stavbu textu, jazykové prostriedky, praktické rady, ukážku, témy z&nbsp;rokov 2007&nbsp;–&nbsp;2026 aj presné kritériá hodnotenia.
               </p>
             </div>
             <figure class="sl-title-page">
@@ -117,7 +117,7 @@ const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
             <div>
               <span class="ms-kicker">Obsah</span>
               <h2>Vyber si útvar</h2>
-              <p>Spomedzi týchto ôsmich útvarov sa každý rok vyžrebujú štyri maturitné zadania – ku každému vyžrebovanému útvaru jedna téma. V&nbsp;tabuľke si pozri, koľkokrát boli jednotlivé útvary vyžrebované od roku 2007. Po rozkliknutí sa dozvieš viac.</p>
+              <p>Spomedzi týchto ôsmich útvarov sa každý rok vyžrebujú štyri maturitné zadania – ku každému vyžrebovanému útvaru jedna téma. V&nbsp;prehľade nižšie si pozri, koľkokrát boli jednotlivé útvary vyžrebované od roku 2007. Po kliknutí na vybraný útvar sa dozvieš viac.</p>
             </div>
           </div>
           <ol class="sl-contents">
@@ -135,7 +135,7 @@ const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
               </li>
             ))}
           </ol>
-          <p class="sl-aids">Na písomnej maturite môžeš používať Pravidlá slovenského pravopisu, Synonymický slovník a&nbsp;Krátky slovník slovenského jazyka.</p>
+          <p class="sl-aids">Na písomnej maturite môžeš používať Pravidlá slovenského pravopisu, Synonymický slovník slovenčiny a&nbsp;Krátky slovník slovenského jazyka.</p>
         </div>
       </section>
 
@@ -145,7 +145,7 @@ const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
             <div>
               <span class="ms-kicker">Tabuľka 1</span>
               <h2>Ktoré útvary boli na maturite</h2>
-              <p>Bodka znamená, že útvar bol v&nbsp;danom roku medzi štyrmi vyžrebovanými témami. Prejdi myšou alebo ťukni na bodku a&nbsp;uvidíš presné znenie témy.</p>
+              <p>Bodka znamená, že daný útvar bol v&nbsp;tom roku vyžrebovaný. Prejdi myšou alebo ťukni na bodku a&nbsp;uvidíš presné znenie témy.</p>
             </div>
           </div>
           <div class="sl-matrix-wrap">
@@ -216,7 +216,7 @@ const newTexts = slohoveUtvary.filter((u) => !ZDROJE[u.slug].prezentacia);
                 Texty o&nbsp;slohových útvaroch vychádzajú zo série prezentácií <cite>{PROJEKT.series}</cite>. Pripravil ich {PROJEKT.author} v&nbsp;roku {PROJEKT.year} pre žiakov Strednej odbornej školy podnikania v&nbsp;Trenčíne.
               </p>
               <p>
-                Prezentácie vznikli ako učebný materiál v&nbsp;projekte <strong>{PROJEKT.name}</strong>, ktorý bol spolufinancovaný zo zdrojov Európskej únie – z&nbsp;Európskeho sociálneho fondu v&nbsp;rámci Operačného programu Vzdelávanie. Pre web sú autorsky upravené a&nbsp;doplnené o&nbsp;študijný prehľad verejne zverejnených tém a&nbsp;kritérií hodnotenia do roku 2026 (nejde o&nbsp;oficiálny materiál NIVaM a&nbsp;NIVaM nezodpovedá za&nbsp;jeho spracovanie).
+                Prezentácie vznikli ako učebný materiál v&nbsp;projekte <strong>{PROJEKT.name}</strong>, ktorý bol spolufinancovaný zo zdrojov Európskej únie – z&nbsp;Európskeho sociálneho fondu v&nbsp;rámci Operačného programu Vzdelávanie. Pre web sú autorsky upravené a&nbsp;doplnené o&nbsp;študijný prehľad zverejnených tém a&nbsp;kritérií hodnotenia do roku 2026 (nejde o&nbsp;oficiálny materiál NIVaM a&nbsp;NIVaM nezodpovedá za&nbsp;jeho spracovanie).
               </p>
               <div class="sl-eu-logos">
                 {PROJEKT_LOGA.map((l) => <img src={l.src} alt={l.alt} width={l.width} height={l.height} loading="lazy" decoding="async" />)}

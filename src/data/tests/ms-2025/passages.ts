@@ -93,7 +93,7 @@ export const passages: Record<string, SharedPassage> = {
     `
   },
   ukazka_5: {
-    label: 'Ukážka 5 · Paolo Coelho – Alchymista (úlohy 33 – 40)',
+    label: 'Ukážka 5 · Paulo Coelho – Alchymista (úlohy 33 – 40)',
     html: `
       <div class="passage-box">
         <div class="passage-badge">Ukážka 5</div>

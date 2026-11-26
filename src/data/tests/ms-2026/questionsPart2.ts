@@ -32,7 +32,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'B – o „dvoch skazách, číhajúcich na trón“ hovorí Kreon iba obrazne v hneve; v skutočnosti ju vypočúva pre pohreb, nie pre pokus o štátny prevrat.\nC – Ismena nechce Antigonu zachrániť pred trestom, ale chce zomrieť spolu s ňou (//„Ach, sestra, veď mi nebráň zomrieť s tebou!“//).\nD – Antigona sestre láskavo neodpúšťa, naopak, trpko jej vyčíta predošlú zbabelosť: //„veď ty si váhala… A nemám rada tých, čo majú radi iba slovami.“//'
+        text: 'B – spojenie //„dve skazy, číhajúce na môj trón“// použil Kreon iba obrazne v hneve; v skutočnosti Ismenu vypočúva pre pohreb, nie pre pokus o štátny prevrat.\nC – Ismena nechce Antigonu zachrániť pred trestom, ale chce zomrieť spolu s ňou (//„Ach, sestra, veď mi nebráň zomrieť s tebou!“//).\nD – Antigona sestre láskavo neodpúšťa, naopak, trpko jej vyčíta predošlú zbabelosť: //„veď ty si váhala… A nemám rada tých, čo majú radi iba slovami.“//'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -259,11 +259,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Vnútorná a vonkajšia stavba drámy',
-        text: 'Usporiadanie častí literárneho alebo dramatického diela do jedného celku sa odborne nazýva **kompozícia**. Pri dráme rozlišujeme:\n• **vonkajšiu kompozíciu** (členenie na dejstvá a výstupy; v antickej dráme prológ, parodos, epizódy, stasimony, exodos),\n• **vnútornú kompozíciu** – päťstupňové členenie dramatického deja: 1. úvod (//expozícia//), 2. zápletka (//kolízia//), 3. vyvrcholenie (//kríza//), 4. obrat (//peripetia//), 5. rozuzlenie (//katastrofa//).'
+        text: 'Usporiadanie častí literárneho (aj dramatického) diela do jedného celku sa odborne nazýva **kompozícia**. Pri dráme rozlišujeme:\n• **vonkajšiu kompozíciu** (členenie na dejstvá a výstupy; v antickej dráme prológ, parodos, epizódy, stasimony, exodos),\n• **vnútornú kompozíciu** – päťstupňové členenie dramatického deja: 1. úvod (//expozícia//), 2. zápletka (//kolízia//), 3. vyvrcholenie (//kríza//), 4. obrat (//peripetia//), 5. rozuzlenie (//katastrofa//).'
       },
       {
         title: 'Doplnenie termínu do vety',
-        text: 'Dielo //Antigona// je učebnicovým príkladom klasickej 5-člennej stavby deja, je v ňom teda dôsledne dodržaná **vnútorná kompozícia** dramatického diela.'
+        text: 'Dielo //Antigona// je učebnicovým príkladom klasickej päťčlennej stavby deja, je v ňom teda dôsledne dodržaná **vnútorná kompozícia** dramatického diela.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: kompozícia.'
@@ -313,11 +313,11 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Všimni si v 1. a 2. odseku, že ferratu práve počas uplynulého víkendu „opätovne otvorili“, aby sa skončilo „obdobie dlhej zimnej uzávery“ a príroda mala „až doteraz od človeka pokoj“. Ktorý z ponúknutých mesiacov nadväzuje na koniec zimno-jarnej uzávery v našich horách?',
+    hint: 'Všimni si v 1. a 2. odseku, že ferratu práve počas uplynulého víkendu „opätovne otvorili“ po „období dlhej zimnej uzávery“, počas ktorého mala príroda „až doteraz od človeka pokoj“. Ktorý z ponúknutých mesiacov nadväzuje na koniec zimno-jarnej uzávery v našich horách?',
     solutionSteps: [
       {
         title: 'Časové indície v článku',
-        text: 'Podľa článku ferratu Kyseľ uplynulý víkend **opätovne otvorili** po **dlhej zimnej uzávere**, počas ktorej //„príroda mala až doteraz od človeka pokoj“//, a v roklinách je po jari veľa vody. Sezónna uzávera ferraty Kyseľ (rovnako ako tatranských chodníkov) trvá od novembra do polovice **júna**.'
+        text: 'Podľa článku ferratu Kyseľ uplynulý víkend **opätovne otvorili** po **dlhej zimnej uzávere**, počas ktorej //„príroda mala až doteraz od človeka pokoj“//, a v roklinách je po jari veľa vody. Sezónna uzávera ferraty Kyseľ v Slovenskom raji trvá od 1. novembra do 14. júna (otvára sa 15. **júna**).'
       },
       {
         title: 'Vylúčenie ostatných mesiacov',
@@ -345,11 +345,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Znaky spravodajského žánru v ukážke',
-        text: 'Text vecne, stručne, aktuálne a objektívne informuje verejnosť o udalosti, ktorá sa už uskutočnila (otvorenie ferraty Kyseľ, stav vody v roklinách a pondelková uzávera mostíkov). Začína sa miestom pôvodu informácie, odpovedá na otázky //kto, čo, kedy, kde, ako, prečo// a dopĺňa citácie Správy NP – ide o rozšírenú **správu**.'
+        text: 'Text vecne, stručne a objektívne informuje verejnosť o aktuálnych udalostiach, ktoré sa uskutočnili alebo práve prebiehajú (otvorenie ferraty Kyseľ, stav vody v roklinách a pondelková uzávera mostíkov). Začína sa miestom pôvodu informácie, odpovedá na otázky //kto, čo, kedy, kde, ako, prečo// a dopĺňa citácie Správy NP – ide o rozšírenú **správu**.'
       },
       {
         title: 'Prečo nie ostatné žánre',
-        text: 'A – **komentár** je analytický žáner, v ktorom autor zaujíma vlastné hodnotiace stanovisko a polemizuje.\nC – **reportáž** umelecko-opisne vykresľuje atmosféru priamo z miesta diania očami svedka-reportéra.\nD – **oznam** je krátky útvar administratívneho/informačného štýlu, ktorý len vopred stručne oznamuje budúcu udalosť.'
+        text: 'A – **komentár** je analytický žáner, v ktorom autor zaujíma vlastné hodnotiace stanovisko a polemizuje.\nC – **reportáž** umelecko-opisne vykresľuje atmosféru priamo z miesta diania očami svedka-reportéra.\nD – **oznam** je krátky útvar administratívneho alebo publicistického štýlu (uplatňujúci informačný slohový postup), ktorý zvyčajne vopred stručne oznamuje budúcu udalosť.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -369,7 +369,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'V článku boli tieto názvy vytlačené veľkými písmenami, preto uplatni Pravidlá slovenského pravopisu: 1. Ako sa píšu oficiálne názvy národných parkov a čo platí pre začiatočné písmeno ich názvu, keď je vložený do názvu inštitúcie (Správa…)? 2. Ako sa píšu všeobecné podstatné mená vo viacslovných nesídelných zemepisných názvoch (vodné toky, chránené územia, skalné útvary – podobne ako Štrbské pleso či Malá Fatra)?',
+    hint: 'V článku boli tieto názvy vytlačené veľkými písmenami, preto uplatni Pravidlá slovenského pravopisu: 1. Ako sa píšu oficiálne názvy národných parkov a čo platí pre začiatočné písmeno ich názvu, keď je vložený do názvu inštitúcie (Správa…)? 2. Ako sa píšu všeobecné podstatné mená vo viacslovných nesídelných zemepisných názvoch (vodné toky, chránené územia, skalné útvary – podobne ako Štrbské pleso či Gerlachovský štít)?',
     solutionSteps: [
       {
         title: '1. Názov inštitúcie a národného parku (podľa PSP)',
@@ -405,7 +405,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Určenie slovotvorného postupu',
-        text: 'Tvorenie nového jednoslovného pomenovania spojením dvoch (alebo viacerých) slovotvorných základov nazývame **skladanie** (kompozícia). Nepribudla tu žiadna skratka ani ďalšie slovné spojenie, správna je teda možnosť **B** (//iba skladaním//).'
+        text: 'Tvorenie nového jednoslovného pomenovania spojením dvoch (alebo viacerých) slovotvorných základov nazývame **skladanie** (kompozícia). Nepribudla slovotvorná prípona (odvodzovanie), nevznikla skratka (skracovanie) ani viacslovné spojenie (spájanie), správna je teda možnosť **B** (//iba skladaním//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -422,7 +422,7 @@ export const questionsPart2: QuestionData[] = [
     correctAnswerDisplay: '2 (dve)',
     acceptedAnswers: ['2', 'dve', '2 vety', 'dve vety', '2 jednoduché vety', 'dve jednoduché vety'],
     lenient: true,
-    hint: 'Nenechaj sa pomýliť počtom čiarok (čiarka môže oddeľovať aj voľne pripojený vetný člen, nielen vetu) ani neurčitkom slovesa! Počet jednoduchých viet v súvetí sa rovná počtu prísudkov – vyhľadaj len určité slovesné alebo slovesno-menné prísudky.',
+    hint: 'Nenechaj sa pomýliť počtom čiarok (čiarka môže oddeľovať aj voľne pripojený vetný člen, nielen vetu) ani neurčitkom slovesa! Počet jednoduchých viet v súvetí sa rovná počtu prísudkov – vyhľadaj len slovesné alebo slovesno-menné prísudky (s určitým slovesným tvarom).',
     solutionSteps: [
       {
         title: 'Vyhľadanie prísudkov v súvetí',
@@ -451,8 +451,12 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Číslovka „dvoch“ pomenúva presný počet, je to teda určitá základná číslovka. Hľadaj neurčitú číslovku, ktorá vyjadruje množstvo len približne.'
       },
       {
-        pattern: '^množstvo$',
+        pattern: '^mno[zž]stvo$',
         hint: 'Slovo „množstvo“ je podstatné meno (to množstvo, vzor mesto). Hľadaj neohybnú neurčitú číslovku s podobným významom už v nadpise a v 1. odseku.'
+      },
+      {
+        pattern: '^posledn[yý]$',
+        hint: 'Slovo „posledný“ je radová číslovka (koľký v poradí?). Zadanie žiada neurčitú základnú číslovku (koľko?).'
       }
     ],
     hint: 'Základné číslovky odpovedajú na otázku koľko? Určité vyjadrujú presné číslo (napr. dva, sto), zatiaľ čo neurčité vyjadrujú počet alebo množstvo len všeobecne (napr. málo, mnoho, niekoľko). Prejdi si úvodnú časť ukážky 6 a hľadaj slovo vyjadrujúce neurčité (približné) množstvo.',
@@ -518,11 +522,11 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Sleduj, ako sa bankový úradník správa k slečne Malvínke a k slečne Žofii (úklon, zdvorilé oslovenie, ponúknuté rameno, poklona o tanci) a ako s radosťou na neho obe slečny reagujú.',
+    hint: 'Sleduj, ako sa bankový úradník správa k slečne Malvínke a k slečne Žofii (zdvorilý úklon, oslovenie „Slečna, smiem prosiť?“, poklona o tanci) a ako prívetivo a s radosťou na neho obe slečny reagujú.',
     solutionSteps: [
       {
         title: 'Správanie hrdinu a reakcia dám',
-        text: 'Hlavný hrdina vystupuje v spoločnosti vyberane, zdvorilo a galantne: slečnám sa úctivo ukloní, zdvorilo požiada o tanec (//„Slečna, smiem prosiť?“//), ponúkne rameno a slečne Žofii zloží obdivný kompliment o jej ľahkom tanci. Dcéry pána fabrikanta ho prijímajú s nadšením, zavesia sa mu na rameno a usmievajú sa – pôsobí na ne **ako gavalier** (zdvorilý, pozorný spoločník).'
+        text: 'Hlavný hrdina vystupuje v spoločnosti vyberane, zdvorilo a galantne: slečnám sa úctivo ukloní, Malvínku zdvorilo požiada o tanec (//„Slečna, smiem prosiť?“//) a Žofii zloží obdivný kompliment o jej ľahkom tanci. Dcéry pána fabrikanta ho prijímajú s nadšením – Malvínka radostne vykríkne //„Ó, áno!“// a Žofia sa mu po úklone sama zavesí na rameno, nakloní k nemu hlávku a zasmeje sa. Pôsobí teda na ne **ako gavalier** (zdvorilý, pozorný spoločník).'
       },
       {
         title: 'Prečo nie ostatné možnosti',
@@ -550,11 +554,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Sebauisťovanie rozprávača v texte',
-        text: 'Jednoduchý bankový úradník si každé gesto slečien v duchu vysvetľuje ako dôkaz vlastnej obľúbenosti a šarmu: //„Muselo jej to radosť pôsobiť. Ináče by bola jednoducho vstala… Myslel som si, že som naozaj príjemným človekom. Prečo by bola naklonila hlávku? Bola by jednoducho rovno šla, keby som jej bol ľahostajným.“// Opakovane tak **ubezpečuje sám seba o svojej obľúbenosti** (typická jemná irónia Janka Jesenského).'
+        text: 'Jednoduchý bankový úradník si každé gesto slečien v duchu vysvetľuje ako dôkaz vlastnej obľúbenosti a šarmu: //„Muselo jej to radosť pôsobiť. Ináče by bola jednoducho vstala. […] Myslel som si, že som naozaj príjemným človekom. Prečo by bola naklonila hlávku? Bola by jednoducho rovno šla, keby som jej bol ľahostajným.“// Opakovane tak **ubezpečuje sám seba o svojej obľúbenosti** (typická jemná irónia Janka Jesenského).'
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – nahlas vyslovil kompliment **iba slečne Žofii**; slečne Malvínke povedal len //„Slečna, smiem prosiť?“// a o jej tanci si iba pomyslel v duchu.\nB – o tom, aký bol on sám tanečník či zabávač celej spoločnosti, text nič nehovorí (chváli tanec partneriek).\nD – lichôtku nepoužil s cieľom slečny rozosmiať, ale zalichotiť tanečnici.'
+        text: 'A – nahlas vyslovil kompliment **iba slečne Žofii**; slečne Malvínke povedal len //„Slečna, smiem prosiť?“// a o jej tanci si iba pomyslel v duchu.\nB – o tom, aký bol on sám tanečník či zabávač celej spoločnosti, text nič nehovorí (chváli tanec partneriek).\nD – lichôtku zložil iba jednej zo slečien (Žofii) z obdivu a galantnosti, nie s cieľom rozosmiať obe dcéry pána továrnika.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -574,7 +578,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Prečítaj si začiatok posledného prehovoru hrdinu: „Tak ľahučko, krásne tancujete. Ani páper, keď v povetrí lieta.“ Akou bežnejšou spojkou sa v tejto vete dá nahradiť slovo „ani“ (a stupňuje sa v ďalších vetách význam, alebo sa len rovnocenne vymenúvajú smery fúknutia)?',
+    hint: 'Prečítaj si pozorne posledný prehovor hlavného hrdinu: k čomu v prvých dvoch vetách vzťahuje ľahký tanec partnerky a či sa v nasledujúcich vetách význam naozaj stupňuje, alebo sa v nich len rovnocenne vymenúvajú rôzne smery.',
     solutionSteps: [
       {
         title: 'Porovnávacia spojka „ani“ = „ako“',
@@ -582,7 +586,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – //nonsens// je zámerný nezmysel (slovná hračka bez logiky).\nB – //personifikácia// prenáša ľudské vlastnosti na neživé veci (tu sa naopak ľahkosť tanečnice prirovnáva k páperu).\nC – //gradácia// je stupňovanie významu; tu hrdina len rovnocenne vymenúva smery fúknutia (//zdola – zhora – zboku//).'
+        text: 'A – //nonsens// je zámerný nezmysel (slovná hračka bez logiky).\nB – //personifikácia// prenáša ľudské vlastnosti na neživé veci (tu sa, naopak, ľahkosť tanečnice prirovnáva k páperu).\nC – //gradácia// je stupňovanie významu; tu hrdina len rovnocenne vymenúva smery fúknutia (//zdola – zhora – zboku//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -610,7 +614,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo sú ostatné slová viacvýznamové',
-        text: '• **cítiť** (A) – vnímať zmyslami (//cítiť vôňu, chlad//), prežívať cit (//cítiť radosť//), aj tušiť (//cítiť nebezpečenstvo//).\n• **vyskočiť** (B) – urobiť skok nahor, prudko vstať zo stoličky, prudko vystúpiť (//vyskočila mu teplota, vyrážka//), aj oboriť sa na niekoho (//hneď naňho vyskočil//).\n• **rameno** (C) – časť hornej končatiny človeka, ale aj //rameno rieky//, //rameno žeriava//, //rameno váh// či //rameno svietnika//.'
+        text: '• **cítiť** (A) – vnímať zmyslami (//cítiť vôňu, chlad//), prežívať cit (//cítiť radosť//) aj tušiť (//cítiť nebezpečenstvo//).\n• **vyskočiť** (B) – urobiť skok nahor, prudko vstať zo stoličky, prudko vystúpiť (//vyskočila mu teplota//), objaviť sa na koži (//vyskočila mu vyrážka//) aj oboriť sa na niekoho (//hneď naňho vyskočil//).\n• **rameno** (C) – časť hornej končatiny človeka, ale aj //rameno rieky//, //rameno žeriava//, //rameno váh// či //rameno svietnika//.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -638,7 +642,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: '2. Určitý verzus neurčitý tvar',
-        text: 'Z tvaru //bola by šla// vieme presne určiť gramatické kategórie **osoby** (3. osoba – //ona//), **čísla** (jednotné číslo) a **spôsobu/času** (podmieňovací spôsob minulého času). Ide teda o **určitý slovesný tvar**. (Neurčité slovesné tvary osobu ani čas nevyjadrujú – patrí sem napr. neurčitok //písať//, prechodník //píšuc//, príčastia //píšuci, napísaný// a slovesné podstatné meno //písanie//.)'
+        text: 'Z tvaru //bola by šla// vieme presne určiť gramatické kategórie **osoby** (3. osoba – //ona//), **čísla** (jednotné číslo) a **slovesného spôsobu** (podmieňovací spôsob minulého času). Ide teda o **určitý slovesný tvar**. (Neurčité slovesné tvary **osobu ani slovesný spôsob** nevyjadrujú – patrí sem napr. neurčitok //písať//, prechodník //píšuc//, príčastia //píšuci, napísaný// a slovesné podstatné meno //písanie//.)'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -654,10 +658,14 @@ export const questionsPart2: QuestionData[] = [
     correctAnswerDisplay: 'predmetová',
     acceptedAnswers: [
       'predmetová',
+      'predmetovú',
       'predmetová vedľajšia veta',
+      'predmetovú vedľajšiu vetu',
       'vedľajšia veta predmetová',
+      'vedľajšiu vetu predmetovú',
       'vedľajšia predmetová veta',
       'predmetová veta',
+      'predmetovú vetu',
       'vv predmetová',
       'ide o predmetovú vedľajšiu vetu',
       'ide o vedľajšiu vetu predmetovú',
@@ -699,7 +707,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Zámeno „jej“ je v datíve (komu? → jej), čiže je nepriamym predmetom. Podmet je priamo vo vete v nominatíve stredného rodu!'
       }
     ],
-    hint: 'Pozor na slovosled! Pozri sa na sloveso v prísudku „muselo pôsobiť“ – koncovka -o prezrádza, že podmet musí byť v strednom rode a v nominatíve (kto? čo?). Ktoré slovo vo vete je v nominatíve stredného rodu?',
+    hint: 'Pozor na slovosled – prvé podstatné meno či zámeno vo vete nemusí byť podmetom! Skontroluj rod prísudku „muselo pôsobiť“ a opýtaj sa na podmet nominatívnou otázkou kto? čo?',
     solutionSteps: [
       {
         title: 'Pomôcka cez prísudok a zhodu',
@@ -765,7 +773,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Prečítaj si pozorne predposledný odsek (o Anninom predstieraní túžby spať) a úplne posledné súvetie ukážky („Pozrela tak nevinne, tak veselo, že kto by ju nepoznal, ako ju poznal manžel, nevybadal by…“). Dal sa manžel, ktorý Annu dobre poznal, jej nevinným pohľadom oklamať, alebo v jej tóne spoznal neprirodzenosť?',
+    hint: 'Porovnaj piaty odsek (o tom, ako sama Anna vnímala vlastné slová o spánku) s úplne posledným súvetím ukážky („Pozrela tak nevinne, tak veselo, že kto by ju nepoznal, ako ju poznal manžel, nevybadal by…“) a zamysli sa, čo z tejto podmienky vyplýva pre jej manžela.',
     solutionSteps: [
       {
         title: 'Rozlúštenie poslednej vety ukážky',
@@ -825,11 +833,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Čo v epike zrýchľuje spád deja',
-        text: 'V prozaickom texte spád deja najvýraznejšie zrýchľujú slovesá a **dialóg postáv** (rýchle striedanie krátkych replík v priamej reči: //„– Anna, musím ťa varovať. / – Varovať? – opýtala sa. – Pred čím?“//). Práve rozhovor Anny s manželom vnáša do ukážky napätie a **zdynamizuje** rozprávanie.'
+        text: 'V prozaickom texte spád deja najvýraznejšie zrýchľujú slovesá a **dialóg postáv** (rýchle striedanie krátkych replík v priamej reči: //„– Anna, musím ťa varovať. / – Varovať? – opýtala sa. – Pred čím?“//). Práve rozhovor Anny s manželom vnáša do ukážky napätie a **dynamizuje** rozprávanie.'
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – samotné grafické členenie na odseky je len vonkajšou úpravou textu.\nC – dlhé zložené súvetia tempo rozprávania naopak **spomaľujú** (slúžia skôr na vnútornú analýzu a opis).\nD – forma on-rozprávania (rozprávač v 3. osobe) sama osebe dej nezdynamizuje.'
+        text: 'A – samotné grafické členenie na odseky je len vonkajšou úpravou textu.\nC – dlhé zložené súvetia tempo rozprávania, naopak, **spomaľujú** (slúžia skôr na vnútornú analýzu a opis).\nD – forma on-rozprávania (rozprávač v 3. osobe) sama osebe dej nedynamizuje.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -858,7 +866,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – //alegória// (inotaj) je utajený zmysel celého príbehu, typický napr. pre bájky.\nB – //zvukomaľba// (onomatopoja) je zámerné napodobňovanie prírodných zvukov hláskami v slovách.\nD – v texte sa rozprávač nijako neprihovára čitateľovi (zvolacia veta je len vnútornou rečou postavy).'
+        text: 'A – //alegória// (inotaj) je utajený zmysel celého príbehu, typický napr. pre bájky.\nB – //zvukomaľba// (onomatopoja) je zámerné napodobňovanie zvukov reálneho sveta hláskami v slovách.\nD – v texte sa rozprávač nijako neprihovára čitateľovi – zvolacia veta predstavuje polopriamu reč (vnútorný prehovor postavy v 3. osobe).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -882,7 +890,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Čo je vokalizácia predložky',
-        text: '**Vokalizácia** je pridanie vkladnej samohlásky (**-o** alebo **-u**) k predložke, ktorá sa v základnom tvare končí spoluhláskou (najmä k neslabičným predložkám //v, z, s, k//, ale aj //nad, pod, pred, od, bez, cez//), aby sa predišlo ťažko vysloviteľnej skupine spoluhlások.'
+        text: '**Vokalizácia** je pridanie samohlásky (**-o** alebo **-u**) k predložke, ktorá sa v základnom tvare končí spoluhláskou (najmä k neslabičným predložkám //v, z, s, k//, ale aj //nad, pod, pred, od, bez, cez//), aby sa predišlo ťažko vysloviteľnej skupine spoluhlások.'
       },
       {
         title: 'Porovnanie možností',
@@ -988,7 +996,7 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^(6|šesť|sest)$',
+        pattern: '^(6|[sš]es[tť])(\\s+viet)?$',
         hint: 'Spočítal si všetky opytovacie vety s otáznikom (6), no pozor: stúpavú melódiu majú v slovenčine iba zisťovacie otázky (na ktoré sa odpovedá áno/nie)! Dopĺňacie otázky s opytovacím zámenom (Čo…, O čom…, Pred čím…) majú klesavú melódiu.'
       }
     ],
@@ -996,7 +1004,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Pravidlo o vetnej melódii v slovenčine',
-        text: '• **Klesavú melódiu** majú oznamovacie, rozkazovacie, želacie vety a aj **dopĺňacie opytovacie vety** – teda otázky, ktoré sa začínajú opytovacím zámenom alebo príslovkou (//kto, čo, o čom, pred čím, kde, kedy, prečo…//).\n• **Stúpavú vetnú melódiu** (antikadenciu) majú ukončené **zisťovacie opytovacie vety** – zisťujeme nimi platnosť deja, odpovedá sa na ne //áno / nie// a **neobsahujú opytovacie zámeno ani príslovku**.'
+        text: '• **Klesavú melódiu** majú oznamovacie, rozkazovacie, želacie vety a aj **dopĺňacie opytovacie vety** – teda otázky, ktoré sa začínajú opytovacím zámenom alebo príslovkou (//kto, čo, o čom, pred čím, kde, kedy, prečo…//).\n• **Stúpavú vetnú melódiu** (antikadenciu) majú ukončené **zisťovacie opytovacie vety** – zisťujeme nimi platnosť deja, odpovedá sa na ne //áno / nie// a **nezačínajú sa opytovacím zámenom ani opytovacou príslovkou**.'
       },
       {
         title: 'Roztriedenie všetkých 6 opytovacích viet v ukážke 8',

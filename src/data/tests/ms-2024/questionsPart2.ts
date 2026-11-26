@@ -109,11 +109,11 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Over si v ukážke 5 postupne všetky štyri možnosti: ide o rozsiahlu polytematickú báseň (básnické pásmo), zhoduje sa koniec každého verša bez presahov s hranicou vety (rytmicko-syntaktický paralelizmus), je báseň graficky rozčlenená na oddelené skupiny veršov (strofy), alebo sa na začiatku susedných veršov opakujú tie isté slová (anafora) so skrytým alegorickým významom (inotaj)?',
+    hint: 'Over si v ukážke 5 postupne všetky štyri možnosti: ide o rozsiahlu polytematickú báseň (básnické pásmo), zhoduje sa koniec každého verša bez presahov s hranicou vety (rytmicko-syntaktický paralelizmus), je báseň graficky rozčlenená na oddelené strofy alebo obsahuje opakovanie rovnakých slov na začiatku susedných veršov (anaforu) a zároveň skrytý alegorický význam (inotaj)?',
     solutionSteps: [
       {
         title: 'Vonkajšia kompozícia básne',
-        text: 'Báseň nie je napísaná v jednom súvislom bloku, ale je graficky aj významovo rozčlenená do samostatných skupín veršov (strof/slôh) oddelených medzerami – **je teda organizovaná stroficky** (**C**).'
+        text: 'Báseň nie je napísaná v jednom súvislom bloku, ale je graficky aj významovo rozčlenená do samostatných strof/slôh oddelených medzerami (niektoré strofy s nápismi na ceduľkách sú dokonca jednoveršové) – **je teda organizovaná stroficky** (**C**).'
       },
       {
         title: 'Prečo sú ostatné možnosti nesprávne',
@@ -196,7 +196,11 @@ export const questionsPart2: QuestionData[] = [
       'Pomlčka v závere ukážky 5 signalizuje recitátorovi dramatickú prestávku',
       'Pomlčka v závere ukážky 5 signalizuje recitátorovi významovú pauzu',
       'Pomlčka v závere ukážky 5 signalizuje recitátorovi logickú pauzu',
-      'Pomlčka v závere ukážky 5 signalizuje recitátorovi dramatickú pauzu'
+      'Pomlčka v závere ukážky 5 signalizuje recitátorovi dramatickú pauzu',
+      'Pomlčka v závere ukážky 5 signalizuje recitátorovi intonačnú prestávku',
+      'Pomlčka v závere ukážky 5 signalizuje recitátorovi umeleckú prestávku',
+      'Pomlčka v závere ukážky 5 signalizuje recitátorovi intonačnú pauzu',
+      'Pomlčka v závere ukážky 5 signalizuje recitátorovi umeleckú pauzu'
     ],
     lenient: true,
     commonMistakes: [
@@ -205,7 +209,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Fyziologická (prirodzená/dychová) prestávka slúži len na nadýchnutie. Pomlčka pred pointou básne však zámerne buduje očakávanie a zdôrazňuje zmysel posledného verša!'
       },
       {
-        pattern: 'krátk|dlh',
+        pattern: 'krátk|kratk|dlh',
         hint: 'Nejde o dĺžku pauzy (krátka/dlhá), ale o jej odborný druh podľa funkcie v reči (opak fyziologickej prestávky).'
       }
     ],
@@ -240,7 +244,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         pattern: '^báseň$|^basen$',
-        hint: 'Báseň je literárny útvar/žáner, zatiaľ čo zadanie pýta jeden z troch základných literárnych druhov.'
+        hint: 'Báseň je pomenovanie veršovaného útvaru/diela, zatiaľ čo zadanie žiada jeden z troch základných literárnych druhov.'
       }
     ],
     hint: 'Nezamieňaj si literárnu formu (poézia – próza) s literárnym druhom! Základné literárne druhy sú len tri: jeden má dej a rozprávača, druhý je určený na javisko a tretí je bezdejový – vyjadruje pocity, nálady, úvahy a vnútorné prežívanie.',
@@ -269,15 +273,15 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: 'sylabick|sylabotónick|sylabotonic|časomern|casomern|viazan',
+        pattern: 'sylabick|sylabotónick|sylabotonic|tónick|tonick|časomern|casomern|viazan',
         hint: 'Spočítaj si slabiky v jednotlivých veršoch ukážky 5 (5, 9, 8, 8, 3…) a všimni si, že verše sa vôbec nerýmujú – nejde o viazaný verš so stálym počtom slabík ani stôp!'
       },
       {
-        pattern: 'nerýmovan|bezrýmov',
+        pattern: 'nerýmovan|nerymovan|bezrýmov|bezrymov',
         hint: 'Chýbajúci rým je len jeden z prejavov; ako sa v modernej poézii odborne volá verš s rôznou dĺžkou riadkov bez pevnej rytmickej schémy (opak viazaného verša)?'
       }
     ],
-    hint: 'Porovnaj dĺžku jednotlivých veršov v ukážke 5 (niektorý má 3 slabiky, iný až 12 či 13 slabík) a pozri sa, či majú na konci rým. Ako nazývame moderný neviazaný verš bez pravidelného počtu slabík, stôp a rýmu?',
+    hint: 'Porovnaj dĺžku jednotlivých veršov v ukážke 5 (niektorý má 3 slabiky, iný až 12 či 13 slabík) a pozri sa, či majú na konci rým. Ako nazývame moderný verš bez pravidelného počtu slabík, stôp a pevného rýmu?',
     solutionSteps: [
       {
         title: 'Znaky verša v ukážke 5',
@@ -315,7 +319,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo sú ostatné možnosti nesprávne',
-        text: '**A** – zamieňa príčinu a následok: titul nezískavali držitelia nejakého ocenenia kvality, ale podnikatelia, ktorým cisár udelil výsadu zásobovať dvor, čo pre podnik v očiach verejnosti predstavovalo //„istý druh pečate kvality“//.\n**B** – z celkového počtu 1 223 dvorných dodávateľov bolo vo Viedni viac ako 500, čiže nadpolovičná väčšina (okolo 700) sídlila mimo Viedne (Budapešť, Praha, Karlove Vary, cudzina).\n**D** – firemné (vývesné) štíty vo Viedni len označovali obchody niekdajších dvorných dodávateľov.'
+        text: '**A** – zamieňa príčinu a následok: titul nezískavali držitelia nejakého ocenenia kvality, ale podnikatelia, ktorým cisár udelil výsadu zásobovať dvor, čo pre podnik v očiach verejnosti predstavovalo //„istý druh pečate kvality“//.\n**B** – popri vyše 500 viedenských firmách tvorili veľkú časť z celkového počtu 1 223 dvorných dodávateľov mnohé podniky z iných miest monarchie (Ischl, Budapešť, Karlove Vary, Praha) aj zo zahraničia (dokonca z Brazílie, Egypta a Japonska), takže titul nebol určený //hlavne// viedenským podnikateľom.\n**D** – firemné (vývesné) štíty vo Viedni len označovali obchody niekdajších dvorných dodávateľov.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **C**.'
@@ -335,7 +339,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Najprv v poslednom odseku ukážky 6 vyhľadaj presný rok, odkedy sa používal titul „cisársko-kráľovský dodávateľ“ (koniec 18. storočia). Potom si spomeň, ktoré literárne obdobie sa v slovenskej literatúre začína okolo roku 1780 (obdobie osvietenstva, Bajza, Fándly, Bernolák, neskôr Kollár a Hollý).',
+    hint: 'Najprv v poslednom odseku ukážky 6 vyhľadaj presný rok, odkedy sa používal titul „cisársko-kráľovský dodávateľ“. Potom tento rok zaraď do príslušného obdobia dejín slovenskej literatúry.',
     solutionSteps: [
       {
         title: 'Vyhľadanie roku v ukážke',
@@ -363,7 +367,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Rozlíš najprv súvislý text (plynulé vety a odseky) od nesúvislého textu (tabuľka, graf, zoznam, cestovný poriadok). Potom skontroluj, či sú v ukážke skutočné vedecké citácie a parafrázy iných vedcov, alebo skôr množstvo konkrétnych faktov, čísel a rokov.',
+    hint: 'Rozlíš najprv súvislý text (plynulé vety a odseky) od nesúvislého textu (tabuľka, graf, zoznam, cestovný poriadok). Potom skontroluj, či sú v ukážke skutočné vedecké citácie a parafrázy iných vedcov alebo skôr množstvo konkrétnych faktov, čísel a rokov.',
     solutionSteps: [
       {
         title: 'Overenie oboch znakov v možnosti C',
@@ -391,11 +395,11 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Odvoď si postupne, z akého základného slovesa vzniklo podstatné meno „dodávateľ“, nájdi jeho koreň a zisti, či má viac koreňov (skladanie), alebo jeden koreň obohatený pri odvodzovaní predponou aj príponou.',
+    hint: 'Odvoď si postupne, z akého základného slovesa vzniklo podstatné meno „dodávateľ“, nájdi jeho koreň a zisti, či má viac koreňov (skladanie) alebo jeden koreň obohatený pri odvodzovaní predponou aj príponou.',
     solutionSteps: [
       {
         title: 'Slovotvorný rozbor slova dodávateľ',
-        text: 'Podstatné meno //dodávateľ// je odvodené od slovesa //dodávať// (ktoré vzniklo predponou **do-** od //dávať//) pridaním činiteľskej slovotvornej prípony **-teľ** (//do- + -dáva- + -teľ//, podobne ako //učiteľ, čitateľ, zakladateľ//). Obsahuje teda **slovotvornú predponu** (**do-**) aj **slovotvornú príponu** (**-teľ**).'
+        text: 'Podstatné meno //dodávateľ// je odvodené od slovesa //dodávať// (ktoré vzniklo predponou **do-** od //dávať//) pridaním činiteľskej slovotvornej prípony **-teľ** (//do- + -dáva- + -teľ//, podobne ako //zakladateľ, vykonávateľ, vydavateľ//). Obsahuje teda **slovotvornú predponu** (**do-**) aj **slovotvornú príponu** (**-teľ**).'
       },
       {
         title: 'Prečo sú ostatné možnosti nesprávne',
@@ -446,15 +450,15 @@ export const questionsPart2: QuestionData[] = [
     caseHint: 'Obyvateľské mená (Pražan) sú vlastné mená – podľa Pravidiel slovenského pravopisu sa píšu s veľkým začiatočným písmenom P.',
     commonMistakes: [
       {
-        pattern: '^pražák$|^pražak$',
+        pattern: '^(pra[žz][áa]k)$',
         hint: 'Tvar „Pražák“ je nespisovný bohemizmus (prevzatý z češtiny). V spisovnej slovenčine sa obyvateľské mená tvoria príponou -an (ako Viedeň → Viedenčan, Bystrica → Bystričan).'
       },
       {
-        pattern: '^pražčan$|^prahačan$|^prahan$',
+        pattern: '^(pra[žz][čc]an|praha[čc]an|prahan)$',
         hint: 'Pri tvorení obyvateľského mena od názvu Praha príponou -an sa spoluhláska h mení (strieda) na ž – bez vkladania spoluhlásky č!'
       },
       {
-        pattern: '^pražania$|^pražanka$',
+        pattern: '^(pra[žz]ania|pra[žz]anka)$',
         hint: 'Zadanie žiada pomenovanie jedného mužského obyvateľa Prahy (nominatív jednotného čísla mužského rodu).'
       }
     ],
@@ -462,7 +466,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Tvorenie spisovného obyvateľského mena',
-        text: 'Od názvu mesta **Praha** sa v spisovnej slovenčine tvorí mužské obyvateľské meno slovotvornou príponou **-an**, pričom spoluhláska **h** sa pred príponou strieda so **ž**: //Prah-a + -an// → **Pražan** (ženský náprotivok je //Pražanka//; hovorový tvar //Pražák// je nespisovný).'
+        text: 'Od názvu mesta **Praha** sa v spisovnej slovenčine tvorí mužské obyvateľské meno slovotvornou príponou **-an**, pričom spoluhláska **h** sa pred príponou strieda so **ž**: //Prah-a + -an// → **Pražan** (ženský náprotivok je //Pražanka//; tvar //Pražák// je nespisovný bohemizmus).'
       },
       {
         title: 'Veľké začiatočné písmeno podľa PSP',
@@ -505,7 +509,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Pozri sa hneď na prvé dve slová podčiarknutej časti („Vďaka …“): nájdeš tam podstatné meno stredného rodu utvorené od slovesa príponou -nie (vzor vysvedčenie)!'
       }
     ],
-    hint: 'Slovesné podstatné meno pomenúva dej, tvorí sa od slovesa príponou -nie alebo -tie a skloňuje sa podľa vzoru vysvedčenie (napr. písanie, čítanie). Prejdi si podčiarknutú časť slovo po slove a daj si pozor na tvar „boli vyznamenaní“ – je to podstatné meno, alebo slovesné príčastie?',
+    hint: 'Slovesné podstatné meno pomenúva dej, tvorí sa od slovesa príponou -nie alebo -tie a skloňuje sa podľa vzoru vysvedčenie (napr. písanie, čítanie). Prejdi si podčiarknutú časť slovo po slove a pri slovách utvorených od slovies si over ich zakončenie – či ide o podstatné meno stredného rodu alebo o trpné príčastie v prísudku.',
     solutionSteps: [
       {
         title: 'Vyhľadanie slovesného podstatného mena',
@@ -547,7 +551,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Hodnotenie podľa kľúča NIVaM',
-        text: 'Uznáva sa spisovný slovenský termín **odsek** (kľúčom pripustený tvar //odstavec// – bohemizmus, spisovne //odsek// – či //paragraf// sa uznávajú len v rámci benevolentného vecného hodnotenia NIVaM).'
+        text: 'Uznáva sa spisovný slovenský termín **odsek**; kľúčom pripustené tvary //odstavec// (bohemizmus, spisovne //odsek//) či //paragraf// sa uznávajú len v rámci benevolentného vecného hodnotenia NIVaM.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: **odsek**.'
@@ -625,11 +629,11 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Taliančina sa vyvinula z latinčiny, patrí teda medzi románske jazyky (spolu s francúzštinou či španielčinou). Všimni si koreň názvu jedného z ponúknutých jazykov, ktorý priamo pripomína staroveký Rím (Roma)!',
+    hint: 'Taliančina sa vyvinula z latinčiny, patrí teda medzi románske jazyky. Rozdeľ si ponúknuté štyri jazyky na germánske, slovanské a románske.',
     solutionSteps: [
       {
         title: 'Zaradenie taliančiny do jazykovej skupiny',
-        text: 'Indoeurópska jazyková rodina sa v Európe delí najmä na **slovanské**, **germánske** a **románske** jazyky. **Taliančina** vznikla z ľudovej latinčiny a patrí do **románskej jazykovej skupiny** – rovnako ako francúzština, španielčina, portugalčina a **rumunčina** (**C**, kam latinčinu priniesli rímski kolonisti v starovekej Dácii).'
+        text: 'Indoeurópska jazyková rodina sa v Európe delí najmä na **slovanské**, **germánske** a **románske** jazyky. **Taliančina** vznikla z ľudovej latinčiny a patrí do **románskej jazykovej skupiny** – rovnako ako francúzština, španielčina, portugalčina a **rumunčina** (**C** – na územie dnešného Rumunska latinčinu priniesli rímski kolonisti v starovekej Dácii).'
       },
       {
         title: 'Zaradenie ostatných jazykov',
@@ -661,7 +665,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'Predložky **za** (**A**), **na** (**B**) a **po** (**C**) majú samohlásku vo svojom základnom tvare vždy (neexistuje predložka „z-“, „n-“ ani „p-“ v tomto význame) – nejde teda o vokalizáciu.'
+        text: 'Predložky **za** (**A**), **na** (**B**) a **po** (**C**) majú samohlásku vo svojom základnom tvare vždy (neexistuje predložka „z“, „n“ ani „p“ v tomto význame) – nejde teda o vokalizáciu.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **D**.'
@@ -726,7 +730,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Typy životopisu v úradnej komunikácii',
-        text: 'K úradnej žiadosti o prijatie do zamestnania alebo na brigádu (v inzeráte označovaný skratkou //CV// – //curriculum vitae//) sa prikladá prehľadný životopis členený do bodov a rubrík, ktorý sa v štylistike nazýva **štruktúrovaný**, **úradný** alebo **administratívny** životopis.'
+        text: 'K úradnej žiadosti o prijatie do zamestnania alebo na brigádu sa prikladá prehľadný životopis (v inzeráte označovaný skratkou //CV// – //curriculum vitae//) členený do bodov a rubrík, ktorý sa v štylistike nazýva **štruktúrovaný**, **úradný** alebo **administratívny** životopis.'
       },
       {
         title: 'Hodnotenie podľa kľúča NIVaM',
@@ -758,18 +762,18 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^predškolsk|^detské jasle|^jasle',
+        pattern: '^predškolsk|^predskolsk|^detské jasle|^detske jasle|^jasle',
         hint: 'Hľadáš oficiálne dvojslovné pomenovanie pre „škôlku“, ktoré sa skladá z prídavného mena a podstatného mena „škola“.'
       },
       {
-        pattern: '^škola$|^v\\s+škole$',
+        pattern: '^škola$|^skola$|^v\\s+škole$|^v\\s+skole$',
         hint: 'Združené pomenovanie je ustálené viacslovné (zvyčajne dvojslovné) pomenovanie jedného pojmu – doplň pred slovo „škola“ príslušné prídavné meno!'
       }
     ],
     hint: 'Združené pomenovanie je viacslovné (najčastejšie dvojslovné: prídavné meno + podstatné meno) ustálené pomenovanie pre jednu vec alebo inštitúciu, napr. „stredná škola“ namiesto „stredná“ alebo „triedna kniha“ namiesto „triedna“. V texte B je zvýraznené hovorové jednoslovné pomenovanie „v škôlke“ – ako znie oficiálny dvojslovný názov tejto inštitúcie (v úradnej žiadosti vhodnejší)?',
     solutionSteps: [
       {
-        title: 'Univerbizácia vs. združené pomenovanie',
+        title: 'Univerbizácia oproti združenému pomenovaniu',
         text: 'Podstatné meno //škôlka// vzniklo **univerbizáciou** (zjednoslovnením) v hovorovej reči a v úradnej žiadosti pôsobí neoficiálne. Jeho plným, štylisticky neutrálnym a úradným **združeným pomenovaním** je dvojslovné spojenie **materská škola** – v kontexte vety s predložkou v lokáli: **v materskej škole**.'
       },
       {
@@ -817,7 +821,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Informačný je slohový postup (spôsob spracovania témy), nie jazykový štýl!'
       }
     ],
-    hint: 'V slovenčine poznáme šesť základných jazykových štýlov (hovorový, náučný, publicistický, rečnícky, umelecký a šiesty pre oficiálny styk s inštitúciami). Do ktorého z nich patrí oficiálna žiadosť občana adresovaná firme s predpísanou formou („Vec: …“, „S úctou“, podpis)?',
+    hint: 'Spomeň si na šesť základných jazykových štýlov v slovenčine. Ktorý z nich slúži na oficiálnu komunikáciu občana s úradmi a inštitúciami v predpísanej forme („Vec: …“, „S úctou“, podpis)?',
     solutionSteps: [
       {
         title: 'Znaky jazykového štýlu v texte B',
@@ -879,11 +883,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Čo vyplýva priamo z ukážky 8',
-        text: 'V celom liste Werther nadšene **vyjadruje obdiv dievčine**, ktorú spoznal: nazýva ju //„jednou z najroztomilejších stvoričiek“// a //„anjelom“//, obdivuje jej //„čistú dušu, um, dobrotu, rozhodnosť a vyrovnanosť“// (**C**).'
+        text: 'V celom liste Werther nadšene **vyjadruje obdiv dievčine**, ktorú spoznal: nazýva ju //jednou z najroztomilejších stvoričiek// a //anjelom//, obdivuje jej //čistú dušu, um, dobrotu, rozhodnosť a vyrovnanosť// (**C**).'
       },
       {
         title: 'Prečo nevyplývajú ostatné možnosti',
-        text: '**A, B** – hoci v neskorších častiach Goetheho románu sa Wertherova láska stane nešťastnou a tragickou, **v ukážke 8** o tom ešte niet ani zmienky; naopak, Werther píše: //„mám sa dobre“// a //„Teším sa tomu a som šťastný“//.\n**D** – sám Werther priznáva pravý opak: //„nie som schopný napísať Ti, aká je dokonalá“// a tvrdí, že jeho slová //„nevystihujú ani jedinú črtu jej bytosti“//.'
+        text: '**A, B** – hoci v neskorších častiach Goetheho románu sa Wertherova láska stane nešťastnou a tragickou, **v ukážke 8** o tom ešte niet ani zmienky; naopak, Werther píše: //„že sa mám dobre“// a //„Teším sa tomu a som šťastný“//.\n**D** – sám Werther priznáva pravý opak: //„nie som schopný napísať Ti, aká je dokonalá“// a tvrdí, že jeho slová //„nevystihujú ani jedinú črtu jej bytosti“//.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **C**.'
@@ -903,11 +907,11 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Pozri sa na posledné slovo spojenia: „stvoričiek“ (základný tvar „stvorička“, utvorené príponou -ička od slova „stvora / stvorenie“). Ako sa volajú slová so zjemňujúcou príponou (-ička, -ček, -ko), ktorými vyjadrujeme nežný, láskavý vzťah?',
+    hint: 'Pozri sa na posledné slovo spojenia: „stvoričiek“ (základný tvar „stvorička“, utvorené príponou -ička od slova „stvora“). Ako sa volajú slová so zjemňujúcou príponou (-ička, -ček, -ko), ktorými vyjadrujeme nežný, láskavý vzťah?',
     solutionSteps: [
       {
         title: 'Určenie zdrobneniny (deminutíva)',
-        text: 'Podstatné meno **stvoričiek** (nominatív sg. //stvorička//, utvorené príponou **-ička** od //stvora / stvorenie//) zjemňuje význam a vyjadruje nežný, láskavý citový vzťah hovoriaceho k dievčine – je to **zdrobnenina** (deminutívum).'
+        text: 'Podstatné meno **stvoričiek** (nominatív sg. //stvorička//, utvorené príponou **-ička** od slova //stvora//) zjemňuje význam a vyjadruje nežný, láskavý citový vzťah hovoriaceho k dievčine – je to **zdrobnenina** (deminutívum).'
       },
       {
         title: 'Vylúčenie ostatných pojmov',
@@ -959,15 +963,15 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Všimni si spojku „a“ medzi oboma hlavnými vetami („1. Teším sa tomu“ + „2. som šťastný“) a významový vzťah medzi nimi: odporujú si, vylučujú sa, stupňujú sa, alebo sa len voľne spájajú ako dva súbežné pocity?',
+    hint: 'Všimni si spojku „a“ medzi oboma hlavnými vetami („1. Teším sa tomu“ + „2. som šťastný“) a významový vzťah medzi nimi: odporujú si, vylučujú sa, stupňujú sa alebo sa len voľne spájajú ako dva súbežné pocity?',
     solutionSteps: [
       {
         title: 'Určenie typu priraďovacieho súvetia',
-        text: 'Súvetie tvoria dve rovnocenné hlavné vety (//1. Teším sa tomu// + //2. som šťastný//), ktoré vyjadrujú dva súčasne prebiehajúce stavy a sú spojené základnou zlučovacou spojkou **a** (bez čiarky). Ide o **zlučovacie** priraďovacie súvetie (**C**; typické spojky: //a, i, aj, ani, najprv – potom//).'
+        text: 'Súvetie tvoria dve rovnocenné hlavné vety (//1. Teším sa tomu// + //2. som šťastný//), ktoré vyjadrujú dva súčasne prebiehajúce stavy a sú spojené základnou zlučovacou spojkou **a** (bez čiarky). Ide o **zlučovacie** priraďovacie súvetie (**C**; typické spojky a spájacie výrazy: //a, i, aj, ani, najprv – potom//).'
       },
       {
         title: 'Ostatné typy priraďovacích súvetí',
-        text: '**A** – //odporovacie//: druhá veta odporuje prvej (spojky //ale, no, lenže, avšak//).\n**B** – //vylučovacie//: platí buď jedna, alebo druhá možnosť (spojky //alebo, buď – alebo, či//).\n**D** – //stupňovacie//: druhá veta zdôrazňuje a stupňuje obsah prvej (spojky //ba, ba aj, nielen – ale aj, dokonca//).'
+        text: '**A** – //odporovacie//: druhá veta odporuje prvej (spojky //ale, no, lenže, avšak//).\n**B** – //vylučovacie//: platí buď jedna, alebo druhá možnosť (spojky //alebo, buď – alebo, či//).\n**D** – //stupňovacie//: druhá veta zdôrazňuje a stupňuje obsah prvej (typické spojky a spájacie výrazy //ba, ba aj, nielen – ale aj, dokonca//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **C**.'
@@ -1008,7 +1012,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Veta má len 4 slová; prísudok „zaujala“ s nevyjadreným podmetom „(ona)“ tvorí prisudzovací sklad, nie určovací.'
       }
     ],
-    hint: 'V slovenčine poznáme tri druhy vetných skladov: prisudzovací (podmet + prísudok), priraďovací (viacnásobný vetný člen) a určovací (každá dvojica nadradený člen + podradený rozvíjací člen). Najprv urči prísudok „zaujala“ a daj si veľký pozor pri hľadaní podmetu: z kontextu 3. odseku ukážky 8 sa opýtaj „kto zaujal?“ (všimni si aj ženský rod slovesa!) a odlíš podmet od slova, na ktoré sa pýtame v akuzatíve „koho? čo?“.',
+    hint: 'V slovenčine poznáme tri druhy vetných skladov: prisudzovací (podmet + prísudok), priraďovací (viacnásobný vetný člen) a určovací (každá dvojica nadradený člen + podradený rozvíjací člen). Najprv urči prísudok „zaujala“ a daj si veľký pozor pri hľadaní podmetu: z kontextu 3. odseku ukážky 8 sa opýtaj „kto zaujal?“ (z predošlej vety o tom, „aká je dokonalá“, zisti, kto je pôvodcom deja) a odlíš podmet od slova, na ktoré sa pýtame v akuzatíve „koho? čo?“.',
     solutionSteps: [
       {
         title: '1. Odhalenie zamlčaného podmetu (pozor na chyták!)',
@@ -1045,11 +1049,11 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Slovo „oblok“ nie je básnické slovo (poetizmus), ale štylisticky neutrálne spisovné synonymum slova „okno“. Prečítaj si tú istú vetu až do posledného slova!'
       },
       {
-        pattern: '^zaprisahal$|^podchvíľou$|^bytosti$',
-        hint: 'Toto slovo patrí do bežnej spisovnej (príp. knižnej) slovnej zásoby. Hľadaj na samom konci ukážky básnickú podobu slova „slnko“!'
+        pattern: '^zaprisahal$|^podchvíľou$|^podchvilou$|^bytosti$',
+        hint: 'Toto slovo patrí do bežnej spisovnej (príp. knižnej) slovnej zásoby, nie medzi básnické slová (poetizmy). Pozri sa pozorne na poslednú vetu zvýrazneného odseku a nájdi v nej slovo s výrazne umeleckým, básnickým tvarom.'
       }
     ],
-    hint: 'Básnické slová (poetizmy) sú slová so slávnostným, umeleckým nádychom, ktoré majú v bežnej reči neutrálny náprotivok (napr. luna – mesiac, vesna – jar, zora – úsvit). Prečítaj si záverečné vety zvýrazneného odseku (pozor, slovo ‚oblok‘ je v slovenčine neutrálne spisovné slovo, nie poetizmus).',
+    hint: 'Básnické slová (poetizmy) sú slová so slávnostným, umeleckým nádychom, ktoré majú v bežnej reči neutrálny náprotivok (napr. luna – mesiac, vesna – jar, zora – úsvit). Prečítaj si záverečné vety zvýrazneného odseku (pozor, slovo „oblok“ je v slovenčine neutrálne spisovné slovo, nie poetizmus).',
     solutionSteps: [
       {
         title: 'Vyhľadanie básnického slova (poetizmu)',
@@ -1083,11 +1087,11 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: 'personáln|vševediac|vsevediac|autorsk|nepriam|oko kamery',
-        hint: 'Pozor! Vševediaci aj personálny rozprávač rozprávajú v 3. osobe (on/ona). V ukážke 8 však rozpráva sám Werther v 1. osobe jednotného čísla („nepíšem, nadviazal som, som šťastný“)!'
+        pattern: 'personáln|personaln|vševediac|vsevediac|autorsk|nepriam|oko kamery',
+        hint: 'Pozor! Vševediaci (autorský), personálny rozprávač aj „oko kamery“ rozprávajú v 3. osobe (on/ona) a nejde tu ani o nepriameho rozprávača. V ukážke 8 rozpráva priamo hlavný hrdina Werther v 1. osobe jednotného čísla („nepíšem, nadviazal som, som šťastný“)!'
       },
       {
-        pattern: '^ja$|^ja-rozprávanie$|^ja rozprávanie$',
+        pattern: '^ja$|^ja[- ]rozprávanie$|^ja[- ]rozpravanie$',
         hint: 'Ja-rozprávanie je pomenovanie formy rozprávania; pred slovo „rozprávač“ treba doplniť prídavné meno (aký rozprávač zodpovedá ja-rozprávaniu?).'
       }
     ],

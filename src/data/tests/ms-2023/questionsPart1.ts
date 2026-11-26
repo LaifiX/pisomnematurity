@@ -25,15 +25,15 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Všimni si druhú otázku redaktora o starších detských tituloch a Hevierovu odpoveď na ňu.',
+    hint: 'Všimni si druhú otázku pýtajúceho sa (autorovho syna) o starších detských tituloch a Hevierovu odpoveď na ňu.',
     solutionSteps: [
       {
         title: 'Doklad v texte',
-        text: 'Redaktor pripomína, že v novom vydaní (reedícii) vyšli viaceré Hevierove staršie detské tituly (//Básnička ti pomôže//, //Hovorníček//, //Heviho diktátor//), a autor dodáva: „Ak je moja staršia knižka použiteľná aj do dnešných čias, som, prirodzene, rád.“ Jeho knižky sú teda stále živé a aktuálne.'
+        text: 'Pýtajúci sa (autorov syn) pripomína, že v novom vydaní (reedícii) vyšli viaceré Hevierove staršie detské tituly (//Básnička ti pomôže//, //Hovorníček//, //Heviho diktátor//), a autor dodáva: „Ak je moja staršia knižka použiteľná aj do dnešných čias, som, prirodzene, rád.“ Jeho knižky sú teda stále živé a aktuálne.'
       },
       {
         title: 'Prečo sú ostatné možnosti nesprávne',
-        text: 'A – o tvorivej kríze text nehovorí; redaktor naopak zdôrazňuje, že zdanie, akoby Hevier prestal písať, klame („Opak je však paradoxne pravdou…“).\nB – výtvarno síce silno vnímal od malička (rovnako ako hudbu či pohyb), no maľovať začal až pred desiatimi rokmi; o detskej túžbe stať sa výtvarníkom sa v ukážke nepíše.\nC – Hevier spomína, že učí iba „príležitostne“, nie intenzívne (intenzívne sa venuje maľovaniu).'
+        text: 'A – o tvorivej kríze text nehovorí; pýtajúci sa (autorov syn), naopak, zdôrazňuje, že zdanie, akoby Hevier prestal písať, klame („Opak je však paradoxne pravdou…“).\nB – výtvarno síce silno vnímal od malička (rovnako ako hudbu či pohyb), no maľovať začal až pred desiatimi rokmi; o detskej túžbe stať sa výtvarníkom sa v ukážke nepíše.\nC – Hevier spomína, že učí iba „príležitostne“, nie intenzívne (intenzívne sa venuje maľovaniu).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -57,7 +57,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Obraz ponornej riečky',
-        text: 'Hevier vysvetľuje: „Niekedy je písanie ponorná riečka – text sa vynorí až po dlhom plynutí v skrytosti. Mám niekoľko takých knižiek, ktoré sú doteraz ponorené. Ale píšu sa.“ Ponorené knižky sú teda rozpísané, zrejúce texty, ktoré potrebujú čas, kým dozrejú a dokončia sa.'
+        text: 'Hevier vysvetľuje: „Niekedy je písanie ponorná riečka – text sa vynorí až po dlhom plynutí v skrytosti. Mám niekoľko takých knižiek, ktoré sú doteraz ponorené. Ale píšu sa.“ Ponorené knižky sú teda rozpísané, vznikajúce texty, ktoré potrebujú čas, kým dozrejú a dokončia sa.'
       },
       {
         title: 'Vylúčenie ostatných možností',
@@ -89,7 +89,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Forma publicistického štýlu',
-        text: 'Publicistický štýl sa uplatňuje v tlači a na internete (**písomná forma**), ale rovnako aj v rozhlase a televízii (**ústna forma**). Možnosť A je preto nesprávna (iba písomnú formu má administratívny štýl) a možnosti B, C nesprávne uvádzajú súkromný styk.'
+        text: 'Publicistický štýl sa uplatňuje v tlači a na internete (**písomná forma**), ale rovnako aj v rozhlase a televízii (**ústna forma**). Možnosť A je preto nesprávna (predovšetkým písomnú formu má administratívny štýl) a možnosti B, C nesprávne uvádzajú súkromný styk.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -113,7 +113,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Pravidlo spodobovania na hranici slov',
-        text: 'Ak sa slovo končí **neznelou** spoluhláskou (**p, t, ť, k, c, č, s, š, ch, f**) a bez pauzy za ním nasleduje slovo začínajúce sa znelou párovou spoluhláskou (vrátane **v** pred samohláskou), nepárovou zvučnou spoluhláskou (**m, n, ň, l, ĺ, ľ, r, ŕ, j**) alebo samohláskou, neznelá spoluhláska sa vo výslovnosti zmení na svoj znelý pár.'
+        text: 'Ak sa slovo končí **neznelou** spoluhláskou (**p, t, ť, k, c, č, s, š, ch, f**) a bez pauzy za ním nasleduje slovo začínajúce sa znelou párovou spoluhláskou (vrátane **v** pred samohláskou, zvučnou či znelou spoluhláskou), nepárovou zvučnou spoluhláskou (**m, n, ň, l, ĺ, ľ, r, ŕ, j**) alebo samohláskou, neznelá spoluhláska sa vo výslovnosti zmení na svoj znelý pár.'
       },
       {
         title: 'Kontrola možností',
@@ -162,7 +162,7 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: ['začal', 'začať', 'si začal', 'začal si'],
     commonMistakes: [
       {
-        pattern: '^presta(l|ť)$',
+        pattern: 'presta(l|[ťt])',
         hint: 'Sloveso „prestal“ je síce fázové, no nachádza sa v Hevierovej odpovedi. Zadanie žiada vypísať ho z otázok pre Daniela Heviera (tučné odseky).'
       },
       {
@@ -170,7 +170,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Sloveso „maľovať“ je plnovýznamové. Vypíš iba samotné neplnovýznamové fázové sloveso, ktoré pri ňom vyjadruje začiatok deja.'
       }
     ],
-    hint: 'Fázové slovesá vyjadrujú začiatok, priebeh alebo ukončenie deja a v prísudku sa spájajú s neurčitkom iného slovesa. Hľadaj ho výlučne v tučných otázkach redaktora.',
+    hint: 'Fázové slovesá vyjadrujú začiatok, priebeh alebo ukončenie deja a v prísudku sa spájajú s neurčitkom iného slovesa. Hľadaj ho výlučne v tučných otázkach pýtajúceho sa.',
     solutionSteps: [
       {
         title: 'Čo je fázové sloveso',
@@ -199,11 +199,11 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Monografia je len jeden konkrétny vedecký žáner (kniha o jednej téme či osobnosti). Hľadaj nadradený pojem v prvej Hevierovej odpovedi.'
       },
       {
-        pattern: '^knižk[ay]$',
+        pattern: 'kni[žz]k[ay]',
         hint: 'Slovo „knižka“ nie je odborný termín pre všetky druhy písaných a tlačených textov. Pozri sa do prvej odpovede k vete o autorových živnostiach.'
       }
     ],
-    hint: 'Spomeň si na najširšie vymedzenie ústredného pojmu z úvodných hodín predmetu (pôvodom z latinského slova pre písmeno), ktoré zahŕňa všetky písané a tlačené texty, nielen umelecké. Termín nájdeš v prvej Hevierovej odpovedi.',
+    hint: 'Spomeň si na najširšie vymedzenie ústredného pojmu z úvodných hodín predmetu, ktorý zahŕňa všetky písané a tlačené texty, nielen umelecké. Termín nájdeš v prvej Hevierovej odpovedi.',
     solutionSteps: [
       {
         title: 'Širší význam pojmu literatúra',
@@ -233,7 +233,7 @@ export const questionsPart1: QuestionData[] = [
         hint: '„Rozhovor“ je domáce pomenovanie. Zadanie žiada cudzí (prevzatý z angličtiny) názov tohto publicistického žánru.'
       },
       {
-        pattern: '^dialóg$',
+        pattern: '^dial[óo]g$',
         hint: 'Dialóg je všeobecná forma rozhovoru dvoch osôb, nie cudzí názov konkrétneho novinárskeho žánru z ukážky.'
       }
     ],
@@ -267,7 +267,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Personifikácia (zosobnenie) prenáša ľudské konanie alebo vlastnosti na neživú prírodu či veci. V ktorom verši robí neživý prvok niečo typicky ľudské (bojovnícke)?',
+    hint: 'Personifikácia (zosobnenie) prenáša ľudské konanie alebo vlastnosti na neživú prírodu či veci. V ktorom verši robí neživý prvok niečo typicky ľudské?',
     solutionSteps: [
       {
         title: 'Rozbor správnej možnosti',
@@ -299,7 +299,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Posledná (štvrtá) strofa',
-        text: 'Vo veršoch „**Vôňa mu k záchvevu nozdry už neprebudí**, / **spí v slnku** s rukami na svojej tichej hrudi, / bok sa mu červenie z dvoch otvorených rán“ sa nachádza **metafora** (prenesené pomenovanie na základe podobnosti: vôňa, ktorá „neprebudí“ nozdry, aj obrazné „spí“ namiesto leží mŕtvy).'
+        text: 'Vo veršoch „**Vôňa mu k záchvevu nozdry už neprebudí**, / **spí v slnku** s rukami na svojej tichej hrudi, / bok sa mu červenie z dvoch otvorených rán“ sa nachádza **metafora** (prenesené pomenovanie na základe podobnosti: vôňa, ktorá „neprebudí“ nozdry, aj obrazné „spí“ namiesto „leží mŕtvy“).'
       },
       {
         title: 'Prečo nie ostatné možnosti',
@@ -331,7 +331,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Vysvetlenie ostatných pojmov',
-        text: 'B – metonymia prenáša pomenovanie na základe vecnej súvislosti (napr. //čítať Kukučína//), spánok a smrť spája vonkajšia podobnosť a snaha zjemniť krutosť smrti.\nC – nonsens je zámerný nezmysel využívaný v humornej literatúre.\nD – podobenstvo (parabola) je celý rozprávací príbeh s mravným ponaučením, nie jedno slovo.'
+        text: 'B – metonymia prenáša pomenovanie na základe vecnej súvislosti (napr. //čítať Kukučína//); spánok a smrť však spája vonkajšia podobnosť a snaha zjemniť krutosť smrti.\nC – nonsens je zámerný nezmysel využívaný v humornej literatúre.\nD – podobenstvo (parabola) je celý rozprávací príbeh s mravným ponaučením, nie jedno slovo.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -405,11 +405,11 @@ export const questionsPart1: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^balada$|^óda$|^elégia$|^žalm$',
+        pattern: '^(balada|[óo]da|el[ée]gia|[žz]alm)$',
         hint: 'Spočítaj strofy a verše v každej strofe: 4 + 4 + 3 + 3 = 14 veršov. Táto presná 14-veršová strofická forma má svoj ustálený názov.'
       }
     ],
-    hint: 'Spočítaj verše v jednotlivých strofách ukážky 2 (4 + 4 + 3 + 3 = 14 veršov). Ako sa volá táto známa 14-veršová strofická forma s pointou v závere?',
+    hint: 'Spočítaj verše v jednotlivých strofách ukážky 2. Ako sa volá táto známa strofická forma s pointou v závere?',
     solutionSteps: [
       {
         title: 'Znaky strofickej formy',
@@ -438,7 +438,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Hlavný predstaviteľ slovenskej literárnej moderny',
-        text: 'Ústrednou osobnosťou **slovenskej literárnej moderny** (začiatok 20. storočia, symbolizmus a impresionizmus) je básnik známy pod umeleckým menom **Ivan Krasko** (autor zbierok //Nox et solitudo// a //Verše//). Vlastným občianskym menom sa volal **Ing. Ján Botto** – pseudonym si zvolil, aby si ho nemýlili s romantickým básnikom Jánom Bottom.'
+        text: 'Ústrednou osobnosťou **slovenskej literárnej moderny** (začiatok 20. storočia, symbolizmus a impresionizmus) je básnik známy pod umeleckým menom **Ivan Krasko** (autor zbierok //Nox et solitudo// a //Verše//). Vlastným občianskym menom sa volal **Ján Botto** (povolaním chemický inžinier) – pseudonym Ivan Krasko mu vybral Svetozár Hurban Vajanský (podľa susednej obce Kraskovo), aby si ho čitatelia nemýlili s romantickým básnikom Jánom Bottom.'
       },
       {
         title: 'Prečo bola úloha anulovaná',
@@ -467,11 +467,11 @@ export const questionsPart1: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^poézi[ae]$',
+        pattern: 'po[ée]zi[ae]',
         hint: 'Pozor na častú zámenu: „poézia“ (viazaná/veršovaná reč) a „próza“ sú literárne formy, nie literárne druhy. Tri literárne druhy sú lyrika, epika a dráma.'
       },
       {
-        pattern: '^epik[ay]$|^drám[ay]$',
+        pattern: 'epik[ay]|dr[áa]m[ay]',
         hint: 'Ukážka 2 nemá dejovú zápletku rozprávania (epika) ani divadelné repliky (dráma) – vyjadruje náladu, obraz a postoj lyrického subjektu.'
       }
     ],
@@ -483,7 +483,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Zaradenie ukážky 2 a hodnotenie kľúča',
-        text: 'Rimbaudov sonet //Spáč v údolí// vykresľuje prírodný a protivojnový obraz s citovým postojom lyrického subjektu – patrí teda do **lyriky**.\nKľúč NIVaM uznáva genitívny tvar zapojený do vety (**lyriky**) aj základný tvar (**lyrika**), s prihliadnutím na vecnú správnosť.'
+        text: 'Rimbaudov sonet //Spáč v údolí// vykresľuje prírodný a protivojnový obraz s citovým postojom lyrického subjektu – patrí teda do **lyriky**.\nKľúč NIVaM uznáva genitívny tvar zapojený do vety (**lyriky**) aj základný tvar (**lyrika**) s prihliadnutím na vecnú správnosť.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: lyriky (lyrika).'
@@ -533,11 +533,11 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Pozor na podčiarknuté slovo „neplatí“. Over si v texte všetky štyri tvrdenia: komu je webová poradňa určená, či využíva aj domáce jazykovedné termíny a doklady zo slovníkov a či v nej autor len vysvetľuje známy jav, alebo vedie ostrý vedecký spor (polemiku) o nových objavoch.',
+    hint: 'Pozor na podčiarknuté slovo „neplatí“. Over si v texte všetky štyri tvrdenia: komu je jazyková poradňa určená, či obsahuje domáce odborné názvy a konkrétne doklady zo slovníkov a čo presne znamená sloveso „polemizovať“.',
     solutionSteps: [
       {
         title: 'Čo pre ukážku platí (A, B, D)',
-        text: 'A – webová jazyková poradňa a časopis //Kultúra slova// sú určené bežným používateľom jazyka, teda širokej verejnosti (populárno-náučný výklad).\nB – text využíva aj domáce odborné termíny: //prídavné meno, zložené prídavné mená, prípona//.\nD – autor argumentuje konkrétnymi faktmi (citácie slovníkov z rokov 1959, 1987, 1989, 1997 a doklady z odborných textov).'
+        text: 'A – webová jazyková poradňa a časopis //Kultúra slova// sú určené bežným používateľom jazyka, teda širokej verejnosti (populárno-náučný výklad).\nB – text využíva aj domáce odborné termíny: //prídavné meno, zložené prídavné mená, prípona//.\nD – autor argumentuje konkrétnymi faktmi: uvádza odkazy na slovníky (údaje zo slovníkov) z rokov 1959, 1987, 1989, 1997 a doklady z odborných textov.'
       },
       {
         title: 'Čo pre ukážku neplatí (C)',
@@ -565,11 +565,11 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Združené pomenovania v ukážke',
-        text: '**Združené pomenovanie** je ustálené viacslovné (neobrazné) pomenovanie, ktoré označuje jednu vec alebo jeden odborný pojem. V ukážke 3 je ich hneď niekoľko: //prídavné meno//, //kodifikačná príručka//, //regulačný obvod// či názvy //Slovník slovenského jazyka// a //Krátky slovník slovenského jazyka//.'
+        text: '**Združené pomenovanie** je ustálené viacslovné (neobrazné) pomenovanie, ktoré označuje jednu vec alebo jeden odborný pojem. V ukážke 3 je ich hneď niekoľko: //prídavné meno//, //kodifikačná príručka//, //regulačný obvod//, //lexikografické dielo// či //odborný text//.'
       },
       {
         title: 'Prečo nie ostatné možnosti (časté chytáky)',
-        text: 'A – frazeologický výraz (obrazné ustálené spojenie, napr. //mať niečo za lubom//) sa vo vecnom odbornom texte nenachádza.\nC – **KSSJ** nie je skratkové slovo, ale **iniciálová skratka** (neskloňuje sa a hláskuje sa //[ká-es-es-jé]//; skratkové slovo sa číta a skloňuje ako bežné slovo, napr. //Slovnaft – v Slovnafte//).\nD – v texte sú len administratívne skratky s bodkou (//a pod., napr., r.//), nie značky bez bodky (ako //km, kg, €//).'
+        text: 'A – frazeologický výraz (obrazné ustálené spojenie, napr. //mať niečo za lubom//) sa vo vecnom odbornom texte nenachádza.\nC – **KSSJ** nie je skratkové slovo, ale **iniciálová skratka** (neskloňuje sa a hláskuje sa //[ká-es-es-jé]//; skratkové slovo sa číta a skloňuje ako bežné slovo, napr. //Slovnaft – v Slovnafte//).\nD – v texte sú len ustálené (administratívne) skratky s bodkou (//a pod., napr., r.//), nie značky bez bodky (ako //km, kg, €//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -597,7 +597,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'Hoci v texte nájdeme skratku //KSSJ// alebo cudzie slovo //chromatografia//, zadanie sa pýta, ktoré spôsoby obohacovania slovnej zásoby sa v ukážke **spomínajú** (o ktorých text pojednáva). O spájaní, skracovaní ani preberaní slov z cudzích jazykov sa v texte nehovorí.'
+        text: 'Hoci v texte nájdeme skratku //KSSJ// alebo cudzie slovo //chromatografia//, zadanie sa pýta, ktoré spôsoby obohacovania slovnej zásoby sa v ukážke **spomínajú** (o ktorých text hovorí). O spájaní, skracovaní ani preberaní slov z cudzích jazykov sa v texte nehovorí.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -649,7 +649,9 @@ export const questionsPart1: QuestionData[] = [
       '3',
       'tri',
       '3 vety',
-      'tri vety'
+      'tri vety',
+      '3 jednoduché vety',
+      'tri jednoduché vety'
     ],
     lenient: true,
     hint: 'Prečítaj si prvé súvetie ukážky až po prvú bodku (pozor, bodka v skratke „a pod.“ vetu nekončí!) a spočítaj v ňom prísudky – určité slovesné tvary.',
@@ -660,7 +662,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Ako hodnotí kľúč',
-        text: 'Súvetie štandardne obsahuje **2 vety**. Kľúč NIVaM uznáva aj odpoveď **3 vety** (pre prípad, že žiak chápal porovnávaciu konštrukciu s //ako// alebo skratku //a pod.// ako neúplnú vetu so zamlčaným prísudkom).'
+        text: 'Súvetie štandardne obsahuje **2 vety**. Kľúč NIVaM uznáva aj odpoveď **3 vety** (pre prípad, že žiak chápal porovnávaciu konštrukciu //ako [majú] jednorozmerný, dvojrozmerný a pod.// ako neúplnú vetu so zamlčaným prísudkom).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: 2 (uznáva sa aj 3).'
@@ -693,19 +695,19 @@ export const questionsPart1: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: 'pravopisn|kodifikačn|prekladov|synonymick|ortografick|etymologick',
-        hint: 'Krátky slovník slovenského jazyka je síce aj kodifikačnou príručkou, ale ako druh slovníka nevysvetľuje len pravopis ani neprekladá do cudzieho jazyka – objasňuje (vykladá) významy slov.'
+        pattern: 'pravopisn|kodifika[čc]n|prekladov|synonymick|ortografick|etymologick',
+        hint: 'Krátky slovník slovenského jazyka je síce aj kodifikačnou príručkou, ale ako druh slovníka nevysvetľuje len pravopis ani neprekladá do cudzieho jazyka – objasňuje významy slov.'
       }
     ],
     hint: 'V druhom odseku sa spomínajú Slovník slovenského jazyka a Krátky slovník slovenského jazyka (KSSJ). Spomeň si na druhy slovníkov v lexikológii – ako sa odborne nazýva slovník, ktorého hlavnou úlohou je objasňovať a vysvetľovať významy slov?',
     solutionSteps: [
       {
         title: 'Druhy slovníkov v slovenčine',
-        text: '//Slovník slovenského jazyka// a //Krátky slovník slovenského jazyka// zachytávajú slovnú zásobu národného jazyka a **vykladajú (vysvetľujú) význam jednotlivých slov**, ich štylistickú platnosť a príklady použitia. Patria preto medzi **výkladové slovníky**.'
+        text: '//Slovník slovenského jazyka// a //Krátky slovník slovenského jazyka// zachytávajú slovnú zásobu národného jazyka, **vykladajú (vysvetľujú) význam jednotlivých slov** a uvádzajú ich štylistickú platnosť aj príklady použitia. Patria preto medzi **výkladové slovníky**.'
       },
       {
         title: 'Ako hodnotí kľúč',
-        text: 'Kľúč NIVaM uznáva odpovede //výkladové//, //k výkladovým (slovníkom)// aj v jednotnom čísle //výkladový (slovník)//, s prihliadnutím na vecnú správnosť.'
+        text: 'Kľúč NIVaM uznáva odpovede //výkladové//, //k výkladovým (slovníkom)// aj v jednotnom čísle //výkladový (slovník)// s prihliadnutím na vecnú správnosť.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: výkladové (slovníky).'
@@ -722,15 +724,15 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: ['vychádzajúc'],
     commonMistakes: [
       {
-        pattern: '^(majúci|vyjadrujúce|udávajúci|fungujúcej)$',
-        hint: 'Pozor na koncovku! Slová na -úci, -úce, -úca (majúci, vyjadrujúce, udávajúci) sa skloňujú – sú to činné príčastia. Prechodník je neohybný tvar a končí sa len na -úc alebo -iac (bez samohlásky na konci).'
+        pattern: '^(maj[úu]ci|vyjadruj[úu]ce|ud[áa]vaj[úu]ci)$',
+        hint: 'Pozor na zakončenie! Slová na -úci, -úce, -úca (majúci, vyjadrujúce, udávajúci) sa skloňujú – sú to činné príčastia. Prechodník je neohybný tvar a končí sa len na -úc/-uc alebo -iac/-ac (bez samohlásky na konci).'
       }
     ],
     hint: 'Prechodník je neohybný slovesný tvar zakončený príponou -úc/-uc alebo -iac/-ac (napr. robiac, idúc). Pozorne si prečítaj prvý odsek a nepopleť si ho so sklonnými príčastiami na -úci, -úca, -úce!',
     solutionSteps: [
       {
         title: 'Ako spoznať prechodník',
-        text: '**Prechodník** je neurčitý, neohybný slovesný tvar, ktorý vyjadruje sprievodný dej prebiehajúci súčasne s dejom hlavného slovesa a tvorí sa príponou **-úc, -uc, -iac, -ac** (napr. //čítajúc, vidiac//). Tvary so samohláskou na konci (//majúci, vyjadrujúce, udávajúci//) sú ohybné činné príčastia, nie prechodníky.'
+        text: '**Prechodník** je neurčitý, neohybný slovesný tvar, ktorý vyjadruje sprievodný dej prebiehajúci spravidla súčasne s dejom hlavného slovesa (pri dokonavých slovesách tesne pred ním) a tvorí sa príponou **-úc, -uc, -iac, -ac** (napr. //čítajúc, vidiac//). Tvary so samohláskou na konci (//majúci, vyjadrujúce, udávajúci//) sú ohybné činné príčastia, nie prechodníky.'
       },
       {
         title: 'Nájdenie v texte a pravopis',
@@ -784,7 +786,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Spomeň si na priezviská dvoch ústredných postáv Kukučínovho diela – kupčíka Ondreja Trávu a schudobneného zemana Aduša Domanického z Domaníc – a na žáner diela.',
+    hint: 'Over si pri každej možnosti základné fakty o tomto Kukučínovom diele: aký je jeho literárny žáner, aké priezviská majú kupčík Ondrej a schudobnený zeman, ako realizmus zobrazuje ľudské povahy a či ide o autorov vlastný životopis.',
     solutionSteps: [
       {
         title: 'Hovoriace (obrazné) priezviská',
@@ -812,7 +814,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Rieši sa v ukážke už spor medzi Ondrejom Trávom a Adušom Domanickým o jasene, alebo nás autor zatiaľ iba zoznamuje s postavou Ondreja a jeho jarmočným životom?',
+    hint: 'Zamysli sa nad miestom ukážky v celej poviedke: predstavuje autor hlavnú postavu a jej prostredie, rozbieha sa už obchodný spor s Adušom Domanickým, nastáva v deji zlom, alebo sa príbeh uzatvára?',
     solutionSteps: [
       {
         title: 'Expozícia (úvod) poviedky',
@@ -876,7 +878,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Porovnanie možností',
-        text: 'B – //„Ale ma ešte znáte?“// je **zisťovacia otázka** (odpoveď: //áno, poznám / nie, nepoznám//), preto v nej hlas na konci **stúpa**.\nA – //„Akože sa máš?“// sa začína opytovacou príslovkou //ako(že)// – je to dopĺňacia otázka s **klesavou** melódiou.\nC (želacia/zvolacia veta) a D (oznamovacia veta) majú takisto klesavú melódiu.'
+        text: 'B – //„Ale ma ešte znáte?“// je **zisťovacia otázka** (odpoveď: //áno, poznám / nie, nepoznám//), preto v nej hlas na konci **stúpa**.\nA – //„Akože sa máš?“// sa začína opytovacím príslovkovým zámenom //ako(že)// – je to dopĺňacia otázka s **klesavou** melódiou.\nC (želacia/zvolacia veta) a D (oznamovacia veta) majú takisto klesavú melódiu.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -899,8 +901,8 @@ export const questionsPart1: QuestionData[] = [
     ],
     commonMistakes: [
       {
-        pattern: '^všetci$',
-        hint: 'Našiel si správnu vsuvku medzi pomlčkami, ale pozri sa pozorným okom hneď za prvú pomlčku – pred slovom „všetci“ stojí ešte jedno krátke slovo.'
+        pattern: '^v[šs]etci(\\s|$)',
+        hint: 'Našiel si správnu vsuvku medzi pomlčkami, ale pozri sa pozorne hneď za prvú pomlčku – pred slovom „všetci“ stojí ešte jedno krátke slovo.'
       }
     ],
     hint: 'Vsuvka (parentéza) je vsunutá poznámka uprostred vety, ktorá je z oboch strán oddelená čiarkami, zátvorkami alebo pomlčkami. Nájdi takúto vsunutú časť v 1. odseku a vypíš jej prvé slovo.',
@@ -936,7 +938,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     commonMistakes: [
       {
-        pattern: '^počul$|^Ondrej$',
+        pattern: '^po[čc]ul$|^Ondrej$',
         hint: 'Nepopleť si pásmo rozprávača len s uvádzacou vetou za priamou rečou! Pásmo rozprávača tvorí všetok autorský text mimo úvodzoviek – pozri sa, čím sa začína hneď prvý odsek ukážky.'
       },
       {
@@ -944,7 +946,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Slovo „Daj“ je v úvodzovkách – tým sa začína priama reč postavy (pásmo postáv), nie pásmo rozprávača.'
       }
     ],
-    hint: 'Epický text sa delí na pásmo postáv (priama reč v úvodzovkách) a pásmo rozprávača (všetok ostatný rozprávací text mimo úvodzoviek). Kde sa teda pásmo rozprávača v tejto ukážke začína?',
+    hint: 'Epický text sa delí na pásmo postáv (napr. priama reč v úvodzovkách) a pásmo rozprávača (všetok ostatný rozprávací text mimo úvodzoviek). Kde sa teda pásmo rozprávača v tejto ukážke začína?',
     solutionSteps: [
       {
         title: 'Pásmo rozprávača a pásmo postáv',
@@ -971,6 +973,10 @@ export const questionsPart1: QuestionData[] = [
       {
         pattern: '^valachy$',
         hint: 'Pozor na životnosť: „valach“ je osoba – životné podstatné meno mužského rodu (vzor chlap), preto má v nominatíve množného čísla mäkké -i a spoluhláska ch sa mení.'
+      },
+      {
+        pattern: '^vala(s|š)y$',
+        hint: 'Životné podstatné meno „valach“ sa skloňuje podľa vzoru chlap – v nominatíve množného čísla má príponu s mäkkým -i (valasi), hoci sa ch mení na s.'
       },
       {
         pattern: '^valaši$',

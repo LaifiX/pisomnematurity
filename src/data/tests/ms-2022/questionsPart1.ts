@@ -25,10 +25,10 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Prečítaj si posledné štyri verše. Čo lyrický subjekt so svojím srdcom urobí – poddá sa mu, alebo ho skrotí?',
+    hint: 'Prečítaj si posledné štyri verše a všimni si, ako lyrický subjekt naloží so svojimi citmi a túžbou.',
     solutionSteps: [
       { title: 'Záver básne', text: '„Hľadím a trpím neprestajne, / no prísny zákon ctiť si viem, / zavraciam srdce: skrotni, driem – / mlčím… a vzdychám, blčím tajne.“ Lyrický subjekt túži, ale city potláča a mlčí.' },
-      { title: 'Prečo nie ostatné', text: 'A – práve preto, že túžbu cíti ako hriech, prosí o odpustenie („odpusť mi, že mu závidím“).\nB – priateľovu družku nepobozkal (iba na ňu hľadí a tajne vzdychá); o „krádeži bozku“ uvažuje len podmienečne, a aj to pri „nevoľnej peknoočke“, nie pri priateľovej družke.\nD – báseň práveže rozlišuje jeho postoj podľa postavenia ženy: pri „nevoľnej peknoočke“ by si bozk dovolil, kým pri priateľovej „milej družke“ city potláča a mlčí.' }
+      { title: 'Prečo nie ostatné', text: 'A – práve preto, že túžbu cíti ako hriech, prosí o odpustenie („odpusť mi, že mu závidím“).\nB – priateľovu družku nepobozkal (iba na ňu hľadí a tajne vzdychá); o „krádeži bozku“ uvažuje len podmienečne, a aj to pri „nevoľnej peknoočke“, nie pri priateľovej družke.\nD – báseň, naopak, rozlišuje jeho postoj podľa postavenia ženy: pri „nevoľnej peknoočke“ by si bozk dovolil, kým pri priateľovej „milej družke“ city potláča a mlčí.' }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
   },
@@ -50,7 +50,7 @@ export const questionsPart1: QuestionData[] = [
     hint: 'Metafora je prenesené pomenovanie na základe podobnosti. Ktoré spojenie nemožno chápať doslova?',
     solutionSteps: [
       { title: 'Prenesený význam', text: 'Svedomie nemá hlas v doslovnom zmysle. Jeho pôsobenie (to, že nás „napomína“) sa prirovnáva k hlasu, ktorý k nám hovorí – ide o metaforu.' },
-      { title: 'Ostatné možnosti', text: 'Spojenia A, B a C sú pomenovania vo vlastnom, doslovnom význame.' }
+      { title: 'Ostatné možnosti', text: 'Spojenia A (//nechcem jeho statky//) a C (//dvor s dobytkom//) sú pomenovania vo vlastnom, doslovnom význame; spojenie B (//majetok v úcte mať// = vážiť si majetok) je použité v bežnom, neprenesenom význame (nejde o metaforu).' }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
   },
@@ -71,8 +71,8 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: ['B'],
     hint: 'Počet slabík = počet samohlások, dvojhlások a slabikotvorných r, ŕ, l, ĺ. Spočítaj každý verš osobitne.',
     solutionSteps: [
-      { title: 'Rozdelenie na slabiky', text: 'A – ak – sa – zav – še – aj – tak – sta – ne = 9\nže – mi – lú – druž – ku – vi – dím – s ním = 8\nod – pusť – mi – že – mu – zá – vi – dím = 8\nan – je – la – je – ho – kris – te – pa – ne = 9' },
-      { title: 'Výsledok', text: 'Postupnosť 9, 8, 8, 9 zodpovedá aj obkročnému rýmu štvorveršia.' }
+      { title: 'Rozdelenie na slabiky', text: 'A ak sa zav-še aj tak sta-ne, = 9\nže mi-lú druž-ku vi-dím s ním, = 8 (predložka //s// je neslabičná)\nod-pusť mi, že mu zá-vi-dím = 8\nan-je-la je-ho, kris-te-pa-ne. = 9' },
+      { title: 'Výsledok', text: 'Prvý a štvrtý verš majú zhodne po 9 slabík, druhý a tretí po 8 slabík (postupnosť **9, 8, 8, 9**).' }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
   },
@@ -129,9 +129,24 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Do ktorého literárneho smeru sa zaraďuje prevažná časť tvorby A. S. Puškina?',
     placeholder: 'Napíš literárny smer',
     correctAnswerDisplay: 'romantizmus',
-    acceptedAnswers: ['romantizmus', 'do romantizmu', 'romantizmu', 'preromantizmus', 'do preromantizmu', 'preromantizmu', 'romantický', 'romantický smer'],
+    acceptedAnswers: [
+      'romantizmus',
+      'do romantizmu',
+      'romantizmu',
+      'preromantizmus',
+      'do preromantizmu',
+      'preromantizmu',
+      'romantický',
+      'romantický smer',
+      'romantismus',
+      'do romantismu',
+      'romantismu',
+      'preromantismus',
+      'do preromantismu',
+      'preromantismu'
+    ],
     lenient: true,
-    hint: 'Puškin žil v rokoch 1799 – 1837 a napísal román vo veršoch Eugen Onegin. Ktorý smer vtedy v Európe vrcholil?',
+    hint: 'Všimni si rok vzniku básne (1821) – Puškin žil v rokoch 1799 – 1837 a napísal aj román vo veršoch Eugen Onegin. Ktorý literárny smer sa v prvej polovici 19. storočia v Európe rozvíjal?',
     solutionSteps: [
       { title: 'Zaradenie autora', text: 'A. S. Puškin je najvýznamnejší ruský romantický básnik (Eugen Onegin, Cigáni, Kaukazský zajatec). Jeho neskoršia próza (Kapitánova dcéra) už smeruje k realizmu, no prevažná časť tvorby patrí romantizmu.' },
       { title: 'Ako hodnotí kľúč', text: 'Uznáva sa odpoveď romantizmus (aj preromantizmus), aj s pravopisnou chybou.' }
@@ -148,11 +163,21 @@ export const questionsPart1: QuestionData[] = [
     placeholder: 'Vypíš slovo z básne',
     correctAnswerDisplay: 'peknoočku',
     acceptedAnswers: ['peknoočku', 'peknoočka'],
+    commonMistakes: [
+      {
+        pattern: '^kristepane$',
+        hint: 'Slovo „kristepane“ je síce zložené, ale je to neplnovýznamové citoslovce – zadanie žiada plnovýznamové zložené slovo.'
+      },
+      {
+        pattern: '^pekno[cč]k',
+        hint: 'Pozor na pravopis: na hranici častí „pekn-o-očk-a“ sa stretávajú dve samohlásky o (peknoočka).'
+      }
+    ],
     hint: 'Zložené slovo vzniklo spojením dvoch slovných základov. Hľadaj podstatné meno, ktoré pomenúva krásnu ženu.',
     solutionSteps: [
-      { title: 'Rozbor slova', text: '„No ak má doma peknoočku…“ – peknoočka vzniklo spojením základov pekn-(ý) a oč-(i/ko): žena s peknými očami. Je to zložené slovo a zároveň plnovýznamové (podstatné meno).' },
+      { title: 'Rozbor slova', text: '„No ak má doma peknoočku…“ – slovo //peknoočka// vzniklo spojením základov //pekn-//(ý) a //oč-//(i/ko) pomocou spájacej samohlásky //-o-// (//pekn-o-očk-a//): žena s peknými očami. Je to zložené slovo a zároveň plnovýznamové (podstatné meno).' },
       { title: 'Prečo nie kristepane', text: 'Slovo kristepane v básni je síce tiež zložené slovo, ale ide o citoslovce (neplnovýznamový slovný druh), preto nevyhovuje zadaniu (plnovýznamové zložené slovo).' },
-      { title: 'Pozor na pravopis', text: 'Slovo musí byť napísané pravopisne správne – s dvoma o: pekno-očka.' }
+      { title: 'Pozor na pravopis', text: 'Slovo musí byť napísané pravopisne správne – s dvoma o: peknoočka (pekn-o-očk-a).' }
     ],
     solutionConclusion: 'Správna odpoveď: peknoočku (peknoočka).'
   },
@@ -166,6 +191,12 @@ export const questionsPart1: QuestionData[] = [
     placeholder: 'Vypíš predložku',
     correctAnswerDisplay: 'odo',
     acceptedAnswers: ['odo'],
+    commonMistakes: [
+      {
+        pattern: '^odo\\s+m[nň]a$',
+        hint: 'Spojenie „odo mňa“ tvorí predložka a zámeno – vypíš iba samotnú vokalizovanú predložku.'
+      }
+    ],
     hint: 'Vokalizovaná predložka má pridanú samohlásku, aby sa ľahšie vyslovovala (napr. k – ku, z – zo, s – so, v – vo).',
     solutionSteps: [
       { title: 'Nájdenie predložky', text: 'Verš „odo mňa nedočká sa krivdy“ – predložka od dostala pred zámenom mňa samohlásku o: odo mňa.' },
@@ -215,7 +246,7 @@ export const questionsPart1: QuestionData[] = [
     hint: 'Ako podľa autora postmoderna vznikala? Hľadaj slovo „nepozorovane“.',
     solutionSteps: [
       { title: 'Doklad v texte', text: '„Vznikala doslova nepozorovane v dielach neraz veľmi rozdielnych autorov, ktorí o sebe ani nevedeli.“ Formovala sa teda u viacerých autorov súčasne.' },
-      { title: 'Prečo nie ostatné', text: 'A – postmoderna prišla až po vyčerpaní podnetov druhých avantgárd.\nB – o „vybrúsenosti“ ani hodnote text nehovorí, len o menšej programovej vyhranenosti.\nC – juhoamerický magický realizmus je len jeden z jej prúdov, nie jej koreň.' }
+      { title: 'Prečo nie ostatné', text: 'A – postmoderna prišla až po vyčerpaní podnetov druhých avantgárd.\nB – o „vybrúsenosti“ ani hodnote text nehovorí, len o menšej ideovej a tvarovej vyhranenosti.\nC – juhoamerický magický realizmus je len jeden z jej prúdov, nie jej koreň.' }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
   },
@@ -236,8 +267,8 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: ['A'],
     hint: 'Druhý odsek vymenúva, proti čomu postmoderna vystupuje. Ktorá možnosť sa s ním zhoduje?',
     solutionSteps: [
-      { title: 'Výpočet v texte', text: 'Postmoderna vystupuje „proti ideológii, historickému determinizmu, strohému racionalizmu, technologickému i konzumnému prinucovaniu…“. Revolta voči prísnemu (strohému) racionalizmu sedí.' },
-      { title: 'Opačné tvrdenia', text: 'B a D tvrdia opak (postmoderna je proti konzumu aj fanatizmu). C – pluralizmus je naopak jej znakom („manifestácia pluralizmu života“).' }
+      { title: 'Výpočet v texte', text: 'Postmoderna vystupuje „proti ideológii, historickému determinizmu, strohému racionalizmu, technologickému i konzumnému prinucovaniu…“. Revolta voči prísnemu (strohému) racionalizmu zodpovedá textu.' },
+      { title: 'Opačné tvrdenia', text: 'B a D tvrdia opak (postmoderna je proti konzumu aj fanatizmu). C – pluralizmus je, naopak, jej znakom („manifestácia pluralizmu života“).' }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
   },
@@ -256,9 +287,9 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Skratka je skrátený zápis slova alebo slovného spojenia, za ktorým sa píše bodka a pri čítaní sa vyslovuje v plnom tvare. V ktorej možnosti nejde o skratku, ale len o časť slova?',
+    hint: 'Ustálené (administratívne) skratky sú skráteným zápisom slova alebo slovného spojenia, píšu sa s bodkou a pri čítaní sa vyslovujú v plnom znení. V ktorej možnosti nejde o skratku, ale len o časť slova?',
     solutionSteps: [
-      { title: 'Skratky', text: 'tzv. (takzvaný), napr. (napríklad), t. j. (to jest) sú skratky – píšu sa s bodkou a čítajú sa celým slovom.' },
+      { title: 'Skratky', text: 'tzv. (takzvaný), napr. (napríklad), t. j. (to jest) sú ustálené (administratívne) skratky – píšu sa s bodkou a čítajú sa v plnom znení.' },
       { title: '-izmus', text: '-izmus je prípona (slovotvorný formant), ktorou sa tvoria názvy smerov (romantizmus, realizmus). Spojovník naznačuje, že ide o časť slova, nie o skratku.' }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -278,9 +309,9 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Pomlčka (–) je dlhšia a oddeľuje časti vety (s medzerami z oboch strán), kým kratší spojovník (-) spája časti slov alebo stojí pri osamostatnenej prípone. Prejdi prvý odsek po znamienkach.',
+    hint: 'Rozlišuj dlhšiu pomlčku (–), ktorá oddeľuje časti vety (s medzerami z oboch strán), od kratšieho spojovníka (-). Prejdi si prvý odsek po jednotlivých znamienkach.',
     solutionSteps: [
-      { title: 'Znamienka v 1. odseku', text: 'Spojovník: „nový -izmus“. Úvodzovky: „postmodernizmus“. Výkričník: „…„postmodernizmus“ mätúce!“. Okrem nich zátvorky, čiarky a bodky.' },
+      { title: 'Znamienka v 1. odseku', text: 'Spojovník: „nový -izmus“. Úvodzovky: „postmodernizmus“. Výkričník: „… ‚postmodernizmus‘ mätúce!“ Okrem nich zátvorky, čiarky a bodky.' },
       { title: 'Chýbajúce znamienko', text: 'Pomlčka sa v prvom odseku nenachádza.' }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -304,10 +335,14 @@ export const questionsPart1: QuestionData[] = [
       'výkladovo-úvahový',
       'výkladovo-úvahový postup',
       'výkladovo-úvahový slohový postup',
+      'úvahovo-výkladový',
+      'úvahovo-výkladový postup',
+      'úvahovo-výkladový slohový postup',
       'výkladový a úvahový',
       'úvahový, výkladový',
       'úvahový a výkladový',
-      'výkladový, úvahový'
+      'výkladový, úvahový',
+      'víkladový'
     ],
     lenient: true,
     hint: 'Text nerozpráva príbeh ani neopisuje vec – vysvetľuje pojem, jeho vznik, príčiny a súvislosti.',
@@ -335,10 +370,12 @@ export const questionsPart1: QuestionData[] = [
       'populárnonáučný',
       'populárno-náučný štýl',
       'populárnonáučný štýl',
-      'vedecký'
+      'populárno náučný',
+      'vedecký',
+      'vedecký štýl'
     ],
     lenient: true,
-    hint: 'Ukážka pochádza z knihy o slovenskej literatúre a využíva literárnovedné termíny (avantgarda, konkretizmus, determinizmus).',
+    hint: 'Ukážka pochádza z knihy o slovenskej literatúre a využíva odborné (najmä literárnovedné) termíny (avantgarda, konkretizmus, neorealizmus, determinizmus).',
     solutionSteps: [
       { title: 'Znaky štýlu', text: 'Odborné termíny, presnosť, vecnosť, skratky (tzv., t. j.), odkazy na kritikov a obdobia – to sú znaky náučného (odborného) štýlu.' },
       { title: 'Ako hodnotí kľúč', text: 'Uznáva sa náučný, odborný aj populárno-náučný.' }
@@ -354,12 +391,20 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Určte druh vedľajšej vety v nasledujúcom súvetí.\n//Postmoderna je teda taká literatúra, ktorá vystupuje proti akémukoľvek politickému diktátu.//',
     placeholder: 'Napíš druh vedľajšej vety',
     correctAnswerDisplay: 'prívlastková',
-    acceptedAnswers: ['prívlastková', 'prívlastková vedľajšia veta', 'vedľajšia veta prívlastková', 'vv prívlastková', 'prívlastková veta'],
+    acceptedAnswers: [
+      'prívlastková',
+      'prívlastková vedľajšia veta',
+      'vedľajšia veta prívlastková',
+      'vv prívlastková',
+      'prívlastková veta',
+      'prívlastkovú',
+      'prývlastková'
+    ],
     lenient: true,
     hint: 'Ktoré slovo v hlavnej vete táto vedľajšia veta rozvíja? Akou otázkou sa na vedľajšiu vetu opýtaš?',
     solutionSteps: [
       { title: 'Otázka', text: 'Hlavná veta: „Postmoderna je teda taká literatúra“. Vedľajšia veta „ktorá vystupuje proti…“ rozvíja podstatné meno literatúra a odpovedá na otázku aká (literatúra)?' },
-      { title: 'Určenie', text: 'Vedľajšia veta, ktorá rozvíja podstatné meno a nahrádza prívlastok, je prívlastková. Typicky ju uvádza vzťažné zámeno ktorý, ktorá, ktoré.' }
+      { title: 'Určenie', text: 'Vedľajšia veta, ktorá rozvíja podstatné meno (alebo zámeno) a vyjadruje prívlastok, je prívlastková. Typicky ju uvádza vzťažné zámeno ktorý, ktorá, ktoré.' }
     ],
     solutionConclusion: 'Správna odpoveď: prívlastková.'
   },
@@ -405,7 +450,7 @@ export const questionsPart1: QuestionData[] = [
     hint: 'Irónia znamená povedať opak toho, čo si myslíme. Kto „súhlasí“ tak, že v skutočnosti McMurphyho zosmiešňuje?',
     solutionSteps: [
       { title: 'Ironická replika', text: '„Samozrejme, možno ho tak uhovorí, že sa sám zodvihne,“ odvrkne Fredrickson. Navonok súhlasí („samozrejme“), v skutočnosti dáva najavo, že tomu neverí – pult sa predsa nemôže zdvihnúť sám.' },
-      { title: 'Ostatní', text: 'Cheswick mu verí („možno to aj dokáže“), Harding ho úprimne odhovára („nebláznite“), McMurphy sa vychvaľuje.' }
+      { title: 'Ostatní', text: 'Cheswick pripúšťa, že to možno dokáže („možno to aj dokáže“), Harding ho odhovára („nebláznite“), McMurphy sa vychvaľuje.' }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
   },
@@ -486,10 +531,13 @@ export const questionsPart1: QuestionData[] = [
     correctAnswerDisplay: 'klesavá (konkluzívna) kadencia',
     acceptedAnswers: [
       'klesavá',
+      'klesavý',
       'klesavá kadencia',
       'klesavá melódia',
       'uspokojivá končiaca',
       'uspokojivo končiaca',
+      'uspokojivý končiaci',
+      'uspokojivo končiaci',
       'uspokojivá končiaca melódia',
       'uspokojivo končiaca melódia',
       'uspokojivá končiaca kadencia',
@@ -498,6 +546,7 @@ export const questionsPart1: QuestionData[] = [
       'konkluzívna kadencia',
       'konkluzívna melódia',
       'konkluzívna',
+      'konkluzívny',
       'kadencia',
       'klesavá konkluzívna kadencia'
     ],
@@ -572,7 +621,7 @@ export const questionsPart1: QuestionData[] = [
     hint: 'Ako dielo nazýva posledný odsek ukážky a o kom je rozprávanie?',
     solutionSteps: [
       { title: 'Žáner a téma', text: '„Celý román však stojí na rozprávaní bezmenného štyridsiatnika, ktorý… rieši rodinné problémy s manželkou…, dospievajúcou dcérou…“ – žáner je román, téma rodinný život muža v strednom veku.' },
-      { title: 'Pasce', text: 'A – Sloboda si denník prestal písať. B – filmový scenár je len námet, ktorý hrdina vymýšľa. D – nejde o poviedky.' }
+      { title: 'Pasce', text: 'A – Sloboda si denník prestal písať. B – námet na filmový scenár sa v románe iba snaží vytvoriť hlavný hrdina, samotné dielo //Rozum// nie je filmový scenár. D – nejde o poviedky.' }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
   },
@@ -594,7 +643,7 @@ export const questionsPart1: QuestionData[] = [
     hint: 'Prečo bol Rozum pre časť čitateľov „závanom sviežeho vzduchu“? Pozri sa na prvú vetu predposledného odseku.',
     solutionSteps: [
       { title: 'Doklad', text: '„Jeho rozprávanie je také úprimné a autentické…“ – úprimnosť a autentickosť = priamosť a nefalšovanosť. V dobe „pozitívnych“ normalizačných románov to bolo nové.' },
-      { title: 'Prečo nie ostatné', text: 'A – „rozum“ je v úvodzovkách ironicky, hrdina vďaka nemu veci skomplikuje. B – príbeh Jána Hodžu je vymyslený. C – násilie je len jedna z otázok čitateľov, nie téma diela.' }
+      { title: 'Prečo nie ostatné', text: 'A – „rozum“ je v úvodzovkách ironicky, hrdina preň (práve svojím „rozumom“) veci ešte viac skomplikuje. B – príbeh Jána Hodžu je vymyslený. C – otázka o násilí je len jednou z neveriackych reakcií čitateľov, nie nosnou témou diela.' }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
   },
@@ -615,7 +664,7 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: ['C'],
     hint: 'Čo podľa druhého odseku vychádzalo počas normalizácie? Všimni si úvodzovky pri slove pozitívnych.',
     solutionSteps: [
-      { title: 'Doklad', text: '„…vychádzali len romány plné „pozitívnych“ hrdinov a budovateľov socializmu či pseudohistorické zlátaniny.“ Pozitívni hrdinovia a budovatelia = postavy, ktoré dobová ideológia chápala ako kladné.' },
+      { title: 'Doklad', text: '„…vychádzali len romány plné ‚pozitívnych‘ hrdinov a budovateľov socializmu či pseudohistorické zlátaniny.“ Pozitívni hrdinovia a budovatelia = postavy, ktoré dobová ideológia chápala ako kladné.' },
       { title: 'Prečo nie ostatné', text: 'A, D – negatíva a problémy socializmu tieto diela nezobrazovali. B – antiromán je opakom tradičného románu, s normalizáciou nesúvisí.' }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -637,7 +686,7 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: ['A'],
     hint: 'V každej nesprávnej možnosti je aspoň jeden básnik alebo dramatik. Nájdi ho.',
     solutionSteps: [
-      { title: 'Prozaici', text: 'Dušan Dušek (Kufor na sny), Alfonz Bednár (Hodiny a minúty, Kolíska), Ladislav Mňačko (Smrť sa volá Engelchen) – všetci sú prozaici.' },
+      { title: 'Prozaici', text: 'Dušan Dušek (//Kufor na sny//), Alfonz Bednár (zbierka noviel //Hodiny a minúty// s novelou //Kolíska//, román //Sklený vrch//), Ladislav Mňačko (//Smrť sa volá Engelchen//) – všetci sú prozaici.' },
       { title: 'Vylúčenie', text: 'B – Ivan Bukovčan je dramatik, Jozef Urban básnik. C – Ivan Krasko je básnik. D – Milan Rúfus a Miroslav Válek sú básnici.' }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -674,6 +723,12 @@ export const questionsPart1: QuestionData[] = [
     placeholder: 'Vypíš názov žánru',
     correctAnswerDisplay: 'denník',
     acceptedAnswers: ['denník', 'denníku'],
+    commonMistakes: [
+      {
+        pattern: '^den[ií]k$',
+        hint: 'Pozor na pravopis: slovo „denník“ je utvorené od slova „denný“ príponou -ík, preto sa v ňom píšu dve n.'
+      }
+    ],
     hint: 'V ukážke sa spomína viacero žánrov – pozri sa do tretieho odseku a nájdi ten, ktorý má osobnejší, chronologicky zaznamenávaný charakter.',
     solutionSteps: [
       { title: 'Miesto v texte', text: '„Sloboda si prestal robiť záznamy vo svojom denníku…“ – denník je žáner založený na pravidelných (dátumovaných) zápisoch.' },
@@ -691,9 +746,15 @@ export const questionsPart1: QuestionData[] = [
     placeholder: 'Vypíš príčastie',
     correctAnswerDisplay: 'trpiacou',
     acceptedAnswers: ['trpiacou', 'trpiaca'],
-    hint: 'Činné príčastie prítomné sa končí na -úci, -iaci, -aci (spievajúci, robiaci).',
+    commonMistakes: [
+      {
+        pattern: '^dospievaj[uú]c',
+        hint: 'Príčastie „dospievajúcou“ sa síce v ukážke nachádza, ale stojí až za zvýraznenou časťou textu!'
+      }
+    ],
+    hint: 'Činné príčastie prítomné sa v základnom tvare končí na -úci/-uci, -iaci/-aci (spievajúci, píšuci, robiaci) – v texte však môže byť vyskloňované.',
     solutionSteps: [
-      { title: 'Hľadanie tvaru', text: 'Vo zvýraznenej časti: „…s manželkou trpiacou na schizofréniu“. Trpiaca (trpiacou) je odvodené od slovesa trpieť príponou -iaci.' },
+      { title: 'Hľadanie tvaru', text: 'Vo zvýraznenej časti: „…s manželkou trpiacou na schizofréniu“. Príčastie **trpiaca** (v texte v tvare **trpiacou**) je utvorené od slovesa //trpieť// príponou //-iaci//.' },
       { title: 'Pozor', text: 'Dospievajúcou je tiež činné príčastie, no stojí už mimo zvýraznenej časti.' }
     ],
     solutionConclusion: 'Správna odpoveď: trpiacou (trpiaca).'
@@ -708,10 +769,10 @@ export const questionsPart1: QuestionData[] = [
     placeholder: 'Vypíš slovo',
     correctAnswerDisplay: 'vôbec',
     acceptedAnswers: ['vôbec'],
-    hint: 'Hľadaj slovo, ktoré sa končí neznelou spoluhláskou a po ňom nasleduje slovo začínajúce znelou spoluhláskou alebo samohláskou.',
+    hint: 'Hľadaj slovo, ktoré sa končí neznelou spoluhláskou a po ňom nasleduje slovo začínajúce sa znelou spoluhláskou alebo samohláskou.',
     solutionSteps: [
-      { title: 'Spodobovanie na hranici slov', text: 'V spojení „vôbec mohlo“ sa koncové neznelé c pred znelým m vyslovuje znelo ako dz: [vôbedz mohlo].' },
-      { title: 'Ostatné slová', text: 'Ostatné slová sa končia samohláskou alebo spodobovanie nenastáva (napr. „vyjsť“ stojí na konci vety).' }
+      { title: 'Spodobovanie na hranici slov', text: 'V spojení „vôbec mohlo“ sa koncové neznelé **c** pred znelou nepárovou (zvučnou) spoluhláskou **m** na hranici slov spodobuje a vyslovuje znelo ako **dz**: **[vôbedz mohlo]**.' },
+      { title: 'Ostatné slová', text: 'Ostatné slová sa končia samohláskou alebo v nich spodobovanie nenastáva (napr. „vyjsť“ sa končí už neznelou spoluhláskou ť, pred ktorou stojí tiež neznelé s).' }
     ],
     solutionConclusion: 'Správna odpoveď: vôbec.'
   }

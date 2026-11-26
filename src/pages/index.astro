@@ -44,11 +44,11 @@ const faqs = [
   },
   {
     q: 'Môžem na maturite používať pravidlá alebo slovník?',
-    a: 'Pri teste externej časti nie – nesmieš používať slovníky, učebnice ani inú literatúru. Pri písomnej forme internej časti (sloh) môžeš mať Pravidlá slovenského pravopisu, Synonymický slovník a Krátky slovník slovenského jazyka.'
+    a: 'Pri teste externej časti nie – nesmieš používať slovníky, učebnice ani inú literatúru. Pri písomnej forme internej časti (sloh) môžeš používať Pravidlá slovenského pravopisu, Synonymický slovník slovenčiny a Krátky slovník slovenského jazyka (zabezpečuje ich škola).'
   },
   {
     q: 'Ako prebieha písomná forma internej časti (sloh)?',
-    a: 'Z ôsmich slohových útvarov sa na maturite vyžrebujú štyri – každý s vlastnou témou – a z nich si vyberieš jednu. Máš 150 minút a rozsah práce je 1,5 až 3 strany. V časti Slohové útvary nájdeš ku každému útvaru, čo musí obsahovať a ako ho postaviť.'
+    a: 'Z ôsmich slohových útvarov sa na maturite vyžrebujú štyri témy (každá v inom útvare) a z nich si vyberieš jednu. Máš 150 minút a rozsah práce je 1,5 až 3 strany. V časti Slohové útvary nájdeš ku každému útvaru, čo musí obsahovať a ako ho vystavať.'
   },
   {
     q: 'Ako sa líši ostrý test od precvičovania?',
@@ -56,7 +56,7 @@ const faqs = [
   },
   {
     q: 'Je príprava zadarmo a odkiaľ sú úlohy?',
-    a: 'Všetko je zadarmo, bez registrácie a bez reklám. Úlohy a kľúče správnych odpovedí pochádzajú z oficiálnych testov externej časti maturitnej skúšky, ktorých autorom je Národný inštitút vzdelávania a mládeže (NIVaM). Nápovedy a postupy riešenia pripravuje učiteľ slovenčiny.'
+    a: 'Všetko je zadarmo, bez registrácie a bez reklám. Úlohy a kľúče správnych odpovedí pochádzajú z oficiálnych testov externej časti maturitnej skúšky, ktorých autorom je Národný inštitút vzdelávania a mládeže (NIVaM). Nápovedy a postupy riešenia pripravil učiteľ slovenčiny.'
   }
 ];
 
@@ -114,7 +114,7 @@ const homeJsonLd = {
             <div>
               <h1 class="ms-h1">Maturita zo slovenčiny <em>na skutočných testoch</em></h1>
               <p class="ms-lead">
-                Rieš oficiálne testy externej časti z&nbsp;rokov {yearsRangeText} presne tak, ako na maturite – s&nbsp;ukážkou vedľa úloh a&nbsp;časom 100&nbsp;minút.
+                Rieš oficiálne testy externej časti z&nbsp;rokov {yearsRangeText} presne tak ako na maturite – s&nbsp;ukážkou vedľa úloh a&nbsp;časom 100&nbsp;minút.
                 Pri každej úlohe máš nápovedu a&nbsp;postup riešenia, ktorý pripravil učiteľ slovenčiny. A&nbsp;k&nbsp;slohu prehľad všetkých maturitných útvarov.
               </p>
               <div class="ms-ctas">
@@ -228,7 +228,7 @@ const homeJsonLd = {
             <div>
               <span class="ms-kicker">Písomná forma internej časti</span>
               <h2>Slohové útvary na maturite</h2>
-              <p>Z&nbsp;ôsmich slohových útvarov sa na maturite vyžrebujú štyri – každý má vlastnú tému a&nbsp;z&nbsp;nich si vyberieš jednu. V&nbsp;tabuľke si pozri, koľkokrát boli jednotlivé útvary vyžrebované od roku 2007. Po rozkliknutí sa dozvieš viac.</p>
+              <p>Z&nbsp;ôsmich slohových útvarov sa na maturite vyžrebujú štyri témy (každá v&nbsp;inom útvare) a&nbsp;z&nbsp;nich si vyberieš jednu. V&nbsp;prehľade si pozri, koľkokrát boli jednotlivé útvary vyžrebované od roku 2007. Po kliknutí na vybraný útvar sa dozvieš viac.</p>
               <div class="ms-sloh-rules">
                 <span>150 minút</span>
                 <span>1 zo 4 tém</span>
@@ -398,7 +398,7 @@ const homeJsonLd = {
                   <span class="ms-volunteer-kicker">Podpor stránku</span>
                   <h3 id="ms-volunteer-title">Stránku tvorím dobrovoľne, vo&nbsp;voľnom čase</h3>
                   <p>
-                    Táto stránka je bezplatná. Ak ti priniesla hodnotu a&nbsp;pomohla ti, môžeš sa&nbsp;rozhodnúť ju podporiť dobrovoľným príspevkom, ktorý bude použitý <strong>výlučne len na&nbsp;prenájom domény pre&nbsp;ďalšie roky</strong>, aby mohla byť k&nbsp;dispozícii aj pre&nbsp;tvojich mladších spolužiakov.
+                    Táto stránka je bezplatná. Ak ti priniesla hodnotu a&nbsp;pomohla ti, môžeš sa&nbsp;rozhodnúť ju podporiť dobrovoľným príspevkom, ktorý bude použitý <strong>výlučne na&nbsp;prenájom domény na&nbsp;ďalšie roky</strong>, aby mohla byť k&nbsp;dispozícii aj pre&nbsp;tvojich mladších spolužiakov.
                   </p>
                 </div>
 
@@ -428,7 +428,7 @@ const homeJsonLd = {
                 <img src="/images/qr-dar.svg" alt="PAY by square QR kód na dobrovoľný dar s predvyplnenou správou Dar - pisomnematurity.sk" width="148" height="148" loading="lazy" />
                 <figcaption>
                   <strong>PAY by square</strong>
-                  <small>Naskenuj v&nbsp;bankovej appke</small>
+                  <small>Naskenuj v&nbsp;bankovej aplikácii</small>
                 </figcaption>
               </figure>
             </aside>
@@ -505,10 +505,10 @@ const homeJsonLd = {
             Údaje sa spracúvajú výlučne na účely evidencie prijatého daru, preukázania pôvodu prostriedkov a&nbsp;plnenia povinností podľa osobitných predpisov (čl.&nbsp;6 ods.&nbsp;1 písm.&nbsp;c) a&nbsp;f) nariadenia GDPR a&nbsp;zákon č.&nbsp;18/2018&nbsp;Z.&nbsp;z.).
           </p>
 
-          <h4>4. Príjemcovia a doba uchovávania údajov</h4>
+          <h4>4. Príjemcovia a lehota uchovávania údajov</h4>
           <p>
             Údaje sú evidované v&nbsp;systéme banky príjemcu (Tatra banka,&nbsp;a.&nbsp;s.) a&nbsp;prípadne sprístupnené orgánom verejnej moci, ak to vyžaduje zákon. Mená ani iné údaje darcov sa na stránke <strong>nikdy nezverejňujú</strong> a&nbsp;neposkytujú sa tretím stranám na marketingové účely.
-            Bankové výpisy sa uchovávajú po dobu vyžadovanú príslušnými bankovými a&nbsp;daňovými predpismi SR (najviac 10&nbsp;rokov po skončení roka, v&nbsp;ktorom bol dar prijatý).
+            Bankové výpisy sa uchovávajú počas lehoty vyžadovanej príslušnými bankovými a&nbsp;daňovými predpismi SR (najviac 10&nbsp;rokov po skončení roka, v&nbsp;ktorom bol dar prijatý).
           </p>
 
           <h4>5. Práva dotknutej osoby (darcu)</h4>
@@ -660,7 +660,7 @@ const homeJsonLd = {
           } else if (answered > 0) {
             show('is-progress', 'Rozpracovaný', `${answered}/${total} úloh`, pct(answered, total), best ? `<span class="ms-saved-note">Posledný výsledok ${score}</span>` : '');
             cta.textContent = 'Pokračovať';
-            card.setAttribute('aria-label', `Maturita ${slug.replace('ms-', '')}: rozpracovaný, ${answered} z ${total} úloh. Pokračovať`);
+            card.setAttribute('aria-label', `Maturita ${slug.replace('ms-', '')}: rozpracovaný, ${answered} zo ${total} úloh. Pokračovať`);
           } else if (best) {
             show('is-last', 'Posledný výsledok', score, pct(best.correct, bestTotal));
             cta.textContent = 'Skúsiť znova';

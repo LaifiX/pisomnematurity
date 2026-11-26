@@ -117,7 +117,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Vylúčenie ostatných typov',
-        text: 'A – **priamy (ja-) rozprávač** je jednou z postáv a rozpráva v 1. osobe jednotného čísla.\nB – **subjektívny (personálny) rozprávač** by bol obmedzený výlučne na vedomie jednej postavy a nemohol by vedieť, čo prežíva Kizek.\nD – **rozprávač „oko kamery“** zachytáva iba vonkajšie správanie a dialógy bez vstupovania do mysle a pocitov postáv.'
+        text: 'A – **priamy rozprávač (ja-rozprávač)** je jednou z postáv a rozpráva v 1. osobe jednotného čísla.\nB – **subjektívny (personálny) rozprávač** by bol obmedzený výlučne na vedomie jednej postavy a nemohol by vedieť, čo prežíva Kizek.\nD – **rozprávač „oko kamery“** zachytáva iba vonkajšie správanie a dialógy bez vstupovania do mysle a pocitov postáv.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -162,11 +162,11 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: ['nemilosrdným', 'nemilosrdný'],
     commonMistakes: [
       {
-        pattern: '^chrbtom$|^chrbát$',
+        pattern: '^chrbtom$|^chrb[áa]t$',
         hint: 'Slovo „chrbtom“ síce obsahuje slabikotvorné r, ale je to podstatné meno (ten chrbát). Zadanie žiada vypísať prídavné meno (pýtame sa naň aký? akým?).'
       },
       {
-        pattern: '^(pomalý|kradmý|malé|rozloženého|premenený)$',
+        pattern: '^(pomal[ýy]|kradm[ýy]|mal[ée]|rozlo[žz]en[ée]ho|premenen[ýy])$',
         hint: 'Rozdeľ si toto slovo na slabiky – v každej z nich je samohláska. Hľadaj v predposlednom odseku také prídavné meno, v ktorom celú slabiku nesie spoluhláska r alebo l medzi spoluhláskami.'
       }
     ],
@@ -202,8 +202,8 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^rozprávací$|^opisný$',
-        hint: '„Rozprávací“ a „opisný“ sú slohové postupy, nie funkčné jazykové štýly. Spomeň si na šesť jazykových štýlov (hovorový, administratívny, náučný, publicistický, rečnícky, …).'
+        pattern: 'rozpr[áa]vac|opisn',
+        hint: '„Rozprávací“ a „opisný“ sú slohové postupy, nie funkčné jazykové štýly (ako napr. hovorový, náučný či publicistický štýl). Do ktorého jazykového štýlu patrí krásna literatúra (poviedka, román)?'
       }
     ],
     hint: 'Nepopleť si slohový postup (rozprávací) s funkčným jazykovým štýlom! Do ktorého zo šiestich jazykových štýlov patrí poviedka či román s obraznými pomenovaniami a estetickou funkciou?',
@@ -232,23 +232,23 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^(1|jeden)$',
+        pattern: '^(1|jeden)\\b',
         hint: 'Spojenie „nikto ←→ nebol“ je prisudzovací sklad, ale vo vete je ešte príslovka „tam“, ktorá rozvíja sloveso „nebol“ (nebol kde? → tam) a tvorí s ním ďalší vetný sklad.'
       },
       {
-        pattern: '^(3|tri)$',
-        hint: 'Tri je počet vetných členov (nikto, tam, nebol). Vetný sklad je dvojica navzájom súvisiacich vetných členov – v takejto trojslovnej vete sú o jeden menej.'
+        pattern: '^(3|tri)\\b',
+        hint: 'Tri je počet vetných členov (nikto, tam, nebol). Vetný sklad je dvojica navzájom súvisiacich vetných členov – v takejto trojslovnej vete je ich o jeden menej.'
       }
     ],
     hint: 'Vetný sklad je dvojica vetných členov, ktoré na seba vo vete gramaticky a významovo nadväzujú. Urči vo vete „Nikto tam nebol“ podmet, prísudok a príslovkové určenie a spoj ich do dvojíc!',
     solutionSteps: [
       {
         title: 'Určenie vetných členov a vetných skladov',
-        text: 'Vo vete //Nikto tam nebol.// sú tri plnovýznamové vetné členy: podmet **nikto** (//kto?//), slovesný prísudok **nebol** vo význame „nenachádzal sa“ (//čo robil?//) a príslovkové určenie miesta **tam** (//kde?//). Vytvárajú spolu **2 vetné sklady**:\n1. **prisudzovací sklad**: //nikto ←→ nebol// (spojenie podmetu a prísudku),\n2. **určovací sklad**: //nebol → tam// (prísudok rozvitý príslovkovým určením miesta).'
+        text: 'Vo vete //Nikto tam nebol.// sú tri plnovýznamové slová (tri vetné členy): podmet **nikto** (//kto?//), slovesný prísudok **nebol** vo význame „nenachádzal sa“ (//čo robil?//) a príslovkové určenie miesta **tam** (//kde?//). Vytvárajú spolu **2 vetné sklady**:\n1. **prisudzovací sklad**: //nikto ←→ nebol// (spojenie podmetu a prísudku),\n2. **určovací sklad**: //nebol → tam// (prísudok rozvitý príslovkovým určením miesta).'
       },
       {
         title: 'Praktická pomôcka a hodnotenie kľúča',
-        text: 'V jednoduchej dvojčlennej vete bez viacnásobných vetných členov je počet vetných skladov vždy o 1 menší ako počet vetných členov (3 vetné členy → **2** vetné sklady). Kľúč uznáva odpoveď číslom aj slovom.'
+        text: 'V jednoduchej dvojčlennej úplnej vete bez viacnásobných vetných členov a bez doplnku je počet vetných skladov o 1 menší ako počet vetných členov (3 vetné členy → **2** vetné sklady). Kľúč uznáva odpoveď číslom aj slovom.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: 2 (dva vetné sklady).'
@@ -334,7 +334,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: '2. Rytmické krátenie prípony (-ský → -sky)',
-        text: 'Koreň slova //Sl**ia**č// obsahuje dvojhlásku **ia**, ktorá platí ako **dlhá slabika**. Podľa **zákona o rytmickom krátení** v //Pravidlách slovenského pravopisu// nemôžu za sebou nasledovať dve dlhé slabiky, preto sa prípona //-ský// kráti na **-sky**: **sliačsky** (možnosť B //sliačský// porušuje rytmický zákon).'
+        text: 'Koreň slova //Sl**ia**č// obsahuje dvojhlásku **ia**, ktorá platí ako **dlhá slabika**. Podľa **zákona o rytmickom krátení** v //Pravidlách slovenského pravopisu// spravidla nemôžu za sebou nasledovať dve dlhé slabiky, preto sa prípona //-ský// kráti na **-sky**: **sliačsky** (možnosť B //sliačský// porušuje rytmický zákon).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -354,7 +354,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Postupne si pri všetkých troch slovesách over každú možnosť: existujú aj bez „sa/si“ (napr. dať, užiť)? Majú predponu všetky tri vrátane „dať“? Aký majú slovesný vid a v akom slovesnom spôsobe sú použité?',
+    hint: 'Postupne si pri všetkých troch slovesách over každú možnosť: existujú tieto slovesá aj bez zvratného „sa/si“, majú predponu naozaj všetky tri, aký je ich slovesný vid a v ktorom slovesnom spôsobe sú použité?',
     solutionSteps: [
       {
         title: 'Rovnaký slovesný spôsob',
@@ -407,7 +407,7 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: ['retro'],
     commonMistakes: [
       {
-        pattern: '^históri[ae]$|^historick',
+        pattern: '^hist[óo]ri[ae]$|^historick',
         hint: 'Slovo „história“ označuje dejiny, nie módny či dizajnový štýl vracajúci sa k nedávnej minulosti. Pozri sa do nadpisu a textu 4. tipu.'
       }
     ],
@@ -446,15 +446,15 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^(2|dve)$',
+        pattern: '^(2|dve)\\b',
         hint: 'Okrem 1. tipu (Medené mesto) a 3. tipu (Strieborné mesto) si pozorne prečítaj aj poslednú vetu 2. tipu o Kremnici!'
       },
       {
-        pattern: '^(4|štyri|5|päť)$',
+        pattern: '^(4|[šs]tyri|5|p[äa][ťt])\\b',
         hint: 'Spojenie „kúpeľné mesto Sliač“ vo 4. tipe nie je obrazné nepriame pomenovanie, ale bežné vecné zaradenie druhu mesta. Spočítaj len mestá s obrazným prívlastkom podľa kovu.'
       }
     ],
-    hint: 'Nepriame pomenovanie (perifráza) nahrádza vlastné meno mesta obrazným opisom jeho typickej črty (tu podľa kovu, ktorý sa v ňom ťažil alebo spracúval). Prejdi rad-radom všetky štyri tipy!',
+    hint: 'Nepriame pomenovanie (perifráza) nahrádza vlastné meno mesta obrazným opisom jeho typickej črty – nezameň si ho s bežným vecným určením druhu mesta. Prejdi rad-radom všetky štyri tipy!',
     solutionSteps: [
       {
         title: 'Mestá s nepriamym (obrazným) pomenovaním v ukážke',
@@ -480,16 +480,16 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: ['medi', 'Preslávila sa ťažbou medi'],
     commonMistakes: [
       {
-        pattern: '^meďou$',
+        pattern: '\\bme[ďd]ou$',
         hint: 'Pozor na pád! V inštrumentáli (čím?) je už slovo „ťažbou“. Slovo „meď“ závisí od slova „ťažbou“, preto sa pýtaj: ťažbou koho? čoho?'
       },
       {
-        pattern: '^mede$',
+        pattern: '\\bmede$',
         hint: 'Podstatné meno „meď“ sa neskloňuje podľa vzoru dlaň, ale podľa vzoru kosť (bez kosti). Akú pádovú príponu má vzor kosť v genitíve jednotného čísla?'
       },
       {
-        pattern: '^medy$',
-        hint: 'Podstatné meno „meď“ je ženského rodu a skloňuje sa podľa vzoru kosť – vo vzore kosť sa vo všetkých pádoch píše mäkké -i.'
+        pattern: '\\bmedy$',
+        hint: 'Podstatné meno „meď“ je ženského rodu a skloňuje sa podľa vzoru kosť – v jeho pádových príponách sa nikdy nepíše tvrdé -y, ale mäkké -i.'
       }
     ],
     hint: 'Spýtaj sa pádovou otázkou od podstatného mena „ťažbou“: ťažbou koho? čoho? Potom si urči vzor ženského podstatného mena „meď“ (dlaň alebo kosť?) a jeho príponu v genitíve jednotného čísla.',
@@ -550,7 +550,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Elipsa (výpustka) je neúplná veta, v ktorej autor zámerne vynechal sloveso (prísudok), lebo si ho čitateľ ľahko domyslí – často je v nej namiesto slovesa pomlčka. Pozri sa, v koho replike je takýchto viet najviac!',
+    hint: 'Elipsa (výpustka) je neúplná veta, v ktorej autor zámerne vynechal vetný člen (najčastejšie sloveso – prísudok), lebo si ho čitateľ ľahko domyslí. Pozri sa, v koho replike je takýchto viet najviac!',
     solutionSteps: [
       {
         title: 'Čo je elipsa a jej výskyt u Claudia',
@@ -558,7 +558,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Porovnanie s ostatnými postavami',
-        text: 'Hero má podobné elipsy len dve, Benedik a Leonato majú po jednom krátkom zvolaní (//Zázrak!//, //No tak!//) a Beatrice sa vyjadruje v ucelených rozvitých súvetiach bez elíps.'
+        text: 'Hero (ktorá navyše nie je medzi možnosťami A – D) má elíps menej, Benedik a Leonato majú po jednom krátkom zvolaní (//Zázrak!//, //No tak!//) a Beatrice sa vyjadruje v ucelených rozvitých vetách bez elíps.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -582,11 +582,11 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Rytmicky viazaná reč (veršovaná dráma)',
-        text: 'Repliky postáv v ukážke 7 sú členené do veršov s pravidelným rytmickým pulzovaním (typický shakespearovský nerýmovaný päťstopový jamb – **blankvers**). Ukážka je teda napísaná **rytmicky viazanou rečou**.'
+        text: 'Repliky najmä Claudia a Hero sú písané v typickom shakespearovskom **blankverse** – nerýmovanom päťstopovom jambe s 10 až 11 slabikami vo verši, pričom Shakespeare v komédiách blankvers prirodzene strieda s prozaickými pasážami. V porovnaní s nepravdivými možnosťami B, C a D je teda správna možnosť A (**rytmicky viazaná reč**).'
       },
       {
         title: 'Prečo sú možnosti B, C a D nepravdivé',
-        text: 'B – v ukážke sa rýchlo striedajú krátke prehovory piatich postáv, ide teda o živý **dialóg**, nie o monológy (dlhé prehovory osamotenej postavy).\nC – zvolania v ukážke nechýbajú, je ich tam viacero (//Hľa – jeho rukopis!//, //Hľa, jej písmo!//, //Zázrak!//, //No tak!//).\nD – ide o renesančnú komédiu so zmysluplnou zápletkou, nie o absurdnú drámu 20. storočia.'
+        text: 'B – v ukážke sa rýchlo striedajú krátke prehovory piatich postáv, ide teda o živý **dialóg**, nie o monológy (dlhé prehovory jednej postavy).\nC – zvolania v ukážke nechýbajú, je ich tam viacero (//Hľa – jeho rukopis!//, //Hľa, jej písmo!//, //Zázrak!//, //No tak!//).\nD – ide o renesančnú komédiu so zmysluplnou zápletkou, nie o absurdnú drámu 20. storočia.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -642,7 +642,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Ostatné obdobia',
-        text: 'Stredoveká literatúra (A) predchádzala renesancii a sústreďovala sa na náboženské témy, baroková (C, 17. – 18. stor.) a romantická literatúra (D, 1. polovica 19. stor.) nasledovali až po Shakespearovej dobe.'
+        text: 'Stredoveká literatúra (A) predchádzala renesancii a sústreďovala sa na náboženské témy, baroková (C, 17. – 18. stor.) a romantická literatúra (D, 1. polovica 19. stor.) sa plne rozvinuli až po Shakespearovej dobe.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je B.'
@@ -660,7 +660,7 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^(2|dve)$',
+        pattern: '^(2|dve)\\b',
         hint: 'Pozor na presné znenie otázky! V zátvorkách sú síce dve autorské poznámky, ale obe sa nachádzajú v prehovore tej istej postavy (Leonata). Zadanie sa pýta, koľko replík ich obsahuje, nie koľko poznámok tam je.'
       }
     ],
@@ -690,11 +690,11 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^(výstup|akt|obraz)$',
+        pattern: '\\b(v[ýy]stup|akt|obraz)$',
         hint: 'Všimni si tvar radovej číslovky pred zakrytým miestom: „piate …“ je v strednom rode (to piate). Slová „výstup“, „akt“ a „obraz“ sú mužského rodu (bol by „piaty“).'
       },
       {
-        pattern: '^scéna$',
+        pattern: '\\bsc[ée]na$',
         hint: 'Slovo „scéna“ je ženského rodu (bola by „piata scéna“), no v ukážke stojí číslovka v strednom rode: „piate …“.'
       }
     ],
@@ -702,7 +702,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Vonkajšia kompozícia drámy a gramatická zhoda',
-        text: 'Divadelná hra sa navonok člení na **dejstvá** (akty), **scény** (obrazy) a **výstupy**. Pred zakrytým miestom na začiatku ukážky stojí číslovka v strednom rode: //„piate [zakryté]“//. Zo všetkých častí vonkajšej kompozície drámy je v strednom rode podstatné meno **dejstvo** (//piate dejstvo// – v piatom dejstve tradične vrcholí a rozuzľuje sa shakespearovská hra).'
+        text: 'Divadelná hra sa navonok člení na **dejstvá** (akty), **scény** (obrazy) a **výstupy**. Pred zakrytým miestom na začiatku ukážky stojí číslovka v strednom rode: //„piate [zakryté]“//. Zo všetkých častí vonkajšej kompozície drámy je v strednom rode podstatné meno **dejstvo** (//piate dejstvo// – v piatom dejstve sa tradične uzatvára a rozuzľuje päťdejstvová shakespearovská hra).'
       },
       {
         title: 'Ako hodnotí kľúč',
@@ -734,7 +734,7 @@ export const questionsPart2: QuestionData[] = [
     commonMistakes: [
       {
         pattern: 'podmet',
-        hint: 'Pozor na obrátený slovosled! Zamysli sa nad zmyslom Leonatovej vety: zastaví uzožieranie bozk, alebo naopak bozk zastaví (čo?) uzožieranie? „Bozk“ je tu vykonávateľom deja (podmetom)!'
+        hint: 'Pozor na obrátený slovosled! Zamysli sa nad zmyslom Leonatovej vety: zastaví uzožieranie bozk, alebo, naopak, bozk zastaví (čo?) uzožieranie? „Bozk“ je tu vykonávateľom deja (podmetom)!'
       }
     ],
     hint: 'Nenechaj sa nachytať tým, že slovo „uzožieranie“ stojí na prvom mieste vo vete! Pri strednom rode sa nominatív a akuzatív zhodujú – spýtaj sa podľa logického zmyslu vety, kto/čo v nej vykonáva dej (čo lieči/zastavuje to druhé).',
@@ -775,7 +775,7 @@ export const questionsPart2: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – o vyhľadávaní dobrodružstiev list nehovorí.\nB – povrchný („meštiacky“) život tulák naopak odmieta a narúša, kým sám „je krásu života sťa každodenný chlieb“.\nC – tulák síce žije voľne, no o žiadnej chorobnej závislosti od bezhraničnej slobody Zoé nepíše.'
+        text: 'A – o vyhľadávaní dobrodružstiev list nehovorí.\nB – povrchný („meštiacky“) život tulák, naopak, odmieta a narúša a Zoé mu praje: „jedz krásu života sťa každodenný chlieb“.\nC – tulák síce žije voľne, no o žiadnej chorobnej závislosti od bezhraničnej slobody Zoé nepíše.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -799,7 +799,7 @@ export const questionsPart2: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Vokatívne oslovenie v liste',
-        text: 'Vo vete „Ži, ty hnedý **chlapče**, a jedz krásu života sťa každodenný chlieb“ je podstatné meno //chlapec// použité v osobitnom tvare 5. pádu (vokatívu) **chlapče!** namiesto nominatívu //chlapec//. Ide teda o **vokatívne oslovenie**.'
+        text: 'Vo vete „Ži, ty hnedý **chlapče**, a jedz krásu života sťa každodenný chlieb“ je podstatné meno //chlapec// použité v osobitnom tvare 5. pádu (vokatívu) **chlapče** namiesto nominatívu //chlapec//. Ide teda o **vokatívne oslovenie**.'
       },
       {
         title: 'Prečo nie ostatné možnosti',
@@ -879,7 +879,7 @@ export const questionsPart2: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Kľúčom je krátke knižné slovo „sťa“ uprostred vety – spomeň si, ktorou bežnou porovnávacou spojkou ho môžeš nahradiť!',
+    hint: 'Kľúčom je krátke knižné slovo „sťa“ uprostred vety – spomeň si, ktorou bežnou spojkou ho môžeš nahradiť!',
     solutionSteps: [
       {
         title: 'Spojka „sťa“ ako znak prirovnania',
@@ -904,7 +904,7 @@ export const questionsPart2: QuestionData[] = [
     acceptedAnswers: ['ti', 'ťa', 'ty'],
     commonMistakes: [
       {
-        pattern: '^(môj|moja|ja|mi)$',
+        pattern: '^(m[ôo]j|moja|ja|mi)$',
         hint: 'Zámená 1. osoby (ja, mi, môj, moja) odkazujú na pisateľku Zoé, preto sa v liste píšu s malým písmenom. Hľadaj osobné zámeno 2. osoby, ktorým sa Zoé prihovára adresátovi listu!'
       },
       {
@@ -912,7 +912,7 @@ export const questionsPart2: QuestionData[] = [
         hint: 'Slovo „sme“ nie je zámeno, ale tvar pomocného slovesa byť. Hľadaj osobné zámeno 2. osoby, ktorým sa Zoé prihovára adresátovi listu!'
       },
       {
-        pattern: '^(to|ten|každý|ktorý|ktorá)$',
+        pattern: '^(to|ten|ka[žz]d[ýy]|ktor[ýy]|ktor[áa])$',
         hint: 'Ukazovacie, vymedzovacie a vzťažné zámená sú v liste napísané správne. Spomeň si na pravopisné pravidlo o písaní osobných zámen adresáta v listoch!'
       }
     ],
@@ -942,8 +942,8 @@ export const questionsPart2: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: 'administratívn|úradn',
-        hint: 'Pozor na zámenu pojmov: „administratívny“ je jazykový štýl, nie slohový postup! Vyber zo štyroch slohových postupov (rozprávací, opisný, výkladový, …).'
+        pattern: 'administrat[íi]vn|[úu]radn',
+        hint: 'Pozor na zámenu pojmov: „administratívny“ je jazykový štýl, nie slohový postup! Spomeň si na štyri základné slohové postupy (napr. rozprávací či výkladový) a vyber ten, ktorý stručne uvádza fakty a údaje.'
       }
     ],
     hint: 'Nezameň si jazykový štýl (administratívny) so slohovým postupom! Ktorý zo štyroch základných slohových postupov stručne a heslovite uvádza vecné fakty, čísla a dátumy (odpovedá na otázky čo, kto, kedy, kde, ako)?',
@@ -984,11 +984,11 @@ export const questionsPart2: QuestionData[] = [
     ],
     commonMistakes: [
       {
-        pattern: '^môj$',
+        pattern: '^m[ôo]j$',
         hint: 'Slovo „môj“ síce naznačuje blízky vzťah, ale je to privlastňovacie zámeno, nie prídavné meno!'
       },
       {
-        pattern: '^(hnedý|krásny|zdravej|ošklivé|hladnými)$',
+        pattern: '^(hned[ýy]|kr[áa]sny|zdrav(ej|[ýy]|[áa])|o[šs]kliv([ée]|[ýy])|hladn([ýy]mi|[ýy]))$',
         hint: 'Toto prídavné meno nevyjadruje citový vzťah Zoé k tulákovi (napr. „hnedý“ opisuje len opálenú pokožku chlapca). Pozri sa na prvé slovo oslovenia v liste alebo do stĺpca Obsah v tabuľke!'
       }
     ],

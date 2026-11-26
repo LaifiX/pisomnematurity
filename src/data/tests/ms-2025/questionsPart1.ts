@@ -33,7 +33,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo neplatia ostatné možnosti',
-        text: 'B, D – spojenie //behací pás// poradňa výslovne neodporúča používať, a //chodecký pás// je určený len pre chodcov.\nC – prídavné meno //tréningový// slúži len na prípadné spresnenie trojslovného názvu //tréningový bežiaci pás//, nie ako samostatné pomenovanie //tréningový pás//.'
+        text: 'B, D – spojenie //behací pás// poradňa výslovne neodporúča používať a //chodecký pás// je určený len pre chodcov.\nC – prídavné meno //tréningový// slúži len na prípadné spresnenie názvu //bežiaci pás// (vznikne trojslovný názov //tréningový bežiaci pás//), netvorí dvojslovné pomenovanie //tréningový pás//.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **A**.'
@@ -61,7 +61,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Vylúčenie ostatných možností',
-        text: 'B – vyjadruje sa aj k trojslovným a štvorslovným spojeniam (//tréningový bežiaci pás//, //bežecký a chodecký pás//).\nC – ustálené výrazy naopak podporuje a opiera sa o ne.\nD – pripomienkam používateľov sa nevyhýba, priamo na ne reaguje (//„Pri tomto pomenovaní sme sa stretli s námietkami, že bežecký pás sa nepoužíva iba na behanie…“//).'
+        text: 'B – vyjadruje sa aj k trojslovným a štvorslovným spojeniam (//tréningový bežiaci pás//, //bežecký a chodecký pás//).\nC – ustálené výrazy, naopak, podporuje a opiera sa o ne.\nD – pripomienkam používateľov sa nevyhýba, priamo na ne reaguje (//„Pri tomto pomenovaní sme sa stretli s námietkami, že bežecký pás sa nepoužíva iba na behanie…“//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **A**.'
@@ -81,7 +81,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Premysli si, čo skúmajú jednotlivé jazykovedné disciplíny: sloh a štýly, tvaroslovie (skloňovanie a slovné druhy), skladbu viet, alebo slovnú zásobu, významy slov a tvorenie pomenovaní?',
+    hint: 'Premysli si, čo skúmajú jednotlivé jazykovedné disciplíny: sloh a štýly, tvaroslovie (skloňovanie a slovné druhy), skladbu viet či slovnú zásobu, významy slov a tvorenie pomenovaní. Ktorou z týchto oblastí sa zaoberá ukážka 1?',
     solutionSteps: [
       {
         title: 'Čo rieši ukážka 1',
@@ -141,11 +141,11 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: '1. Určenie slovného druhu',
-        text: 'Na slovo //všeobecnejší// (v texte //„vo všeobecnejšom význame“//) sa pýtame otázkou **aký?** (aký význam?) – rozvíja podstatné meno //význam//, ide teda o akostné **prídavné meno**. (Príslovka by sa pýtala //ako?// a znelo by to //všeobecne – všeobecnejšie//.)'
+        text: 'Na slovo //všeobecnejší// (v texte //„vo všeobecnejšom význame“//) sa pýtame otázkou **aký?** (aký význam?) – rozvíja podstatné meno //význam//, ide teda o akostné **prídavné meno**. (Na príslovku sa pýtame //ako?// a jej tvary by boli //všeobecne – všeobecnejšie//.)'
       },
       {
         title: '2. Pravidelné verzus nepravidelné stupňovanie',
-        text: 'Stupňujeme: 1. stupeň //všeobecný// → 2. stupeň //všeobecn-ejší// → 3. stupeň //naj-všeobecn-ejší//.\nSlovný základ //všeobecn-// zostáva nezmenený a pridáva sa k nemu bežná prípona //-ejší//. Ide preto o **pravidelné stupňovanie** (pri nepravidelnom sa mení celý koreň slova, napr. //dobrý – lepší//, //malý – menší//).'
+        text: 'Stupňujeme: 1. stupeň //všeobecný// → 2. stupeň //všeobecn-ejší// → 3. stupeň //naj-všeobecn-ejší//.\nSlovný základ //všeobecn-// zostáva nezmenený a pridáva sa k nemu bežná prípona //-ejší//. Ide preto o **pravidelné stupňovanie** (pri nepravidelnom sa mení koreň slova, napr. //dobrý – lepší//, //zlý – horší//, //malý – menší//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **B**.'
@@ -162,15 +162,15 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: ['pás'],
     commonMistakes: [
       {
-        pattern: '^výraz$',
-        hint: 'Pozor na chyták! Slovo „výraz“ sa končí znelou spoluhláskou z a nasledujúce slovo „bežecký“ sa začína tiež znelou spoluhláskou b – výslovnosť [výraz bežecký] sa teda vôbec nemení.'
+        pattern: '^v[yý]raz$',
+        hint: 'Pozor na chyták! Slovo „výraz“ sa končí znelou spoluhláskou z a nasledujúce slovo „bežecký“ sa začína tiež znelou spoluhláskou b – vo výslovnosti [víraz bežeckí] sa teda znelosť koncovej spoluhlásky nemení.'
       },
       {
-        pattern: '^bežecký$',
+        pattern: '^be[zž]eck[yý]$',
         hint: 'Slovo „bežecký“ sa končí samohláskou ý a ani v jeho vnútri sa nestretávajú spoluhlásky s rôznou znelosťou.'
       }
     ],
-    hint: 'Spodobovanie (znelostná asimilácia) v prúde reči nastáva vtedy, keď sa stretne koncová spoluhláska jedného slova so začiatočnou hláskou ďalšieho slova a prispôsobí sa jej znelosťou. Skontroluj konce slov, ktoré sa končia spoluhláskou („Výraz bežecký“ a „pás dostatočne“), a zisti, kde sa pri plynulom vyslovení zmení neznelá spoluhláska na znelú (alebo naopak)!',
+    hint: 'Spodobovanie (znelostná asimilácia) v prúde reči nastáva vtedy, keď sa stretne koncová párová spoluhláska jedného slova so začiatočnou hláskou ďalšieho slova a prispôsobí sa jej znelosťou. Nájdi vo vete slová zakončené párovou spoluhláskou, vyslov ich plynulo spolu s nasledujúcim slovom a zisti, kde sa neznelá spoluhláska zmení na znelú (alebo naopak)!',
     solutionSteps: [
       {
         title: 'Ako funguje spodobovanie v prúde reči',
@@ -200,6 +200,7 @@ export const questionsPart1: QuestionData[] = [
       'chôdze',
       'bez chôdze',
       'z chôdze',
+      'za chôdze',
       'do chôdze',
       'od chôdze',
       'okolo chôdze',
@@ -213,15 +214,15 @@ export const questionsPart1: QuestionData[] = [
     ],
     commonMistakes: [
       {
-        pattern: '^(bez\\s+|z\\s+|do\\s+|od\\s+)?chôdzi$',
+        pattern: 'ch[oô]dzi$',
         hint: 'Tvar „chôdzi“ patrí do datívu a lokálu (k chôdzi, o chôdzi). Slovo „chôdza“ má v základnom tvare príponu -a po mäkkej spoluhláske dz – skloňuje sa podľa vzoru ulica (bez ulice → bez …).'
       },
       {
-        pattern: '^(bez\\s+|z\\s+|do\\s+|od\\s+)?chodze$',
+        pattern: 'chodze$',
         hint: 'Tvar pádovej prípony máš správne, ale v koreni slova chôdza/chôdze chýba vokáň nad o (ô).'
       }
     ],
-    hint: 'Genitív singuláru je 2. pád jednotného čísla – pomôž si pádovou otázkou „bez koho? bez čoho?“. Urči najprv vzor ženského podstatného mena „chôdza“ (končí sa na -a a pred ním stojí mäkká spoluhláska dz).',
+    hint: 'Genitív singuláru je 2. pád jednotného čísla – pomôž si pádovou otázkou „koho? čoho?“ (s pomocnou predložkou „bez koho? bez čoho?“). Urči najprv vzor ženského podstatného mena „chôdza“ (končí sa na -a a pred ním stojí mäkká spoluhláska dz).',
     solutionSteps: [
       {
         title: '1. Určenie pádu a čísla',
@@ -274,7 +275,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         pattern: 'homonym',
-        hint: 'Homonymá sú slová, ktoré rovnako znejú, ale majú odlišný význam (napr. koruna stromu – kráľovská koruna). Tu máme dve rôzne znejúce slová s rovnakým významom.'
+        hint: 'Homonymá sú slová, ktoré rovnako znejú, ale majú odlišný význam (napr. čelo – časť hlavy a čelo – hudobný nástroj; rys – šelma a rys – výkres). Tu máme dve rôzne znejúce slová s rovnakým významom.'
       }
     ],
     hint: 'Porovnaj významy slovies „bežať“ a „utekať“ (napr. vo vete „Chlapec beží / uteká domov“). Znejú a píšu sa odlišne, ale znamenajú to isté. Ako sa jedným odborným slovom volajú slová s rovnakým alebo blízkym významom?',
@@ -311,7 +312,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Prečítaj si pozorne prvé dva verše a potom tretí verš v texte A aj v texte D. Čo by čitateľ očakával od muchy v lekárničke alebo od úslovia „Po nás potopa?“, a aký zvrat prinesie záverečný verš?',
+    hint: 'Prečítaj si pozorne prvé dva verše a potom tretí verš v texte A aj v texte D. Čo by čitateľ očakával od muchy v lekárničke alebo od známeho výroku „Po nás potopa“ a aký zvrat prinesie záverečný verš?',
     solutionSteps: [
       {
         title: 'Pointa v poslednom verši',
@@ -319,7 +320,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo neplatia ostatné možnosti',
-        text: 'A – básnická otázka sa nachádza iba v texte D (//Po nás potopa?//), v texte A otázka vôbec nie je.\nC – sylabický verš vyžaduje pravidelný (rovnaký) počet slabík vo veršoch a rým, čo v týchto nerýmovaných trojveršiach neplatí.\nD – texty nemajú rovnakú ani pravidelnú stopovú organizáciu (trochejov či daktylov): text A je písaný voľným veršom (6 – 4 – 7 slabík) a text D dodržiava slabičnú schému haiku (5 – 7 – 5).'
+        text: 'A – básnická otázka sa nachádza iba v texte D (//Po nás potopa?//), v texte A otázka vôbec nie je.\nC – slovenský sylabický veršový systém vyžaduje rovnaký počet slabík vo veršoch (izosylabizmus) a rým; navyše text A (6 – 4 – 7) je písaný voľným veršom, takže sylabický verš nie je spoločným prvkom textov A a D.\nD – texty nemajú rovnakú ani pravidelnú stopovú organizáciu (trochejov či daktylov): text A je písaný voľným veršom (6 – 4 – 7 slabík) a text D dodržiava slabičnú schému haiku (5 – 7 – 5).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **B**.'
@@ -347,7 +348,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Vylúčenie ostatných možností',
-        text: 'A – žiadna zo štyroch básní v ukážke nie je rýmovaná (a text A ani nie je satirický).\nB – balada je epický (príp. lyricko-epický) žáner s pochmúrnym dejom a tragickým záverom.\nC – texty nie sú písané v próze (do súvislých riadkov odseku), ale sú členené do veršov.'
+        text: 'A – žiadna zo štyroch básní v ukážke nie je rýmovaná (a texty A či B ani nie sú satirické).\nB – balada je epický (príp. lyricko-epický) žáner s pochmúrnym dejom a tragickým záverom.\nC – texty nie sú písané v próze (do súvislých riadkov odseku), ale sú členené do veršov.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **D**.'
@@ -395,7 +396,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Nenechaj sa vyľakať cudzím názvom! „Rytmicko-syntaktický paralelizmus“ jednoducho znamená, že každý jeden verš tvorí zároveň jednu ukončenú vetu (koniec verša = koniec vety). Naopak „veršový presah“ nastáva vtedy, keď veta nekončí na konci verša, ale pokračuje do ďalšieho. Pozri sa na znamienka na konci veršov v texte B!',
+    hint: 'Vylúč najprv postupy typické pre modernú prózu a potom v texte B porovnaj členenie na verše s členením na vety: „rytmicko-syntaktický paralelizmus“ nastáva vtedy, keď verš tvorí zároveň ukončenú vetu (koniec verša = koniec vety). Naopak, „veršový presah“ nastáva vtedy, keď sa veta nekončí na konci verša, ale pokračuje do ďalšieho.',
     solutionSteps: [
       {
         title: 'Čo je rytmicko-syntaktický paralelizmus',
@@ -403,7 +404,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo neplatia ostatné možnosti',
-        text: 'D – **veršový presah** (enjambement) je pravý opak paralelizmu (keď veta presahuje bez ukončenia do ďalšieho verša, ako v texte A). V texte B nie je ani jeden presah.\nB, C – **prúd vedomia** (voľné plynutie asociácií bez interpunkcie) a **nespoľahlivý rozprávač** sú postupy moderného prozaického rozprávania, nie tejto krátkej básne.'
+        text: 'D – **veršový presah** (enjambement) je pravý opak paralelizmu (keď veta presahuje bez ukončenia do ďalšieho verša, ako v texte A). V texte B nie je ani jeden presah.\nB, C – **prúd vedomia** (voľné plynutie asociácií, často bez logickej stavby či interpunkcie) a **nespoľahlivý rozprávač** sú postupy moderného prozaického rozprávania, nie tejto krátkej básne.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **A**.'
@@ -492,7 +493,7 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: ['zízaš'],
     commonMistakes: [
       {
-        pattern: '^zízať$',
+        pattern: '^z[ií]za[tť]$',
         hint: 'Sloveso si našiel/našla správne, ale vypíš ho presne v tom tvare, v akom stojí v texte ukážky 2 (teda v 2. osobe jednotného čísla, nie v neurčitku)!'
       },
       {
@@ -531,7 +532,9 @@ export const questionsPart1: QuestionData[] = [
       'neohybným',
       'neohybný',
       'je nesklonné',
+      'je nesklonným',
       'je neohybné',
+      'je neohybným',
       'Cudzie slovo haiku nemá v slovenčine žiadny skloňovací vzor, teda je nesklonné',
       'Cudzie slovo haiku nemá v slovenčine žiadny skloňovací vzor, teda je nesklonným',
       'Cudzie slovo haiku nemá v slovenčine žiadny skloňovací vzor, teda je neohybné',
@@ -680,7 +683,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'V akej oblasti sa používajú slová „biotechnologický“, „tomografia“ a „skener“? Sú to presné pomenovania z vedy a techniky, nespisovné študentské výrazy, zjemňujúce slová, alebo zastarané slová?',
+    hint: 'V akej oblasti sa používajú slová „biotechnologický“, „tomografia“ a „skener“? Sú to presné pomenovania z vedy a techniky, nespisovné výrazy určitej záujmovej, profesijnej alebo vekovej skupiny, zjemňujúce slová, alebo zastarané slová?',
     solutionSteps: [
       {
         title: 'Zaradenie v slovnej zásobe',
@@ -688,7 +691,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Vysvetlenie ostatných pojmov',
-        text: 'B – **slangové slová**: nespisovné slová záujmovej alebo profesijnej skupiny (napr. //matika, slovina, komp//; v titulku ukážky má blízko k hovorovosti len úvodzovkové //„CT-čko“//).\nC – **eufemizmy**: zjemňujúce pomenovania nepríjemných javov (napr. //usnúť naveky// namiesto //zomrieť//).\nD – **archaizmy**: zastarané slová, ktoré už nahradil modernejší výraz (napr. //lučba// namiesto //chémia//).'
+        text: 'B – **slangové slová**: nespisovné slová záujmovej, profesijnej alebo vekovej skupiny (napr. //matika, slovina, komp//; v titulku ukážky má blízko k hovorovosti len výraz //„CT-čko“// v úvodzovkách).\nC – **eufemizmy**: zjemňujúce pomenovania nepríjemných javov (napr. //usnúť naveky// namiesto //zomrieť//).\nD – **archaizmy**: zastarané slová, ktoré už nahradil modernejší výraz (napr. //lučba// namiesto //chémia//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **A**.'
@@ -726,11 +729,11 @@ export const questionsPart1: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: 'priama\\s+re[cč]',
+        pattern: 'priam[aáu]\\s+re[cč]',
         hint: 'Spojenie „priama reč“ je síce vecne blízke, ale má dve slová! Zadanie zvýraznene žiada doplniť jednoslovný termín – ako jedným slovom nazveme doslovne uvedené slová iného človeka v článku?'
       }
     ],
-    hint: 'V treťom odseku novinár od slova do slova uvádza v úvodzovkách to, čo povedal vedúci centra Tomáš Gergeľ. Pozor: „priama reč“ sú dve slová, no zadanie pýta jednoslovný termín!',
+    hint: 'V treťom odseku novinár od slova do slova uvádza v úvodzovkách to, čo povedal vedúci centra Tomáš Gergeľ. Pozor: „priama reč“ sú dve slová, no zadanie žiada jednoslovný termín!',
     solutionSteps: [
       {
         title: 'Doslovné uvedenie slov v publicistickom texte',
@@ -765,11 +768,16 @@ export const questionsPart1: QuestionData[] = [
       'vikričník',
       'vikricnik',
       'výkryčník',
+      'výkryčnik',
       'vykryčník',
       'vykrycnik',
       'výkričníkom',
+      'výkričnikom',
+      'vykričníkom',
+      'vykričnikom',
       'vykricnikom',
       'výkričníky',
+      'výkričniky',
       'vykricniky',
       'znamienko výkričník',
       'znamienko vykricnik',
@@ -780,6 +788,7 @@ export const questionsPart1: QuestionData[] = [
       'interpunkčné znamienko vykričnik',
       'interpunkcne znamienko vykricnik',
       '!',
+      '(!)',
       'znamienko !',
       'interpunkčné znamienko !',
       'výkričník (!)',
@@ -819,15 +828,15 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Pomenujte vetný člen zvýraznený v nasledujúcej vete.\n//Tu sa používa najkvalitnejšie **drevo**.//',
     placeholder: 'Napíš názov vetného člena',
     correctAnswerDisplay: 'podmet',
-    acceptedAnswers: ['podmet', 'podmetom', 'subjekt', 'subjektom', 'vyjadrený podmet', 'gramatický podmet'],
+    acceptedAnswers: ['podmet', 'podmetom', 'subjekt', 'subjektom', 'vyjadrený podmet', 'gramatický podmet', 'rozvitý podmet'],
     lenient: true,
     commonMistakes: [
       {
         pattern: 'predmet',
-        hint: 'Pozor, toto je najčastejší maturitný chyták! Vo vete nie je činné sloveso „niekto používa drevo“, ale zvratný trpný tvar „sa používa“. Opýtaj sa v 1. páde: „Kto? Čo sa tu používa?“ – drevo! Skús si namiesto „drevo“ dosadiť ženský rod „guľatina“: povieme „Tu sa používa guľatina“ (1. pád), nie „guľatinu“ (4. pád)!'
+        hint: 'Pozor, toto je najčastejší maturitný chyták! Vo vete nie je činná konštrukcia „niekto používa drevo“, ale zvratný trpný tvar „sa používa“. Opýtaj sa v 1. páde: „Kto? Čo sa tu používa?“ – drevo! Skús si namiesto slova „drevo“ dosadiť podstatné meno ženského rodu „guľatina“: povieme „Tu sa používa guľatina“ (1. pád), nie „guľatinu“ (4. pád)!'
       }
     ],
-    hint: 'Pri strednom rode („drevo“) majú viaceré pády rovnaký tvar. Všimni si zvratnú podobu slovesa „sa používa“, dosaď si za prívlastok „najkvalitnejšia“ nadradené podstatné meno ženského rodu z predchádzajúcich viet odseku („guľatina“), opýtaj sa naň spolu so slovesom a urči jeho pád aj vetný člen!',
+    hint: 'Pri strednom rode („drevo“) majú viaceré pády rovnaký tvar. Všimni si zvratnú podobu slovesa „sa používa“ a skús namiesto slova „drevo“ dosadiť podstatné meno ženského rodu, napr. „guľatina“: „Tu sa používa najkvalitnejšia guľatina“. Opýtaj sa naň spolu so slovesom a urči jeho pád aj vetný člen!',
     solutionSteps: [
       {
         title: '1. Prečo nejde o predmet (ako odhaliť chyták)',
@@ -865,7 +874,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Overenie údajov v inzeráte',
-        text: 'V inzeráte sa píše: //„Nehnuteľnosť je v štádiu holobytu s možnosťou dokončenia podľa vašich predstáv.“// Holobyt je **nedokončený byt** (bez finálnych podláh, dverí a sanity). Zároveň má //„veľkorysý balkón (viac ako 30 m² )“//, teda **priestranný balkón**.'
+        text: 'V inzeráte sa píše: //„Nehnuteľnosť je v štádiu holobytu s možnosťou dokončenia podľa vašich predstáv.“// Holobyt je **nedokončený byt** (bez finálnych podláh, dverí a sanity). Zároveň má //„veľkorysý balkón (viac ako 30 m²)“//, teda **priestranný balkón**.'
       },
       {
         title: 'Prečo neplatia ostatné možnosti',
@@ -945,7 +954,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Texty delíme na umelecké (básne, poviedky) a vecné (praktické texty z bežného života, vedy či úradov). Potom si všimni jazyk inzerátu: „parádny byt“, „info“, „Foto“, „Som 24/7“ a smajlík ☺ – pôsobí úradne a odborne, alebo uvoľnene a neformálne?',
+    hint: 'Texty delíme na umelecké (básne, poviedky) a vecné (praktické texty z bežného života, vedy či úradov). Potom si všimni jazyk inzerátu: „parádny 4-izbový byt“, „info“, „Foto“, „Som 24/7“ a smajlík ☺ – pôsobí prísne oficiálne, alebo skôr uvoľnene a hovorovo?',
     solutionSteps: [
       {
         title: 'Vecný a neformálny charakter inzerátu',
@@ -1038,7 +1047,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Odvodzovaním (deriváciou) vznikajú slová z jedného slovného základu pridaním predpony alebo prípony (napr. stav-ba, ob-chod). V slovách „novostavba“ (nový + stavba) a „maloobchod“ (malý + obchod) sa však spájajú dva plnovýznamové slovné základy!'
       },
       {
-        pattern: '^zlo[zž]en[eé]',
+        pattern: 'zlo[zž]en',
         hint: '„Zložené slová“ je pomenovanie výsledných slov, ale otázka sa pýta na názov slovotvorného postupu (procesu, ktorým tieto slová vznikli – napr. odvodzovanie, skracovanie alebo …).'
       }
     ],
@@ -1050,7 +1059,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Slovotvorný postup',
-        text: 'V slovenčine rozlišujeme tri hlavné slovotvorné postupy: //odvodzovanie (derivácia)//, **skladanie (kompozícia)** a //skracovanie (abreviácia)//.\nTvorenie nového slova spojením dvoch (alebo viacerých) slovných základov sa nazýva **skladanie**, odborne **kompozícia** (kľúč uznáva aj inštrumentál //skladaním / kompozíciou// a prihliada na vecnú správnosť).'
+        text: 'Medzi hlavné slovotvorné postupy v slovenčine patria //odvodzovanie (derivácia)//, **skladanie (kompozícia)** a //skracovanie (abreviácia)//.\nTvorenie nového slova spojením dvoch (alebo viacerých) slovných základov sa nazýva **skladanie**, odborne **kompozícia** (kľúč uznáva aj inštrumentál //skladaním / kompozíciou// a prihliada na vecnú správnosť).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: **skladanie** (alebo **kompozícia**).'

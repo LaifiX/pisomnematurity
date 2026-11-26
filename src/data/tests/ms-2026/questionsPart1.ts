@@ -24,7 +24,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Všimni si v poslednom odseku, čo sa Dupin usiluje urobiť so záhadou vraždy a kto naopak číta pasáž z odbornej knihy či svedčí o výkrikoch.',
+    hint: 'Všimni si v poslednom odseku, čo sa Dupin usiluje urobiť so záhadou vraždy a kto, naopak, číta pasáž z odbornej knihy či svedčí o výkrikoch.',
     solutionSteps: [
       {
         title: 'Úloha postavy v texte',
@@ -56,11 +56,11 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Doklad v texte',
-        text: 'Rozprávač v 3. odseku pripomína: //„Okrem toho občania počuli dva hlasy a jeden z nich patril nepochybne Francúzovi.“// Prvý hlas teda svedkovia podľa slov //Mon Dieu!// priradili Francúzovi, no pôvod druhého hlasu (škriekania orangutana) sa pri dovtedajšom vyšetrovaní občanom ani polícii nepodarilo určiť.'
+        text: 'Rozprávač v 3. odseku pripomína: //„Okrem toho občania počuli dva hlasy a jeden z nich patril nepochybne Francúzovi.“// Prvý hlas teda svedkovia podľa slov //Mon Dieu!// priradili Francúzovi, no pôvod druhého hlasu sa pri dovtedajšom vyšetrovaní ešte nepodarilo určiť.'
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – Francúza osobne nepoznali, Dupin o ňom hovorí neurčito ako o //„akomsi Francúzovi“// a Montani iba charakterizoval tón jeho výkriku.\nB – svedecké výpovede sa naopak //„temer jednomyseľne“// zhodovali a Dupin práve na nich postavil rozlúštenie.\nC – krvavé činy spáchal samotný utečený orangutan; o jeho anatómii len písal prírodovedec Cuvier v knihe.'
+        text: 'A – Francúza osobne nepoznali, Dupin o ňom hovorí neurčito ako o //„akomsi Francúzovi“// a Montani iba charakterizoval tón jeho výkriku.\nB – svedecké výpovede sa, naopak, //„temer jednomyseľne“// zhodovali a Dupin práve na nich postavil rozlúštenie.\nC – krvavé činy spáchal samotný utečený orangutan; o jeho anatómii len písal prírodovedec Cuvier v knihe.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -80,7 +80,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Všimni si slovesnú osobu, v ktorej je príbeh vyrozprávaný, či rozprávač sám vystupuje ako postava v scéne a či pozná všetky súvislosti dopredu, alebo sa pýta Dupina. Ako sa v teórii literatúry nazýva takýto typ rozprávača?',
+    hint: 'Všimni si slovesnú osobu, v ktorej je príbeh vyrozprávaný, či rozprávač sám vystupuje ako postava v scéne a či pozná všetky súvislosti vopred, alebo mu záhadu vysvetľuje Dupin. Ako sa v teórii literatúry nazýva takýto typ rozprávača?',
     solutionSteps: [
       {
         title: 'Určenie typu rozprávača',
@@ -88,7 +88,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – vševediaci rozprávač rozpráva v 3. osobe a pozná aj skryté myšlienky všetkých postáv; tu rozprávač sám priznáva: //„jednotlivosti tejto hrôzyplnej záhady ešte vždy neviem pochopiť“//.\nB – rozprávač nezavádza čitateľa (nie je nespoľahlivý), vecne opisuje rozhovor s Dupinom.\nD – rozprávač sa na deji priamo zúčastňuje ako účastník rozhovoru.'
+        text: 'A – vševediaci rozprávač rozpráva v 3. osobe a pozná aj skryté myšlienky všetkých postáv; tu rozprávač sám priznáva: //„jednotlivosti tejto hrôzyplnej záhady ešte vždy neviem pochopiť“//.\nB – rozprávač nezavádza čitateľa (nie je nespoľahlivý), vecne opisuje rozhovor s Dupinom.\nD – rozprávač v deji priamo vystupuje ako jedna z postáv rozhovoru.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -170,7 +170,7 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Koľko postáv sa zhovára v ukážke 1?',
     placeholder: 'Napíš počet',
     correctAnswerDisplay: '2 (dve)',
-    acceptedAnswers: ['2', 'dve', '2 postavy', 'dve postavy', 'dvaja'],
+    acceptedAnswers: ['2', 'dve', 'dva', '2 postavy', 'dve postavy', 'dvaja', '2 osoby', 'dve osoby', 'dvaja ľudia'],
     lenient: true,
     hint: 'Pozor na rozdiel medzi postavami, ktoré sa v ukážke priamo rozprávajú (vedú dialóg v úvodzovkách), a ľuďmi, o ktorých počas rozhovoru iba hovoria.',
     solutionSteps: [
@@ -194,7 +194,7 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Pomenujte umelecký prostriedok, ktorý sa nachádza v podčiarknutej časti v ukážke 1.',
     placeholder: 'Napíš názov umeleckého prostriedku',
     correctAnswerDisplay: 'metonymia',
-    acceptedAnswers: ['metonymia'],
+    acceptedAnswers: ['metonymia', 'metonimia'],
     lenient: true,
     commonMistakes: [
       {
@@ -202,7 +202,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Metafora prenáša význam na základe vonkajšej podobnosti. Tu je však meno autora (Cuvier) použité namiesto jeho knihy – ide o prenesenie významu na základe vecnej súvislosti.'
       }
     ],
-    hint: 'V podčiarknutej časti „pasáž z Cuviera“ – číta rozprávač naozaj človeka Cuviera, alebo knihu, ktorú Cuvier napísal? Spomeň si, ako sa volá tróp založený na vnútornej vecnej súvislosti (autor namiesto diela).',
+    hint: 'Pozri sa na podčiarknutú časť „pasáž z Cuviera“: číta rozprávač naozaj človeka Cuviera, alebo knihu, ktorú Cuvier napísal? Spomeň si, ako sa volá tróp založený na vnútornej vecnej súvislosti (autor namiesto diela).',
     solutionSteps: [
       {
         title: 'Vysvetlenie obrazného spojenia',
@@ -224,7 +224,7 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Koľko odsekov obsahuje ukážka 1?',
     placeholder: 'Napíš počet',
     correctAnswerDisplay: '4 (štyri)',
-    acceptedAnswers: ['4', 'štyri', '4 odseky', 'štyri odseky'],
+    acceptedAnswers: ['4', 'štyri', 'štyry', 'štiry', '4 odseky', 'štyri odseky'],
     lenient: true,
     hint: 'Odsek je ucelená časť textu, ktorej prvý riadok sa začína zarážkou (odsadením zľava). Nadpis s menom autora a poznámku v zátvorke pod ním do počtu odsekov nerátaj – spočítaj aj krátku jednovetovú repliku na začiatku.',
     solutionSteps: [
@@ -256,11 +256,11 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Všimni si, aké obrazy sa vinú celou básňou od prvej až po poslednú strofu (ľalie, kvetná poľná rovina, ker, vtáčik, oblaky, potoky a zelene) a ako do nich básnik vkladá človeka.',
+    hint: 'Všimni si, aký opakujúci sa okruh obrazov sprevádza postavy (dieťa, chlapca, Helenu) naprieč básňou a akú snovú náladu navodzuje slovo „keby“.',
     solutionSteps: [
       {
         title: 'Hlavná téma básne',
-        text: 'Vo všetkých strofách básnik prepája ľudský život (dieťa, chlapca, Helenu) s obrazmi prírody: //kvetná poľná rovina//, //ker spanilý//, //vtáčik malučký//, //oblaky//, //chlapec vtelený do potokov a zelení//. Celou ukážkou sa tak nesie **téma žitia v spojení s prírodou**.'
+        text: 'Ľudské postavy (//dieťa, chlapca, Helenu//) básnik v 3. – 5. strofe prepája s obrazmi prírody prestupujúcimi všetky strofy: //ľalie//, //kvetná poľná rovina//, //ker spanilý//, //vtáčik malučký//, //oblaky//, //chlapec vtelený do potokov a zelení//. Celou ukážkou sa tak nesie **téma žitia v spojení s prírodou**.'
       },
       {
         title: 'Prečo nie ostatné možnosti',
@@ -292,7 +292,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'B – prirovnanie porovnáva dve veci pomocou spojky //ako, sťa, jak, ani// (v básni je prirovnaním napr. //tak biele ako spodníky// alebo //s krásou jak Zdravas//, nie samotná ľalia).\nC – zosobnenie (personifikácia) prenáša ľudské vlastnosti na neživé veci (ľalia v básni nekoná ako človek).\nD – kontrast je protiklad dvoch opačných javov.'
+        text: 'B – prirovnanie porovnáva dve veci pomocou spojky //ako, sťa, jak, ani// (v básni je prirovnaním napr. //tak biele ako spodníky// alebo //s krásou jak Zdravas//, nie samotná ľalia).\nC – zosobnenie (personifikácia) prenáša ľudské vlastnosti na neživé predmety, prírodné javy, rastliny či zvieratá (ľalia v básni nekoná ako človek).\nD – kontrast je postavenie dvoch protikladných javov proti sebe.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -312,7 +312,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Pozri sa pozorne na verše tretej strofy a spočítaj v nich slabiky. Všimni si predložku v poslednom verši „čo ku oblakom letelo“ – aký tvar predložky by sme pred slovom oblakom použili v bežnej spisovnej reči?',
+    hint: 'Porovnaj tretiu strofu s ostatnými: over, či sa v nej oproti zvyšku básne naozaj mení veršový systém, tematika alebo použité figúry, a skontroluj počet slabík aj konkrétnu podobu slov v jej veršoch.',
     solutionSteps: [
       {
         title: 'Rytmus a tvary slov v 3. strofe',
@@ -320,7 +320,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – anafora (opakovanie //Keby… / keby…// na začiatku veršov) aj voľné asociácie sa nachádzajú aj vo 4. strofe, teda nie „na rozdiel od ostatných strof“.\nB – v 3. strofe nie sú nijaké náboženské (duchovné) prvky; tie sú v 1. a 5. strofe (//anjel//, //Zdravas//).\nC – celá báseň vrátane 3. strofy má rovnaký sylabický (osemslabičný) veršový rozmer, nie časomerný systém.'
+        text: 'A – anafora (opakovanie //Keby… / keby…// na začiatku veršov) aj voľné asociácie sa nachádzajú aj vo 4. strofe, teda nie „na rozdiel od ostatných strof“.\nB – v 3. strofe nie sú nijaké náboženské (duchovné) prvky; tie sú v 1. a 5. strofe (//anjel//, //Zdravas//).\nC – celá báseň vrátane 3. strofy má rovnaký sylabický veršový systém s osemslabičným veršovým rozmerom, nie časomerný systém.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -344,7 +344,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Funkcia slova v texte',
-        text: 'Spojka/častica **keby** sa v básni opakuje šesťkrát (//keby bol závoj hmlovinou//, //Keby bol spal ker spanilý//, //Keby bol vtáčik malučký…//) a viaže sa so slovesom v podmieňovacom spôsobe. Vyjadruje neskutočnú podmienku, snovú predstavu (**hypotetickú situáciu**) a zároveň tiché želanie (**túžbu**).'
+        text: 'Želacia častica (v súvetí podmienková spojka) **keby** sa v básni opakuje šesťkrát (//keby bol závoj hmlovinou//, //Keby bol spal ker spanilý//, //Keby bol vtáčik malučký…//) a v spojení s minulým l-ovým tvarom slovesa (//bol, spal, sadol, vedelo, podobali sa//) vytvára podmieňovací spôsob. Vyjadruje neskutočnú podmienku, snovú predstavu (**hypotetickú situáciu**) a zároveň tiché želanie (**túžbu**).'
       },
       {
         title: 'Prečo nie ostatné možnosti',
@@ -368,7 +368,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Rudolf Dilong bol síce kľúčovým básnikom katolíckej moderny, no miloval aj modernú avantgardu. Všimni si snové, nelogicky splývajúce obrazy v básni (chlapec vtelený do potokov a zelení) – pre ktorý avantgardný smer je typický sen a voľné asociácie?',
+    hint: 'Rudolf Dilong bol síce kľúčovým básnikom katolíckej moderny, no inšpiroval sa aj medzivojnovou avantgardou. Všimni si snové, nelogicky splývajúce obrazy v básni (chlapec vtelený do potokov a zelení) – pre ktorý avantgardný smer je typický sen a voľné asociácie?',
     solutionSteps: [
       {
         title: 'Literárne zaradenie R. Dilonga',
@@ -376,7 +376,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'B – existencializmus rieši úzkosť, odcudzenie a absurditu ľudskej existencie (napr. J.-P. Sartre, A. Camus).\nC – sociálno-kritický realizmus zobrazuje biedu a spoločenské krivdy v próze konca 19. a začiatku 20. storočia.\nD – socialistický realizmus bol ideologicky riadený smer po roku 1948; Dilong ako františkánsky mních žil už od roku 1945 v emigrácii.'
+        text: 'B – existencializmus rieši úzkosť, odcudzenie a absurditu ľudskej existencie (napr. J.-P. Sartre, A. Camus).\nC – sociálno-kritický realizmus zobrazuje biedu a spoločenské krivdy najmä v próze a dráme 19. a začiatku 20. storočia.\nD – socialistický realizmus bol u nás po roku 1948 štátom presadzovaná ideologická metóda; Dilong ako františkánsky rehoľník žil už od roku 1945 v emigrácii.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -393,6 +393,8 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: [
       '3',
       '3.',
+      'v 3.',
+      'v 3',
       'tretia',
       'tretej',
       'v tretej',
@@ -405,20 +407,22 @@ export const questionsPart1: QuestionData[] = [
       'tretia strofa',
       'III',
       'III.',
+      'v III.',
+      'v III',
       'III. strofa',
       'III. strofe',
       'v III. strofe'
     ],
     lenient: true,
-    hint: 'Zdrobnenina (deminutívum) je slovo odvodené príponou, ktoré pomenúva niečo malé a zároveň vyjadruje nežný, láskavý vzťah (napr. dom → domček, strom → stromček). Prejdi strofu po strofe a hľadaj takéto zjemnené slová.',
+    hint: 'Zdrobnenina (deminutívum) je slovo odvodené príponou, ktoré pomenúva niečo malé a zvyčajne vyjadruje nežný, láskavý vzťah (napr. dom → domček, strom → stromček). Prejdi strofu po strofe a hľadaj takéto zdrobnené slová.',
     solutionSteps: [
       {
         title: 'Čo sú zdrobneniny',
-        text: 'Zdrobneniny (deminutíva) sú slová s kladným citovým zafarbením, ktoré označujú malý rozmer alebo nežný vzťah k pomenovanej veci (tvoria sa príponami ako //-ik/-ík, -ček, -ka/-čka, -učký//).'
+        text: 'Zdrobneniny (deminutíva) sú slová zvyčajne s kladným citovým zafarbením, ktoré označujú malý rozmer alebo nežný vzťah k pomenovanej veci (tvoria sa príponami ako //-ik/-ík, -ček, -ka/-čka, -učký//).'
       },
       {
         title: 'Nájdenie v básni',
-        text: 'Pozrime sa na **tretiu strofu**:\n//Keby bol **vtáčik** **malučký** / dieťaťu sadol na **rúčky**…//\nNachádzajú sa tu hneď tri zdrobnené výrazy: podstatné mená **vtáčik** (od //vták//) a **rúčky** (od //ruky//) aj zjemnené prídavné meno **malučký** (od //malý//). V ostatných strofách zdrobneniny nie sú.'
+        text: 'Pozrime sa na **tretiu strofu**:\n//Keby bol **vtáčik** **malučký** / dieťaťu sadol na **rúčky**…//\nNachádzajú sa tu hneď tri zdrobnené výrazy: podstatné mená **vtáčik** (od //vták//) a **rúčky** (od //ruky//) aj zdrobnené prídavné meno **malučký** (od //malý//). V ostatných strofách zdrobneniny nie sú.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: v 3. strofe (tretia / 3.).'
@@ -448,7 +452,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Literárnovedné pomenovanie',
-        text: 'Obrazný, umelecký prívlastok s citovým významom sa nazýva **epiteton** (alebo slovensky **básnický prívlastok**; kľúč uznáva aj latinské pomenovania //epiteton ornans// a //epiteton constans//, neuznáva však odpoveď //metafora//).'
+        text: 'Obrazný, umelecký prívlastok s citovým významom sa nazýva **epiteton** (alebo slovensky **básnický prívlastok**; kľúč uznáva aj odborné (grécko-latinské) pomenovania //epiteton ornans// a //epiteton constans//, neuznáva však odpoveď //metafora//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: epiteton (básnický prívlastok).'
@@ -481,7 +485,7 @@ export const questionsPart1: QuestionData[] = [
     lenient: true,
     commonMistakes: [
       {
-        pattern: '^aabb$',
+        pattern: '^a\\s*a\\s*b\\s*b(\\s+r[yý]m)?$',
         hint: 'Samotná schéma rýmu nestačí – napíš slovné pomenovanie druhu rýmu.'
       }
     ],
@@ -489,7 +493,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Určenie rýmovej schémy',
-        text: 'Porovnajme si zakončenia veršov v strofách:\n• 2. strofa: //spanilý// (**a**) – //chránili// (**a**) – //chodníky// (**b**) – //spodníky// (**b**),\n• 3. strofa: //malučký// (**a**) – //rúčky// (**a**) – //vedelo// (**b**) – //letelo// (**b**),\n• 4. strofa: //vtelený// (**a**) – //zelení// (**a**) – //zelene// (**b**) – //Helene// (**b**),\n• 5. strofa: //ľaliu// (**a**) – //ju// (**a**) – //nedeli// (**b**) – //leteli// (**b**).\nRýmujú sa vždy dva susedné verše za sebou podľa schémy **AABB**.'
+        text: 'Porovnajme si zakončenia veršov v strofách:\n• 1. strofa: //ľalie// (**a**) – //malý je// (**a**) – //hmlovinou// (**b**) – //rovinou// (**b**),\n• 2. strofa: //spanilý// (**a**) – //chránili// (**a**) – //chodníky// (**b**) – //spodníky// (**b**),\n• 3. strofa: //malučký// (**a**) – //rúčky// (**a**) – //vedelo// (**b**) – //letelo// (**b**),\n• 4. strofa: //vtelený// (**a**) – //zelení// (**a**) – //zelene// (**b**) – //Helene// (**b**),\n• 5. strofa: //ľaliu// (**a**) – //rozsypali ju// (**a**) – //nedeli// (**b**) – //leteli// (**b**).\nRýmujú sa vždy dva susedné verše za sebou podľa schémy **AABB**.'
       },
       {
         title: 'Pomenovanie druhu rýmu',
@@ -523,7 +527,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo sú ostatné možnosti nepravdivé',
-        text: 'A – v 1. bode postupu sa nastrúhajú a vyžmýkajú **očistené surové** zemiaky, nie uvarené.\nB – kvalita bryndze sa v texte posudzuje podľa toho, že sa na teplých haluškách rozpustí, obalí ich a zacítite ju na jazyku – o jej farbe sa nepíše.\nC – v surovinách je uvedená **polohrubá múka**, nie preosiata ražná múka.'
+        text: 'A – v 1. bode postupu sa nastrúhajú a vyžmýkajú **očistené** (surové) zemiaky, nie uvarené.\nB – kvalita bryndze sa v texte posudzuje podľa toho, že sa na teplých haluškách rozpustí, obalí ich a zacítite ju na jazyku – o jej farbe sa nepíše.\nC – v surovinách je uvedená **polohrubá múka**, nie preosiata ražná múka.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je D.'
@@ -579,7 +583,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'B – vo vete nie sú postavené do kontrastu nijaké protikladné pojmy.\nC – všetky slová vo vete sú spisovné, nenachádza sa v nej žiadne nárečové slovo.\nD – nejde o ustálené slovné spojenie (frazeologizmus), ale o autorské obrazné (metaforické) vyjadrenie.'
+        text: 'B – vo vete nie sú postavené do protikladu nijaké pojmy.\nC – všetky slová vo vete sú spisovné, nenachádza sa v nej žiadne nárečové slovo.\nD – nejde o ustálené slovné spojenie (frazeologizmus), ale o autorské obrazné (metaforické) vyjadrenie.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -599,7 +603,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Skontroluj dve veci: 1. stavbu vety – či si k slovesu vieme doplniť podmet a či je vo vete priamo slovne vyjadrený (úplná veta), alebo zamlčaný (neúplná veta); 2. zámer hovoriaceho a slovesný spôsob – pozor, samotný výkričník na konci vety označuje zvolaciu intonáciu, no ešte z nej nerobí rozkazovaciu vetu!',
+    hint: 'Skontroluj dve veci: 1. stavbu vety – či si k slovesu vieme doplniť podmet a či je vo vete priamo slovne vyjadrený (úplná veta), alebo zamlčaný (neúplná veta); 2. zámer hovoriaceho – pozor, výkričník na konci vety môže označovať iba zvolaciu intonáciu, rozhodujúci je slovesný spôsob slovesa „nevidíte“.',
     solutionSteps: [
       {
         title: 'Veta podľa obsahu (zámeru hovoriaceho)',
@@ -635,7 +639,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo sú ostatné možnosti chybné',
-        text: 'B – chybný pravopis //štiry//, lomka //5/8// namiesto pomlčky a chýbajúca bodka za skratkou (//min// bez bodky je fyzikálna značka, v bežnom texte píšeme //min.//).\nC – kratší spojovník //-// namiesto pomlčky a **m** bez bodky je značka **metra**, nie minúty.\nD – chybný pravopis //štyry//, lomka namiesto pomlčky a nesprávna skratka //m.//'
+        text: 'B – chybný pravopis //štiry// a lomka //5/8// namiesto pomlčky (tvar //min// bez bodky je navyše fyzikálna značka jednotky času, kým v bežnom texte píšeme skratku //min.// s bodkou).\nC – kratší spojovník //-// namiesto pomlčky a **m** bez bodky je značka **metra**, nie minúty.\nD – chybný pravopis //štyry//, lomka namiesto pomlčky a nesprávna skratka //m.//'
       }
     ],
     solutionConclusion: 'Správna odpoveď je A.'
@@ -658,7 +662,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Opis je slohový útvar – zadanie sa pýta na slohový postup (prídavné meno zakončené na -ný).'
       }
     ],
-    hint: 'Nezamieňaj si slohový útvar ani jazykový štýl so slohovým postupom (prídavné meno zakončené na -ný/-cí; v štylistike rozlišujeme štyri základné). Časť „Ako na to“ v kuchynskom recepte zachytáva pracovný postup krok za krokom – ktorý zo štyroch slohových postupov zachytáva znaky predmetu alebo následnosť pracovných činností?',
+    hint: 'Nezamieňaj si slohový útvar ani jazykový štýl so slohovým postupom (prídavné meno zakončené na -ný/-cí/-ový; v štylistike rozlišujeme štyri základné). Časť „Ako na to“ v kuchárskom recepte zachytáva pracovný postup krok za krokom – ktorý zo štyroch slohových postupov zachytáva znaky predmetu alebo následnosť pracovných činností?',
     solutionSteps: [
       {
         title: 'Recept ako opis pracovného postupu',
@@ -689,7 +693,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Nájdenie v úvodnej časti ukážky 3',
-        text: 'V 1. a 2. odseku čítame: //„A tu je jeho **top** recept!“// a //„jeden z **top** na celom svete“//. Slovo **top** (vo význame //špičkový, najlepší//) tu určuje vlastnosť podstatného mena a pri skloňovaní sa vôbec nemení (//top recept, z top receptu, o top recepte//).'
+        text: 'V 1. a 2. odseku čítame: //„A tu je jeho **top** recept!“// a //„jeden z **top** na celom svete“// (v druhom príklade s vypusteným podstatným menom //syrov//). Slovo **top** (vo význame //špičkový, najlepší//) tu určuje vlastnosť podstatného mena a pri skloňovaní sa vôbec nemení (//top recept, z top receptu, o top recepte//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď: top.'
@@ -715,7 +719,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Rozbor jazykových prostriedkov v citátoch',
-        text: 'Hoci celý článok vyšiel na spravodajsko-publicistickom portáli, samotné priame vyjadrenia Slavomíra Reľovského v úvodzovkách sú uvoľnené, spontánne a citovo zafarbené: používa expresívne a hovorové výrazy ako //frflete//, //zacítite až-až//, //vlastne//, //jeden z top// či vtipné obrazné vyjadrenie o bryndzi, ktorá //nepotrebuje spoločnosť//.'
+        text: 'Hoci celý článok vyšiel na kulinárskom publicistickom portáli, samotné priame vyjadrenia Slavomíra Reľovského v úvodzovkách sú uvoľnené, spontánne a citovo zafarbené: používa expresívne a hovorové výrazy ako //frflete//, //zacítite až-až//, //jeden z top// či vtipné obrazné vyjadrenie o bryndzi, ktorá //nepotrebuje spoločnosť//.'
       },
       {
         title: 'Určenie jazykového štýlu',
@@ -749,7 +753,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo nie ostatné možnosti',
-        text: 'A – seriálom boli //Štúrovci// (1991), //True Štúr// nie je dokumentárny seriál o dobovom vyšetrovaní.\nB – nejde o hraný životopisný film o celom živote Štúra a Róbert Roth v ňom nehral Ľudovíta Štúra, ale **vyšetrovateľa**.\nD – v texte je dielo výslovne označené ako //dokument//, nie historický hraný film.'
+        text: 'A – seriálom boli //Štúrovci// (1991), //True Štúr// nie je dokumentárny seriál o dobovom vyšetrovaní.\nB – nejde o hraný životopisný film o živote a smrti Štúra, ale o televízny dokument o okolnostiach jeho úmrtia, v ktorom Róbert Roth stvárnil **vyšetrovateľa** (nie samotného Štúra).\nD – v texte je dielo výslovne označené ako //dokument//, nie historický hraný film.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je C.'
@@ -797,11 +801,11 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Zamysli sa nad troma jednoduchými otázkami: 1. Hovorí tu jeden autor súvisle (monológ), alebo sa striedajú dvaja ľudia (dialóg)? 2. Je text určený rodine doma (súkromný styk), alebo čitateľskej verejnosti (verejný styk)? 3. Je napísaný, alebo vyslovený?',
+    hint: 'Urči najprv, do ktorého jazykového štýlu patrí ukážka z odbornej publikácie, a potom si vybav jeho tri základné mimojazykové znaky: spôsob komunikácie, sféru styku a prevládajúcu formu.',
     solutionSteps: [
       {
         title: 'Určenie štýlu a jeho znakov',
-        text: 'Ukážka 4 pochádza z populárno-náučnej (odbornej) publikácie o Ľudovítovi Štúrovi, patrí teda do **náučného štýlu** (s publicistickými prvkami). Pre tento štýl platia tri základné znaky:\n• **monologickosť** – súvislý výklad jednej autorky bez replík partnera,\n• **verejný styk** – text je určený širokej/odbornej verejnosti, nie súkromnej osobe,\n• **prevažne písomná forma** – štúdie, články a knihy vznikajú a šíria sa písomne.'
+        text: 'Ukážka 4 pochádza z odbornej (vedeckej) publikácie o Ľudovítovi Štúrovi, patrí teda do **náučného štýlu** (s publicistickými prvkami). Pre tento štýl platia tri základné znaky:\n• **monologickosť** – súvislý výklad jednej autorky bez replík partnera,\n• **verejný styk** – text je určený širokej/odbornej verejnosti, nie súkromnej osobe,\n• **prevažne písomná forma** – štúdie, články a knihy vznikajú a šíria sa písomne.'
       },
       {
         title: 'Prečo nie ostatné možnosti',
@@ -825,11 +829,11 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Pozor, hľadáš nepravdivé tvrdenie! Spomeň si na hlavnú zásadu Štúrovej kodifikácie (1843) – fonetický pravopis „píš, ako počuješ“, ktorý upravoval zapisovanie samohlások, dvojhlások a mäkkých či tvrdých spoluhlások podľa výslovnosti. Ktoré zo štyroch pravidiel s výslovnosťou hlások vôbec nesúvisí a v slovenčine nikdy neplatilo?',
+    hint: 'Pozor, hľadáš nepravdivé tvrdenie! Spomeň si na hlavnú zásadu Štúrovej kodifikácie (1843) – fonetický pravopis „píš, ako počuješ“, ktorý upravoval zapisovanie samohlások, dvojhlások a mäkkých či tvrdých spoluhlások podľa výslovnosti. Ktoré zo štyroch pravidiel s výslovnosťou hlások vôbec nesúvisí a v štúrovskej slovenčine neplatilo?',
     solutionSteps: [
       {
         title: 'Odhalenie nepravdivého tvrdenia',
-        text: 'Písanie všetkých podstatných mien s veľkým začiatočným písmenom je typickým pravidlom **nemčiny** (napr. //das Haus, die Schule//), v štúrovskej slovenčine nikdy neplatilo. Tvrdenie **A** je teda **nepravdivé**.'
+        text: 'Písanie všetkých podstatných mien s veľkým začiatočným písmenom sa podľa vzoru **nemčiny** (napr. //das Haus, die Schule//) uplatňovalo v staršej **bernolákovčine** (1787), no v štúrovskej slovenčine (1843) už neplatilo. Tvrdenie **A** je teda **nepravdivé**.'
       },
       {
         title: 'Zopakujme si hlavné pravidlá štúrovskej slovenčiny (B, C, D sú pravdivé)',
@@ -905,7 +909,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Pred neznelou spoluhláskou p sa v dokonavom slovese píše predpona s- (podobne ako spracovať, spísať), nie z-.'
       }
     ],
-    hint: 'Neurčitok slovesa sa v slovenčine končí príponou -ť (robiť, maľovať). Od podstatného mena portrét utvor sloveso s významom „zobrazovať niekoho na portréte“ – nezabudni zachovať dĺžeň v základe slova (a ak pridáš predponu, daj pozor na znelosť pred spoluhláskou p).',
+    hint: 'Neurčitok slovesa sa v slovenčine končí príponou -ť (robiť, maľovať). Od podstatného mena portrét utvor sloveso s významom „zobrazovať niekoho na portréte“ – nezabudni zachovať dĺžeň v základe slova (a ak pridáš predponu, daj pozor na pravopis predpony s-/z- pred neznelou spoluhláskou p).',
     solutionSteps: [
       {
         title: 'Tvorenie slovesa v neurčitku',
@@ -913,7 +917,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Pozor na pravopis',
-        text: '1. Dĺžeň na **é** v základe slova ostáva zachovaný (**portrétovať**), pretože pred ním nestojí dlhá slabika.\n2. Ak použijeme predponu, pred neznelou spoluhláskou **p** sa podľa Pravidiel slovenského pravopisu píše predpona **s-** (//sportrétovať//, rovnako ako //spracovať, spísať//), nikdy nie //z-//.'
+        text: '1. Dĺžeň na **é** zo základového slova //portrét// ostáva pri odvodzovaní príponou //-ovať// podľa kodifikácie zachovaný (**portrétovať**).\n2. Ak použijeme predponu, pred neznelou spoluhláskou **p** sa podľa Pravidiel slovenského pravopisu píše predpona **s-** (//sportrétovať//, rovnako ako //spracovať, spísať//), nikdy nie //z-//.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: portrétovať / sportrétovať (aj so sa).'
@@ -940,7 +944,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Zaradenie štúrovskej poézie',
-        text: 'Generácia okolo Ľudovíta Štúra (S. Chalupka, J. Kráľ, A. Sládkovič, J. Botto) vystúpila v 40. rokoch 19. storočia a tvorila až do 70. rokov 19. storočia (slovenský romantizmus vymedzujeme rokmi 1836 – 1875) a predstavuje vrchol **romantizmu** v slovenskej literatúre (inšpirácia ľudovou piesňou a baladou, sylabický verš, rozpor medzi snom/ideálom a skutočnosťou, národnooslobodzovací zápas).'
+        text: 'Generácia okolo Ľudovíta Štúra (S. Chalupka, J. Kráľ, A. Sládkovič, J. Botto) vystúpila v 40. rokoch 19. storočia a tvorila až do 70. rokov 19. storočia (slovenský romantizmus vymedzujeme rokmi 1836 – 1875). V slovenskej literatúre predstavuje vrchol **romantizmu**, pre ktorý sú typické inšpirácia ľudovou piesňou a baladou, sylabický verš, rozpor medzi snom/ideálom a skutočnosťou či národnooslobodzovací zápas.'
       },
       {
         title: 'Ako hodnotí kľúč',

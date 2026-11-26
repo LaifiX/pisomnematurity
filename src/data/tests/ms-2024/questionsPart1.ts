@@ -25,7 +25,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Porovnaj každú možnosť s textom ukážky odsek po odseku. Všimni si hneď prvú vetu 1. a 2. odseku: čo pociťovali účastníčky výskumu, keď sa sústredili na samotný pohyb?',
+    hint: 'Porovnaj každú možnosť s príslušným miestom v ukážke: všimni si, ako vplýva sústredenie na pohyb a rozptýlenie na únavu (1. a 2. odsek), akej skupine bežcov sú určené rady trénerov (3. odsek) a v akom vzťahu sú výsledky štúdie k hypotéze obmedzenej akcie (4. odsek).',
     solutionSteps: [
       {
         title: 'Overenie správneho tvrdenia v texte',
@@ -53,7 +53,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'D',
     acceptedAnswers: ['D'],
-    hint: 'Pozri sa na zdroj pod ukážkou (dennikn.sk) a na spôsob podania informácií. Ide o umelecké dielo, prísnu vedeckú štúdiu pre vedcov, reklamu/výzvu, alebo populárno-náučný článok pre bežných čitateľov?',
+    hint: 'Pozri sa na zdroj pod ukážkou (dennikn.sk) a na spôsob podania informácií. Ide o umelecké dielo, prísnu vedeckú štúdiu pre vedcov, reklamu/výzvu alebo populárno-náučný článok pre bežných čitateľov?',
     solutionSteps: [
       {
         title: 'Určenie charakteru a cieľa textu',
@@ -61,7 +61,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Vylúčenie ostatných možností',
-        text: '**A** – esteticky pôsobí umelecký štýl (poézia, próza, dráma).\n**B** – autor čitateľa na nič nenahovára ani nevyzýva, len vecne referuje o výsledkoch výskumu.\n**C** – komunikácia s odbornou verejnosťou je úlohou vedeckého (náučného) štýlu v odborných časopisoch, nie článku v bežných novinách.'
+        text: '**A** – esteticky pôsobí umelecký štýl (poézia, próza, dráma).\n**B** – autor čitateľa na nič nenahovára ani nevyzýva, len vecne referuje o výsledkoch výskumu.\n**C** – komunikácia s odbornou verejnosťou je úlohou vedeckého (teoretického) podštýlu náučného štýlu v odborných časopisoch, nie článku v bežných novinách.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **D**.'
@@ -81,11 +81,11 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Najprv si urči pád spojenia „skupinou (koho? čoho?) 27 žien“. Potom si spomeň na pravidlá PSP pre zložené číslovky 22 – 99: kedy sa píšu spolu a kedy oddelene s medzerou, a aké i/y má základná číslovka „sedem“ pri skloňovaní.',
+    hint: 'Najprv si urči pád spojenia „skupinou (koho? čoho?) 27 žien“. Potom si spomeň na pravidlá PSP pre zložené číslovky 21 – 99: kedy sa píšu spolu a kedy oddelene s medzerou a aké i/y má základná číslovka „sedem“ pri skloňovaní.',
     solutionSteps: [
       {
         title: 'Určenie pádu a písanie medzery',
-        text: 'Pozor na predložku //so//: tá patrí k slovu //skupinou// (inštrumentál), zatiaľ čo výraz //27 žien// rozvíja podstatné meno //skupinou// v **genitíve** (//skupinou koho? čoho? – 27 žien//). Podľa PSP platí pre zložené základné číslovky 22 – 99 dvojaké pravidlo: ak ostanú nesklonné (aj v základnom tvare), píšu sa **spolu ako jedno slovo** (//dvadsaťsedem// – tým vylučujeme **D** //dvadsať sedem// s medzerou); ak sa v nepriamych pádoch **skloňujú**, píšu sa desiatky a jednotky **osobitne s medzerou** a skloňujú sa obe časti (tým vylučujeme **B** //dvadsiatichsiedmych//).'
+        text: 'Pozor na predložku //so//: tá patrí k slovu //skupinou// (inštrumentál), zatiaľ čo výraz //27 žien// rozvíja podstatné meno //skupinou// v **genitíve** (//skupinou koho? čoho? – 27 žien//). Podľa PSP platí pre zložené základné číslovky 21 – 99 dvojaké pravidlo: ak sa neskloňujú (v základnom tvare alebo v neskloňovanej podobe), píšu sa **spolu ako jedno slovo** (//dvadsaťsedem// – tým vylučujeme **D** //dvadsať sedem// s medzerou); ak sa v nepriamych pádoch **skloňujú**, píšu sa desiatky a jednotky **osobitne s medzerou** a skloňujú sa obe časti (tým vylučujeme **B** //dvadsiatichsiedmych//).'
       },
       {
         title: 'Pravopis i/y v slove siedmich',
@@ -109,7 +109,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'C',
     acceptedAnswers: ['C'],
-    hint: 'Všimni si, od ktorého slova závisí „srdca“ (údery srdca) a od ktorého „nôh“ (prácu nôh). Opýtaj sa na obe slová otázkou vetného člena: aké údery? akú prácu?',
+    hint: 'Urči si pri oboch zvýraznených slovách slovný druh, všetky morfologické kategórie (rod, číslo, pád) a ich syntaktickú platnosť vo vete – od ktorého slova závisí „srdca“ (údery srdca) a od ktorého „nôh“ (prácu nôh).',
     solutionSteps: [
       {
         title: 'Syntaktická funkcia oboch slov',
@@ -117,7 +117,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Prečo sú ostatné možnosti nesprávne',
-        text: '**A** – podstatné mená sú plnovýznamové **ohybné** slová (skloňujú sa).\n**B** – zhodujú sa len v páde (genitív); líšia sa rodom (//srdca// – stredný rod, //nôh// – ženský rod), číslom (jednotné vs. množné) aj vzorom (//srdce// vs. //žena//).\n**D** – nezhodný prívlastok je **vedľajší (rozvíjací)** vetný člen; hlavnými vetnými členmi sú len podmet a prísudok.'
+        text: '**A** – podstatné mená sú plnovýznamové **ohybné** slová (skloňujú sa).\n**B** – z morfologických kategórií sa zhodujú len v páde (genitív), no líšia sa rodom (//srdca// – stredný rod, //nôh// – ženský rod) aj číslom (jednotné oproti množnému); odlišný majú navyše aj skloňovací vzor (//srdce// oproti vzoru //žena//).\n**D** – nezhodný prívlastok je **vedľajší (rozvíjací)** vetný člen; hlavnými vetnými členmi sú len podmet a prísudok.'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **C**.'
@@ -162,11 +162,11 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: ['dobrovoľníčok', 'z dobrovoľníčok'],
     commonMistakes: [
       {
-        pattern: '^dobrovoľníčiek$|^z\\s+dobrovoľníčiek$',
-        hint: 'Slovo dobrovoľníčka (utvorené príponou -níčka, vzor žena) má v genitíve množného čísla vkladnú samohlásku -o- (ako pracovníčka → pracovníčok), nie dvojhlásku -ie-.'
+        pattern: '^(z\\s+)?dobrovo[ľl]n[íi][čc]iek$',
+        hint: 'Slovo dobrovoľníčka (vzor žena, utvorené prechyľovacou príponou -ka od dobrovoľník) má v predchádzajúcej slabike dlhé í (-níč-), preto sa pre rytmický zákon v genitíve množného čísla vkladá krátka samohláska -o- (ako pracovníčka → pracovníčok), nie dlhá dvojhláska -ie-.'
       },
       {
-        pattern: '^dobrovoľníčka$|^dobrovoľníčky$',
+        pattern: '^dobrovo[ľl]n[íi][čc]k[ay]$',
         hint: 'Dosadené slovo stojí po predložke „z“ vo vete „Každá z … absolvovala“ (hovorí sa o skupine 27 žien) – potrebuješ genitív množného čísla.'
       }
     ],
@@ -196,7 +196,7 @@ export const questionsPart1: QuestionData[] = [
     questionText: 'Napíšte názov slovného druhu __podčiarknutého__ slova ukážky 1.',
     placeholder: 'Napíš názov slovného druhu',
     correctAnswerDisplay: 'sloveso',
-    acceptedAnswers: ['sloveso', 'slovesá', 'verbum', 'verbá', 'plnovýznamové sloveso'],
+    acceptedAnswers: ['sloveso', 'slovesá', 'verbum', 'verbá', 'plnovýznamové sloveso', 'plnovýznamové slovesá', 'činnostné sloveso', 'nedokonavé sloveso'],
     lenient: true,
     commonMistakes: [
       {
@@ -212,7 +212,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Určenie slovného druhu',
-        text: 'Na konci ukážky 1 je podčiarknutý tvar //__kontrolujeme__// (neurčitok //kontrolovať//). Slovo vyjadruje činnosť (//čo robíme?//), má gramatické kategórie osoby (1.), čísla (plurál), času (prítomný) a spôsobu (oznamovací) – patrí teda medzi **slovesá** (latinsky //verbum / verbá//).'
+        text: 'Na konci ukážky 1 je podčiarknutý tvar //__kontrolujeme__// (neurčitok //kontrolovať//). Slovo vyjadruje činnosť (//čo robíme?//), má slovesné gramatické kategórie osoby (1.), čísla (plurál), času (prítomný), spôsobu (oznamovací), slovesného rodu (činný) a vidu (nedokonavý) – patrí teda medzi **slovesá** (latinsky //verbum / verbá//).'
       },
       {
         title: 'Hodnotenie podľa kľúča NIVaM',
@@ -241,7 +241,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Toto je síce slovo cudzieho pôvodu zo zvýrazneného textu, ale jeho význam nezodpovedá definícii „nedokázaný vedecký predpoklad/domnienka“. Pozri sa na 1. vetu vo 4. odseku.'
       }
     ],
-    hint: 'Prečítaj si pozorne zvýraznenú prvú vetu vo 4. odseku ukážky 1. Hľadáš odborné slovo gréckeho pôvodu, ktoré vo vede označuje predpoklad alebo domnienku, ktorú treba výskumom overiť.',
+    hint: 'Prejdi si všetky zvýraznené časti ukážky 1 (pozor, vo 4. odseku je zvýraznená iba prvá veta!). Hľadáš odborné slovo gréckeho pôvodu, ktoré vo vede označuje predpoklad (domnienku), ktorý treba výskumom overiť.',
     solutionSteps: [
       {
         title: 'Vyhľadanie slova vo zvýraznenom texte',
@@ -275,7 +275,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Odhalenie postoja dedinčanov',
-        text: 'Text hovorí, že Drak //„bol vždy sám“//, nikomu nepatril a //„nikto ani poriadne nevedel, kde sa tu vzal a odkiaľ prišiel“//. Práve pre túto cudzosť, samotu a neznámy pôvod ho dedina obvinila zo všetkých pohrôm (//„stal sa nešťastím dediny… Tak aspoň usúdila dedina“//) – **ľudia ho teda odsudzovali za jeho inakosť** (**B**).'
+        text: 'Text hovorí, že Drak //„bol vždy sám“//, nikomu nepatril a //„nikto ani poriadne nevedel, kde sa tu vzal a odkiaľ prišiel“//. Práve pre túto cudzosť, samotu a neznámy pôvod ho dedina obvinila zo všetkých pohrôm (//„že sa stal nešťastím dediny… Tak aspoň usúdila dedina“//) – **ľudia ho teda odsudzovali za jeho inakosť** (**B**).'
       },
       {
         title: 'Prečo sú ostatné možnosti nesprávne',
@@ -327,10 +327,10 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Epický text sa skladá z pásma rozprávača a pásma postáv (priama reč postáv v úvodzovkách – dialógy alebo priame monológy). Prezri si ukážku 2: prehovorí v nej priamo v úvodzovkách niektorá postava?',
+    hint: 'Rozlíš v ukážke 2 dva kompozičné a jazykové javy: 1. Z ktorej fázy deja novely pochádza úryvok (úvod, obrat alebo vyvrcholenie)? 2. Akým spôsobom je vyrozprávaný – cez pásmo rozprávača, pásmo postáv alebo cez obidve?',
     solutionSteps: [
       {
-        title: 'Pásmo rozprávača vs. pásmo postáv',
+        title: 'Pásmo rozprávača oproti pásmu postáv',
         text: 'Celá ukážka 2 je vyrozprávaná v 3. osobe bez jedinej priamej reči či dialógu – celú ju tvorí **pásmo rozprávača** (vrátane prerozprávania Eviných myšlienok a dedinských rečí). **Pásmo postáv sa v ukážke vôbec nenachádza**, preto je tvrdenie **A** pravdivé a tvrdenie **C** nepravdivé.'
       },
       {
@@ -391,7 +391,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Zaradenie ostatných autorov',
-        text: '**A** – Milo Urban je predstaviteľ medzivojnového sociálno-psychologického realizmu (román //Živý bič//).\n**C** – Peter Jilemnický je predstaviteľ socialistického realizmu (román //Kronika//, //Pole neorané//).\n**D** – Ladislav Mňačko je predstaviteľ povojnovej prózy (román //Ako chutí moc//, //Smrť sa volá Engelchen//).'
+        text: '**A** – Milo Urban je predstaviteľ medzivojnového sociálno-psychologického realizmu (román //Živý bič//).\n**C** – Peter Jilemnický je predstaviteľ socialistického realizmu (romány //Kronika//, //Pole neorané//).\n**D** – Ladislav Mňačko je predstaviteľ povojnovej prózy (romány //Ako chutí moc//, //Smrť sa volá Engelchen//).'
       }
     ],
     solutionConclusion: 'Správna odpoveď je **B**.'
@@ -410,7 +410,7 @@ export const questionsPart1: QuestionData[] = [
     commonMistakes: [
       {
         pattern: '^metafora$',
-        hint: 'Metafora prenáša význam na základe vonkajšej podobnosti. Tu však slovo „dedina“ zastupuje „obyvateľov dediny“ na základe vnútornej, vecnej súvislosti (alebo pripisuje neživej dedine ľudskú schopnosť usudzovať).'
+        hint: 'Metafora prenáša význam na základe vonkajšej podobnosti. Tu však slovo „dedina“ zastupuje „obyvateľov dediny“ na základe vnútornej, vecnej súvislosti (alebo spojenie „usúdila dedina“ pripisuje neživej dedine ľudskú schopnosť usudzovať).'
       },
       {
         pattern: '^epiteton$|^prirovnanie$|^hyperbola$',
@@ -421,7 +421,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Dva platné literárnovedné pohľady',
-        text: 'Spojenie //**usúdila dedina**// možno v teórii literatúry správne pomenovať dvoma spôsobmi:\n1. **metonymia** (príp. **synekdocha**) – prenesenie významu na základe vecnej/miestnej súvislosti: slovo //dedina// pomenúva //ľudí žijúcich v dedine// (podobne ako //celé mesto spalo//, //čítať Kukučína//);\n2. **personifikácia (zosobnenie)** – neživému javu (//dedine//) sa pripisuje ľudská schopnosť myslieť a vynášať súdy (//usúdila//).'
+        text: 'Spojenie //**usúdila dedina**// možno v teórii literatúry správne pomenovať dvoma spôsobmi:\n1. **metonymia** – prenesenie významu na základe vecnej/miestnej súvislosti: slovo //dedina// pomenúva //ľudí žijúcich v dedine// (podobne ako //celé mesto spalo//, //čítať Kukučína//);\n2. **personifikácia (zosobnenie)** – neživému javu (//dedine//) sa pripisuje ľudská schopnosť myslieť a vynášať súdy (//usúdila//).'
       },
       {
         title: 'Hodnotenie podľa kľúča NIVaM',
@@ -450,7 +450,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Slovesá „vravia“ a „tvrdia“ sú ohybné a nachádzajú sa až v poslednom odseku mimo zvýraznenej časti.'
       }
     ],
-    hint: 'Prečítaj si poslednú vetu zvýraznenej časti v 2. odseku (o starom Lepišovi Madlušovie). Ktoré krátke neohybné slovo (častica) má význam „údajne, ako sa hovorí“ a dáva najavo, že rozprávač len posúva ďalej to, čo sa v dedine povráva?',
+    hint: 'Prečítaj si celú zvýraznenú časť v 2. odseku ukážky 2 a všímaj si v nej neohybné slová (najmä častice). Ktoré z nich vyjadruje neistotu rozprávača a dáva najavo, že informáciu nemá z vlastnej skúsenosti, ale len posúva ďalej cudzie reči?',
     solutionSteps: [
       {
         title: 'Vyhľadanie slova vo zvýraznenom texte',
@@ -489,7 +489,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Spomeň si na štyri základné slohové postupy (informačný, opisný, výkladový/úvahový a ten, ktorý zachytáva dej a udalosti príbehu v časovej postupnosti).'
       }
     ],
-    hint: 'V slovenčine rozlišujeme štyri základné slohové postupy. Pozri sa na druhú polovicu ukážky 2 (od príhody, ako sa starý Lepiš vracal z jarmoku v Brezne, našiel uzimené dieťa a vyučil ho remeslu): zachytáva táto časť statický opis, fakty, výklad, alebo príbeh a sled udalostí v čase?',
+    hint: 'V slovenčine rozlišujeme štyri základné slohové postupy. Pozri sa na druhú polovicu ukážky 2 (od príhody, ako sa starý Lepiš vracal z jarmoku v Brezne, našiel uzimené dieťa a vyučil ho remeslu): zachytáva táto časť statický opis, fakty, výklad alebo príbeh a sled udalostí v čase?',
     solutionSteps: [
       {
         title: 'Určenie slohového postupu',
@@ -575,7 +575,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Spomeň si, kam v svetovej literatúre 2. polovice 20. storočia zaraďujeme Umberta Eca a jeho román Meno ruže, ktorý spája stredovekú filozofickú kroniku s napínavou detektívkou.',
+    hint: 'Spomeň si, kam vo svetovej literatúre 2. polovice 20. storočia zaraďujeme Umberta Eca a jeho román Meno ruže, ktorý spája stredovekú filozofickú kroniku s napínavou detektívkou.',
     solutionSteps: [
       {
         title: 'Znaky postmodernej literatúry',
@@ -607,7 +607,7 @@ export const questionsPart1: QuestionData[] = [
     solutionSteps: [
       {
         title: 'Určenie hyperboly (zveličenia)',
-        text: '**Hyperbola** je umelecký prostriedok založený na zámernom zveličení skutočnosti s cieľom citovo zapôsobiť a zdôrazniť podstatu javu. Vo výraze //**má silu tisícich škorpiónov**// sa nebezpečnosť zakázanej knihy dramaticky zveličuje prirovnaním k jedu tisícky škorpiónov.'
+        text: '**Hyperbola** je umelecký prostriedok založený na zámernom zveličení skutočnosti s cieľom citovo zapôsobiť a zdôrazniť podstatu javu. Vo výraze //**má silu tisícich škorpiónov**// sa nebezpečnosť zakázanej knihy dramaticky zveličuje obrazným nadsadením sily tisíc škorpiónov.'
       },
       {
         title: 'Rozbor ostatných možností',
@@ -631,11 +631,11 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'B',
     acceptedAnswers: ['B'],
-    hint: 'Prečítaj si vetu „Ale ten blázon prvýkrát chcel konať na vlastnú päsť.“ Hovorí postava vecne o duševne chorom pacientovi, alebo týmto slovom vyjadruje svoj citový postoj (rozhorčenie, hnev)? Pozor: je slovo „blázon“ hrubou nespisovnou nadávkou, alebo bežným citovo zafarbeným slovom?',
+    hint: 'Prečítaj si vetu „Ale ten blázon prvýkrát chcel konať na vlastnú päsť.“ Hovorí postava vecne o duševne chorom pacientovi, alebo týmto slovom vyjadruje svoj citový postoj (rozhorčenie, hnev)? Pozor: je slovo „blázon“ hrubou nespisovnou nadávkou alebo bežným citovo zafarbeným slovom?',
     solutionSteps: [
       {
         title: 'Citové zafarbenie slova v kontexte',
-        text: 'Vo vete //„Ale ten **blázon** prvýkrát chcel konať na vlastnú päsť“// slovo //blázon// nepomenúva lekársku diagnózu (neutrálny význam), ale vyjadruje **citový postoj** hovoriaceho – **hnev, výčitku a pohŕdanie** nerozvážnym konaním. Slová s kladným alebo záporným citovým zafarbením sa nazývajú **expresívne slová** (konkrétne pejoratívne/hanlivé).'
+        text: 'Vo vete //„Ale ten **blázon** prvýkrát chcel konať na vlastnú päsť“// slovo //blázon// nepomenúva doslovne duševne chorého človeka, ale vyjadruje **citový postoj** hovoriaceho – **hnev, výčitku a pohŕdanie** nerozvážnym konaním. Slová s kladným alebo záporným citovým zafarbením sa nazývajú **expresívne slová** (konkrétne pejoratívne/hanlivé).'
       },
       {
         title: 'Prečo sú ostatné možnosti nesprávne',
@@ -656,23 +656,23 @@ export const questionsPart1: QuestionData[] = [
     acceptedAnswers: ['prvýkrát'],
     commonMistakes: [
       {
-        pattern: '^prvý\\s+krát$',
+        pattern: '^prv[ýy]\\s+kr[áa]t$',
         hint: 'Násobné číslovky so zložkou -krát sa podľa Pravidiel slovenského pravopisu píšu vždy spolu ako jedno slovo!'
       },
       {
         pattern: '^tisícich$|^tisíc$',
-        hint: 'Číslovka „tisíc“ sa skloňuje – práve v 1. odseku má ohýbaný tvar „tisícich“ (škorpiónov). Hľadaj číslovku na otázku „koľkokrát?“, ktorá má vo všetkých pádoch ten istý tvar.'
+        hint: 'Číslovka „tisíc“ sa skloňuje – práve v 1. odseku má ohýbaný tvar „tisícich“ (škorpiónov). Hľadaj číslovku na otázku „koľkýkrát?“, ktorá má vo všetkých pádoch ten istý tvar.'
       },
       {
         pattern: '^jeden$',
         hint: 'Číslovka „jeden“ je sklonná (jedného, jednému…) a navyše sa nachádza až v druhej priamej reči.'
       }
     ],
-    hint: 'Nesklonná číslovka je taká, ktorá nemení svoj tvar v žiadnom páde – patria sem napríklad násobné číslovky na otázku „koľkokrát?“. Prečítaj si pozorne prvú priamu reč (1. odsek) a odlíš ju od sklonnej číslovky „tisícich“.',
+    hint: 'Nesklonná číslovka je taká, ktorá nemení svoj tvar v žiadnom páde – patria sem napríklad násobné číslovky na otázku „koľkokrát? / koľkýkrát?“. Prečítaj si pozorne prvú priamu reč (1. odsek) a odlíš ju od sklonnej číslovky „tisícich“.',
     solutionSteps: [
       {
         title: 'Vyhľadanie nesklonnej číslovky',
-        text: 'V prvej priamej reči (1. odsek) čítame: //„Ale ten blázon **prvýkrát** chcel konať na vlastnú päsť.“// Slovo **prvýkrát** je násobná číslovka (//koľkokrát?//), ktorá je **nesklonná** – nedá sa skloňovať, v každom kontexte si zachováva nezmenený tvar.'
+        text: 'V prvej priamej reči (1. odsek) čítame: //„Ale ten blázon **prvýkrát** chcel konať na vlastnú päsť.“// Slovo **prvýkrát** je násobná číslovka (//koľkýkrát?//), ktorá je **nesklonná** – nedá sa skloňovať, v každom kontexte si zachováva nezmenený tvar.'
       },
       {
         title: 'Pravopis a hodnotenie podľa kľúča NIVaM',
@@ -705,11 +705,11 @@ export const questionsPart1: QuestionData[] = [
     ],
     commonMistakes: [
       {
-        pattern: '^kópii$|^bez\\s+kópii$|^od\\s+kópii$|^z\\s+kópii$',
+        pattern: '\\bk[oó]pii$',
         hint: 'Zakončenie -ii s krátkym druhým i patrí datívu a lokálu jednotného čísla (o jednej kópii). V genitíve množného čísla sa príponové -í predlžuje: -ií!'
       },
       {
-        pattern: '^kópí$|^kopí$',
+        pattern: '\\bk[oó]p[ií]$',
         hint: 'Nevynechávaj krátke -i-, ktoré patrí k základu slova (kópi-a → bez kópi-í).'
       }
     ],
@@ -889,7 +889,7 @@ export const questionsPart1: QuestionData[] = [
     ],
     correctAnswerDisplay: 'A',
     acceptedAnswers: ['A'],
-    hint: 'Divadelné súbory delíme napríklad na operu, balet, činohru, bábkové divadlo či kabaret. Ktorý súbor hrá vážne hovorené divadelné hry bez spevu a tanca? Zároveň si over žáner hry: spája v sebe tragické a komické prvky (tragikomédia), alebo ide o vážnu psychologickú drámu s reálnym dejom?',
+    hint: 'Divadelné súbory delíme napríklad na operu, balet, činohru, bábkové divadlo či kabaret. Ktorý súbor uvádza hovorené divadelné hry – drámy, tragédie aj komédie? Zároveň si over žáner celej hry: ide o spojenie tragických a komických prvkov (tragikomédiu), hru bez súvislého deja (absurdnú drámu) alebo vážnu psychologickú drámu?',
     solutionSteps: [
       {
         title: 'Druh divadelného súboru',
@@ -937,7 +937,7 @@ export const questionsPart1: QuestionData[] = [
     caseHint: 'Priezvisko postavy (Fischl) je vlastné meno a musí sa písať s veľkým začiatočným písmenom F.',
     commonMistakes: [
       {
-        pattern: 'fišl|fischel|fiscl|fichl',
+        pattern: 'fišl|fisl|fischel|fiscl|fichl',
         hint: 'Skontroluj si priamo v ukážke 4 presný pravopis priezviska tejto postavy (píše sa so skupinou -sch-).'
       },
       {
@@ -945,7 +945,7 @@ export const questionsPart1: QuestionData[] = [
         hint: 'Pozri sa na začiatok ukážky: „Siedmy výstup – … a predošlí“. Nový výstup v dráme sa začína vtedy, keď na scénu príde nová postava; „predošlí“ tam boli už v šiestom výstupe!'
       }
     ],
-    hint: 'V divadelnej hre sa zmena výstupu určuje podľa príchodu alebo odchodu postavy na javisko. Pozri sa na podnadpis na úplnom začiatku ukážky 4 („Siedmy výstup – … a predošlí“) a na prvú scénickú poznámku: kto práve teraz vkročil medzi ostatných?',
+    hint: 'V divadelnej hre sa zmena výstupu určuje podľa príchodu alebo odchodu postavy na javisko. Pozri sa na úvod ukážky 4 a prvú scénickú poznámku: ktoré postavy už na scéne boli v predošlom výstupe a ktorá postava medzi ne práve teraz prichádza?',
     solutionSteps: [
       {
         title: 'Čo znamená zmena výstupu v dráme',
@@ -953,7 +953,7 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         title: 'Pravopis a hodnotenie podľa kľúča NIVaM',
-        text: 'Meno **Fischl** (príp. **pán Fischl**) je vlastné meno, preto musí byť vypísané pravopisne správne so skupinou //-sch-// a s **veľkým začiatočným písmenom F** (s malým //f// sa odpoveď neuznáva!). Kľúč uznáva aj vecné označenia tejto postavy: **starší muž**, **prostredník**, **sprostredkovateľ** alebo **obchodník s drevom**.'
+        text: 'Meno **Fischl** (príp. **pán Fischl**) je vlastné meno, preto musí byť vypísané pravopisne správne so skupinou //-sch-// a s **veľkým začiatočným písmenom F** (s malým //f// sa odpoveď neuznáva!). Kľúč uznáva aj vecné označenia tejto postavy: **starší človek**, **starší muž**, **prostredník**, **sprostredkovateľ** alebo **obchodník s drevom**.'
       }
     ],
     solutionConclusion: 'Správna odpoveď: **Fischl** (alebo **pán Fischl**).'
@@ -980,14 +980,14 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         pattern: 'zhodný prívlastok|prívlastok|privlastok|podmet|predmet',
-        hint: 'Výraz „milostivá pani“ nie je bežným vetným členom zapojeným do vetných skladov, ale mimočlenským prvkom, ktorým sa hovoriaci obracia na adresátku.'
+        hint: 'Výraz „milostivá pani“ nie je bežným vetným členom zapojeným do vetných skladov, ale nevetnočlenským prvkom stojacim mimo vetných skladov, ktorým sa hovoriaci obracia na adresátku.'
       }
     ],
     hint: 'Keď niekomu povieš „Dobrý večer, pán učiteľ“ alebo „Ruky bozkávam, milostivá pani“, ako v skladbe voláme výraz oddelený čiarkou, ktorým pomenúvame osobu, ku ktorej hovoríme?',
     solutionSteps: [
       {
         title: 'Určenie syntaktickej konštrukcie',
-        text: 'Vo vete //„Ruky bozkávam, **milostivá pani**.“// je zdvorilý pozdrav //Ruky bozkávam// a za čiarkou nasleduje pomenovanie adresátky, ku ktorej sa pán Fischl obracia – v skladbe sa táto mimočlenská syntaktická konštrukcia nazýva **oslovenie**.'
+        text: 'Vo vete //„Ruky bozkávam, **milostivá pani**.“// je zdvorilý pozdrav //Ruky bozkávam// a za čiarkou nasleduje pomenovanie adresátky, ku ktorej sa pán Fischl obracia – v skladbe sa táto samostatná syntaktická konštrukcia stojaca mimo vetných skladov nazýva **oslovenie**.'
       },
       {
         title: 'Pravidlo o čiarke a hodnotenie kľúča',
