@@ -1802,6 +1802,7 @@ const jsonLd = {
           nextQuestionBtn.disabled = nextW === undefined;
           nextBtnText.textContent = 'Ďalšia chybná';
           nextBtnArrow.innerHTML = UI.arrow;
+          nextQuestionBtn.classList.remove('is-outline');
         } else {
           prevQuestionBtn.disabled = currentIndex === 0;
           nextQuestionBtn.disabled = isEvaluated && currentIndex === LAST_INDEX;
@@ -1813,25 +1814,45 @@ const jsonLd = {
         bindSlovakTypography(questionCard);
       }
 
-      // Mobil, precvičovanie: kým úloha nie je overená, hlavné tlačidlo spodnej lišty je „Overiť“
-      // (samostatné „Overiť odpoveď“ v karte je na mobile skryté); až po overení vedie na „Ďalšia úloha“
+      // Mobil, precvičovanie: ak žiak vyplnil odpoveď a ešte ju neoveril, hlavné tlačidlo spodnej lišty je plné „Overiť“;
+      // „Ďalšia úloha“ má v Precvičovaní vždy obrysový štýl bez výplne (aj pred odpoveďou, aj po overení).
       function barChecksAnswer() {
         const q = questions[currentIndex];
-        return Boolean(q) && phoneLayout.matches && mode === 'practice' && !isEvaluated && !singleCheckedState[q.id];
+        return (
+          Boolean(q) &&
+          phoneLayout.matches &&
+          mode === 'practice' &&
+          !isEvaluated &&
+          !singleCheckedState[q.id] &&
+          cleanSjlSpacing(userAnswers[q.id]) !== ''
+        );
       }
 
       function updateNextBtnLabel() {
-        if (isEvaluated && filterWrongOnly) return;
-        if (barChecksAnswer()) {
+        if (isEvaluated && filterWrongOnly) {
+          nextQuestionBtn.classList.remove('is-outline');
+          return;
+        }
+        const q = questions[currentIndex];
+        const checksNow = barChecksAnswer();
+        const isFinishBtn = !checksNow && !isEvaluated && currentIndex === LAST_INDEX;
+        if (checksNow) {
           nextBtnText.textContent = 'Overiť';
           nextBtnArrow.innerHTML = UI.checkCircle;
-        } else if (!isEvaluated && currentIndex === LAST_INDEX) {
+        } else if (isFinishBtn) {
           nextBtnText.textContent = 'Vyhodnotiť test';
           nextBtnArrow.innerHTML = UI.checkCircle;
         } else {
           nextBtnText.textContent = 'Ďalšia úloha';
           nextBtnArrow.innerHTML = UI.arrow;
         }
+        const shouldOutline =
+          Boolean(q) &&
+          mode === 'practice' &&
+          !isEvaluated &&
+          !checksNow &&
+          (!isFinishBtn || (!phoneLayout.matches && !singleCheckedState[q.id]));
+        nextQuestionBtn.classList.toggle('is-outline', shouldOutline);
       }
       phoneLayout.addEventListener('change', updateNextBtnLabel);
 

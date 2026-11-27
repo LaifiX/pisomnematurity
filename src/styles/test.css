@@ -4178,10 +4178,28 @@ body.tp-page.tp-dyslexic .tp-qnum {
 }
 
 /* ---------- Úloha: Nápoveda a Postup sa po nesprávnej odpovedi ani po vyhodnotení nezdvojujú ---------- */
+.tp-help-btns {
+  margin-left: auto;
+}
+
 .tp-interact.has-inline-help .tp-help-btns,
 .tp-interact.has-inline-help .tp-action-strip,
 #evalOpenSolutionBtn {
   display: none !important;
+}
+
+/* Obrysový štýl „Ďalšia úloha“ v Precvičovaní, kým úloha ešte nie je overená */
+#nextQuestionBtn.is-outline {
+  background: #ffffff;
+  color: var(--tp-brand-dark);
+  border-color: var(--tp-brand);
+  box-shadow: none;
+}
+
+#nextQuestionBtn.is-outline:hover:not(:disabled) {
+  background: var(--tp-brand-50);
+  border-color: var(--tp-brand-dark);
+  color: var(--tp-brand-dark);
 }
 
 /* „Nahlásiť chybu“ ako tichý textový odkaz, nie sivý stavový odznak */
