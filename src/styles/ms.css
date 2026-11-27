@@ -1359,6 +1359,14 @@
 }
 
 /* Modálne okno (GDPR) a toast na hlavnej stránke */
+html.modal-open,
+body.modal-open,
+html:has(.modal-backdrop:not(.hidden), .ms-modal-backdrop:not(.hidden)),
+body:has(.modal-backdrop:not(.hidden), .ms-modal-backdrop:not(.hidden)) {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+
 .ms-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -1369,6 +1377,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  overscroll-behavior: contain;
 }
 
 .ms-modal {
@@ -1457,6 +1466,7 @@
 .ms-modal-body {
   padding: 1.3rem 1.4rem;
   overflow-y: auto;
+  overscroll-behavior: contain;
   flex: 1;
 }
 

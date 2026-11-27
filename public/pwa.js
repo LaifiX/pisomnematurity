@@ -98,10 +98,11 @@
   function closeInstallModal() {
     if (!installModal || installModal.classList.contains('hidden')) return;
     installModal.classList.add('hidden');
-    document.body.style.overflow = '';
+    document.documentElement.classList.remove('modal-open');
+    document.body.classList.remove('modal-open');
     if (window.T9Sound) window.T9Sound.play('close');
     if (lastInstallTrigger && typeof lastInstallTrigger.focus === 'function') {
-      lastInstallTrigger.focus();
+      lastInstallTrigger.focus({ preventScroll: true });
     }
   }
 
@@ -152,10 +153,11 @@
       });
     }
     installModal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+    document.documentElement.classList.add('modal-open');
+    document.body.classList.add('modal-open');
     if (window.T9Sound) window.T9Sound.play('open');
     const closeBtn = installModal.querySelector('[data-install-close]');
-    if (closeBtn) closeBtn.focus();
+    if (closeBtn) closeBtn.focus({ preventScroll: true });
   }
 
   async function copyTextToClipboard(text) {
@@ -296,4 +298,85 @@
 
     openInstallModal(installBtn);
   });
+
+  // Ochrana pred preskrolovaním pozadia pod otvoreným modálnym oknom (desktop aj iOS Safari / Android)
+  const OPEN_MODAL_SEL = '.modal-backdrop:not(.hidden), .ms-modal-backdrop:not(.hidden), .tp-zoom-backdrop:not(.hidden)';
+  let lastTouchX = 0;
+  let lastTouchY = 0;
+
+  function findScrollableInModal(startEl, modalRoot, dx, dy) {
+    const vertical = Math.abs(dy) >= Math.abs(dx);
+    let el = startEl && startEl.nodeType === 1 ? startEl : startEl && startEl.parentElement;
+    while (el && el !== modalRoot && el !== document.body) {
+      const style = window.getComputedStyle(el);
+      if (vertical) {
+        const oy = style.overflowY;
+        if ((oy === 'auto' || oy === 'scroll') && el.scrollHeight > el.clientHeight + 1) return el;
+      } else {
+        const ox = style.overflowX;
+        if ((ox === 'auto' || ox === 'scroll') && el.scrollWidth > el.clientWidth + 1) return el;
+      }
+      el = el.parentElement;
+    }
+    return null;
+  }
+
+  document.addEventListener(
+    'touchstart',
+    (e) => {
+      if (e.touches.length === 1) {
+        lastTouchX = e.touches[0].clientX;
+        lastTouchY = e.touches[0].clientY;
+      }
+    },
+    { passive: true }
+  );
+
+  document.addEventListener(
+    'touchmove',
+    (e) => {
+      if (e.touches.length !== 1) return;
+      const openModals = document.querySelectorAll(OPEN_MODAL_SEL);
+      if (!openModals.length) return;
+      const topModal = openModals[openModals.length - 1];
+      const cx = e.touches[0].clientX;
+      const cy = e.touches[0].clientY;
+      const dx = cx - lastTouchX;
+      const dy = cy - lastTouchY;
+      lastTouchX = cx;
+      lastTouchY = cy;
+      const scroller = findScrollableInModal(e.target, topModal, dx, dy);
+      if (!scroller) {
+        e.preventDefault();
+        return;
+      }
+      if (Math.abs(dy) >= Math.abs(dx)) {
+        const atTop = scroller.scrollTop <= 0 && dy > 0;
+        const atBottom = scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 1 && dy < 0;
+        if (atTop || atBottom) e.preventDefault();
+      }
+    },
+    { passive: false }
+  );
+
+  document.addEventListener(
+    'wheel',
+    (e) => {
+      if (e.ctrlKey) return;
+      const openModals = document.querySelectorAll(OPEN_MODAL_SEL);
+      if (!openModals.length) return;
+      const topModal = openModals[openModals.length - 1];
+      const scroller = findScrollableInModal(e.target, topModal, e.deltaX, e.deltaY);
+      if (!scroller) {
+        e.preventDefault();
+        return;
+      }
+      if (Math.abs(e.deltaY) >= Math.abs(e.deltaX)) {
+        const atTop = scroller.scrollTop <= 0 && e.deltaY < 0;
+        const atBottom = scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 1 && e.deltaY > 0;
+        if (atTop || atBottom) e.preventDefault();
+      }
+    },
+    { passive: false }
+  );
 })();

@@ -1504,14 +1504,22 @@ const jsonLd = {
       }
 
       // Zoom obrázkov
+      function syncModalScrollLock() {
+        const anyOpen = Boolean(document.querySelector('.modal-backdrop:not(.hidden), .tp-zoom-backdrop:not(.hidden)'));
+        document.documentElement.classList.toggle('modal-open', anyOpen);
+        document.body.classList.toggle('modal-open', anyOpen);
+      }
+
       function openZoomWithHtml(html) {
         zoomContent.innerHTML = html;
         zoomModal.classList.remove('hidden');
+        syncModalScrollLock();
       }
 
       function closeZoom() {
         zoomModal.classList.add('hidden');
         zoomContent.innerHTML = '';
+        syncModalScrollLock();
       }
 
       closeZoomBtn.addEventListener('click', closeZoom);
@@ -2384,15 +2392,19 @@ const jsonLd = {
           lastFocused.blur();
         }
         modal.classList.remove('hidden');
+        const body = modal.querySelector('.modal-body');
+        if (body) body.scrollTop = 0;
+        syncModalScrollLock();
         const closeBtn = modal.querySelector('.modal-close-btn');
-        if (closeBtn) closeBtn.focus();
+        if (closeBtn) closeBtn.focus({ preventScroll: true });
       }
 
       function closeModal(modal) {
         modal.classList.add('hidden');
+        syncModalScrollLock();
         if (lastFocused && typeof lastFocused.focus === 'function' && document.contains(lastFocused)) {
           const isMobileTextInput = phoneLayout.matches && lastFocused.matches && lastFocused.matches('input, textarea');
-          if (!isMobileTextInput) lastFocused.focus();
+          if (!isMobileTextInput) lastFocused.focus({ preventScroll: true });
         }
       }
 

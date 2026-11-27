@@ -317,7 +317,15 @@ body {
   margin: 0 auto;
 }
 
-/* Modálne okná */
+/* Modálne okná – uzamknutie skrolovania pozadia pod otvoreným oknom */
+html.modal-open,
+body.modal-open,
+html:has(.modal-backdrop:not(.hidden), .ms-modal-backdrop:not(.hidden), .tp-zoom-backdrop:not(.hidden)),
+body:has(.modal-backdrop:not(.hidden), .ms-modal-backdrop:not(.hidden), .tp-zoom-backdrop:not(.hidden)) {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -328,6 +336,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  overscroll-behavior: contain;
 }
 
 .modal-backdrop.hidden {
@@ -425,6 +434,7 @@ body {
 .modal-body {
   padding: 1.25rem 1.35rem;
   overflow-y: auto;
+  overscroll-behavior: contain;
   flex: 1;
 }
 
