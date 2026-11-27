@@ -659,10 +659,14 @@ export const questionsPart1: QuestionData[] = [
     commonMistakes: [
       {
         pattern: '^opis$',
-        hint: 'Opis je slohový útvar – zadanie sa pýta na slohový postup (prídavné meno zakončené na -ný).'
+        hint: '„Opis“ je názov slohového útvaru – doplň názov slohového postupu tak, aby zapadol do vety „… slohový postup“.'
+      },
+      {
+        pattern: 'hovorov|publicistick|administrat[íi]vn|[úu]radn|n[áa]u[čc]n|odborn|umeleck|re[čc]n[íi]ck',
+        hint: 'Pozor na zámenu pojmov – toto je jazykový štýl, nie slohový postup! V štylistike rozlišujeme len štyri základné slohové postupy (napr. informačný, rozprávací, výkladový); vyber ten, ktorý zachytáva pracovný postup krok za krokom.'
       }
     ],
-    hint: 'Nezamieňaj si slohový útvar ani jazykový štýl so slohovým postupom (prídavné meno zakončené na -ný/-cí/-ový; v štylistike rozlišujeme štyri základné). Časť „Ako na to“ v kuchárskom recepte zachytáva pracovný postup krok za krokom – ktorý zo štyroch slohových postupov zachytáva znaky predmetu alebo následnosť pracovných činností?',
+    hint: 'Nezamieňaj si slohový útvar (napr. recept, návod) ani jazykový štýl (napr. hovorový, publicistický) so slohovým postupom! V štylistike rozlišujeme len štyri základné slohové postupy (informačný, rozprávací, výkladový a štvrtý, ktorý zachytáva znaky predmetu alebo následnosť pracovných činností). Ktorý sa uplatnil v časti „Ako na to“?',
     solutionSteps: [
       {
         title: 'Recept ako opis pracovného postupu',
