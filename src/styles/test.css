@@ -3739,20 +3739,25 @@ body.tp-intro-active .tp-mode-chip {
   }
 
   #nextQuestionBtn {
+    flex: 1 1 auto;
+    min-width: 0;
     min-height: 46px;
     padding: 0.6rem 1rem;
     font-size: 0.94rem;
-    flex-shrink: 0;
+    justify-content: center;
   }
 
   #footerPositionText {
-    flex: 1;
+    flex: 0 0 auto;
+    min-width: 3.3rem;
     text-align: center;
     font-size: 0.86rem;
+    font-variant-numeric: tabular-nums;
   }
 
   body.tp-help-unlocked .tp-nav-tools {
     display: flex;
+    flex: 0 0 auto;
   }
 
   body.tp-help-unlocked #footerPositionText {
