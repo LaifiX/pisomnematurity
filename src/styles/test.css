@@ -3764,9 +3764,9 @@ body.tp-intro-active .tp-mode-chip {
     display: none;
   }
 
-  /* miesto pod obsahom, aby lišta nezakrývala pätičku ani posledné tlačidlá */
-  body.tp-page:not(.tp-intro-active) .ms-footer {
-    padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+  /* miesto pod obsahom, aby lišta nezakrývala doložku NIVaM ani posledné tlačidlá */
+  body.tp-page:not(.tp-intro-active) .tp-disclaimer {
+    padding-bottom: calc(3.8rem + env(safe-area-inset-bottom));
   }
 
   body.tp-page:not(.tp-intro-active) .t9-toast {
@@ -4274,4 +4274,48 @@ body.tp-page .tp-facts {
   body.tp-page .tp-mode-list {
     margin-bottom: 1rem;
   }
+}
+
+/* ---------- Doložka NIVaM v päte testu (rovnako ako na monitormatika.sk) ---------- */
+.tp-disclaimer {
+  max-width: 1120px;
+  margin: 2.75rem auto 0;
+  padding: 1.4rem 1rem 0;
+  border-top: 1px solid var(--tp-line-2);
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.65;
+  color: var(--tp-ink-3);
+}
+
+@media (max-width: 640px) {
+  .tp-disclaimer {
+    margin-top: 2rem;
+    padding-top: 1.15rem;
+    padding-inline: 0.35rem;
+  }
+}
+
+.tp-disclaimer p {
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--tp-ink-3);
+  text-align: center;
+}
+
+.tp-disclaimer strong {
+  font-weight: 600;
+  color: var(--tp-ink-2);
+}
+
+.tp-disclaimer a {
+  color: var(--tp-ink-2);
+  text-decoration: underline;
+  text-decoration-color: var(--tp-line-2);
+  text-underline-offset: 2px;
+}
+
+.tp-disclaimer a:hover {
+  color: var(--tp-brand);
+  text-decoration-color: currentColor;
 }

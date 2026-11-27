@@ -2,7 +2,7 @@
 // Pages and data: network first, so pupils always get the latest fixes; the cached copy is used only offline.
 // Hashed build files (/_astro/) never change, so they come from the cache first.
 // The stats function (/api/) is never cached.
-const CACHE = 'pisomnematurity-v11';
+const CACHE = 'pisomnematurity-v12';
 
 const OFFLINE_HTML = `<!doctype html>
 <html lang="sk">

@@ -40,7 +40,7 @@ const schoolYearsText =
             {test ? (
               <Fragment>
                 <strong>
-                  Nositeľ autorských práv k&nbsp;úlohám a&nbsp;ku kľúču správnych odpovedí (Externá časť maturitnej skúšky&nbsp;{test.year}, šk.&nbsp;rok {test.schoolYear}, {test.variant.toLowerCase()}, kód&nbsp;{test.code}): Národný inštitút vzdelávania a&nbsp;mládeže (NIVaM).
+                  Nositeľ autorských práv k&nbsp;úlohám a&nbsp;ku kľúču správnych odpovedí (Externá časť maturitnej skúšky&nbsp;{test.year}, šk.&nbsp;rok {test.schoolYear}, {test.variant.charAt(0).toLowerCase() + test.variant.slice(1)}, kód&nbsp;{test.code}): Národný inštitút vzdelávania a&nbsp;mládeže (NIVaM).
                 </strong>{' '}
               </Fragment>
             ) : (

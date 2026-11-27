@@ -4,11 +4,10 @@ import '../../styles/global.css';
 import '../../styles/test.css';
 import { testsCatalog } from '../../data/testsCatalog';
 import { testsDataBySlug } from '../../data/tests';
-import MsFooter from '../../components/MsFooter.astro';
 import '../../styles/ms.css';
 import SeoHead from '../../components/SeoHead.astro';
 import { ALLOW_INDEXING } from '../../lib/site';
-import { SITE_URL, CONTACT_EMAIL, NIVAM_URL } from '../../lib/site';
+import { SITE_URL, CONTACT_EMAIL, NIVAM_URL, NIVAM_SOURCE_URL } from '../../lib/site';
 import BrandMark from '../../components/BrandMark.astro';
 import { I, icon } from '../../lib/icons';
 import { ACCENTS } from '../../lib/accents';
@@ -32,6 +31,7 @@ if (!activeModule) {
 
 const canonicalUrl = `${SITE_URL}/test/${testItem.slug}/`;
 const initialTimerDisplay = `${String(testItem.durationMinutes).padStart(2, '0')}:00`;
+const testVariantInline = testItem.variant.charAt(0).toLowerCase() + testItem.variant.slice(1);
 
 const testData = {
   questions: activeModule.questions,
@@ -478,11 +478,19 @@ const jsonLd = {
         </article>
       </section>
 
+      <!-- Autorské práva a vyhlásenie NIVaM (rovnaké riešenie ako na monitormatika.sk) -->
+      <footer class="tp-disclaimer no-print" aria-label="Autorské práva a vyhlásenie NIVaM">
+        <p>
+          <strong>©&nbsp;Nositeľ autorských práv k&nbsp;úlohám a&nbsp;ku&nbsp;kľúču správnych odpovedí (Externá časť maturitnej skúšky&nbsp;{testItem.year}, šk.&nbsp;rok {testItem.schoolYear}, {testVariantInline}, kód&nbsp;{testItem.code}): Národný inštitút vzdelávania a&nbsp;mládeže (NIVaM).</strong>{' '}
+          Zdrojové dokumenty sú verejne prístupné na&nbsp;portáli <a href={NIVAM_SOURCE_URL} target="_blank" rel="noopener noreferrer">www2.nucem.sk</a>; testy EČ&nbsp;MS sú sprístupnené so&nbsp;súhlasom NIVaM a&nbsp;prístup k&nbsp;nim je voľný a&nbsp;bezplatný.
+          Texty ukážok, úloh a&nbsp;grafické objekty boli pre&nbsp;interaktívne zobrazenie prepisované a&nbsp;graficky upravované – NIVaM nezodpovedá za&nbsp;prípadné chyby vzniknuté z&nbsp;tohto dôvodu.
+          Postupy riešenia a&nbsp;nápovedy nie&nbsp;sú autorským dielom NIVaM a&nbsp;NIVaM nezodpovedá za&nbsp;ich obsah.
+        </p>
+      </footer>
+
       <!-- Výtlačok výsledkového listu -->
       <section class="printable-report" id="printableReport" aria-hidden="true"></section>
     </main>
-
-    <MsFooter test={testItem} />
 
     <!-- Modal Nápoveda -->
     <div class="modal-backdrop hidden" id="hintModal" role="dialog" aria-modal="true" aria-labelledby="hintModalTitle">
@@ -2755,6 +2763,8 @@ const jsonLd = {
       });
 
       // Inicializácia
+      bindSlovakTypography(introScreen);
+      bindSlovakTypography(document.querySelector('.tp-disclaimer'));
       window.addEventListener('hashchange', openResultFromHash);
       refreshIntroResumeBox();
       openResultFromHash();
