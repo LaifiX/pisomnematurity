@@ -1612,8 +1612,8 @@ const jsonLd = {
 
       // Renderovanie aktuálnej úlohy
       function selectChoice(key) {
-        if (isEvaluated) return;
         const q = questions[currentIndex];
+        if (!q || isEvaluated || (mode === 'practice' && singleCheckedState[q.id] === 'correct')) return;
         playSound('select', ['A', 'B', 'C', 'D'].indexOf(key));
         userAnswers[q.id] = key;
         if (singleCheckedState[q.id]) delete singleCheckedState[q.id];
@@ -1661,6 +1661,7 @@ const jsonLd = {
 
         const currentVal = userAnswers[q.id] ?? '';
         const checkedStatus = singleCheckedState[q.id];
+        const isLockedAnswer = isEvaluated || (mode === 'practice' && checkedStatus === 'correct');
 
         if (q.type === 'choice') {
           answerSection.innerHTML = `
@@ -1685,7 +1686,7 @@ const jsonLd = {
                       data-choice-key="${opt.key}"
                       role="radio"
                       aria-checked="${isSel ? 'true' : 'false'}"
-                      ${isEvaluated ? 'disabled' : ''}
+                      ${isLockedAnswer ? 'disabled' : ''}
                     >
                       <span class="tp-choice-key">${opt.key}</span>
                       <span>${inlineMarks(opt.text)}</span>
@@ -1720,7 +1721,7 @@ const jsonLd = {
               autocorrect="off"
               spellcheck="false"
               enterkeyhint="${isExamLocked() ? 'next' : 'done'}"
-              ${isEvaluated ? 'disabled' : ''}
+              ${isLockedAnswer ? 'disabled' : ''}
             />
           `;
 
@@ -1809,6 +1810,7 @@ const jsonLd = {
           updateNextBtnLabel();
         }
 
+        nextQuestionBtn.classList.remove('tp-next-nudge');
         updateModeUI();
         updateProgressAndStepper();
         bindSlovakTypography(questionCard);
@@ -1885,6 +1887,10 @@ const jsonLd = {
         playSound(ok ? 'correct' : 'wrong');
         saveStateToStorage();
         renderQuestion();
+        if (ok && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+          void nextQuestionBtn.offsetWidth;
+          nextQuestionBtn.classList.add('tp-next-nudge');
+        }
         announce(ok ? 'Správne!' : 'Zatiaľ nesprávne.');
       }
 
