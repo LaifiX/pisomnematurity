@@ -2,7 +2,25 @@
 // – spoločné pre úvodnú stránku aj všetky testy + registrácia service workera (offline režim).
 (function () {
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(() => navigator.serviceWorker.ready)
+        .then((reg) => {
+          const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+          if (conn && conn.saveData) return;
+          const triggerWarmup = () => {
+            const sw = reg.active || navigator.serviceWorker.controller;
+            if (sw) sw.postMessage({ type: 'WARM_OFFLINE_CACHE' });
+          };
+          if (typeof window.requestIdleCallback === 'function') {
+            window.requestIdleCallback(() => setTimeout(triggerWarmup, 600), { timeout: 2500 });
+          } else {
+            setTimeout(triggerWarmup, 1200);
+          }
+        })
+        .catch(() => {});
+    });
   }
 
   const ua = navigator.userAgent || '';
@@ -130,7 +148,7 @@
           <div class="modal-body">
             ${getInstallStepsHtml()}
             <p class="hp-install-note">
-              Po&nbsp;pridaní sa&nbsp;stránka otvára ako samostatná aplikácia bez&nbsp;panelov prehliadača a&nbsp;už otvorené testy fungujú aj&nbsp;bez&nbsp;internetu.
+              Po&nbsp;pridaní sa&nbsp;stránka otvára ako samostatná aplikácia bez&nbsp;panelov prehliadača a&nbsp;všetky testy aj&nbsp;slohové útvary fungujú bez&nbsp;internetu.
             </p>
           </div>
           <div class="modal-footer">

@@ -1,8 +1,18 @@
-// Service worker for the installed app (Add to home screen).
-// Pages and data: network first, so pupils always get the latest fixes; the cached copy is used only offline.
-// Hashed build files (/_astro/) never change, so they come from the cache first.
-// The stats function (/api/) is never cached.
-const CACHE = 'pisomnematurity-v15';
+// Service worker pre offline režim a nainštalovanú aplikáciu (Pridať na plochu).
+// Stránky: najprv sieť (študent vždy dostane najnovšie opravy), offline sa použije uložená kópia.
+// Po prvom otvorení ľubovoľnej stránky sa na pozadí potichu pred-uložia všetky ročníky, slohy, štýly, slovenské písma a obrázky ukážok.
+const CACHE = 'pisomnematurity-v16';
+const WARM_MARKER = '/__offline-warm-done';
+
+const CORE_SHELL = [
+  '/',
+  '/pwa.js',
+  '/sounds.js',
+  '/manifest.webmanifest',
+  '/favicon.svg',
+  '/icon-192.png',
+  '/apple-touch-icon.png'
+];
 
 const OFFLINE_HTML = `<!doctype html>
 <html lang="sk">
@@ -22,7 +32,7 @@ const OFFLINE_HTML = `<!doctype html>
 <body>
   <main class="card">
     <h1>Chýba pripojenie na internet</h1>
-    <p>Tento ročník testu ešte nemáš uložený v zariadení. Pripoj sa na chvíľu na internet a otvor ho – potom ti pôjde aj offline.</p>
+    <p>Táto stránka sa nestihla uložiť do zariadenia. Pripoj sa na chvíľu na internet a otvor úvodnú stránku – všetky testy aj slohové útvary sa automaticky uložia pre offline režim.</p>
     <a href="/">Späť na úvodnú stránku</a>
   </main>
 </body>
@@ -47,6 +57,138 @@ function putInCache(request, response) {
   return response;
 }
 
+async function matchCached(request, url, isPage) {
+  const direct = await caches.match(request, { ignoreSearch: isPage });
+  if (direct || !isPage) return direct;
+  const altPath = url.pathname.endsWith('/')
+    ? url.pathname.slice(0, -1) || '/'
+    : url.pathname + '/';
+  return caches.match(altPath, { ignoreSearch: true });
+}
+
+let warmingPromise = null;
+
+async function runPool(items, concurrency, worker) {
+  const queue = items.slice();
+  const runners = Array.from({ length: Math.min(concurrency, queue.length) }, async () => {
+    while (queue.length > 0) {
+      const item = queue.shift();
+      if (item !== undefined) await worker(item);
+    }
+  });
+  await Promise.all(runners);
+}
+
+async function fetchAndCacheText(cache, path) {
+  const existing = await cache.match(path);
+  if (existing) {
+    return { ok: true, text: await existing.text() };
+  }
+  try {
+    const res = await fetch(path, { credentials: 'same-origin' });
+    if (!res.ok) return { ok: false, text: '' };
+    await cache.put(path, res.clone());
+    return { ok: true, text: await res.text() };
+  } catch (err) {
+    return { ok: false, text: '' };
+  }
+}
+
+async function ensureCached(cache, path) {
+  if (await cache.match(path)) return true;
+  try {
+    const res = await fetch(path, { credentials: 'same-origin' });
+    if (!res.ok) return false;
+    await cache.put(path, res);
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
+
+async function warmOfflineCache() {
+  const cache = await caches.open(CACHE);
+  if (await cache.match(WARM_MARKER)) return;
+
+  let allOk = true;
+  const pagePaths = new Set(['/']);
+
+  try {
+    const smRes = await fetch('/sitemap.xml', { credentials: 'same-origin' });
+    if (smRes.ok) {
+      const xml = await smRes.text();
+      let m;
+      const locRe = /<loc>([^<]+)<\/loc>/g;
+      while ((m = locRe.exec(xml)) !== null) {
+        try {
+          pagePaths.add(new URL(m[1].trim()).pathname);
+        } catch (e) {}
+      }
+    }
+  } catch (e) {
+    allOk = false;
+  }
+
+  const astroAssets = new Set();
+  const mediaAssets = new Set();
+
+  await runPool(Array.from(pagePaths), 2, async (pagePath) => {
+    const { ok, text } = await fetchAndCacheText(cache, pagePath);
+    if (!ok) {
+      allOk = false;
+      return;
+    }
+    const clean = text.replace(/\\\//g, '/');
+    let m;
+    const astroRe = /(?:href|src)=["'](\/_astro\/[^"']+)["']/g;
+    while ((m = astroRe.exec(clean)) !== null) astroAssets.add(m[1]);
+    const imgRe = /\/images\/[a-zA-Z0-9_./-]+\.(?:png|jpg|jpeg|webp|svg)/g;
+    while ((m = imgRe.exec(clean)) !== null) mediaAssets.add(m[0]);
+  });
+
+  const fontAssets = new Set();
+  await runPool(Array.from(astroAssets), 3, async (assetPath) => {
+    if (assetPath.endsWith('.css')) {
+      const { ok, text } = await fetchAndCacheText(cache, assetPath);
+      if (!ok) {
+        allOk = false;
+        return;
+      }
+      let m;
+      const fontRe = /url\((['"]?)(\/_astro\/[^)'"]+-latin(?:-ext)?-[^)'"]+\.woff2)\1\)/g;
+      while ((m = fontRe.exec(text)) !== null) fontAssets.add(m[2]);
+    } else {
+      const ok = await ensureCached(cache, assetPath);
+      if (!ok) allOk = false;
+    }
+  });
+
+  const extraAssets = [
+    ...CORE_SHELL.filter((p) => p !== '/'),
+    ...Array.from(fontAssets),
+    ...Array.from(mediaAssets)
+  ];
+  await runPool(extraAssets, 3, async (assetPath) => {
+    const ok = await ensureCached(cache, assetPath);
+    if (!ok) allOk = false;
+  });
+
+  if (allOk && pagePaths.size > 1) {
+    await cache.put(WARM_MARKER, new Response('1'));
+  }
+}
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'WARM_OFFLINE_CACHE') {
+    if (!warmingPromise) {
+      warmingPromise = warmOfflineCache().finally(() => {
+        warmingPromise = null;
+      });
+    }
+    event.waitUntil(warmingPromise);
+  }
+});
+
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   if (request.method !== 'GET') return;
@@ -66,7 +208,7 @@ self.addEventListener('fetch', (event) => {
     fetch(request)
       .then((res) => putInCache(request, res))
       .catch(() =>
-        caches.match(request, { ignoreSearch: isPage }).then((cached) => {
+        matchCached(request, url, isPage).then((cached) => {
           if (cached) return cached;
           if (!isPage) return Response.error();
           if (url.pathname === '/') {
@@ -75,13 +217,13 @@ self.addEventListener('fetch', (event) => {
                 home ||
                 new Response(OFFLINE_HTML, {
                   status: 503,
-                  headers: { 'Content-Type': 'text/html; charset=utf-8' },
+                  headers: { 'Content-Type': 'text/html; charset=utf-8' }
                 })
             );
           }
           return new Response(OFFLINE_HTML, {
             status: 503,
-            headers: { 'Content-Type': 'text/html; charset=utf-8' },
+            headers: { 'Content-Type': 'text/html; charset=utf-8' }
           });
         })
       )
