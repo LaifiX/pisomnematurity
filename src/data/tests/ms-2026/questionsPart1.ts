@@ -663,10 +663,10 @@ export const questionsPart1: QuestionData[] = [
       },
       {
         pattern: 'hovorov|publicistick|administrat[íi]vn|[úu]radn|n[áa]u[čc]n|odborn|umeleck|re[čc]n[íi]ck',
-        hint: 'Pozor na zámenu pojmov – toto je jazykový štýl, nie slohový postup! V štylistike rozlišujeme len štyri základné slohové postupy (napr. informačný, rozprávací, výkladový); vyber ten, ktorý zachytáva pracovný postup krok za krokom.'
+        hint: 'Pozor na zámenu pojmov – toto je jazykový štýl, nie slohový postup! Spomeň si na štyri základné slohové postupy (napr. rozprávací či výkladový) a vyber ten, ktorý zachytáva pracovný postup krok za krokom.'
       }
     ],
-    hint: 'Nezamieňaj si slohový útvar (napr. recept, návod) ani jazykový štýl (napr. hovorový, publicistický) so slohovým postupom! V štylistike rozlišujeme len štyri základné slohové postupy (informačný, rozprávací, výkladový a štvrtý, ktorý zachytáva znaky predmetu alebo následnosť pracovných činností). Ktorý sa uplatnil v časti „Ako na to“?',
+    hint: 'Nezamieňaj si slohový útvar (napr. recept, správa) ani jazykový štýl (napr. hovorový, publicistický) so slohovým postupom (sú len štyri základné, napr. rozprávací či výkladový). Časť „Ako na to“ zachytáva následnosť pracovných činností krok za krokom – ktorý zo štyroch slohových postupov sa tu uplatnil?',
     solutionSteps: [
       {
         title: 'Recept ako opis pracovného postupu',
